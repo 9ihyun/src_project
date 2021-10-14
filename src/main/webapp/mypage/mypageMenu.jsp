@@ -23,8 +23,8 @@
   <li><a href="myStudy.jsp" target="page">스터디관리</a></li><p>
 </ol>
 <table>
-  <tr><a href="#" id="mypage">마이페이지</a></tr>
-  <tr>로그아웃</tr>
+  <tr><a href="#" id="mypage">마이페이지</a></tr>&nbsp;
+  <tr><a href="${pageContext.request.contextPath}/front?key=user&methodName=logout">로그아웃</a></tr>
 </table>
 </body>
 </html>
