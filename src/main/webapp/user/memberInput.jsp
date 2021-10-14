@@ -25,7 +25,7 @@
 	닉네임 : <input type = "text" name = "nickname"><br>
 	생년월일 : <input type = "text" name = "birth" placeholder="8자리로 입력해주세요."><br>
 	비밀번호 찾기 질문 : 
-	<select class="question">
+	<select name="question">
        <option value="0">--질문 선택--</option>
 	   <option value="one">보물 1호는?</option>
 	   <option value="two">어렸을 적 별명은?</option>
