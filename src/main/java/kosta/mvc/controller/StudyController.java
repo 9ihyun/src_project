@@ -106,9 +106,9 @@ public class StudyController implements Controller {
 	 * 스터디 신청자 리스트 가져오기
 	 * @author 홍전형
 	 */
-	public ModelAndView getUserList(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public ModelAndView getUserList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		service.getUserList(studyNo);
 		return null;
 	}
 }

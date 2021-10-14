@@ -48,9 +48,9 @@ public class StudyServiceImpl implements StudyService {
 	}
 
 	@Override
-	public List<User> getUserList() throws SQLException {
+	public List<User> getUserList(int studyNo) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		return studyDao.getUserList(studyNo);
 	}
 
 }
