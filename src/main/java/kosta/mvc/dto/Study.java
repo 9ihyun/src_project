@@ -6,6 +6,7 @@ public class Study {
 	private int tagNo;
 	private String userId;
 	private int stateNo;
+	private int dayNo;
 	private int studyMaxnum;
 	private String studyLocationSi;
 	private String studyLocationGu;
@@ -18,25 +19,26 @@ public class Study {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Study(int studyNo, int tagNo, String userId, int stateNo, int studyMaxnum, String studyLocationSi,
+	public Study(int studyNo, int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent, String studyRegdate) {
-		this(studyNo, tagNo, userId, stateNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
+		this(studyNo, tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
 		this.studyRegdate =studyRegdate;
 		
 	}
 
-	public Study(int studyNo, int tagNo, String userId, int stateNo, int studyMaxnum, String studyLocationSi,
+	public Study(int studyNo, int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
-		this(tagNo, userId, stateNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
+		this(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
 		this.studyNo = studyNo;
 	}
 	
-	public Study(int tagNo, String userId, int stateNo, int studyMaxnum, String studyLocationSi,
+	public Study(int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
 		super();
 		this.tagNo = tagNo;
 		this.userId = userId;
 		this.stateNo = stateNo;
+		this.dayNo = dayNo;
 		this.studyMaxnum = studyMaxnum;
 		this.studyLocationSi = studyLocationSi;
 		this.studyLocationGu = studyLocationGu;
@@ -131,6 +133,14 @@ public class Study {
 
 	public void setStudyRegdate(String studyRegdate) {
 		this.studyRegdate = studyRegdate;
+	}
+
+	public int getDayNo() {
+		return dayNo;
+	}
+
+	public void setDayNo(int dayNo) {
+		this.dayNo = dayNo;
 	}
 	
 	

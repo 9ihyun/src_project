@@ -27,17 +27,18 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView insertStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-		int tagNo = Integer.parseInt(request.getParameter("studyNo"));
-		String userId = request.getParameter("studyNo");
-		int stateNo = Integer.parseInt(request.getParameter("studyNo"));
-		int studyMaxnum = Integer.parseInt(request.getParameter("studyNo"));
-		String studyLocationSi = request.getParameter("studyNo");
-		String studyLocationGu = request.getParameter("studyNo");
-		String studyDuedate = request.getParameter("studyNo");
-		String studyTitle = request.getParameter("studyNo");
-		String studyContent = request.getParameter("studyNo");
+		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
+		String userId = request.getParameter("userId");
+		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
+		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
+		int studyMaxnum = Integer.parseInt(request.getParameter("studyMaxnum"));
+		String studyLocationSi = request.getParameter("studyLocationSi");
+		String studyLocationGu = request.getParameter("studyLocationGu");
+		String studyDuedate = request.getParameter("studyDuedate");
+		String studyTitle = request.getParameter("studyTitle");
+		String studyContent = request.getParameter("studyContent");
 
-		Study study = new Study(tagNo, userId, stateNo, studyMaxnum, studyLocationSi, studyLocationGu,
+		Study study = new Study(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu,
 				studyDuedate, studyTitle, studyContent);
 		
 		service.insertStudy(study);
@@ -51,17 +52,18 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView updateStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-		int tagNo = Integer.parseInt(request.getParameter("studyNo"));
-		String userId = request.getParameter("studyNo");
-		int stateNo = Integer.parseInt(request.getParameter("studyNo"));
-		int studyMaxnum = Integer.parseInt(request.getParameter("studyNo"));
-		String studyLocationSi = request.getParameter("studyNo");
-		String studyLocationGu = request.getParameter("studyNo");
-		String studyDuedate = request.getParameter("studyNo");
-		String studyTitle = request.getParameter("studyNo");
-		String studyContent = request.getParameter("studyNo");
+		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
+		String userId = request.getParameter("userId");
+		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
+		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
+		int studyMaxnum = Integer.parseInt(request.getParameter("studyMaxnum"));
+		String studyLocationSi = request.getParameter("studyLocationSi");
+		String studyLocationGu = request.getParameter("studyLocationGu");
+		String studyDuedate = request.getParameter("studyDuedate");
+		String studyTitle = request.getParameter("studyTitle");
+		String studyContent = request.getParameter("studyContent");
 		
-		Study study = new Study(tagNo, userId, stateNo, studyMaxnum, studyLocationSi, studyLocationGu,
+		Study study = new Study(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu,
 				studyDuedate, studyTitle, studyContent);
 		
 		service.updateStudy(study);

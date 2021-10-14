@@ -39,12 +39,13 @@ public class StudyDAOImpl implements StudyDAO {
 			ps.setInt(1, study.getTagNo());
 			ps.setString(2, study.getUserId());
 			ps.setInt(3, study.getStateNo());
-			ps.setInt(4, study.getStudyMaxnum());
-			ps.setString(5, study.getStudyLocationSi());
-			ps.setString(6, study.getStudyLocationGu());
-			ps.setString(7, study.getStudyDuedate());
-			ps.setString(8, study.getStudyTitle());
-			ps.setString(9, study.getStudyContent());
+			ps.setInt(4, study.getDayNo());
+			ps.setInt(5, study.getStudyMaxnum());
+			ps.setString(6, study.getStudyLocationSi());
+			ps.setString(7, study.getStudyLocationGu());
+			ps.setString(8, study.getStudyDuedate());
+			ps.setString(9, study.getStudyTitle());
+			ps.setString(10, study.getStudyContent());
 			
 			result = ps.executeUpdate();
 			
@@ -69,13 +70,14 @@ public class StudyDAOImpl implements StudyDAO {
 			ps.setInt(1, study.getTagNo());
 			ps.setString(2, study.getUserId());
 			ps.setInt(3, study.getStateNo());
-			ps.setInt(4, study.getStudyMaxnum());
-			ps.setString(5, study.getStudyLocationSi());
-			ps.setString(6, study.getStudyLocationGu());
-			ps.setString(7, study.getStudyDuedate());
-			ps.setString(8, study.getStudyTitle());
-			ps.setString(9, study.getStudyContent());
-			ps.setInt(10, study.getStudyNo());
+			ps.setInt(4, study.getDayNo());
+			ps.setInt(5, study.getStudyMaxnum());
+			ps.setString(6, study.getStudyLocationSi());
+			ps.setString(7, study.getStudyLocationGu());
+			ps.setString(8, study.getStudyDuedate());
+			ps.setString(9, study.getStudyTitle());
+			ps.setString(10, study.getStudyContent());
+			ps.setInt(11, study.getStudyNo());
 			
 			result = ps.executeUpdate();
 		}finally {
@@ -116,8 +118,8 @@ public class StudyDAOImpl implements StudyDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Study study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
-						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
-						rs.getString(11));
+						rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
+						rs.getString(12));
 				studyList.add(study);
 			}
 		} finally {
@@ -141,8 +143,8 @@ public class StudyDAOImpl implements StudyDAO {
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
-						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
-						rs.getString(11));
+						rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
+						rs.getString(12));
 			}
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
