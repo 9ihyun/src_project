@@ -19,7 +19,7 @@
       <input class="pass" type="password" align="center" placeholder="Password">
       <a class="submit" align="center">접속하기!</a>
       <p class="forgot" align="center"><a href="#">비밀번호 찾기</p>
-      <p class="signup" align="center"><a href="#">회원가입</p>
+      <p class="signup" align="center"><a href="memberInput.jsp">회원가입</p>
       </form>
             
                 
