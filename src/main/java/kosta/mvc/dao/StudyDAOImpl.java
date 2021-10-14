@@ -52,7 +52,7 @@ public class StudyDAOImpl implements StudyDAO {
 		
 		return result;
 	}
-	}
+	
 
 	@Override
 	public int updateStudy(Study study) throws SQLException {
