@@ -36,11 +36,11 @@ public class DispatcherServlet extends HttpServlet {
 		
 		try {
 			if(key==null || key.equals("")) {
-				key="elec";
+				key="";
 			}
 			
 			if(methodName==null || methodName.equals("")) {
-				methodName="select";
+				methodName="";
 			}
 			
 			Class<?> clz = clzMap.get(key);
