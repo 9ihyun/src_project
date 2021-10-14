@@ -30,20 +30,22 @@ public class StudyDAOImpl implements StudyDAO {
 		Connection con=null;
 		PreparedStatement ps=null;
 		int result=0;
-		String sql = proFile.getProperty("query.insert");
+		String sql = proFile.getProperty("study.insertStudy");
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
+			
 			ps.setInt(1, study.getTagNo());
 			ps.setString(2, study.getUserId());
 			ps.setInt(3, study.getStateNo());
 			ps.setInt(4, study.getStudyMaxnum());
 			ps.setString(5, study.getStudyLocationSi());
-			ps.setString(5, study.getStudyLocationGu());
-			ps.setString(5, study.getStudyDuedate());
-			ps.setString(5, study.getStudyTitle());
-			ps.setString(5, study.getStudyContent());
+			ps.setString(6, study.getStudyLocationGu());
+			ps.setString(7, study.getStudyDuedate());
+			ps.setString(8, study.getStudyTitle());
+			ps.setString(9, study.getStudyContent());
+			
 			result = ps.executeUpdate();
 			
 		}finally {
@@ -56,14 +58,48 @@ public class StudyDAOImpl implements StudyDAO {
 
 	@Override
 	public int updateStudy(Study study) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con=null;
+		PreparedStatement ps=null;
+		int result=0;
+		String sql = proFile.getProperty("study.updateStudy");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, study.getTagNo());
+			ps.setString(2, study.getUserId());
+			ps.setInt(3, study.getStateNo());
+			ps.setInt(4, study.getStudyMaxnum());
+			ps.setString(5, study.getStudyLocationSi());
+			ps.setString(6, study.getStudyLocationGu());
+			ps.setString(7, study.getStudyDuedate());
+			ps.setString(8, study.getStudyTitle());
+			ps.setString(9, study.getStudyContent());
+			ps.setInt(10, study.getStudyNo());
+			
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
 	}
 
 	@Override
 	public int deleteStudy(int studyNo) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con=null;
+		PreparedStatement ps=null;
+		int result=0;
+		String sql = proFile.getProperty("study.deleteStudy");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+			
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
 	}
 
 	@Override

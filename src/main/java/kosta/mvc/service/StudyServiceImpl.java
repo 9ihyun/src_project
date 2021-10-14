@@ -13,20 +13,23 @@ public class StudyServiceImpl implements StudyService {
 
 	@Override
 	public void insertStudy(Study study) throws SQLException {
-		if( studyDao.insertStudy(study) == 0 )
-			  throw new SQLException("등록되지 않았습니다");
+		if (studyDao.insertStudy(study) == 0)
+			throw new SQLException("스터디가 등록되지 않았습니다");
 
 	}
 
 	@Override
 	public void updateStudy(Study study) throws SQLException {
-		// TODO Auto-generated method stub
+		if (studyDao.updateStudy(study) == 0) {
+			throw new SQLException("스터디가 수정되지 않았습니다");
+		}
 
 	}
 
 	@Override
 	public void deleteStudy(int studyNo) throws SQLException {
-		// TODO Auto-generated method stub
+		if( studyDao.deleteStudy(studyNo)==0)
+			throw new SQLException("스터디가 삭제되지 않았습니다");
 
 	}
 
@@ -40,7 +43,7 @@ public class StudyServiceImpl implements StudyService {
 		Study study = studyDao.viewStudy(studyNo);
 
 		if (study == null)
-			throw new SQLException("조회할 수 없습니다");
+			throw new SQLException("스터디를 조회할 수 없습니다");
 		return study;
 	}
 

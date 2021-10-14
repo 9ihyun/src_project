@@ -27,8 +27,13 @@ public class Study {
 
 	public Study(int studyNo, int tagNo, String userId, int stateNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
-		super();
+		this(tagNo, userId, stateNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
 		this.studyNo = studyNo;
+	}
+	
+	public Study(int tagNo, String userId, int stateNo, int studyMaxnum, String studyLocationSi,
+			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
+		super();
 		this.tagNo = tagNo;
 		this.userId = userId;
 		this.stateNo = stateNo;
