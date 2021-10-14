@@ -54,8 +54,21 @@ public class LoginDAOImpl implements LoginDAO {
 	 * */
 	@Override
 	public int register(User user) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String sql = proFile.getProperty("login.register");
+		int result = 0;
 		
-		return 0;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			result = ps.executeUpdate();			
+			
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		
+		return result;
 	}
 
 	/**
@@ -63,8 +76,29 @@ public class LoginDAOImpl implements LoginDAO {
 	 * */
 	@Override
 	public User idPwFind(int birth, String pwq, String pwa) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("login.idPwFind");
+		User user = null;
 		
-		return null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, birth);
+			ps.setString(2, pwq);
+			ps.setString(3, pwa);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				user = new User(rs.getString(1), rs.getString(2));
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		return user;
 	}
 
 }

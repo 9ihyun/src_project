@@ -1,6 +1,7 @@
 package kosta.mvc.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -44,21 +45,40 @@ public class LoginController implements Controller {
 	 * 로그아웃
 	 * */
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
+		HttpSession session = request.getSession();
+		session.invalidate();
+		
+		return new ModelAndView(request.getRealPath("/singin.jsp"), true);
 	}
 	
 	/**
 	 * 회원가입
 	 * */
 	public ModelAndView register(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		String nickname = request.getParameter("nickname");
+		int birth = Integer.parseInt(request.getParameter("birth"));
+		String question = request.getParameter("question");
+		String anwser = request.getParameter("anwser");
+		
+		loginService.register(new User(id, nickname, pass, birth, question, anwser));
+		
+		return new ModelAndView(request.getRealPath("/singin.jsp"), true);
 	}
 	
 	/**
 	 * 아이디/비밀번호 찾기
 	 * */
 	public ModelAndView idPwFind(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
+		int birth = Integer.parseInt(request.getParameter("birth"));
+		String pwq = request.getParameter("question");
+		String pwa = request.getParameter("anwser");
+		
+		User user = loginService.idPwFind(birth, pwq, pwa);
+		request.setAttribute("user", user);
+		
+		return new ModelAndView(""); //찾기 페이지 기입
 	}
 	
 }

@@ -28,8 +28,8 @@ public class LoginServiceImpl implements LoginService {
 	 * */
 	@Override
 	public void register(User user) throws SQLException {
-		
-
+		if(loginDAO.register(user) == 0)
+			throw new SQLException("회원 가입에 실패했습니다.");
 	}
 
 	/**
@@ -37,8 +37,12 @@ public class LoginServiceImpl implements LoginService {
 	 * */
 	@Override
 	public User idPwFind(int birth, String pwq, String pwa) throws SQLException {
+		User user = loginDAO.idPwFind(birth, pwq, pwa);
 		
-		return null;
+		if(user.getUserId() == null)
+			throw new SQLException("정보를 다시 확인하고 입력해주세요.");
+		
+		return user;
 	}
 
 }

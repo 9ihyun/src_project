@@ -4,7 +4,7 @@ public class User {
 	private String userId;
 	private String nickname;
 	private String pw;
-	private String birth;
+	private int birth;
 	private String pwq;
 	private String pwa;
 	private String regdate;
@@ -15,12 +15,15 @@ public class User {
 		this.userId = userId;
 		this.pw = pw;
 	}
-	public User(String userId, String nickname, String pw, String birth, String pwq, String pwa, String regdate, int starPoint) {
+	public User(String userId, String nickname, String pw, int birth, String pwq, String pwa) {
 		this(userId, pw);
 		this.nickname = nickname;
 		this.birth = birth;
 		this.pwq = pwq;
 		this.pwa = pwa;
+	}
+	public User(String userId, String nickname, String pw, int birth, String pwq, String pwa, String regdate, int starPoint) {
+		this(userId, nickname, pw, birth, pwq, pwa);
 		this.regdate = regdate;
 		this.starPoint = starPoint;
 	}
@@ -34,7 +37,7 @@ public class User {
 	public String getPw() {
 		return pw;
 	}
-	public String getBirth() {
+	public int getBirth() {
 		return birth;
 	}
 	public String getPwq() {
@@ -58,7 +61,7 @@ public class User {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public void setBirth(String birth) {
+	public void setBirth(int birth) {
 		this.birth = birth;
 	}
 	public void setPwq(String pwq) {
