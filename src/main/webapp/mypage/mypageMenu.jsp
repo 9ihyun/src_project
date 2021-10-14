@@ -9,8 +9,8 @@
 
 </style>
 <script type="text/javascript">
-
-</script>정보수정
+  
+</script>
 </head>
 <body>
 <ol>
@@ -19,7 +19,7 @@
   <li><a href="manageStudy.jsp" target="page">스터디관리</a></li>
 </ol>
 <table>
-  <tr>마이페이지</tr>
+  <tr><a href="#" id="mypage">마이페이지</a></tr>
   <tr>로그아웃</tr>
 </table>
 </body>
