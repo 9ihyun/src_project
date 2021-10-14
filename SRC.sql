@@ -180,5 +180,28 @@ insert into taglist values(29,'기타');
 
 select * from taglist;
 
+insert into board values(1,'자유게시판');
+insert into board values(2,'정보공유게시판');
 
 
+insert into member_user values('admin','관리자','admin',20211014,'가장 좋아하는 것은?','치킨',sysdate);
+
+
+select * from member_user;
+
+insert into post values(1,1,1,'admin','테스트 입니다',sysdate,'하핳 반갑습니다 여러분 화이팅~!!',0);
+
+insert into post_reply values(1,1,'admin','테스트 댓글 입니다',sysdate);
+insert into post_reply values(2,1,'admin','테스트 댓글2 입니다',sysdate);
+
+insert into study values(1,2,'admin',1,1,5,'서울시','강남구','2021.10.14','테스트 입니다','사람만 들어오세요',sysdate);
+
+insert into wish_study values('admin',1);
+
+insert into sign_study values('admin',1,1);
+
+insert into point values('admin',5);
+insert into point values('admin',4);
+insert into point values('admin',4);
+
+commit;
