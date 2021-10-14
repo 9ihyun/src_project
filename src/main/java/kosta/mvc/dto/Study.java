@@ -17,9 +17,16 @@ public class Study {
 	public Study() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Study(int studyNo, int tagNo, String userId, int stateNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent, String studyRegdate) {
+		this(studyNo, tagNo, userId, stateNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
+		this.studyRegdate =studyRegdate;
+		
+	}
+
+	public Study(int studyNo, int tagNo, String userId, int stateNo, int studyMaxnum, String studyLocationSi,
+			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
 		super();
 		this.studyNo = studyNo;
 		this.tagNo = tagNo;
@@ -31,7 +38,6 @@ public class Study {
 		this.studyDuedate = studyDuedate;
 		this.studyTitle = studyTitle;
 		this.studyContent = studyContent;
-		this.studyRegdate = studyRegdate;
 	}
 
 	public int getStudyNo() {
