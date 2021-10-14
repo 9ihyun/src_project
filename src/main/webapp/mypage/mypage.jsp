@@ -38,5 +38,6 @@
     <th><input type="text"></th>
   </tr>
 </table>
+<a href="#">탈퇴하기</a>
 </body>
 </html>
