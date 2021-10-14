@@ -9,11 +9,12 @@ import kosta.mvc.dto.Study;
 import kosta.mvc.dto.User;
 
 public class StudyServiceImpl implements StudyService {
-	private StudyDAO studyDAO = new StudyDAOImpl();
+	private StudyDAO studyDao = new StudyDAOImpl();
 
 	@Override
 	public void insertStudy(Study study) throws SQLException {
-		// TODO Auto-generated method stub
+		if( studyDao.insertStudy(study) == 0 )
+			  throw new SQLException("등록되지 않았습니다");
 
 	}
 
@@ -31,12 +32,12 @@ public class StudyServiceImpl implements StudyService {
 
 	@Override
 	public List<Study> selectAllStudy() throws SQLException {
-		return studyDAO.selectAllStudy();
+		return studyDao.selectAllStudy();
 	}
 
 	@Override
 	public Study viewStudy(int studyNo) throws SQLException {
-		Study study = studyDAO.viewStudy(studyNo);
+		Study study = studyDao.viewStudy(studyNo);
 
 		if (study == null)
 			throw new SQLException("조회할 수 없습니다");
