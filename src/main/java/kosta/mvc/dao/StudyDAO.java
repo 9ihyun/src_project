@@ -18,5 +18,5 @@ public interface StudyDAO {
 
 	Study viewStudy(int studyNo) throws SQLException;
 	
-	List<User> getUserList() throws SQLException;
+	List<User> getUserList(int studyNo) throws SQLException;
 }
