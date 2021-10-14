@@ -27,8 +27,31 @@ public class StudyDAOImpl implements StudyDAO {
 
 	@Override
 	public int insertStudy(Study study) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con=null;
+		PreparedStatement ps=null;
+		int result=0;
+		String sql = proFile.getProperty("query.insert");
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, study.getTagNo());
+			ps.setString(2, study.getUserId());
+			ps.setInt(3, study.getStateNo());
+			ps.setInt(4, study.getStudyMaxnum());
+			ps.setString(5, study.getStudyLocationSi());
+			ps.setString(5, study.getStudyLocationGu());
+			ps.setString(5, study.getStudyDuedate());
+			ps.setString(5, study.getStudyTitle());
+			ps.setString(5, study.getStudyContent());
+			result = ps.executeUpdate();
+			
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		
+		return result;
+	}
 	}
 
 	@Override
@@ -57,7 +80,8 @@ public class StudyDAOImpl implements StudyDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Study study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
-						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
+						rs.getString(11));
 				studyList.add(study);
 			}
 		} finally {
@@ -68,8 +92,26 @@ public class StudyDAOImpl implements StudyDAO {
 
 	@Override
 	public Study viewStudy(int studyNo) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Study study = null;
+		String sql = proFile.getProperty("study.viewStudy");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
+						rs.getString(11));
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return study;
 	}
 
 	@Override

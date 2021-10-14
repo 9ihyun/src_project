@@ -12,9 +12,8 @@ import kosta.mvc.service.StudyService;
 import kosta.mvc.service.StudyServiceImpl;
 
 public class StudyController implements Controller {
-	
-	private StudyService service = new StudyServiceImpl();
 
+	private StudyService service = new StudyServiceImpl();
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
@@ -22,10 +21,23 @@ public class StudyController implements Controller {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	public ModelAndView insertStudy(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+	public ModelAndView insertStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		int tagNo = Integer.parseInt(request.getParameter("studyNo"));
+		String userId = request.getParameter("studyNo");
+		int stateNo = Integer.parseInt(request.getParameter("studyNo"));
+		int studyMaxnum = Integer.parseInt(request.getParameter("studyNo"));
+		String studyLocationSi = request.getParameter("studyNo");
+		String studyLocationGu = request.getParameter("studyNo");
+		String studyDuedate = request.getParameter("studyNo");
+		String studyTitle = request.getParameter("studyNo");
+		String studyContent = request.getParameter("studyNo");
+
+		Study study = new Study(studyNo, tagNo, userId, stateNo, studyMaxnum, studyLocationSi, studyLocationGu,
+				studyDuedate, studyTitle, studyContent);
+		service.insertStudy(study);
+
 		return null;
 	}
 
@@ -34,26 +46,25 @@ public class StudyController implements Controller {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public ModelAndView deleteStudy(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	public ModelAndView selectAllStudy(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+
+	public ModelAndView selectAllStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<Study> list = service.selectAllStudy();
-		
+
 		return null;
 	}
-	
-	public ModelAndView viewStudy(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+	public ModelAndView viewStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		Study study = service.viewStudy(studyNo);
 		return null;
 	}
-	
+
 	public ModelAndView getUserList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
