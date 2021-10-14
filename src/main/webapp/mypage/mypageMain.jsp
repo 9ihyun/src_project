@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/mypageStyle.css">
 <style type="text/css">
   iframe{
     width: 500px; height: 500px
@@ -16,8 +17,10 @@
 </head>
 <body>
 <table>
-  <tr><iframe src="mypageMenu.jsp"></iframe></tr>
-  <tr><iframe src="mypage.jsp" name="page"></iframe></tr>
+  <tr>
+    <th><iframe src="mypageMenu.jsp"></iframe></th>
+    <th><iframe src="mypage.jsp" name="page"></iframe></th>
+  </tr>
 </table>
 </body>
 </html>
