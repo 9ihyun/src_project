@@ -39,6 +39,7 @@ public class StudyController implements Controller {
 
 		Study study = new Study(tagNo, userId, stateNo, studyMaxnum, studyLocationSi, studyLocationGu,
 				studyDuedate, studyTitle, studyContent);
+		
 		service.insertStudy(study);
 
 		return null;
@@ -60,6 +61,11 @@ public class StudyController implements Controller {
 		String studyTitle = request.getParameter("studyNo");
 		String studyContent = request.getParameter("studyNo");
 		
+		Study study = new Study(tagNo, userId, stateNo, studyMaxnum, studyLocationSi, studyLocationGu,
+				studyDuedate, studyTitle, studyContent);
+		
+		service.updateStudy(study);
+		
 		
 		return null;
 	}
@@ -68,9 +74,11 @@ public class StudyController implements Controller {
 	 * 스터디 게시물 삭제
 	 * @author 홍전형
 	 */
-	public ModelAndView deleteStudy(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	public ModelAndView deleteStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		
+		service.deleteStudy(studyNo);
+		
 		return null;
 	}
 
@@ -81,7 +89,7 @@ public class StudyController implements Controller {
 	public ModelAndView selectAllStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<Study> list = service.selectAllStudy();
 
-		return null;
+		return null; 
 	}
 
 	/**
@@ -95,12 +103,12 @@ public class StudyController implements Controller {
 	}
 
 	/**
-	 * 사용자 리스트 가져오기
+	 * 스터디 신청자 리스트 가져오기
 	 * @author 홍전형
 	 */
 	public ModelAndView getUserList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		return null;
 	}
 }
