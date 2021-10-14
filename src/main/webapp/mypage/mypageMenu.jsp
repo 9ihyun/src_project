@@ -22,7 +22,7 @@
   <li><a href="mypage.jsp" target="page">내정보</a></li>
   <li><a href="infoChange.jsp" target="page">정보수정</a></li>
   <li><a href="passChange.jsp" target="page">비밀번호 변경</a></li>
-  <li><a href="manageStudy.jsp" target="page">스터디관리</a></li>
+  <li><a href="myStudy.jsp" target="page">스터디관리</a></li>
 </ol>
 <table>
   <tr><a href="#" id="mypage">마이페이지</a></tr>
