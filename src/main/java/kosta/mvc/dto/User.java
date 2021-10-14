@@ -15,12 +15,16 @@ public class User {
 		this.userId = userId;
 		this.pw = pw;
 	}
-	public User(String userId, String nickname, String pw, int birth, String pwq, String pwa) {
-		this(userId, pw);
+	public User(String userId, String nickname, int birth, String pwq, String pwa) {
+		this.userId = userId;
 		this.nickname = nickname;
 		this.birth = birth;
 		this.pwq = pwq;
 		this.pwa = pwa;
+	}
+	public User(String userId, String nickname, String pw, int birth, String pwq, String pwa) {
+		this(userId, nickname, birth, pwq, pwa);
+		this.pw = pw;
 	}
 	public User(String userId, String nickname, String pw, int birth, String pwq, String pwa, String regdate, double starPoint) {
 		this(userId, nickname, pw, birth, pwq, pwa);
