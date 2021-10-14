@@ -132,16 +132,16 @@ user_id VARCHAR2(20) not null constraint user7_id_fk references member_user(user
 point_number number(1) not null);
 
 
-insert into studysign_state values(1,'¼ö¶ô´ë±â');
-insert into studysign_state values(2,'¼ö¶ô¿Ï·á');
+insert into studysign_state values(1,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into studysign_state values(2,'ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½');
 
-insert into study_state values(1,'¸ðÁýÁß');
-insert into study_state values(2,'½ºÅÍµðÁøÇàÁß');
-insert into study_state values(3,'½ºÅÍµðÁ¾·á');
+insert into study_state values(1,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into study_state values(2,'ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into study_state values(3,'ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½');
 
-insert into study_day values(1,'¹«°ü');
-insert into study_day values(2,'ÆòÀÏ');
-insert into study_day values(3,'ÁÖ¸»');
+insert into study_day values(1,'ï¿½ï¿½ï¿½ï¿½');
+insert into study_day values(2,'ï¿½ï¿½ï¿½ï¿½');
+insert into study_day values(3,'ï¿½Ö¸ï¿½');
 
 
 select * from studysign_state;
@@ -173,28 +173,28 @@ insert into taglist values(22,'ORACLE');
 insert into taglist values(23,'git');
 insert into taglist values(24,'Linux');
 insert into taglist values(25,'Ubuntu');
-insert into taglist values(26,'ÇÁ·ÐÆ®¿£µå');
-insert into taglist values(27,'¹é¿£µå');
-insert into taglist values(28,'ÅäÀÌÇÁ·ÎÁ§Æ®');
-insert into taglist values(29,'±âÅ¸');
+insert into taglist values(26,'ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½');
+insert into taglist values(27,'ï¿½é¿£ï¿½ï¿½');
+insert into taglist values(28,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®');
+insert into taglist values(29,'ï¿½ï¿½Å¸');
 
 select * from taglist;
 
-insert into board values(1,'ÀÚÀ¯°Ô½ÃÆÇ');
-insert into board values(2,'Á¤º¸°øÀ¯°Ô½ÃÆÇ');
+insert into board values(1,'ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½');
+insert into board values(2,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½');
 
 
-insert into member_user values('admin','°ü¸®ÀÚ','admin',20211014,'°¡Àå ÁÁ¾ÆÇÏ´Â °ÍÀº?','Ä¡Å²',sysdate);
+insert into member_user values('admin','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','admin',20211014,'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½?','Ä¡Å²',sysdate);
 
 
 select * from member_user;
 
-insert into post values(1,1,1,'admin','Å×½ºÆ® ÀÔ´Ï´Ù',sysdate,'ÇÏÁK ¹Ý°©½À´Ï´Ù ¿©·¯ºÐ È­ÀÌÆÃ~!!',0);
+insert into post values(1,1,1,'admin','ï¿½×½ï¿½Æ® ï¿½Ô´Ï´ï¿½',sysdate,'ï¿½ï¿½ï¿½K ï¿½Ý°ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½~!!',0);
 
-insert into post_reply values(1,1,'admin','Å×½ºÆ® ´ñ±Û ÀÔ´Ï´Ù',sysdate);
-insert into post_reply values(2,1,'admin','Å×½ºÆ® ´ñ±Û2 ÀÔ´Ï´Ù',sysdate);
+insert into post_reply values(1,1,'admin','ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½',sysdate);
+insert into post_reply values(2,1,'admin','ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½2 ï¿½Ô´Ï´ï¿½',sysdate);
 
-insert into study values(1,2,'admin',1,1,5,'¼­¿ï½Ã','°­³²±¸','2021.10.14','Å×½ºÆ® ÀÔ´Ï´Ù','»ç¶÷¸¸ µé¾î¿À¼¼¿ä',sysdate);
+insert into study values(1,2,'admin',1,1,5,'ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','2021.10.14','ï¿½×½ï¿½Æ® ï¿½Ô´Ï´ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate);
 
 insert into wish_study values('admin',1);
 
@@ -205,3 +205,15 @@ insert into point values('admin',4);
 insert into point values('admin',4);
 
 commit;
+
+create sequence study_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
+create sequence post_reply_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
+create sequence post_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
+create sequence study_reply_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
+create sequence study_room_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
+
+ALTER TABLE study MODIFY (study_no DEFAULT study_seq.nextval);
+ALTER TABLE post MODIFY (post_no DEFAULT post_seq.nextval);
+ALTER TABLE study_reply MODIFY (s_reply_no DEFAULT study_reply_seq.nextval);
+ALTER TABLE post_reply MODIFY (p_reply_no DEFAULT post_reply_seq.nextval);
+ALTER TABLE study_room MODIFY (chat_no DEFAULT study_room_seq.nextval);

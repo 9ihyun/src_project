@@ -10,16 +10,14 @@ public class User {
 	private String regdate;
 	private int starPoint;
 	
-	public User() {
-		
-	}
-
-	public User(String userId, String nickname, String pw, String birth, String pwq, String pwa, String regdate,
-			int starPoint) {
-		super();
+	public User() {}
+	public User(String userId, String pw) {
 		this.userId = userId;
-		this.nickname = nickname;
 		this.pw = pw;
+	}
+	public User(String userId, String nickname, String pw, String birth, String pwq, String pwa, String regdate, int starPoint) {
+		this(userId, pw);
+		this.nickname = nickname;
 		this.birth = birth;
 		this.pwq = pwq;
 		this.pwa = pwa;
@@ -75,7 +73,5 @@ public class User {
 	public void setStarPoint(int starPoint) {
 		this.starPoint = starPoint;
 	}
-	
-	
 	
 }
