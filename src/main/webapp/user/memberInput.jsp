@@ -10,7 +10,7 @@
 <style type="text/css">
 
 </style>
-<script scr="../js/jquery-3.6.0.min.js"></script>
+<script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$('#pass').keyup(function(){
