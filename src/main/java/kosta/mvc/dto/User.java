@@ -8,7 +8,7 @@ public class User {
 	private String pwq;
 	private String pwa;
 	private String regdate;
-	private int starPoint;
+	private double starPoint;
 	
 	public User() {}
 	public User(String userId, String pw) {
@@ -22,7 +22,7 @@ public class User {
 		this.pwq = pwq;
 		this.pwa = pwa;
 	}
-	public User(String userId, String nickname, String pw, int birth, String pwq, String pwa, String regdate, int starPoint) {
+	public User(String userId, String nickname, String pw, int birth, String pwq, String pwa, String regdate, double starPoint) {
 		this(userId, nickname, pw, birth, pwq, pwa);
 		this.regdate = regdate;
 		this.starPoint = starPoint;
@@ -49,7 +49,7 @@ public class User {
 	public String getRegdate() {
 		return regdate;
 	}
-	public int getStarPoint() {
+	public double getStarPoint() {
 		return starPoint;
 	}
 	public void setUserId(String userId) {

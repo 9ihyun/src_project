@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet Filter implementation class SessionCheckFilter
  * 로그인 후 이용가능한 페이지일 경우, 인증 여부를 확인해주는 필터
  */
 @WebFilter("/front")
