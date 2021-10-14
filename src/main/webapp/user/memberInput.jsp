@@ -11,7 +11,10 @@
 
 </style>
 <script src="../js/jquery-3.6.0.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="../js/ajaxBasic.js"></script>
+
+<script>
+	//비밀번호 일치 여부
 	$(function(){
 		$('#pass').keyup(function(){
 			$('font[name=check]').text('');
@@ -27,6 +30,29 @@
 			}
 		});
 		
+		//아이디 중복체크 여부
+		$('#id').blur(function(){
+			$.ajax({
+				type: "POST",
+				url: "idCheck",
+				data: {
+					"id" : $('#id').val()
+				},
+				
+				success: function(data){
+					if (data == 1) {
+						// 1 : 아이디가 중복되는 문구
+						$("#idCheck").text("사용중인 아이디입니다.");
+						$("#idCheck").css("color", "red");
+					}else{
+						$("#idCheck").text("");
+					}
+				}error:function() {
+						console.log("실패");
+				}
+			})
+		})
+		
 	});//ready 끝
 </script>
 </head>
@@ -36,6 +62,7 @@
 <div class="main">
 <form class="form1" action="userProc.jsp" method = "post" align="center">
 	ID : <input type = "text" name = "id"><br>
+	<div class="checkFont" id="idCheck"></div>
 	비밀번호 : <input type = "password" name = "pass"><br>
 	비밀번호 확인 : <input type = "password" name = "passcheck"><br>
 	<font name = "check" size="2" color="red"></font>
