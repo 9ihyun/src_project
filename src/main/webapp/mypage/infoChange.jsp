@@ -13,12 +13,33 @@
 </script>
 </head>
 <body>
-현재 비밀번호 입력<br>
-<input type="password"><br>
-변경할 비밀번호 입력<br>
-<input type="password"><br>
-변경할 비밀번호 확인<br>
-<input type="password"><br>
-<input type="button" value="변경하기">
+<table>
+  <tr>
+    <th>닉네임</th>
+    <th>비밀번호 찾기 질문</th>
+  </tr>
+  <tr>
+    <th><input type="text"></th>
+    <th><select class="question">
+       <option value="0">--질문 선택--</option>
+	   <option value="one">보물 1호는?</option>
+	   <option value="two">어렸을 적 별명은?</option>
+	   <option value="three">가장 좋아하는 영화는?</option>
+	   <option value="four">가장 자주가는 음식점은?</option>
+	   <option value="five">만약 물고기를 한마리 기른다면?</option>	
+	</select></th>
+  </tr>
+  <tr>
+    <th>생년월일</th>
+    <th>비밀번호 찾기 답</th>
+  </tr>
+  <tr>
+    <th><input type="text"></th>
+    <th><input type="text"></th>
+  </tr>
+  <tr>
+    <th colspan="2"><input type="button" value="수정하기"></th>
+  </tr>
+</table>
 </body>
 </html>
