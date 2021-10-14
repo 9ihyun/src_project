@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/signUpstyle.css">
+<link rel="stylesheet" href="../CSS/signUpstyle.css">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
 <title>회원가입</title>
 <style type="text/css">
