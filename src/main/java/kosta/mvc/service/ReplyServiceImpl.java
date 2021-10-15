@@ -12,7 +12,9 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public void insertReply(PostReply reply) throws SQLException {
-		// TODO Auto-generated method stub
+		if(replyDao.insertReply(reply) == 0) {
+			throw new SQLException("댓글이 등록되지 않았습니다");
+		}
 
 	}
 

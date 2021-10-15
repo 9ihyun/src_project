@@ -26,8 +26,25 @@ public class ReplyDAOImpl implements ReplyDAO {
 
 	@Override
 	public int insertReply(PostReply reply) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con=null;
+		PreparedStatement ps=null;
+		int result=0;
+		String sql = proFile.getProperty("reply.insertReply");
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, reply.getPostNo());
+			ps.setString(2, reply.getUserId());
+			ps.setString(3, reply.getpReplyContent());
+
+			result = ps.executeUpdate();
+			
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		
+		return result;
 	}
 
 	@Override
