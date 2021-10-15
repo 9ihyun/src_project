@@ -28,7 +28,7 @@
 				$('font[name=check]').text('');
 				$('font[name=check]').html('값이 일치합니다.');
 			}
-		});
+		});//비번 끝
 		
 		//아이디 중복체크 여부
 		$('#id').blur(function(){
@@ -51,7 +51,30 @@
 						console.log("실패");
 				}
 			})
-		})
+		})//아이디 끝
+		
+		//닉네임 중복체크 여부
+		$('#nickname').blur(function(){
+			$.ajax({
+				type: "POST",
+				url: "nicknameCheck",
+				data: {
+					"nickname" : $('#nickname').val()
+				},
+				
+				success: function(data){
+					if (data == 1) {
+						$("#nickname").text("사용중인 닉네임입니다.");
+						$("#nickname").css("color", "red");
+					}else{
+						$("#nickname").text("");
+					}
+				}error:function() {
+						console.log("실패");
+				}
+			})
+		})//닉네임끝
+		
 		
 	});//ready 끝
 </script>
