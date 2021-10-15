@@ -13,8 +13,21 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
   $(function(){
-	 $("[value=평가하기]").click(function(){
-		$("div").show();
+	 $(document).on("click", "[value=평가하기]", function(){
+		$(this).val("평가완료");
+		let num = $(this).attr("id");
+		$("#join > tbody >tr:nth-child(" + num + ") > th:nth-child(3) > ul").show();
+		
+	 });
+	 $(document).on("click", "[value=평가완료]", function(){
+		$(this).val("평가하기");
+		let num = $(this).attr("id");
+		$("#join > tbody >tr:nth-child(" + num + ") > th:nth-child(3) > ul").hide();
+		
+	 });
+	 
+	 $(document).on("click", "[name=star]", function(){
+		 prompt($(this).val()+"님을 평가해주세요");
 	 });
   });
 </script>
@@ -29,7 +42,7 @@
   </tr>
 </table>
 
-<table>
+<table id="join">
   <tr>
     <th>모집여부</th>
     <th>마감일</th>
@@ -49,21 +62,38 @@
   <tr>
     <th>스터디종료</th>
     <th>7/7
-      <div style="display:none"><br>
-        <ul>
-          <li>황선민</li>
-          <li>이기현</li>
-          <li>조성휘</li>
-          <li>현지윤</li>
-          <li>윤솔</li>
-          <li>홍전형</li>
-        </ul>
-      </div>
     </th>
-    <th>벡엔드</th>
+    <th>백엔드
+	  <ul style="display:none">
+	    <li><input type="button" value="황선민" name='star'></li>
+	    <li><input type="button" value="이기현" name='star'></li>
+	    <li><input type="button" value="조성휘" name='star'></li>
+	    <li><input type="button" value="현지윤" name='star'></li>
+	    <li><input type="button" value="윤솔" name='star'></li>
+	    <li><input type="button" value="홍전형" name='star'></li>
+	  </ul>
+	</th>
     <th>7/7</th>
     <th>서울</th>
-    <th><input type="button" value="평가하기" name="member"></th>
+    <th><input type="button" value="평가하기" id="3"></th>
+  </tr>
+  <tr>
+    <th>스터디종료</th>
+    <th>7/7
+    </th>
+    <th>백엔드
+	  <ul style="display:none">
+	    <li><input type="button" value="황선민" name='star'></li>
+	    <li><input type="button" value="이기현" name='star'></li>
+	    <li><input type="button" value="조성휘" name='star'></li>
+	    <li><input type="button" value="현지윤" name='star'></li>
+	    <li><input type="button" value="윤솔" name='star'></li>
+	    <li><input type="button" value="홍전형" name='star'></li>
+	  </ul>
+	</th>
+    <th>7/7</th>
+    <th>서울</th>
+    <th><input type="button" value="평가하기" id="4"></th>
   </tr>
 </table>
 
