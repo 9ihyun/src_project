@@ -6,12 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import kosta.mvc.dto.Post;
-import kosta.mvc.dto.User;
+import kosta.mvc.dto.Study;
 import kosta.mvc.util.DbUtil;
 
 public class PostDAOlmpl implements PostDao {
+	Properties proFile = new Properties();
+	
+	public PostDAOlmpl() {
+		try {
+			proFile.load(getClass().getClassLoader().getResourceAsStream("dbQuery.properties"));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}	
 
 	@Override
 	public Post postInsert(Post post) throws SQLException {
@@ -94,20 +104,70 @@ public class PostDAOlmpl implements PostDao {
 
 	@Override
 	public List<Post> selectAllPost() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		List<Post> postList = new ArrayList<>();
+		String sql = proFile.getProperty("post.selectAll");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Post post = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7), rs.getInt(8));
+				postList.add(post);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return postList;
 	}
+	
 
 	@Override
-	public Post Postview(int postNo) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public Post postView(int postNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Post post = null;
+		String sql = proFile.getProperty("post.postView");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, postNo);
+
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				post = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7), rs.getInt(8));
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return post;
 	}
+	
 
 	@Override
 	public List<Post> postLike(int postNo) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		List<Post> postLike = new ArrayList<>();
+		String sql = proFile.getProperty("post.like");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Post post = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7), rs.getInt(8));
+				postLike.add(post);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return postLike;
 	}
 	
 	
