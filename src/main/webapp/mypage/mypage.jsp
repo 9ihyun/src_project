@@ -24,22 +24,22 @@
     <th>별점</th>
   </tr>
   <tr>
-    <th><input type="text" readonly="readonly"></th>
-    <th><input type="text" readonly="readonly"></th>
+    <th><input type="text" readonly="readonly" id="id"></th>
+    <th><input type="text" readonly="readonly" id="star"></th>
   </tr>
   <tr>
     <th>닉네임</th>
     <th>생년월일</th>
   </tr>
   <tr>
-    <th><input type="text" readonly="readonly"></th>
-    <th><input type="text" readonly="readonly"></th>
+    <th><input type="text" readonly="readonly" id="nickname"></th>
+    <th><input type="text" readonly="readonly" id="birth"></th>
   </tr>
   <tr>
     <th>가입날짜</th>
   </tr>
   <tr>
-    <th><input type="text" readonly="readonly"></th>
+    <th><input type="text" readonly="readonly" id="regdate"></th>
   </tr>
 </table>
 <input type="button" id="withdraw" value="탈퇴하기">
