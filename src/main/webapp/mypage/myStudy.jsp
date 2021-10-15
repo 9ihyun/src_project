@@ -10,8 +10,9 @@
 <style type="text/css">
 
 </style>
+<script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-
+  
 </script>
 </head>
 <body>
@@ -32,6 +33,22 @@
     <th>정원</th>
     <th>지역</th>
     <th>신청자수</th>
+  </tr>
+  <tr>
+    <th>모집중</th>
+    <th>10/6</th>
+    <th>프론트 모집합니다</th>
+    <th>1/5</th>
+    <th>경기</th>
+    <th>6</th>
+  </tr>
+  <tr>
+    <th>모집중</th>
+    <th>10/20</th>
+    <th>벡엔드</th>
+    <th>3/7</th>
+    <th>서울</th>
+    <th>5</th>
   </tr>
 </table>
 
