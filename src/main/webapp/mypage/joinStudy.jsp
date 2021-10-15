@@ -12,7 +12,11 @@
 </style>
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-  
+  $(function(){
+	 $("[value=평가하기]").click(function(){
+		$("div").show();
+	 });
+  });
 </script>
 </head>
 <body>
@@ -44,11 +48,22 @@
   </tr>
   <tr>
     <th>스터디종료</th>
-    <th>8/8</th>
+    <th>7/7
+      <div style="display:none"><br>
+        <ul>
+          <li>황선민</li>
+          <li>이기현</li>
+          <li>조성휘</li>
+          <li>현지윤</li>
+          <li>윤솔</li>
+          <li>홍전형</li>
+        </ul>
+      </div>
+    </th>
     <th>벡엔드</th>
     <th>7/7</th>
     <th>서울</th>
-    <th><input type="button" value="평가하기"></th>
+    <th><input type="button" value="평가하기" name="member"></th>
   </tr>
 </table>
 
