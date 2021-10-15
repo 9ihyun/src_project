@@ -74,8 +74,20 @@ public class ReplyDAOImpl implements ReplyDAO {
 
 	@Override
 	public int deleteReply(int replyNo) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con=null;
+		PreparedStatement ps=null;
+		int result=0;
+		String sql = proFile.getProperty("reply.deleteReply");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, replyNo);
+			
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
 	}
 
 	@Override

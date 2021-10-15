@@ -28,7 +28,9 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public void deleteReply(int replyNo) throws SQLException {
-		// TODO Auto-generated method stub
+		if(replyDao.deleteReply(replyNo) == 0) {
+			throw new SQLException("댓글이 삭제되지 않았습니다");
+		}
 
 	}
 

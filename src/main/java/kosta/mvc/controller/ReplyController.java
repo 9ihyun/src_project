@@ -57,7 +57,9 @@ public class ReplyController implements Controller {
 	 * 댓글 삭제 
 	 */
 	public ModelAndView deleteReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		int pReplyNo = Integer.parseInt(request.getParameter("pReplyNo"));
+
+		service.deleteReply(pReplyNo);
 		return null;
 	}
 	
