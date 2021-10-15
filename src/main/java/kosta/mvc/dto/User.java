@@ -77,8 +77,7 @@ public class User {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	public void setStarPoint(int starPoint) {
+	public void setStarPoint(double starPoint) {
 		this.starPoint = starPoint;
 	}
-	
 }
