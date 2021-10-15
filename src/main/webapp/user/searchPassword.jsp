@@ -25,8 +25,8 @@
 	   <option value="four">가장 자주가는 음식점은?</option>
 	   <option value="five">만약 물고기를 한마리 기른다면?</option>	
 	</select> <br>
-    비밀번호 찾기 답: <input type="text" name="useremail" placeholder="이메일" required><br>
-    <input type="submit" value="idsearch"><br>
+    비밀번호 찾기 답: <input type="text" name="anwser"><br>
+    <input type="submit" value="확인"><br>
 </form>
  
 </body>
