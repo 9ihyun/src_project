@@ -30,13 +30,9 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public List<PostReply> selectAllReply(int postNo) throws SQLException {
-		return replyDao.selectAllReply(postNo);
-	}
-
-	@Override
-	public void likeReply(int replyNo) throws SQLException {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
+
 
 }

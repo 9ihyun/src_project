@@ -8,11 +8,16 @@ public class PostReply {
 	private String pReplyDate;
 	
 	public PostReply() {}
-	public PostReply(int pReplyNo, int postNo, String userId, String pReplyContent, String pReplyDate) {
-		this.pReplyNo = pReplyNo;
+	
+	public PostReply(int postNo, String userId, String pReplyContent) {
 		this.postNo = postNo;
 		this.userId = userId;
 		this.pReplyContent = pReplyContent;
+	}
+	
+	public PostReply(int pReplyNo, int postNo, String userId, String pReplyContent, String pReplyDate) {
+		this(postNo, userId, pReplyContent);
+		this.pReplyNo = pReplyNo;
 		this.pReplyDate = pReplyDate;
 	}
 	

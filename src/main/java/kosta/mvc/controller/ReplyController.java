@@ -12,7 +12,7 @@ import kosta.mvc.service.ReplyService;
 import kosta.mvc.service.ReplyServiceImpl;
 
 public class ReplyController implements Controller {
-	ReplyService service = new ReplyServiceImpl();
+	private ReplyService service = new ReplyServiceImpl();
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
@@ -53,12 +53,6 @@ public class ReplyController implements Controller {
 		return null;
 	}
 	
-	/**
-	 * 댓글 좋아요 
-	 */
-	public ModelAndView likeReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
