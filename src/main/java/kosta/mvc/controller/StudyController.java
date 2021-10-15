@@ -6,11 +6,16 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kosta.mvc.dto.Study;
+import kosta.mvc.dto.User;
 import kosta.mvc.service.StudyService;
 import kosta.mvc.service.StudyServiceImpl;
 
+/**
+ * @author 홍전형 
+ */
 public class StudyController implements Controller {
 
 	private StudyService service = new StudyServiceImpl();
@@ -20,15 +25,24 @@ public class StudyController implements Controller {
 			throws ServletException, IOException {
 		return null;
 	}
+	
+	/**
+	 * Session에서 ID 꺼내오기
+	 * */
+	private String getUserId(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		return (String)session.getAttribute("userId");
+	}
 
 	/**
 	 * 스터디 게시물 등록
-	 * @author 홍전형
 	 */
 	public ModelAndView insertStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id = getUserId(request);
+		
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
-		String userId = request.getParameter("userId");
+		String userId = id;
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
 		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
 		int studyMaxnum = Integer.parseInt(request.getParameter("studyMaxnum"));
@@ -43,17 +57,18 @@ public class StudyController implements Controller {
 		
 		service.insertStudy(study);
 
-		return null;
+		return new ModelAndView("", true); //이동 위치 
 	}
 
 	/**
 	 * 스터디 게시물 수정 
-	 * @author 홍전형
 	 */
 	public ModelAndView updateStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id = getUserId(request);
+		
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
-		String userId = request.getParameter("userId");
+		String userId = id;
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
 		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
 		int studyMaxnum = Integer.parseInt(request.getParameter("studyMaxnum"));
@@ -74,43 +89,42 @@ public class StudyController implements Controller {
 
 	/**
 	 * 스터디 게시물 삭제
-	 * @author 홍전형
 	 */
 	public ModelAndView deleteStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		
 		service.deleteStudy(studyNo);
 		
-		return null;
+		return new ModelAndView("", true); //이동 위치
 	}
 
 	/**
 	 * 스터디 게시물 리스트 보기
-	 * @author 홍전형
 	 */
 	public ModelAndView selectAllStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<Study> list = service.selectAllStudy();
 
-		return null; 
+		request.setAttribute("studyList", list);
+		return new ModelAndView(""); //이동 위치
 	}
 
 	/**
 	 * 스터디 게시물 상세보기
-	 * @author 홍전형
 	 */
 	public ModelAndView viewStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		Study study = service.viewStudy(studyNo);
-		return null;
+		
+		request.setAttribute("study", study);
+		return new ModelAndView("");//이동 위치
 	}
 
 	/**
 	 * 스터디 신청자 리스트 가져오기
-	 * @author 홍전형
 	 */
 	public ModelAndView getUserList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-		service.getUserList(studyNo);
-		return null;
+		List<User> userList = service.getUserList(studyNo);
+		return new ModelAndView("");//이동 위치
 	}
 }
