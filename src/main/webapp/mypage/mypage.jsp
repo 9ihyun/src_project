@@ -10,8 +10,11 @@
 <style type="text/css">
 
 </style>
+<script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-
+  $(document).on("click", "#withdraw", function(){
+	 confirm("정말 탈퇴하시겠습니까?");
+  });
 </script>
 </head>
 <body>
@@ -39,6 +42,6 @@
     <th><input type="text"></th>
   </tr>
 </table>
-<a href="#">탈퇴하기</a>
+<input type="button" id="withdraw" value="탈퇴하기">
 </body>
 </html>

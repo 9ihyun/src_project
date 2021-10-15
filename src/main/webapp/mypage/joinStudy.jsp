@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="../CSS/mypageStyle.css">
 <link rel="stylesheet" href="../CSS/myStudyStyle.css">
 <style type="text/css">
-
+  img{
+    width: 10px; height: 10px;
+  }
 </style>
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -26,8 +28,17 @@
 		
 	 });
 	 
-	 $(document).on("click", "[name=star]", function(){
-		 prompt($(this).val()+"님을 평가해주세요");
+	 $(document).on("click", "img", function(){
+		 //#join > tbody > tr:nth-child(3) > th:nth-child(3) > ul > li:nth-child(5) > img:nth-child(1)
+		 var num = $(this).attr("name");
+		 num = num.split("-");
+		 for(var i = 1; i<= 5; i++){
+			 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > img:nth-child(" + i + ")").attr("src", "../img/blackstar.jpg");
+		 }
+		 for(var i = 1; i<= num[2]; i++){
+			 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > img:nth-child(" + i + ")").attr("src", "../img/star.jpg");
+		 }
+		 
 	 });
   });
 </script>
@@ -65,12 +76,12 @@
     </th>
     <th>백엔드
 	  <ul style="display:none">
-	    <li><input type="button" value="황선민" name='star'></li>
-	    <li><input type="button" value="이기현" name='star'></li>
-	    <li><input type="button" value="조성휘" name='star'></li>
-	    <li><input type="button" value="현지윤" name='star'></li>
-	    <li><input type="button" value="윤솔" name='star'></li>
-	    <li><input type="button" value="홍전형" name='star'></li>
+	    <li>황선민<img src="../img/blackstar.jpg" name="3-1-1"><img src="../img/blackstar.jpg" name="3-1-2"><img src="../img/blackstar.jpg" name="3-1-3"><img src="../img/blackstar.jpg" name="3-1-4"><img src="../img/blackstar.jpg" name="3-1-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>이기현<img src="../img/blackstar.jpg" name="3-2-1"><img src="../img/blackstar.jpg" name="3-2-2"><img src="../img/blackstar.jpg" name="3-2-3"><img src="../img/blackstar.jpg" name="3-2-4"><img src="../img/blackstar.jpg" name="3-2-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>조성휘<img src="../img/blackstar.jpg" name="3-3-1"><img src="../img/blackstar.jpg" name="3-3-2"><img src="../img/blackstar.jpg" name="3-3-3"><img src="../img/blackstar.jpg" name="3-3-4"><img src="../img/blackstar.jpg" name="3-3-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>현지윤<img src="../img/blackstar.jpg" name="3-4-1"><img src="../img/blackstar.jpg" name="3-4-2"><img src="../img/blackstar.jpg" name="3-4-3"><img src="../img/blackstar.jpg" name="3-4-4"><img src="../img/blackstar.jpg" name="3-4-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>윤솔<img src="../img/blackstar.jpg" name="3-5-1"><img src="../img/blackstar.jpg" name="3-5-2"><img src="../img/blackstar.jpg" name="3-5-3"><img src="../img/blackstar.jpg" name="3-5-4"><img src="../img/blackstar.jpg" name="3-5-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>홍전형<img src="../img/blackstar.jpg" name="3-6-1"><img src="../img/blackstar.jpg" name="3-6-2"><img src="../img/blackstar.jpg" name="3-6-3"><img src="../img/blackstar.jpg" name="3-6-4"><img src="../img/blackstar.jpg" name="3-6-5"><input type="button" value="평가하기" name='star'></li>
 	  </ul>
 	</th>
     <th>7/7</th>
@@ -83,12 +94,12 @@
     </th>
     <th>백엔드
 	  <ul style="display:none">
-	    <li><input type="button" value="황선민" name='star'></li>
-	    <li><input type="button" value="이기현" name='star'></li>
-	    <li><input type="button" value="조성휘" name='star'></li>
-	    <li><input type="button" value="현지윤" name='star'></li>
-	    <li><input type="button" value="윤솔" name='star'></li>
-	    <li><input type="button" value="홍전형" name='star'></li>
+	    <li>황선민<img src="../img/blackstar.jpg" name="4-1-1"><img src="../img/blackstar.jpg" name="4-1-2"><img src="../img/blackstar.jpg" name="4-1-3"><img src="../img/blackstar.jpg" name="4-1-4"><img src="../img/blackstar.jpg" name="4-1-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>이기현<img src="../img/blackstar.jpg" name="4-2-1"><img src="../img/blackstar.jpg" name="4-2-2"><img src="../img/blackstar.jpg" name="4-2-3"><img src="../img/blackstar.jpg" name="4-2-4"><img src="../img/blackstar.jpg" name="4-2-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>조성휘<img src="../img/blackstar.jpg" name="4-3-1"><img src="../img/blackstar.jpg" name="4-3-2"><img src="../img/blackstar.jpg" name="4-3-3"><img src="../img/blackstar.jpg" name="4-3-4"><img src="../img/blackstar.jpg" name="4-3-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>현지윤<img src="../img/blackstar.jpg" name="4-4-1"><img src="../img/blackstar.jpg" name="4-4-2"><img src="../img/blackstar.jpg" name="4-4-3"><img src="../img/blackstar.jpg" name="4-4-4"><img src="../img/blackstar.jpg" name="4-4-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>윤솔<img src="../img/blackstar.jpg" name="4-5-1"><img src="../img/blackstar.jpg" name="4-5-2"><img src="../img/blackstar.jpg" name="4-5-3"><img src="../img/blackstar.jpg" name="4-5-4"><img src="../img/blackstar.jpg" name="4-5-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>홍전형<img src="../img/blackstar.jpg" name="4-6-1"><img src="../img/blackstar.jpg" name="4-6-2"><img src="../img/blackstar.jpg" name="4-6-3"><img src="../img/blackstar.jpg" name="4-6-4"><img src="../img/blackstar.jpg" name="4-6-5"><input type="button" value="평가하기" name='star'></li>
 	  </ul>
 	</th>
     <th>7/7</th>
