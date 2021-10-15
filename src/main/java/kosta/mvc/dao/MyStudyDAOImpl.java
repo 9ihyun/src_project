@@ -31,7 +31,6 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = proFile.getProperty("myStudy.viewWishStudy");
-		//select * from study where study_no in (select study_no from wish_study where user_id=?)
 		List<Study> wishList = new ArrayList<Study>();
 		
 		try {
@@ -58,11 +57,10 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	 * 스터디 찜하기
 	 * */
 	@Override
-	public int putWishStudy(String id, int studyNo) throws SQLException {
+	public int putWishStudy(String id, int studyNo) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		String sql = proFile.getProperty("myStudy.putWishStudy");
-		//insert into wish_study values(?, ?)
 		int result = 0;
 		
 		try {
@@ -72,6 +70,8 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps.setInt(2, studyNo);
 			result = ps.executeUpdate();
 			
+		}catch (SQLException e) {
+			e.printStackTrace();
 		}finally {
 			DbUtil.dbClose(ps, con);
 		}
@@ -88,7 +88,6 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = proFile.getProperty("myStudy.viewSignStudy");
-		//select * from study natural join studysign_state where study_no in (select study_no from sign_study where user_id=?)
 		List<Study> signList = new ArrayList<Study>();
 		
 		try {
@@ -115,11 +114,10 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	 * 스터디 신청하기
 	 * */
 	@Override
-	public int putSignStudy(String id, int studyNo) throws SQLException {
+	public int putSignStudy(String id, int studyNo) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		String sql = proFile.getProperty("myStudy.putSignStudy");
-		//insert into sign_study values(?, ?, default)
 		int result = 0;
 		
 		try {
@@ -129,6 +127,8 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps.setInt(2, studyNo);
 			result = ps.executeUpdate();
 			
+		}catch (SQLException e) {
+			e.printStackTrace();
 		}finally {
 			DbUtil.dbClose(ps, con);
 		}
@@ -145,7 +145,6 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = proFile.getProperty("myStudy.viewMyStudy");
-		//select * from study where user_id=?
 		List<Study> myStudyList = new ArrayList<Study>();
 		
 		try {

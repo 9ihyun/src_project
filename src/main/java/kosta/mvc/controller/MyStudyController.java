@@ -42,18 +42,6 @@ public class MyStudyController implements Controller {
 	}
 	
 	/**
-	 * 스터디 찜하기
-	 * */
-	public ModelAndView putWishStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = getUserId(request);
-		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-		
-		myStudyService.putWishStudy(id, studyNo);
-		
-		return new ModelAndView("", true); //스터디 게시판
-	}
-	
-	/**
 	 * 내가 신청한 스터디 보기
 	 * */
 	public ModelAndView viewSignStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -66,18 +54,6 @@ public class MyStudyController implements Controller {
 	}
 	
 	/**
-	 * 스터디 신청하기
-	 * */
-	public ModelAndView putSignStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = getUserId(request);
-		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-		
-		myStudyService.putSignStudy(id, studyNo);
-		
-		return new ModelAndView("", true); //스터디 게시판
-	}
-	
-	/**
 	 * 내가 등록한 스터디 보기
 	 * */
 	public ModelAndView viewMyStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -86,6 +62,6 @@ public class MyStudyController implements Controller {
 		List<Study> myStudyList = myStudyService.viewMyStudy(id);
 		request.setAttribute("myStudyList", myStudyList);
 		
-		return new ModelAndView(""); //신청한 스터디 페이지
+		return new ModelAndView(""); //등록한 스터디 페이지
 	}
 }
