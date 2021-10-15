@@ -75,11 +75,6 @@ function sendDelete(){
         <span style="font-size:9pt;"><b><pre>${requestScope.elec.description}</pre></b></span></td>
     </tr>
     
-      <c:if test="${elec.fname!=null}">
-       <tr>
-        
-    </tr>
-    </c:if>
     
     <tr>
     <td width="100" height="20">
@@ -108,12 +103,12 @@ function sendDelete(){
 <hr>
 <h3>Replies 정보</h3>
 <c:choose>
-	<c:when test = "${empty elec.repliesList}">
+	<c:when test = "${empty StudyReply.sReplyNo}">
 		<h5>댓글정보가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
-		<c:forEach items = "${elec.repliesList}" var = "reply">
-			${reply.replyNo} / ${reply.replyContent} /${reply.replyRegDate} /${reply.parentModelNum}<p>
+		<c:forEach items = "${StudyReply.sReplyNo}" var = "reply">
+			${StudyReply.sReplyNo} / ${StudyReply.sReplyContent} /${StudyReply.sReplyDate} /${StudyReply.studyNo}<p>
 		</c:forEach>
 	</c:otherwise>
 </c:choose>
