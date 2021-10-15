@@ -38,11 +38,10 @@ public class StudyController implements Controller {
 	 * 스터디 게시물 등록
 	 */
 	public ModelAndView insertStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = getUserId(request);
+		String userId = getUserId(request);
 		
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
-		String userId = id;
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
 		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
 		int studyMaxnum = Integer.parseInt(request.getParameter("studyMaxnum"));
@@ -64,11 +63,10 @@ public class StudyController implements Controller {
 	 * 스터디 게시물 수정 
 	 */
 	public ModelAndView updateStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = getUserId(request);
+		String userId = getUserId(request);
 		
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
-		String userId = id;
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
 		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
 		int studyMaxnum = Integer.parseInt(request.getParameter("studyMaxnum"));
@@ -125,6 +123,8 @@ public class StudyController implements Controller {
 	public ModelAndView getUserList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		List<User> userList = service.getUserList(studyNo);
+		
+		request.setAttribute("userList", userList);
 		return new ModelAndView("");//이동 위치
 	}
 }
