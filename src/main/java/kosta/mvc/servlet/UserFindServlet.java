@@ -49,7 +49,38 @@ public class UserFindServlet extends HttpServlet {
 		         e.printStackTrace();
 		         response.sendError(500);
 		      }
-		   }
-	}
+		
+		 //비번 찾기
+		try {
+		         //입력 : birth, question, anwser  -----> UserDto
+		         request.setCharacterEncoding("UTF-8");
+		         User user = new User(); 
+		         user.setBirth(Integer.parseInt(request.getParameter("birth")));
+		         user.setPwq(request.getParameter("question"));
+		         user.setPwa(request.getParameter("anwser"));
+		         
+		         //처리
+		         UserDAO dao = new UserDAOImpl();
+		         String pw =dao.myInfo(user);		        
+		         
+		         //출력
+		         if(pw != null) {//결과가 있으면(정보가 맞다면)
+		            response.sendRedirect("find_id_result.jsp?pw="+pw);
+		            
+		            request.getSession().setAttribute("pw", pw);
+		            response.sendRedirect("find_id_result.jsp");
+		         }
+		         else {//결과가 없으면(정보가 맞지 않으면)
+		            response.sendRedirect("find_id.jsp?error");
+		         }
+		      }
+		      catch(Exception e) {
+		         e.printStackTrace();
+		         response.sendError(500);
+		      }
+		
+		
+		   }//dopost 끝
+	}//
 
 
