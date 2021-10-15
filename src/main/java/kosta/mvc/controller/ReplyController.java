@@ -41,7 +41,15 @@ public class ReplyController implements Controller {
 	 * 댓글 수정 
 	 */
 	public ModelAndView updateReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		int pReplyNo = Integer.parseInt(request.getParameter("pReplyNo"));
+		int postNo = Integer.parseInt(request.getParameter("postNo"));
+		String userId = request.getParameter("userId");
+		String pReplyContent = request.getParameter("pReplyContent");
+		String pReplyDate = request.getParameter("pReplyDate");
+		
+		PostReply reply = new PostReply(pReplyNo, postNo, userId, pReplyContent, pReplyDate);
+		
+		service.updateReply(reply);
 		return null;
 	}
 	

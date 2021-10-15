@@ -20,7 +20,9 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public void updateReply(PostReply reply) throws SQLException {
-		// TODO Auto-generated method stub
+		if(replyDao.updateReply(reply) == 0) {
+			throw new SQLException("댓글이 수정되지 않았습니다");
+		}
 
 	}
 
