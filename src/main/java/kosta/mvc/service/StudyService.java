@@ -30,6 +30,11 @@ public interface StudyService {
 	 * 스터디 게시물 리스트 가져오기
 	 */
 	public List<Study> selectAllStudy() throws SQLException;
+	
+	/**
+	 * 스터디 게시물 리스트 (페이징)
+	 */
+	public List<Study> selectAllStudy(int pageNo) throws SQLException;
 
 	/**
 	 * 스터디 게시물 상세보기

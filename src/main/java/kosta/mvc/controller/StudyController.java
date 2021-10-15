@@ -100,6 +100,11 @@ public class StudyController implements Controller {
 	 * 스터디 게시물 리스트 보기
 	 */
 	public ModelAndView selectAllStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String pageNo = request.getParameter("pageNo");
+		if(pageNo==null || pageNo.equals("")) {
+			pageNo="1";
+		}
+		
 		List<Study> list = service.selectAllStudy();
 
 		request.setAttribute("studyList", list);
