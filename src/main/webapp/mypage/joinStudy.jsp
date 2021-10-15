@@ -25,11 +25,9 @@
 		$(this).val("평가하기");
 		let num = $(this).attr("id");
 		$("#join > tbody >tr:nth-child(" + num + ") > th:nth-child(3) > ul").hide();
-		
 	 });
 	 
 	 $(document).on("click", "img", function(){
-		 //#join > tbody > tr:nth-child(3) > th:nth-child(3) > ul > li:nth-child(5) > img:nth-child(1)
 		 var num = $(this).attr("name");
 		 num = num.split("-");
 		 for(var i = 1; i<= 5; i++){

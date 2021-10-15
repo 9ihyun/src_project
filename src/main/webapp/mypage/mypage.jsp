@@ -24,22 +24,22 @@
     <th>별점</th>
   </tr>
   <tr>
-    <th><input type="text"></th>
-    <th><input type="text"></th>
+    <th><input type="text" readonly="readonly"></th>
+    <th><input type="text" readonly="readonly"></th>
   </tr>
   <tr>
     <th>닉네임</th>
     <th>생년월일</th>
   </tr>
   <tr>
-    <th><input type="text"></th>
-    <th><input type="text"></th>
+    <th><input type="text" readonly="readonly"></th>
+    <th><input type="text" readonly="readonly"></th>
   </tr>
   <tr>
     <th>가입날짜</th>
   </tr>
   <tr>
-    <th><input type="text"></th>
+    <th><input type="text" readonly="readonly"></th>
   </tr>
 </table>
 <input type="button" id="withdraw" value="탈퇴하기">
