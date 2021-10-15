@@ -14,6 +14,7 @@ public class CommentController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println(111);
 		// TODO Auto-generated method stub
 		return null;
 	}
