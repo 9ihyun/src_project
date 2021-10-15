@@ -7,7 +7,7 @@ import kosta.mvc.dto.Post;
 
 
 
-public interface PostDao {
+public interface PostDAO {
 	
 	/**
 	 * 게시글 등록

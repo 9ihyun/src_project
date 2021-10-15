@@ -12,7 +12,7 @@ import kosta.mvc.dto.Post;
 import kosta.mvc.dto.Study;
 import kosta.mvc.util.DbUtil;
 
-public class PostDAOlmpl implements PostDao {
+public class PostDAOlmpl implements PostDAO {
 	Properties proFile = new Properties();
 	
 	public PostDAOlmpl() {
@@ -29,7 +29,7 @@ public class PostDAOlmpl implements PostDao {
 		PreparedStatement ps =null;
 		ResultSet rs =null;
 	
-		String sql="insert into post(post_no, tag_no, board_no, user_id, post_title, post_content) values(post_seq_seq.nextval, ?, ?, ?, ?,?)";
+		String sql="insert into post(post_no, tag_no, board_no, user_id, post_title, post_content) values(post_seq.nextval, ?, ?, ?, ?,?)";
 		Post dbPost=null;
 		try {
 			con=DbUtil.getConnection();
