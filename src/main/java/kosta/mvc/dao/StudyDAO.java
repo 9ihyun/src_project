@@ -15,6 +15,8 @@ public interface StudyDAO {
 	int deleteStudy(int studyNo) throws SQLException;
 
 	List<Study> selectAllStudy() throws SQLException;
+	
+	List<Study> selectAllStudy(int pageNo) throws SQLException;
 
 	Study viewStudy(int studyNo) throws SQLException;
 	

@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.User;
+import kosta.mvc.paging.PageCnt;
 import kosta.mvc.util.DbUtil;
 
 public class StudyDAOImpl implements StudyDAO {
@@ -126,6 +127,69 @@ public class StudyDAOImpl implements StudyDAO {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return studyList;
+	}
+	
+	@Override
+	public List<Study> selectAllStudy(int pageNo) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		List<Study> studyList = new ArrayList<>();
+		String sql = proFile.getProperty("query.pagingSelect"); //where rnum <=? and rnum>=?
+		try {
+			
+			//전체 레코드 수 구하기 
+			int totalCount = this.getSelectTotalCount();
+			
+			int totalPage = totalCount%PageCnt.pagesize==0 ? totalCount/PageCnt.pagesize : (totalCount/PageCnt.pagesize)+1;
+			
+			//총 페이지수 구하기
+			PageCnt pageCnt = new PageCnt();
+			pageCnt.setPageCnt( totalPage ) ;
+			pageCnt.setPageNo(pageNo);//사용자가 클릭한 페이지 번호로 설정
+			
+			
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, pageNo*PageCnt.pagesize); //최대 6 *5
+			ps.setInt(2, (pageNo-1)*PageCnt.pagesize +1); //최소 (6-1)*5+1
+			
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Study study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
+						rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
+						rs.getString(12));
+				
+				studyList.add(study);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return studyList;
+	}
+	
+	/**
+	 * 전체 게시물 개수 가져오기 
+	 * */
+	private int getSelectTotalCount() throws SQLException{
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+	    int result=0;
+		String sql = proFile.getProperty("query.totalCount"); //
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+			   result = rs.getInt(1);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return result;
 	}
 
 	@Override

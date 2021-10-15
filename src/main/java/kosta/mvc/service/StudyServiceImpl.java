@@ -37,6 +37,11 @@ public class StudyServiceImpl implements StudyService {
 	public List<Study> selectAllStudy() throws SQLException {
 		return studyDao.selectAllStudy();
 	}
+	
+	@Override
+	public List<Study> selectAllStudy(int pageNo) throws SQLException {
+		return studyDao.selectAllStudy(pageNo);
+	}
 
 	@Override
 	public Study viewStudy(int studyNo) throws SQLException {
@@ -49,7 +54,6 @@ public class StudyServiceImpl implements StudyService {
 
 	@Override
 	public List<User> getUserList(int studyNo) throws SQLException {
-		// TODO Auto-generated method stub
 		return studyDao.getUserList(studyNo);
 	}
 
