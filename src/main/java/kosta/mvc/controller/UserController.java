@@ -44,7 +44,7 @@ public class UserController implements Controller {
 	 * 별점 평가
 	 * */
 	public ModelAndView starPoint(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = getUserId(request);
+		String id = request.getParameter("id");
 		int point = Integer.parseInt(request.getParameter("point"));
 		
 		userService.starPoint(id, point);

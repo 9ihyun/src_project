@@ -37,6 +37,7 @@ public class ReplyDAOImpl implements ReplyDAO {
 			ps.setInt(1, reply.getPostNo());
 			ps.setString(2, reply.getUserId());
 			ps.setString(3, reply.getpReplyContent());
+			
 
 			result = ps.executeUpdate();
 			
