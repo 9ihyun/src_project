@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Properties;
 
 import kosta.mvc.dto.Study;
+import kosta.mvc.dto.StudyChat;
 import kosta.mvc.util.DbUtil;
 
 public class MyStudyDAOImpl implements MyStudyDAO {
@@ -167,4 +168,12 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		return myStudyList;
 	}
 	
+	/**
+	 * 스터디룸 대화 내용 불러오기
+	 * */
+	@Override
+	public List<StudyChat> viewStudyRoomChat(int studyNo) throws SQLException {
+		
+		return null;
+	}
 }

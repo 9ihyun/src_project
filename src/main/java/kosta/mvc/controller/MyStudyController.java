@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kosta.mvc.dto.Study;
+import kosta.mvc.dto.StudyChat;
 import kosta.mvc.service.MyStudyService;
 import kosta.mvc.service.MyStudyServiceImpl;
 
@@ -63,5 +64,17 @@ public class MyStudyController implements Controller {
 		request.setAttribute("myStudyList", myStudyList);
 		
 		return new ModelAndView(""); //등록한 스터디 페이지
+	}
+	
+	/**
+	 * 스터디룸 대화 내용 불러오기
+	 * */
+	public ModelAndView viewStudyRoomChat(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		
+		List<StudyChat> chatList = myStudyService.viewStudyRoomChat(studyNo);
+		request.setAttribute("chatList", chatList);
+		
+		return new ModelAndView(""); //스터디룸 페이지
 	}
 }
