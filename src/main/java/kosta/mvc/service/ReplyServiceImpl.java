@@ -36,8 +36,7 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public List<PostReply> selectAllReply(int postNo) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return replyDao.selectAllReply(postNo);
 	}
 
 
