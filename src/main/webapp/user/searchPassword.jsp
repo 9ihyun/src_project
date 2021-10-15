@@ -14,7 +14,9 @@
 </head>
 <body>
 	<p>아이디/비밀번호 찾기</p>
-   <form action="userFindServlet" method="post">
+   <form action="${pageContext.request.contextPath}/front" method="post">
+   <input type="hidden" name="key" value = "LoginContoller" /> 
+	<input type="hidden" name="methodName" value = "idPwFind" />
     생년월일: <input type="text" name="birth" placeholder="8자리로 입력하세요." required><br>
     비밀번호 찾기 질문 : 
 	<select name="question" required>
