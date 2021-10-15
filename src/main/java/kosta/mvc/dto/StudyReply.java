@@ -2,6 +2,7 @@ package kosta.mvc.dto;
 
 public class StudyReply {
 	private int sReplyNo;
+	private int studyNo;
 	private String userId;
 	private String sReplyContent;
 	private String sReplyDate;
@@ -10,9 +11,10 @@ public class StudyReply {
 		// TODO Auto-generated constructor stub
 	}
 
-	public StudyReply(int sReplyNo, String userId, String sReplyContent, String sReplyDate) {
+	public StudyReply(int sReplyNo, int studyNo, String userId, String sReplyContent, String sReplyDate) {
 		super();
 		this.sReplyNo = sReplyNo;
+		this.studyNo = studyNo;
 		this.userId = userId;
 		this.sReplyContent = sReplyContent;
 		this.sReplyDate = sReplyDate;

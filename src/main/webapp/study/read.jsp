@@ -55,7 +55,7 @@ function sendDelete(){
 			<p align="right"><b><span style="font-size:9pt;">조회수</span></b></p>
 		</td>
         <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${requestScope.elec.readnum}</b></p>
+			<p><b><span style="font-size:9pt;"></span>${requestScope.Study.studyRegdate}</b></p>
 		</td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@ function sendDelete(){
             <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${requestScope.elec.modelName}</b></span>
+        	<span style="font-size:9pt;"><b>${requestScope.Study.studyTitle}</b></span>
         </td>
     </tr>
     <tr>
@@ -72,14 +72,9 @@ function sendDelete(){
         </td>
 		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
         <td width="450" height="200" valign="top" colspan="3">
-        <span style="font-size:9pt;"><b><pre>${requestScope.elec.description}</pre></b></span></td>
+        <span style="font-size:9pt;"><b><pre>${requestScope.Study.studyContent}</pre></b></span></td>
     </tr>
     
-      <c:if test="${elec.fname!=null}">
-       <tr>
-        
-    </tr>
-    </c:if>
     
     <tr>
     <td width="100" height="20">
@@ -94,8 +89,8 @@ function sendDelete(){
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
 			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
-				<input type=hidden name="modelNum" value="${elec.modelNum}">
-				<input type=hidden name="key" value="elec">
+				<input type=hidden name="studyNo" value="${Study.studyNo}">
+				<input type=hidden name="key" value="Study">
 				<input type=hidden name="methodName" >
 				
 				<input type=button value="수정하기" onClick="sendUpdate()">
@@ -108,12 +103,12 @@ function sendDelete(){
 <hr>
 <h3>Replies 정보</h3>
 <c:choose>
-	<c:when test = "${empty elec.repliesList}">
+	<c:when test = "${empty StudyReply.sReplyNo}">
 		<h5>댓글정보가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
-		<c:forEach items = "${elec.repliesList}" var = "reply">
-			${reply.replyNo} / ${reply.replyContent} /${reply.replyRegDate} /${reply.parentModelNum}<p>
+		<c:forEach items = "${StudyReply.sReplyNo}" var = "reply">
+			${StudyReply.sReplyNo} / ${StudyReply.sReplyContent} /${StudyReply.sReplyDate} /${StudyReply.studyNo}<p>
 		</c:forEach>
 	</c:otherwise>
 </c:choose>
