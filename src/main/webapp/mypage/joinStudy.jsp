@@ -10,8 +10,9 @@
 <style type="text/css">
 
 </style>
+<script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-
+  
 </script>
 </head>
 <body>
@@ -39,7 +40,7 @@
     <th>프론트 모집합니다</th>
     <th>5/5</th>
     <th>경기</th>
-    <th><input type="button" value="이동"></th>
+    <th><a href="studyRoom.jsp">이동</a></th>
   </tr>
   <tr>
     <th>스터디종료</th>
