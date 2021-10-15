@@ -27,7 +27,7 @@ public interface MyStudyService {
 	public void putSignStudy(String id, int studyNo) throws SQLException;
 	
 	/**
-	 * 내가 모집한 스터디 보기
+	 * 내가 등록한 스터디 보기
 	 * */
 	public List<Study> viewMyStudy(String id) throws SQLException;
 }

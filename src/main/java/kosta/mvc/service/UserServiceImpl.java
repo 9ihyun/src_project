@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void starPoint(String id, int point) throws SQLException {
 		if(userDAO.starPoint(id, point) == 0)
-			throw new SQLException(id + "님의 별점을 평가했습니다.");
+			throw new SQLException(id + "님의 별점을 평가하는데 실패했습니다.");
 	}
 
 	/**

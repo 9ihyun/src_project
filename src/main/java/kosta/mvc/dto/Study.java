@@ -15,6 +15,8 @@ public class Study {
 	private String studyContent;
 	private String studyRegdate;
 	
+	private int signStateNo;
+	
 	public Study() {
 		// TODO Auto-generated constructor stub
 	}
@@ -142,8 +144,13 @@ public class Study {
 	public void setDayNo(int dayNo) {
 		this.dayNo = dayNo;
 	}
-	
-	
-	
+
+	public int getSignStateNo() {
+		return signStateNo;
+	}
+
+	public void setSignStateNo(int signStateNo) {
+		this.signStateNo = signStateNo;
+	}	
 
 }
