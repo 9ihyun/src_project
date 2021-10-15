@@ -7,25 +7,20 @@
 
 <SCRIPT >
 function checkValid() {
-	var f = window.document.updateForm;
-	if ( f.modelName.value == "" ) {
+	var f = window.document.updateStudy;
+	if ( f.studyTitle.value == "" ) {
 		alert( "제목을 입력해 주세요." );
-		f.modelName.focus();
+		f.studyTitle.focus();
 		return false;
 	}
-	if ( f.price.value == "" ) {
-		alert( "가격을 입력해 주세요." );
-		f.price.focus();
+	if ( f.studyMaxnum.value == "" ) {
+		alert( "정원을 입력해 주세요." );
+		f.studyMaxnum.focus();
 		return false;
 	}
-	if ( f.description.value == "" ) {
+	if ( f.studyMaxnum.value == "" ) {
         alert( "설명을 입력해 주세요." );
-        f.description.focus();
-        return false;
-    }
-	if ( f.password.value == "" ) {
-        alert( "비밀번호를 입력해 주세요" );
-        f.password.focus();
+        f.studyMaxnum.focus();
         return false;
     }
 	
