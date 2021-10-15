@@ -9,17 +9,34 @@ import kosta.mvc.dto.Post;
 
 public interface PostDao {
 	
-	
+	/**
+	 * 게시글 등록
+	 */
 	Post postInsert(Post post) throws SQLException;
-
+	
+	/**
+	 * 게시글 수정
+	 */
 	Post postUpdate(Post post) throws SQLException;
 
+	/**
+	 * 게시글 삭제
+	 */
 	int postDelete(int postNo) throws SQLException;
-
+	
+	/**
+	 * 게시글 리스트
+	 */
 	List<Post> selectAllPost() throws SQLException;
 
-	Post Postview(int postNo) throws SQLException;
+	/**
+	 * 게시글 상세보기
+	 */
+	Post postView(int postNo) throws SQLException;
 	
+	/**
+	 * 게시글 좋아요(따봉)
+	 */
 	List<Post> postLike(int postNo) throws SQLException;
 
 }

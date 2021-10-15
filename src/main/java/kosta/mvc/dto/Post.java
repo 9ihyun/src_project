@@ -10,19 +10,35 @@ public class Post {
 	private String postContent;
 	private int postUp;
 	
-	public Post() {}	
+	public Post(int postNo) {
+		this.postNo=postNo;	
+	}
+	public Post(int postNo, int tagNo, int boardNo, String postTitle, String postContent) {
+		this.postNo=postNo;
+		this.tagNo=tagNo;
+		this.boardNo=boardNo;
+		this.postTitle=postTitle;
+		this.postContent=postContent;
+		
+	}
+	
+	public Post(int postNo, int tagNo, int boardNo, String userId, String postTitle, String postContent) {
+		this.postNo=postNo;
+		this.tagNo=tagNo;
+		this.boardNo=boardNo;
+		this.userId=userId;
+		this.postTitle=postTitle;
+		this.postContent=postContent;
+		
+	}
+	
 	public Post(int postNo, int tagNo, int boardNo, String userId, String postTitle, String postDate,
 			String postContent, int postUp) {
-		this.postNo = postNo;
-		this.tagNo = tagNo;
-		this.boardNo = boardNo;
-		this.userId = userId;
-		this.postTitle = postTitle;
+		this(postNo, tagNo, boardNo, userId, postTitle, postContent);
 		this.postDate = postDate;
-		this.postContent = postContent;
-		this.postUp = postUp;
+		this.postUp=postUp;
 	}
-
+	
 	public int getPostNo() {
 		return postNo;
 	}
