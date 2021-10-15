@@ -34,7 +34,7 @@
 		$('#id').blur(function(){
 			$.ajax({
 				type: "POST",
-				url: "idCheck",
+				url: "${pageContext.request.contextPath}/duplicationCheck",
 				data: {
 					"id" : $('#id').val()
 				},
@@ -57,7 +57,7 @@
 		$('#nickname').blur(function(){
 			$.ajax({
 				type: "POST",
-				url: "nicknameCheck",
+				url: "${pageContext.request.contextPath}/duplicationCheck",
 				data: {
 					"nickname" : $('#nickname').val()
 				},
