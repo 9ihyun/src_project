@@ -33,7 +33,25 @@
     <th>지역</th>
     <th>신청자수</th>
     <th>신청취소</th>
-  </tr>  
+  </tr>
+  <tr>
+    <th>모집중</th>
+    <th>10/6</th>
+    <th>프론트 모집합니다</th>
+    <th>1/5</th>
+    <th>경기</th>
+    <th>6</th>
+    <th><input type="button" value="신청취소"></th>
+    </tr>
+  <tr>
+    <th>모집완료</th>
+    <th>9/10</th>
+    <th>토이프로젝트</th>
+    <th>5/5</th>
+    <th>경기</th>
+    <th>12</th>
+    <th><input type="button" value="신청취소"></th>
+  </tr>
 </table>
 
 </body>

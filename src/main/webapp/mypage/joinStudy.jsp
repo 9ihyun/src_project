@@ -10,8 +10,9 @@
 <style type="text/css">
 
 </style>
+<script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-
+  
 </script>
 </head>
 <body>
@@ -32,6 +33,22 @@
     <th>정원</th>
     <th>지역</th>
     <th>스터디룸/평가</th>
+  </tr>
+  <tr>
+    <th>진행중</th>
+    <th>9/23</th>
+    <th>프론트 모집합니다</th>
+    <th>5/5</th>
+    <th>경기</th>
+    <th><a href="studyRoom.jsp">이동</a></th>
+  </tr>
+  <tr>
+    <th>스터디종료</th>
+    <th>8/8</th>
+    <th>벡엔드</th>
+    <th>7/7</th>
+    <th>서울</th>
+    <th><input type="button" value="평가하기"></th>
   </tr>
 </table>
 

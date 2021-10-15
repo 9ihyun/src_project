@@ -31,8 +31,4 @@ public interface ReplyService {
 	 */
 	public List<PostReply> selectAllReply(int postNo) throws SQLException;
 	
-	/**
-	 * 댓글 좋아요
-	 */
-	public void likeReply(int replyNo) throws SQLException;
 }

@@ -26,9 +26,5 @@ public interface ReplyDAO {
 	 * 댓글 리스트 가져오기 
 	 */
 	List<PostReply> selectAllReply(int postNo) throws SQLException;
-	
-	/**
-	 * 댓글 좋아요
-	 */
-	int likeReply(int replyNo) throws SQLException;
+
 }
