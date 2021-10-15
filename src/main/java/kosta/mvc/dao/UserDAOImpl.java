@@ -208,4 +208,63 @@ public class UserDAOImpl implements UserDAO {
 		return result;
 	}
 
+	/**
+	 * 아이디 중복 확인
+	 * */
+	@Override
+	public boolean idCheck(String id) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("user.idCheck");
+		boolean result = false;
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+					result = true;
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 닉네임 중복 확인
+	 * */
+	@Override
+	public boolean nicknameCheck(String nickname) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("user.nicknameCheck");
+		boolean result = false;
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, nickname);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+					result = true;
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		return result;
+	}
 }

@@ -29,4 +29,14 @@ public interface UserDAO {
 	 * 회원 탈퇴
 	 * */
 	public int delete(String id) throws SQLException;
+	
+	/**
+	 * 아이디 중복 확인
+	 * */
+	public boolean idCheck(String id);
+	
+	/**
+	 * 닉네임 중복 확인
+	 * */
+	public boolean nicknameCheck(String nickname);
 }
