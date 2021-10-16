@@ -173,7 +173,27 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	 * */
 	@Override
 	public List<StudyChat> viewStudyRoomChat(int studyNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("myStudy.viewStudyRoomChat");
+		List<StudyChat> chatList = new ArrayList<StudyChat>();
 		
-		return null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				StudyChat studychat = new StudyChat(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
+				chatList.add(studychat);
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		return chatList;
 	}
 }
