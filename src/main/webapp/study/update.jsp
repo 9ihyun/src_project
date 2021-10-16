@@ -35,9 +35,9 @@ function checkValid() {
 
 
 <form name=updateForm method=post action="${path}/front" onSubmit="return checkValid()">
-    <input type="hidden" name="key" value="elec" >
-    <input type="hidden" name="methodName" value="update" >
-    <input type='hidden' name='modelNum' value="${elec.modelNum}">
+    <input type="hidden" name="key" value="StudyController" >
+    <input type="hidden" name="methodName" value="updateStudy" >
+    <input type='hidden' name='modelNum' value="${Study.studyNo}">
 	<table align="center" cellpadding="5" cellspacing="1" width="600" border="1">
     <tr>
         <td width="1220" height="20" colspan="2" bgcolor="#00cc00">
@@ -49,16 +49,16 @@ function checkValid() {
             <p align="right"><b><span style="font-size:9pt;">모델이름</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<input type=text name="modelName" size="30"
-		 value="${elec.modelName}"></span></b></td>
+		<input type=text name="studyTitle" size="30"
+		 value="${Study.studyTitle}"></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">
             <p align="right"><b><span style="font-size:9pt;">가격</span></b></p>
         </td>
         <td width="450" height="20" ><b><span style="font-size:9pt;">
-		<input type=text name="price" size="30"
-		 value="${elec.price}"></span></b></td>
+		<input type=text name="studyMaxnum" size="30"
+		 value="${Study.studyMaxnum}"></span></b></td>
     </tr>
     
     <tr>
@@ -66,7 +66,7 @@ function checkValid() {
             <p align="right"><b><span style="font-size:9pt;">내 용</span></b></p>
         </td>
         <td width="450" height="20" ><b><span style="font-size:9pt;">
-		<textarea name="description" cols="50" rows="10">${elec.description}</textarea></span></b></td>
+		<textarea name="description" cols="50" rows="10">${Study.studyContent}</textarea></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20" >

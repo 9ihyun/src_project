@@ -6,26 +6,26 @@
 
 <SCRIPT language=javascript>
 function checkValid() {
-    var f = window.document.writeForm;
+    var f = window.document.insertStudy;
 		
-	if ( f.model_num.value == "") {
+	if ( f.stateNo.value == "") {
 	    alert( "모집여부를 입력해 주세요." );
-	    f.model_num.focus();
+	    f.stateNo.focus();
 		return false;
     }
-	if ( f.model_name.value == "" ) {
+	if ( f.studyTitle.value == "" ) {
 		alert( "제목을 입력해 주세요." );
-		f.model_name.focus();
+		f.studyTitle.focus();
 		return false;
 	}
-	if ( f.price.value == "" ) {
+	if ( f.studyMaxnum.value == "" ) {
 		alert( "정원을 입력해 주세요." );
-		f.price.focus();
+		f.studyMaxnum.focus();
 		return false;
 	}
-	if ( f.description.value == "" ) {
+	if ( f.studyContent.value == "" ) {
         alert( "설명을 입력해 주세요." );
-        f.description.focus();
+        f.studyContent.focus();
         return false;
     }
 	if ( f.password.value == "" ) {
@@ -42,7 +42,7 @@ function checkValid() {
 </HEAD>
 <BODY>
 
-<form name="writeForm" method="post" action="${path}/front?key=elec&methodName=insert" 
+<form name="writeForm" method="post" action="${path}/front?key=StudyDAOImpl&methodName=insertStudy" 
   onSubmit='return checkValid()' enctype="multipart/form-data">
 <!-- 
      아래 문장으로 전송하면 post방식으로 전송이되고 현재 파일업로드때문에 enctype="multipart/form-data" 설정되어 있기때문에 
@@ -57,7 +57,7 @@ function checkValid() {
 
     <tr>
         <td width="1220" height="20" colspan="2" bgcolor="#00cc00">
-            <p align="center"><font color="white" size="3"><b> 상품 등록 </b></font></p>
+            <p align="center"><font color="white" size="3"><b> 스터디 등록 </b></font></p>
         </td>
     </tr>
     <tr>
@@ -65,14 +65,14 @@ function checkValid() {
             <p align="right"><b><span style="font-size:9pt;">모집여부</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<input type=text name="model_num" size="30"></span></b></td>
+		<input type=text name="stateNo" size="30"></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">
             <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20" ><b><span style="font-size:9pt;">
-		<input type=text name="price" size="50"></span></b></td>
+		<input type=text name="studyTitle" size="50"></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">
@@ -99,7 +99,7 @@ function checkValid() {
             <p align="right"><b><span style="font-size:9pt;">설명</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<textarea name="description" cols="50" rows="10"></textarea></span></b></td>
+		<textarea name="studyContent" cols="50" rows="10"></textarea></span></b></td>
     </tr>
     
     
