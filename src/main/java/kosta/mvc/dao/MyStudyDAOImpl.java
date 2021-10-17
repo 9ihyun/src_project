@@ -196,4 +196,31 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		
 		return chatList;
 	}
+	
+	/**
+	 * 스터디룸 대화 내용 입력
+	 * */
+	@Override
+	public int putStudyRoomChat(StudyChat chat) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String sql = proFile.getProperty("myStudy.putStudyRoomChat");
+		int result = 0;
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, chat.getStudyNo());
+			ps.setString(2, chat.getNickname());
+			ps.setString(3, chat.getChatContent());
+			result = ps.executeUpdate();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		
+		return result;
+	}
 }

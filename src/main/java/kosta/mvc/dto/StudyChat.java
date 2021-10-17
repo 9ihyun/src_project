@@ -8,11 +8,14 @@ public class StudyChat {
 	private String chatDate;
 	
 	public StudyChat() {}
-	public StudyChat(int chatNo, int studyNo, String nickname, String chatContent, String chatDate) {
-		this.chatNo = chatNo;
+	public StudyChat(int studyNo, String nickname, String chatContent) {
 		this.studyNo = studyNo;
 		this.nickname = nickname;
 		this.chatContent = chatContent;
+	}
+	public StudyChat(int chatNo, int studyNo, String nickname, String chatContent, String chatDate) {
+		this(studyNo, nickname, chatContent);
+		this.chatNo = chatNo;		
 		this.chatDate = chatDate;
 	}
 	

@@ -36,4 +36,9 @@ public interface MyStudyDAO {
 	 * 스터디룸 대화 내용 불러오기
 	 * */
 	public List<StudyChat> viewStudyRoomChat(int studyNo) throws SQLException;
+	
+	/**
+	 * 스터디룸 대화 내용 입력
+	 * */
+	public int putStudyRoomChat(StudyChat chat);
 }
