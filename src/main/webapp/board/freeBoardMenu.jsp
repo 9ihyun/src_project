@@ -1,54 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>자유게시판</title>
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
-<style type="text/css">
-  iframe{
-    width: 500px; height: 500px
-  }
-</style>
-<script type="text/javascript">
 
+<ul>
+	<li><a href="../study/list.jsp" target="board"> 스터디 </a></li> &nbsp;&nbsp;
+	<li><a href="freeBoardWrite.jsp" target="board"> 자유게시판</a></li> &nbsp;&nbsp;
+	<li><a href="#"target = "board"> 지식 정보 공유 게시판 </a></li> &nbsp;&nbsp;
+	<li><a href="#"target = "board"> 알쓸신술 </a></li>
+</ul>
 
-$(function(){
-	 $("#mypage").click(function(){
-		 parent.location.href = "mypageMain.jsp"
-	 }); 
- });
-
-</script>
-</head>
-<body>
-
-<ol>
- <li><a href="#" target=""> 스터디 </a></li><p>
-      <li><a href="freeBoardMenu.jsp" target=""> 자유게시판</a></li><p>
-      <li><a href="#"target = ""> 지식 정보 공유 게시판 </a></li><p>
-      <li><a href="#"> 알쓸신술 </a></li><p>
-    </ul>
-</ol>
-
-<table>
-  <tr><a href="#" id="mypage">마이페이지</a></tr>&nbsp;
-  <tr><a href="${pageContext.request.contextPath}/front?key=user&methodName=logout">로그아웃</a></tr>
-</table>
-
-</body>
-</html>
+<div>
+	<a href="../mypage/mypageMain.jsp">마이페이지</a>&nbsp;
+	<a href="${pageContext.request.contextPath}/front?key=user&methodName=logout">로그아웃</a>
+</div>
 
 
 
-
-
-
-
-
-</head>
-<body>
-
-</body>
-</html>
