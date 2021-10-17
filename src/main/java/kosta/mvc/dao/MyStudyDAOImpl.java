@@ -141,16 +141,50 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	 * 스터디 신청 상태 변경
 	 * */
 	@Override
-	public int changeSignState(String id, int studyNo) {
-		return 0;
+	public int changeSignState(String id, int studyNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String sql = proFile.getProperty("myStudy.changeSignState");
+		int result = 0;
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setInt(2, studyNo);
+			result = ps.executeUpdate();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		
+		return result;
 	}
 	
 	/**
 	 * 스터디 신청 삭제
 	 * */
 	@Override
-	public int removeSignStudy(String id, int studyNo) {
-		return 0;
+	public int removeSignStudy(String id, int studyNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String sql = proFile.getProperty("myStudy.removeSignStudy");
+		int result = 0;
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setInt(2, studyNo);
+			result = ps.executeUpdate();
+			
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		
+		return result;
 	}
 	
 	/**

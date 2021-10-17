@@ -30,12 +30,12 @@ public interface MyStudyDAO {
 	/**
 	 * 스터디 신청 상태 변경
 	 * */
-	public int changeSignState(String id, int studyNo);
+	public int changeSignState(String id, int studyNo) throws SQLException;
 	
 	/**
 	 * 스터디 신청 삭제
 	 * */
-	public int removeSignStudy(String id, int studyNo);
+	public int removeSignStudy(String id, int studyNo) throws SQLException;
 	
 	/**
 	 * 내가 등록한 스터디 보기
