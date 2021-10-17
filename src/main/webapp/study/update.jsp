@@ -46,7 +46,7 @@ function checkValid() {
     </tr>
     <tr>
         <td width="150" height="20">
-            <p align="right"><b><span style="font-size:9pt;">모델이름</span></b></p>
+            <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
 		<input type=text name="studyTitle" size="30"
@@ -54,7 +54,7 @@ function checkValid() {
     </tr>
     <tr>
         <td width="150" height="20">
-            <p align="right"><b><span style="font-size:9pt;">가격</span></b></p>
+            <p align="right"><b><span style="font-size:9pt;">정원</span></b></p>
         </td>
         <td width="450" height="20" ><b><span style="font-size:9pt;">
 		<input type=text name="studyMaxnum" size="30"
