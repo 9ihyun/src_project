@@ -14,13 +14,19 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 
+$(function(){
+	 $("#cancel").click(function(){
+		 parent.location.href = "freeBoardMain.jsp"
+	 }); 
+ });
+
 </script>
 
 </head>
 <body>
-<form name="writeForm" method="post" action="${path}/front?key=StudyDAOImpl&methodName=insertStudy" 
+<!-- <form name="writeForm" method="post" action="${path}/front?key=StudyDAOImpl&methodName=insertStudy" 
   onSubmit='return checkValid()' enctype="multipart/form-data">
-<!-- 
+
      아래 문장으로 전송하면 post방식으로 전송이되고 현재 파일업로드때문에 enctype="multipart/form-data" 설정되어 있기때문에 
      request로 값을 받을수가 없다. ( MulitpartRequest로 받아야한다.) 그런데 Controller로 가기전에 Controller를 찾기위해서 
      DispatherServlet에서 request로 두개의 값을 받고 있기때문에 key, methodName은 get방식으로 별도로 전송해야한다.
@@ -74,13 +80,13 @@
     </tr>
     <tr>
         <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;"><input type=submit value=등록하기>
-        <input type=submit  value=취소하기 > 
+        <input type=submit id="cancel" value=취소하기 > 
     </tr>
 </table>
 
 </form>
 
-<hr>
+
 <!-- <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div> -->
 
 
