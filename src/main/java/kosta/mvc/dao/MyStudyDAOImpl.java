@@ -136,7 +136,23 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		
 		return result;
 	}
-
+	
+	/**
+	 * 스터디 신청 상태 변경
+	 * */
+	@Override
+	public int changeSignState(String id, int studyNo) {
+		return 0;
+	}
+	
+	/**
+	 * 스터디 신청 삭제
+	 * */
+	@Override
+	public int removeSignStudy(String id, int studyNo) {
+		return 0;
+	}
+	
 	/**
 	 * 내가 등록한 스터디 보기
 	 * */
