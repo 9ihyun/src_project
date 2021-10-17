@@ -26,7 +26,7 @@ $(function(){
 
 <ol>
  <li><a href="#" target=""> 스터디 </a></li><p>
-      <li><a href="#" target=""> 자유게시판</a></li><p>
+      <li><a href="freeBoardMenu.jsp" target=""> 자유게시판</a></li><p>
       <li><a href="#"target = ""> 지식 정보 공유 게시판 </a></li><p>
       <li><a href="#"> 알쓸신술 </a></li><p>
     </ul>

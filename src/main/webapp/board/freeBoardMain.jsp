@@ -8,9 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../CSS/mypageStyle.css">
 <style type="text/css">
-  iframe{
-    width: 500px; height: 500px
-  }
+
 </style>
 <script type="text/javascript">
 
@@ -19,8 +17,8 @@
 <body>
 <table>
   <tr>
-    <th><iframe src="freeBoardMenu.jsp" name="#"></iframe></th>
-    <th><iframe src="freeBoardWrite.jsp" name="page"></iframe></th>
+    <th><iframe src="freeBoardMenu.jsp" height="600" width="300" name="page"></iframe></th>
+    <th><iframe src="freeBoardWrite.jsp"height="600" width="800" name="page"></iframe></th>
   </tr>
 </table>
 </body>

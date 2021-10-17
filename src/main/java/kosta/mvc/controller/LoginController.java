@@ -34,7 +34,7 @@ public class LoginController implements Controller {
 		session.setAttribute("nickname", nickname);
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName(""); //메인페이지 기입
+		mv.setViewName("user/singin.jsp"); //메인페이지 기입
 		mv.setRedirect(true);
 		
 		return mv;
