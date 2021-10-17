@@ -1,0 +1,42 @@
+package kosta.mvc.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import kosta.mvc.dao.MyStudyDAOImpl;
+import kosta.mvc.dao.StudyDAOImpl;
+import kosta.mvc.dto.User;
+
+
+/**
+ * 스터디 신청이 수락되면 신청 상태를 변경해주는 서블릿
+ */
+@WebServlet("/changeSignState")
+public class ChangeSignStateServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		
+		String id = request.getParameter("id");
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		
+		if(new MyStudyDAOImpl().changeSignState(id, studyNo) != 0) {
+			List<User> userList = new StudyDAOImpl().getUserList(studyNo);
+			
+			JSONArray arr = JSONArray.fromObject(userList);
+
+			PrintWriter out = response.getWriter();
+			out.print(arr);
+		}
+		
+	}
+
+}

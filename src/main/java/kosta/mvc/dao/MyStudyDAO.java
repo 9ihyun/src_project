@@ -28,6 +28,16 @@ public interface MyStudyDAO {
 	public int putSignStudy(String id, int studyNo);
 	
 	/**
+	 * 스터디 신청 상태 변경
+	 * */
+	public int changeSignState(String id, int studyNo);
+	
+	/**
+	 * 스터디 신청 삭제
+	 * */
+	public int removeSignStudy(String id, int studyNo);
+	
+	/**
 	 * 내가 등록한 스터디 보기
 	 * */
 	public List<Study> viewMyStudy(String id) throws SQLException;
