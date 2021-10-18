@@ -17,8 +17,8 @@
     <form class="form1">
       <input class="un " type="text" align="center" placeholder="id">
       <input class="pass" type="password" align="center" placeholder="Password">
-      <a class="submit" align="center">접속하기!</a>
-      <p class="forgot" align="center"><a href="#">비밀번호 찾기</p>
+      <a href="${pageContext.request.contextPath}/front?key=login&methodName=login" align="center">접속하기!</a>
+      <p class="forgot" align="center"><a href="searchPassword.jsp">비밀번호 찾기</p>
       <p class="signup" align="center"><a href="memberInput.jsp">회원가입</p>
       </form>
             
