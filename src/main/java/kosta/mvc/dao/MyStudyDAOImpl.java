@@ -236,8 +236,9 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				StudyChat studychat = new StudyChat(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
-				chatList.add(studychat);
+				StudyChat chat = new StudyChat(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
+				chat.setNickname(new UserDAOImpl().myInfo(rs.getString(3)).getNickname());
+				chatList.add(chat);
 			}
 			
 		}finally {
@@ -261,7 +262,7 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, chat.getStudyNo());
-			ps.setString(2, chat.getNickname());
+			ps.setString(2, chat.getId());
 			ps.setString(3, chat.getChatContent());
 			result = ps.executeUpdate();
 			

@@ -12,9 +12,14 @@
 </style>
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-  $(document).on("click", "#withdraw", function(){
-	 confirm("정말 탈퇴하시겠습니까?");
+  $(function(){
+	  location.href="../front?key=user&methodName=myInfo"
+	  
+	  $(document).on("click", "#withdraw", function(){
+		 confirm("정말 탈퇴하시겠습니까?");
+	  });
   });
+  
 </script>
 </head>
 <body>

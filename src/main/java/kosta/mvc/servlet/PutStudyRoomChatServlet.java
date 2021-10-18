@@ -22,11 +22,11 @@ public class PutStudyRoomChatServlet extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String nickname = (String)session.getAttribute("nickname");
+		String id = (String)session.getAttribute("id");
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		String chatContent = request.getParameter("chatContent");
 		
-		int result = new MyStudyDAOImpl().putStudyRoomChat(new StudyChat(studyNo, nickname, chatContent));
+		int result = new MyStudyDAOImpl().putStudyRoomChat(new StudyChat(studyNo, id, chatContent));
 		
 		PrintWriter out = response.getWriter();
 		out.print(result);
