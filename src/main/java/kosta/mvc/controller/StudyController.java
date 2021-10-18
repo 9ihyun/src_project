@@ -56,7 +56,7 @@ public class StudyController implements Controller {
 		
 		service.insertStudy(study);
 
-		return new ModelAndView("", true); //이동 위치 
+		return new ModelAndView("study/read.jsp", true); //이동 위치 
 	}
 
 	/**
@@ -81,8 +81,10 @@ public class StudyController implements Controller {
 		
 		service.updateStudy(study);
 		
+		Study dbStudy = service.viewStudy(studyNo);
 		
-		return null;
+		request.setAttribute("study", dbStudy);
+		return new ModelAndView("study/read.jsp");
 	}
 
 	/**
@@ -94,7 +96,7 @@ public class StudyController implements Controller {
 
 		service.deleteStudy(studyNo, userId);
 		
-		return new ModelAndView("", true); //이동 위치
+		return new ModelAndView("study/list.jsp", true); //이동 위치
 	}
 
 	/**
@@ -109,7 +111,9 @@ public class StudyController implements Controller {
 		List<Study> list = service.selectAllStudy();
 
 		request.setAttribute("studyList", list);
-		return new ModelAndView(""); //이동 위치
+		request.setAttribute("pageNo", pageNo);
+
+		return new ModelAndView("study/list.jsp"); //이동 위치
 	}
 
 	/**
@@ -120,7 +124,7 @@ public class StudyController implements Controller {
 		Study study = service.viewStudy(studyNo);
 		
 		request.setAttribute("study", study);
-		return new ModelAndView("");//이동 위치
+		return new ModelAndView("study/read.jsp");//이동 위치
 	}
 
 	/**
