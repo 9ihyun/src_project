@@ -240,4 +240,28 @@ public class StudyDAOImpl implements StudyDAO {
 		return userList;
 	}
 
+	/**
+	 * 게시물 작성자의 아이디를 가져오는 메서드
+	 */
+	public String getDBUserId(int studyNo) throws SQLException{
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		String id = null;
+		String sql = proFile.getProperty("study.getDBUserId");
+		//select user_id from study where study_no = ?
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+			
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				id = rs.getString(1);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return id;
+	}
 }
