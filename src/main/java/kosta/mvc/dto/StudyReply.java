@@ -10,13 +10,16 @@ public class StudyReply {
 	public StudyReply() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public StudyReply(int sReplyNo, int studyNo, String userId, String sReplyContent, String sReplyDate) {
-		super();
-		this.sReplyNo = sReplyNo;
+	
+	public StudyReply(int studyNo, String userId, String sReplyContent) {
 		this.studyNo = studyNo;
 		this.userId = userId;
 		this.sReplyContent = sReplyContent;
+	}
+
+	public StudyReply(int sReplyNo, int studyNo, String userId, String sReplyContent, String sReplyDate) {
+		this(studyNo, userId, sReplyContent);
+		this.sReplyNo = sReplyNo;
 		this.sReplyDate = sReplyDate;
 	}
 
@@ -50,6 +53,14 @@ public class StudyReply {
 
 	public void setsReplyDate(String sReplyDate) {
 		this.sReplyDate = sReplyDate;
+	}
+
+	public int getStudyNo() {
+		return studyNo;
+	}
+
+	public void setStudyNo(int studyNo) {
+		this.studyNo = studyNo;
 	}
 	
 	
