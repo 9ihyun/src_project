@@ -9,12 +9,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 public class DbUtil {
 
 	private static Properties proFile = new Properties();
 
 	public static Properties getProFile() {
 		return proFile;
+	}
+	static DataSource ds;
+	static {
+		try {
+		  Context initContext = new InitialContext();
+		  ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/myoracle");
+		  
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	//로드
 	static {
@@ -26,7 +40,12 @@ public class DbUtil {
 			e.printStackTrace();
 		}
 	}
-	//연결 
+//	//front 연결할때 
+//	public static Connection getConnection() throws SQLException{
+//		return  ds.getConnection();
+//	} 
+	
+	//back 연결할때
 	public static Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(proFile.getProperty("url"), proFile.getProperty("userName"),
 				proFile.getProperty("userPass"));
