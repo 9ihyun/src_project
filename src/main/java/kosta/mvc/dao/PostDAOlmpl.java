@@ -123,6 +123,7 @@ public class PostDAOlmpl implements PostDAO {
 		}
 		return postList;
 	}
+
 	
 
 	@Override
