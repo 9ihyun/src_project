@@ -24,7 +24,7 @@ public interface StudyService {
 	/**
 	 * 스터디 게시물 삭제
 	 */
-	public void deleteStudy(int studyNo) throws SQLException;
+	public void deleteStudy(int studyNo, String userId) throws SQLException;
 
 	/**
 	 * 스터디 게시물 리스트 가져오기

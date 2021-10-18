@@ -20,6 +20,11 @@ public class StudyServiceImpl implements StudyService {
 
 	@Override
 	public void updateStudy(Study study) throws SQLException {
+		String dbId = studyDao.getDBUserId(study.getStudyNo());
+		if(!dbId.equals(study.getUserId())) {
+			throw new SQLException("본인이 작성한 스터디만 수정할 수 있습니다.");
+		}
+		
 		if (studyDao.updateStudy(study) == 0) {
 			throw new SQLException("스터디가 수정되지 않았습니다");
 		}
@@ -27,7 +32,12 @@ public class StudyServiceImpl implements StudyService {
 	}
 
 	@Override
-	public void deleteStudy(int studyNo) throws SQLException {
+	public void deleteStudy(int studyNo, String userId) throws SQLException {
+		String dbId = studyDao.getDBUserId(studyNo);
+		if(!dbId.equals(userId)) {
+			throw new SQLException("본인이 작성한 스터디만 삭제할 수 있습니다.");
+		}
+		
 		if( studyDao.deleteStudy(studyNo)==0)
 			throw new SQLException("스터디가 삭제되지 않았습니다");
 

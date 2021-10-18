@@ -90,8 +90,9 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView deleteStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-		
-		service.deleteStudy(studyNo);
+		String userId = getUserId(request);
+
+		service.deleteStudy(studyNo, userId);
 		
 		return new ModelAndView("", true); //이동 위치
 	}

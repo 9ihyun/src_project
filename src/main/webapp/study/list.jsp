@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <link rel="stylesheet" href="${path}/css/style.css">
+
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
 

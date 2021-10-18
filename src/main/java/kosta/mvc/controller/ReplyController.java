@@ -72,8 +72,9 @@ public class ReplyController implements Controller {
 	 */
 	public ModelAndView deleteReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int pReplyNo = Integer.parseInt(request.getParameter("pReplyNo"));
+		String userId = getUserId(request);
 
-		service.deleteReply(pReplyNo);
+		service.deleteReply(pReplyNo, userId);
 		return null;
 	}
 	
