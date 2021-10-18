@@ -14,12 +14,14 @@
 <body>
   <div class="main">
     <p class="sign" align="center">LogIn</p>
-    <form class="form1">
-      <input class="un " type="text" align="center" name="userId" placeholder="id">
-      <input class="pass" type="password" align="center" name="pw" placeholder="Password">
-      <a href="${pageContext.request.contextPath}/front?key=login&methodName=login" align="center">접속하기!</a>
-      <p class="forgot" align="center"><a href="searchPassword.jsp">비밀번호 찾기</a></p>
-      <p class="signup" align="center"><a href="memberInput.jsp">회원가입</a></p>
+    <form class="form1" action = "${pageContext.request.contextPath}/front" align="center">
+      <input class="un " type="text" name="userId" placeholder="id">
+      <input class="pass" type="password" name="pw" placeholder="Password">
+      <input type = hidden name = "key" value = "login">
+      <input type = hidden name = "methodName" value = "login"> 
+      <input type = "submit" value="접속하기" ><br>
+	  <a href = "searchPassword.jsp">비밀번호 찾기</a>
+	  <a href = "memberInput.jsp">회원가입</a>    
       </form>
             
                 
