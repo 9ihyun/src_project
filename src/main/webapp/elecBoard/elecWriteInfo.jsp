@@ -28,36 +28,30 @@
 
 function cancel(){ //취소하기 눌렀을때
 	if(confirm("취소하시겠습니까?") == true){
-		parent.location.href = "freeBoardMain.jsp";
+		parent.location.href = "elecBoardMain.jsp";
 	 }
 }
 
 function checkValid(frm){
 	
-	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+	if(frm.elecTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
 		alert("제목을 입력해주세요.");
-		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+		frm.elecTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
 		return false;
 	}
 	
-	if(frm.userId.value == ""){
-		alert("작성자를 입력해주세요.");
-		frm.userId.focus();
-		return false;
-	}
 	
-	if(frm.postContent.value == ""){
+	if(frm.elecContent.value == ""){
 		alert("내용을 입력해주세요.");
-		frm.postContent.focus();
+		frm.elecContent.focus();
 		return false;
 	}
 	
-	if(frm.password.value == ""){
+	if(frm.elecPassword.value == ""){
 		alert("패스워드를 입력해주세요.");
-		frm.password.focus();
+		frm.elecPassword.focus();
 		return false;
 	}
-	
 	
 	
 	if(confirm("등록하시겠습니까?") == true){
@@ -93,24 +87,15 @@ function checkValid(frm){
             <p align="center"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20" ><b><span style="font-size:9pt;">
-		<input type=text name="postTitle" id="postTitle" size="50"></span></b></td>
+		<input type=text name="elecTitle" id="elecTitle" size="50"></span></b></td>
     </tr>
-     <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">작성자</span></b></p>
-        </td>
-         <td width="450" height="20">
-        	<b><span style="font-size:9pt;">
-        		<input type="text" name="userId" id="userId" size="12">
-        	   </span></b>
-        </td>
-    </tr>
+
     <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;"> 내용</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<textarea name="postContent" id="postContent" cols="50" rows="10"></textarea></span></b></td>
+		<textarea name="elecContent" id="elecContent" cols="50" rows="10"></textarea></span></b></td>
     </tr>
     
     
@@ -120,7 +105,7 @@ function checkValid(frm){
         </td>
         <td width="450" height="20">
         	<b><span style="font-size:9pt;">
-        		<input type=password name="password" id="password" size="12">  (글 수정, 삭제시 필요합니다.)
+        		<input type=password name="elecPassword" id="elecPassword" size="12">  (글 수정, 삭제시 필요합니다.)
         	   </span></b>
         </td>
     </tr>

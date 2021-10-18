@@ -93,7 +93,7 @@ img{width:200px; height:350px}
 
 
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
-<caption><h2 align="center">자유게시판</h2></caption>
+<caption><h2 align="center">알쓸신술</h2></caption>
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
@@ -129,28 +129,41 @@ img{width:200px; height:350px}
     </tr>
     </c:when>
     <c:otherwise>
-	<c:forEach items="${requestScope.list}" var="Post">
+	<c:forEach items="${requestScope.list}" var="Study">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Post.postNo}</span></p>
+		            ${Study.studyNo}</span></p>
 		        </td>
 		        <td bgcolor="">
 					<p><span style="font-size:9pt;">
-					<a href="${path}/front?key=Post&methodName=viewPost&postNo=${Post.boardNo}">
-					  ${Post.postTitle}
+					<a href="${path}/front?key=Study&methodName=viewStudy&studyNo=${Study.studyNo}">
+					  ${Study.studyTitle}
 					</a>
 					</span></p>
 		        </td>
 		        
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <fmt:formatNumber value="${Post.postUp}"/></span></p>
+		            <fmt:formatNumber value="${Study.studyMaxnum}"/></span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Post.postDate}</span></p>
+		            ${Study.studyRegdate}</span></p>
+		        </td>
+		         
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.userId}</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            <fmt:formatNumber value="${Study.studyLocationSi}"/> byte</span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyLocationGu}</span></p>
 		        </td>
 		        
 		      
@@ -161,7 +174,7 @@ img{width:200px; height:350px}
 </table>
 <hr>
 <div align=right>
-<span style="font-size:9pt;">&lt;<a href="${path}/board/WriteInfo.jsp">글쓰기</a>&gt;</span>
+<span style="font-size:9pt;">&lt;<a href="${path}/elecBoard/elecWriteInfo.jsp">글쓰기</a>&gt;</span>
 </div>
 
 

@@ -60,7 +60,7 @@ function checkValid(frm){
 	
 	
 	
-	if(confirm("등록하시겠습니까?") == true){
+	if(confirm("수정하시겠습니까?") == true){
 		return true;
 	}
 }
@@ -85,7 +85,7 @@ function checkValid(frm){
 
     <tr>
         <td width="1220" height="20" colspan="2" bgcolor="#00cc00">
-            <p align="center"><font color="white" size="3"><b> 게시글 등록 </b></font></p>
+            <p align="center"><font color="white" size="3"><b> 게시글 수정 </b></font></p>
         </td>
     </tr>
     <tr>
@@ -93,24 +93,29 @@ function checkValid(frm){
             <p align="center"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20" ><b><span style="font-size:9pt;">
-		<input type=text name="postTitle" id="postTitle" size="50"></span></b></td>
+		<input type=text name="postTitle" id="postTitle" size="50"
+		value="${Post.postTitle}"></span></b></td>
     </tr>
+    
      <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;">작성자</span></b></p>
         </td>
          <td width="450" height="20">
         	<b><span style="font-size:9pt;">
-        		<input type="text" name="userId" id="userId" size="12">
+        		<input type="text" name="userId" id="userId" size="12"
+        		value="${Post.userId}">
         	   </span></b>
         </td>
+        
     </tr>
     <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;"> 내용</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<textarea name="postContent" id="postContent" cols="50" rows="10"></textarea></span></b></td>
+		<textarea name="postContent" id="postContent" cols="50" rows="10"
+		value="${Post.postContent}"></textarea></span></b></td>
     </tr>
     
     
@@ -126,7 +131,7 @@ function checkValid(frm){
     </tr>
     <tr>
         <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;">
-        <input type=submit value=등록하기>
+        <input type=submit value=수정하기>
         <button type="button" onclick="cancel();">취소하기</button>
         <!--  <a href="freeBoardMain.jsp" id="cancel" >취소하기a</a>  a태그에서-->
     </tr>
