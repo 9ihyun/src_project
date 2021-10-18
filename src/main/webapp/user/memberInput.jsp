@@ -101,7 +101,7 @@
 	   <option value="five">만약 물고기를 한마리 기른다면?</option>	
 	</select> <br>
 	비밀번호 찾기 답 : <input type = "text" name = "anwser"><br>
-	<a href="${pageContext.request.contextPath}/front?key=user&methodName=register">가 입</a>
+	<a href="${pageContext.request.contextPath}/front?key=login&methodName=register">가 입</a>
 </form>
 
 

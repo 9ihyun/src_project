@@ -15,8 +15,8 @@
   <div class="main">
     <p class="sign" align="center">LogIn</p>
     <form class="form1">
-      <input class="un " type="text" align="center" placeholder="id">
-      <input class="pass" type="password" align="center" placeholder="Password">
+      <input class="un " type="text" align="center" name="userId" placeholder="id">
+      <input class="pass" type="password" align="center" name="pw" placeholder="Password">
       <a href="${pageContext.request.contextPath}/front?key=login&methodName=login" align="center">접속하기!</a>
       <p class="forgot" align="center"><a href="searchPassword.jsp">비밀번호 찾기</a></p>
       <p class="signup" align="center"><a href="memberInput.jsp">회원가입</a></p>

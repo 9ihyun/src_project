@@ -18,11 +18,11 @@ public class SessionCheckFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		String key = request.getParameter("key");
-		if(key == null || !key.equals("login")) {
+		if(!key.equals("login")) {
 			HttpServletRequest req = (HttpServletRequest) request;
 			HttpSession session = req.getSession();
 			
-			if(session.getAttribute("loginUser") == null) {
+			if(session.getAttribute("userId") == null) {
 				req.setAttribute("errorMsg", "로그인하고 이용해주세요.");
 				req.getRequestDispatcher("error/error.jsp").forward(request, response);
 				return;
