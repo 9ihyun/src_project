@@ -13,6 +13,13 @@ public class Post {
 	public Post(int postNo) {
 		this.postNo=postNo;	
 	}
+	public Post(int postNo, String postTitle,int postUp, String postDate) {
+		this.postNo=postNo;
+		this.postTitle=postTitle;
+		this.postDate = postDate;
+		this.postUp=postUp;
+		
+	}
 	public Post(int postNo, int tagNo, int boardNo, String postTitle, String postContent) {
 		this.postNo=postNo;
 		this.tagNo=tagNo;
