@@ -108,7 +108,7 @@ public class StudyController implements Controller {
 			pageNo="1";
 		}
 		
-		List<Study> list = service.selectAllStudy();
+		List<Study> list = service.selectAllStudy(Integer.parseInt(pageNo));
 
 		request.setAttribute("studyList", list);
 		request.setAttribute("pageNo", pageNo);
