@@ -19,8 +19,8 @@
       <input class="pass" type="password" name="pw" placeholder="Password">
       <input type = hidden name = "key" value = "login">
       <input type = hidden name = "methodName" value = "login"> 
-      <input type = "submit" value="접속하기" ><br>
-	  <a href = "searchPassword.jsp">비밀번호 찾기</a>
+      <input type = "submit" value="접속하기" ><br><br>
+	  <a href = "searchPassword.jsp">비밀번호 찾기</a><br><br>
 	  <a href = "memberInput.jsp">회원가입</a>    
       </form>
             

@@ -83,7 +83,7 @@
 <h3 class="sign" align="center">회원가입</h3>
 
 <div class="main">
-<form class="form1" action="userProc.jsp" method = "post" align="center">
+<form class="form1" method = "post" align="center" action = "${pageContext.request.contextPath}/front?key=login&methodName=register">
 	ID : <input type = "text" name = "id"><br>
 	<div class="checkFont" id="idCheck"></div>
 	비밀번호 : <input type = "password" name = "pass"><br>
@@ -101,7 +101,7 @@
 	   <option value="five">만약 물고기를 한마리 기른다면?</option>	
 	</select> <br>
 	비밀번호 찾기 답 : <input type = "text" name = "anwser"><br>
-	<a href="${pageContext.request.contextPath}/front?key=login&methodName=register">가 입</a>
+	<input type = "submit" value="가 입">
 </form>
 
 
