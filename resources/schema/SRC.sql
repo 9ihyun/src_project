@@ -1,153 +1,135 @@
-create table member_user(
-user_id VARCHAR2(20) not null constraint id_pk primary key,
-nickname VARCHAR2(10) not null UNIQUE,
-pw VARCHAR2(20) not null,
-birth NUMBER(8) not null,
-pwq VARCHAR2(60) not null,
-pwa VARCHAR2(60) not null,
-regdate VARCHAR2(30) not null
+--È¸¿ø
+CREATE TABLE MEMBER_USER(
+    USER_ID VARCHAR2(20) CONSTRAINT USER_ID_PK PRIMARY KEY,
+    NICKNAME VARCHAR2(30) NOT NULL UNIQUE,
+    PW VARCHAR2(20) NOT NULL,
+    BIRTH NUMBER(8) NOT NULL,
+    PWQ VARCHAR2(60) NOT NULL,
+    PWA VARCHAR2(60) NOT NULL,
+    REGDATE DATE DEFAULT SYSDATE NOT NULL
 );
 
-SELECT * FROM tab;
-select * from member_user;
-
-create table taglist(
-tag_no NUMBER(10) not null constraint tag_no_pk primary key,
-tag_name VARCHAR2(30) not null);
-
-drop table study_state;
-drop table study_day;
-
-create table study_state(
-state_no NUMBER(2) not null constraint state_no_pk primary key,
-state_name VARCHAR2(30) not null);
-
-create table study_day(
-day_no NUMBER(2) not null constraint day_no_pk primary key,
-day_name VARCHAR2(30) not null);
-
-create table study(
-study_no NUMBER(10) not null constraint study_no_pk primary key,
-tag_no NUMBER(10) constraint tag_no_fk references taglist(tag_no),
-user_id VARCHAR2(20) constraint user_id_fk references member_user(user_id),
-state_no NUMBER(2) constraint state_no_fk references study_state(state_no),
-day_no NUMBER(2) constraint day_no_fk references study_day(day_no),
-study_maxnum NUMBER(10) not null,
-study_location_si VARCHAR2(20),
-study_location_gu VARCHAR2(20),
-study_duedate VARCHAR2(30),
-study_title VARCHAR2(60) not null,
-study_content VARCHAR2(4000) not null,
-study_regdate date not null
+--º°Á¡ Æò°¡
+CREATE TABLE POINT(
+    USER_ID VARCHAR2(20) NOT NULL CONSTRAINT POINT_ID_FK REFERENCES MEMBER_USER(USER_ID) ON DELETE CASCADE,
+    POINT_NUMBER NUMBER(1) NOT NULL
 );
 
-ALTER TABLE study MODIFY (study_regdate DEFAULT SYSDATE);
-
-
-
-
-create table board(
-board_no NUMBER(10) not null constraint board_no_pk primary key,
-board_name VARCHAR2(30) not null);
-
-
-create table post(
-post_no NUMBER(10) not null constraint post_no_pk primary key,
-tag_no NUMBER(10) constraint tag2_no_fk references taglist(tag_no),
-board_no NUMBER(10) not null constraint board_no_fk references board(board_no),
-user_id VARCHAR2(20) not null constraint user2_id_fk references member_user(user_id),
-post_title VARCHAR2(100) not null,
-post_date date not null,
-post_content VARCHAR2(4000) not null,
-post_up NUMBER(5)
+--ÅÂ±×
+CREATE TABLE TAGLIST(
+    TAG_NO NUMBER(10) CONSTRAINT TAG_NO_PK PRIMARY KEY,
+    TAG_NAME VARCHAR2(30) NOT NULL
 );
 
-ALTER TABLE post MODIFY (post_date DEFAULT SYSDATE);
-
-drop table post;
-
-create table study_reply(
-s_reply_no NUMBER(10) not null constraint study_reply_no_pk primary key,
-study_no NUMBER(10) not null constraint study_no_fk references study(study_no),
-user_id VARCHAR2(20) not null constraint user3_id_fk references member_user(user_id),
-s_reply_content VARCHAR2(300) not null,
-s_reply_date date not null
-);
-ALTER TABLE study_reply MODIFY (s_reply_date DEFAULT SYSDATE);
-drop table study_reply;
-
-create table post_reply(
-p_reply_no NUMBER(10) not null constraint post_reply_pk primary key,
-post_no NUMBER(10) not null constraint post_no_fk references post(post_no),
-user_id VARCHAR2(20) not null constraint user4_id_fk references member_user(user_id),
-p_reply_content VARCHAR2(300) not null,
-p_reply_date date not null
+--°Ô½ÃÆÇ À¯Çü
+CREATE TABLE BOARD(
+    BOARD_NO NUMBER(10) CONSTRAINT BOARD_NO_PK PRIMARY KEY,
+    BOARD_NAME VARCHAR2(30) NOT NULL
 );
 
-ALTER TABLE post_reply MODIFY (p_reply_date DEFAULT SYSDATE);
-
-create table study_room(
-chat_no NUMBER(10) not null constraint chat_no_pk primary key,
-study_no NUMBER(10) not null constraint study2_no_fk references study(study_no),
-nickname VARCHAR2(30) not null constraint nickname_fk references member_user(nickname),
-chat_content VARCHAR2(500) not null,
-chat_date date not null
+--°Ô½ÃÆÇ °Ô½Ã±Û
+CREATE TABLE POST(
+    POST_NO NUMBER(10) CONSTRAINT POST_NO_PK PRIMARY KEY,
+    TAG_NO NUMBER(10) NOT NULL CONSTRAINT POST_TAG_FK REFERENCES TAGLIST(TAG_NO),
+    BOARD_NO NUMBER(10) NOT NULL CONSTRAINT POST_BOARD_FK REFERENCES BOARD(BOARD_NO),
+    USER_ID VARCHAR2(20) NOT NULL CONSTRAINT POST_ID_FK REFERENCES MEMBER_USER(USER_ID) ON DELETE CASCADE,
+    POST_TITLE VARCHAR2(100) NOT NULL,
+    POST_DATE DATE DEFAULT SYSDATE NOT NULL,
+    POST_CONTENT VARCHAR2(4000) NOT NULL,
+    POST_UP NUMBER(5) DEFAULT 0 NOT NULL
 );
 
-ALTER TABLE study_room MODIFY (chat_date DEFAULT SYSDATE);
-
-
-
-create table studysign_state(
-signstate_no NUMBER(2) not null constraint signstate_no_pk primary key,
-signstate_name VARCHAR2(30) not null);
-
-create table study_state(
-state_no NUMBER(2) not null constraint state_no_pk primary key,
-state_name VARCHAR2(30) not null);
-
-create table study_day(
-day_no NUMBER(2) not null constraint day_no_pk primary key,
-day_name VARCHAR2(30) not null);
-
-
-select * from study_day;
-
-
-create table wish_study(
-user_id VARCHAR2(20) not null constraint user5_id_fk references member_user(user_id),
-study_no NUMBER(10) not null constraint study5_no_fk references study(study_no)
+--°Ô½ÃÆÇ ´ñ±Û
+CREATE TABLE POST_REPLY(
+    P_REPLY_NO NUMBER(10) CONSTRAINT P_REPLY_NO_PK PRIMARY KEY,
+    POST_NO NUMBER(10) NOT NULL CONSTRAINT POST_NO_FK REFERENCES POST(POST_NO) ON DELETE CASCADE,
+    USER_ID VARCHAR2(20) NOT NULL CONSTRAINT P_REPLY_ID_FK REFERENCES MEMBER_USER(USER_ID) ON DELETE CASCADE,
+    P_REPLY_CONTENT VARCHAR2(300) NOT NULL,
+    P_REPLY_DATE DATE DEFAULT SYSDATE NOT NULL
 );
 
-
-create table sign_study(
-user_id VARCHAR2(20) not null constraint user6_id_fk references member_user(user_id),
-study_no NUMBER(10) not null constraint study6_no_fk references study(study_no),
-state_no NUMBER(2) not null constraint state2_no_fk references study_state(state_no)
+--½ºÅÍµð »óÅÂ
+CREATE TABLE STUDY_STATE(
+    STATE_NO NUMBER(2) CONSTRAINT STUDY_STATE_PK PRIMARY KEY,
+    STATE_NAME VARCHAR(30) NOT NULL --1.¸ðÁýÁß 2.½ºÅÍµðÁøÇàÁß 3.½ºÅÍµðÁ¾·á
 );
 
+--½ºÅÍµð ¿äÀÏ
+CREATE TABLE STUDY_DAY(
+    DAY_NO NUMBER(2) CONSTRAINT STUDY_DAY_PK PRIMARY KEY,
+    DAY_NAME VARCHAR2(20) NOT NULL --1.¹«°ü 2.ÆòÀÏ 3.ÁÖ¸»
+);
 
-create table point(
-user_id VARCHAR2(20) not null constraint user7_id_fk references member_user(user_id),
-point_number number(1) not null);
+--½ºÅÍµð °Ô½Ã±Û
+CREATE TABLE STUDY(
+    STUDY_NO NUMBER(10) CONSTRAINT STUDY_NO_PK PRIMARY KEY,
+    TAG_NO NUMBER(10) NOT NULL CONSTRAINT STUDY_TAG_FK REFERENCES TAGLIST(TAG_NO),
+    USER_ID VARCHAR2(20) NOT NULL CONSTRAINT STUDY_ID_FK REFERENCES MEMBER_USER(USER_ID) ON DELETE CASCADE,
+    STATE_NO NUMBER(2) DEFAULT 1 NOT NULL CONSTRAINT STUDY_STATE_FK REFERENCES STUDY_STATE(STATE_NO),
+    DAY_NO NUMBER(2) NOT NULL CONSTRAINT STUDY_DAY_FK REFERENCES STUDY_DAY(DAY_NO),
+    STUDY_MAXNUM NUMBER(10) NOT NULL,
+    STUDY_LOCATION_SI VARCHAR2(20) NOT NULL,
+    STUDY_LOCATION_GU VARCHAR2(20),
+    STUDY_DUEDATE VARCHAR2(30) NOT NULL,
+    STUDY_TITLE VARCHAR2(60) NOT NULL,
+    STUDY_CONTENT VARCHAR2(4000) NOT NULL,
+    STUDY_REGDATE DATE DEFAULT SYSDATE NOT NULL
+);
+
+--½ºÅÍµð ´ñ±Û
+CREATE TABLE STUDY_REPLY(
+    S_REPLY_NO NUMBER(10) CONSTRAINT S_REPLY_NO_PK PRIMARY KEY,
+    STUDY_NO NUMBER(10) NOT NULL CONSTRAINT STUDY_NO_FK REFERENCES STUDY(STUDY_NO) ON DELETE CASCADE,
+    USER_ID VARCHAR2(20) NOT NULL CONSTRAINT S_REPLY_ID_FK REFERENCES MEMBER_USER(USER_ID) ON DELETE CASCADE,
+    S_REPLY_CONTENT VARCHAR2(300) NOT NULL,
+    S_REPLY_DATE DATE DEFAULT SYSDATE NOT NULL
+);
+
+--½ºÅÍµð·ë
+CREATE TABLE STUDY_ROOM(
+    CHAT_NO NUMBER(10) CONSTRAINT ROOM_CHAT_PK PRIMARY KEY,
+    STUDY_NO NUMBER(10) NOT NULL CONSTRAINT ROOM_STUDY_NO_FK REFERENCES STUDY(STUDY_NO) ON DELETE CASCADE,
+    USER_ID VARCHAR2(20) NOT NULL CONSTRAINT ROOM_ID_FK REFERENCES MEMBER_USER(USER_ID) ON DELETE SET NULL,
+    CHAT_CONTENT VARCHAR2(500) NOT NULL,
+    CHAT_DATE DATE DEFAULT SYSDATE NOT NULL
+);
+
+--½ºÅÍµð ½ÅÃ» »óÅÂ
+CREATE TABLE STUDYSIGN_STATE(
+    SIGNSTATE_NO NUMBER(2) CONSTRAINT SIGN_STATE_PK PRIMARY KEY,
+    SIGNSTATE_NAME VARCHAR2(30) NOT NULL --1.¼ö¶ô´ë±â 2.¼ö¶ô¿Ï·á
+);
+
+--½ÅÃ»ÇÑ ½ºÅÍµð
+CREATE TABLE SIGN_STUDY(
+    USER_ID VARCHAR2(20) NOT NULL CONSTRAINT SIGN_ID_FK REFERENCES MEMBER_USER(USER_ID) ON DELETE CASCADE,
+    STUDY_NO NUMBER(10) NOT NULL CONSTRAINT SIGN_STUDY_FK REFERENCES STUDY(STUDY_NO) ON DELETE CASCADE,
+    SIGNSTATE_NO NUMBER(2) DEFAULT 1 NOT NULL CONSTRAINT SIGN_STATE_FK REFERENCES STUDYSIGN_STATE(SIGNSTATE_NO)
+);
+
+--ÂòÇÑ ½ºÅÍµð
+CREATE TABLE WISH_STUDY(
+    USER_ID VARCHAR2(20) NOT NULL CONSTRAINT WISH_ID_FK REFERENCES MEMBER_USER(USER_ID) ON DELETE CASCADE,
+    STUDY_NO NUMBER(10) NOT NULL CONSTRAINT WISH_STUDY_FK REFERENCES STUDY(STUDY_NO) ON DELETE CASCADE
+);
+
+--½ÃÄö½º »ý¼º
+create sequence study_seq increment by 1 start with 20001 maxvalue 40000 nocache nocycle;
+create sequence post_reply_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
+create sequence post_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
+create sequence study_reply_seq increment by 1 start with 20001 maxvalue 40000 nocache nocycle;
+create sequence study_room_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
 
 
-insert into studysign_state values(1,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
-insert into studysign_state values(2,'ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½');
-
-insert into study_state values(1,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
-insert into study_state values(2,'ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
-insert into study_state values(3,'ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½');
-
-insert into study_day values(1,'ï¿½ï¿½ï¿½ï¿½');
-insert into study_day values(2,'ï¿½ï¿½ï¿½ï¿½');
-insert into study_day values(3,'ï¿½Ö¸ï¿½');
+--¹øÈ£ ÃÊ±â°ª ¼³Á¤ 
+ALTER TABLE study MODIFY (study_no DEFAULT study_seq.nextval);
+ALTER TABLE post MODIFY (post_no DEFAULT post_seq.nextval);
+ALTER TABLE study_reply MODIFY (s_reply_no DEFAULT study_reply_seq.nextval);
+ALTER TABLE post_reply MODIFY (p_reply_no DEFAULT post_reply_seq.nextval);
+ALTER TABLE study_room MODIFY (chat_no DEFAULT study_room_seq.nextval);
 
 
-select * from studysign_state;
-select * from study_state;
-select * from study_day;
-
+--ÅÂ±× db
 insert into taglist values(1,'C/C++');
 insert into taglist values(2,'Python');
 insert into taglist values(3,'Python');
@@ -173,28 +155,34 @@ insert into taglist values(22,'ORACLE');
 insert into taglist values(23,'git');
 insert into taglist values(24,'Linux');
 insert into taglist values(25,'Ubuntu');
-insert into taglist values(26,'ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½');
-insert into taglist values(27,'ï¿½é¿£ï¿½ï¿½');
-insert into taglist values(28,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®');
-insert into taglist values(29,'ï¿½ï¿½Å¸');
+insert into taglist values(26,'ÇÁ·ÐÆ®¿£µå');
+insert into taglist values(27,'¹é¿£µå');
+insert into taglist values(28,'ÅäÀÌÇÁ·ÎÁ§Æ®');
+insert into taglist values(29,'±âÅ¸');
 
-select * from taglist;
+insert into board values(1,'ÀÚÀ¯°Ô½ÃÆÇ');
+insert into board values(2,'Á¤º¸°øÀ¯°Ô½ÃÆÇ');
 
-insert into board values(1,'ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½');
-insert into board values(2,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½');
+insert into studysign_state values(1,'¼ö¶ô´ë±â');
+insert into studysign_state values(2,'¼ö¶ô¿Ï·á');
+
+insert into study_state values(1,'¸ðÁýÁß');
+insert into study_state values(2,'½ºÅÍµðÁøÇàÁß');
+insert into study_state values(3,'½ºÅÍµðÁ¾·á');
+
+insert into study_day values(1,'¹«°ü');
+insert into study_day values(2,'ÆòÀÏ');
+insert into study_day values(3,'ÁÖ¸»');
+
+insert into post(post_no, tag_no, board_no, user_id,post_title,post_content,post_up) values(post_seq.nextval,2,1,'admin','testÁß','holy moly',5);
 
 
-insert into member_user values('admin','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','admin',20211014,'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½?','Ä¡Å²',sysdate);
+insert into post values(1,1,1,'admin','Å×½ºÆ® ÀÔ´Ï´Ù',sysdate,'ÇÏÁK ¹Ý°©½À´Ï´Ù ¿©·¯ºÐ È­ÀÌÆÃ~!!',0);
 
+insert into post_reply values(1,1,'admin','Å×½ºÆ® ´ñ±Û ÀÔ´Ï´Ù',sysdate);
+insert into post_reply values(2,1,'admin','Å×½ºÆ® ´ñ±Û2 ÀÔ´Ï´Ù',sysdate);
 
-select * from member_user;
-
-insert into post values(1,1,1,'admin','ï¿½×½ï¿½Æ® ï¿½Ô´Ï´ï¿½',sysdate,'ï¿½ï¿½ï¿½K ï¿½Ý°ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½~!!',0);
-
-insert into post_reply values(1,1,'admin','ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½',sysdate);
-insert into post_reply values(2,1,'admin','ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½2 ï¿½Ô´Ï´ï¿½',sysdate);
-
-insert into study values(1,2,'admin',1,1,5,'ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','2021.10.14','ï¿½×½ï¿½Æ® ï¿½Ô´Ï´ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate);
+insert into study values(1,2,'admin',1,1,5,'¼­¿ï½Ã','°­³²±¸','2021.10.14','Å×½ºÆ® ÀÔ´Ï´Ù','»ç¶÷¸¸ µé¾î¿À¼¼¿ä',sysdate);
 
 insert into wish_study values('admin',1);
 
@@ -203,17 +191,3 @@ insert into sign_study values('admin',1,1);
 insert into point values('admin',5);
 insert into point values('admin',4);
 insert into point values('admin',4);
-
-commit;
-
-create sequence study_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
-create sequence post_reply_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
-create sequence post_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
-create sequence study_reply_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
-create sequence study_room_seq increment by 1 start with 1 maxvalue 20000 nocache nocycle;
-
-ALTER TABLE study MODIFY (study_no DEFAULT study_seq.nextval);
-ALTER TABLE post MODIFY (post_no DEFAULT post_seq.nextval);
-ALTER TABLE study_reply MODIFY (s_reply_no DEFAULT study_reply_seq.nextval);
-ALTER TABLE post_reply MODIFY (p_reply_no DEFAULT post_reply_seq.nextval);
-ALTER TABLE study_room MODIFY (chat_no DEFAULT study_room_seq.nextval);
