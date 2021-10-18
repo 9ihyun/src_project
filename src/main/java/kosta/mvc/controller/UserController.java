@@ -68,7 +68,7 @@ public class UserController implements Controller {
 		User user = userService.myInfo(id);
 		request.setAttribute("user", user);
 		
-		return new ModelAndView(""); //마이페이지 메인
+		return new ModelAndView("mypage/infoChange.jsp"); //마이페이지 메인
 	}
 	
 	/**
@@ -84,7 +84,7 @@ public class UserController implements Controller {
 		User user = userService.myInfo(id);
 		request.setAttribute("user", user);
 		
-		return new ModelAndView(""); //마이페이지 메인
+		return new ModelAndView("mypage/passChange.jsp"); //마이페이지 메인
 	}
 	
 	/**

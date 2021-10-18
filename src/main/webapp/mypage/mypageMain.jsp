@@ -16,10 +16,14 @@
 </script>
 </head>
 <body>
+<% session.setAttribute("userId", "admin");
+   session.setAttribute("loginUser", "admin");
+   
+   %>
 <table>
   <tr>
     <th><iframe src="mypageMenu.jsp"></iframe></th>
-    <th><iframe src="mypage.jsp" name="page"></iframe></th>
+    <th><iframe src="startPage.jsp" name="page"></iframe></th>
   </tr>
 </table>
 </body>

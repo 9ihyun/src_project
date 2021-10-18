@@ -17,8 +17,8 @@
     $(function(){
     	let change = false;
     	
-    	$("#newPass").keyup(function(){
-    		if($('#newPass').val() == $("#pass").val()){
+    	$("#newPw").keyup(function(){
+    		if($('#newPw').val() == $("#currentPw").val()){
     			$("span").text("비밀번호가 일치합니다.");
     			change = false;
     			$("#rePass").attr("readonly", "readonly");
@@ -30,7 +30,7 @@
     	});
     	
     	$("#rePass").keyup(function(){
-    		if($('#newPass').val() != $("#rePass").val()){
+    		if($('#newPw').val() != $("#rePass").val()){
     			$("span").text("값이 일치하지 않습니다.");
     			change = false;
     		}else{
@@ -41,17 +41,17 @@
     	
     	$(document).on("click", "[value=변경하기]", function(){
     		if(change){
-    			alert("성공");
+    			location.href="${path}/front?key=user&methodName=pwChange&currentPw="+$("#currentPw").val()+"&newPw="+$("#newPw").val();
     		} else{
-    			if($("#rePass").val()=="" || $("#newPass").val()=="" || $("#pass").val()==""){
+    			if($("#rePass").val()=="" || $("#newPw").val()=="" || $("#currentPw").val()==""){
     				alert("비밀번호를 입력해주세요");
     			}
     			else{
 	    			if($("span").text() == "비밀번호가 일치합니다."){
 	    				alert("현재번호와 다른 비밀번호를 입력해주세요");
-	    				$("#newPass").val("");
+	    				$("#newPw").val("");
 	    				$("#rePass").val("");
-	    				$("#newPass").focus();
+	    				$("#newPw").focus();
 	    				$("span").text("");
 	    			}
 	    			if($("span").text() == "값이 일치하지 않습니다."){
@@ -69,9 +69,9 @@
 </head>
 <body>
 현재 비밀번호 입력<br>
-<input type="password" id="pass"><br>
+<input type="password" id="currentPw"><br>
 변경할 비밀번호 입력<br>
-<input type="password" id="newPass"><br>
+<input type="password" id="newPw"><br>
 변경할 비밀번호 확인<br>
 <input type="password" id="rePass"><br>
 <span name = "check"></span><br>
