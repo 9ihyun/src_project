@@ -24,7 +24,7 @@ public interface ReplyService {
 	/**
 	 * 댓글 삭제 
 	 */
-	public void deleteReply(int replyNo) throws SQLException;
+	public void deleteReply(int replyNo, String userId) throws SQLException;
 
 	/**
 	 * 댓글 리스트 가져오기 

@@ -27,4 +27,8 @@ public interface ReplyDAO {
 	 */
 	List<PostReply> selectAllReply(int postNo) throws SQLException;
 
+	/**
+	 * 댓글 작성자 아이디 가져오기
+	 */
+	String getDBUserId(int replyNo) throws SQLException;
 }
