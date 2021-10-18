@@ -9,7 +9,7 @@ import kosta.mvc.dto.PostReply;
 /**
  * @author 홍전형
  */
-public interface ReplyService {
+public interface PostReplyService {
 
 	/**
 	 * 댓글 등록

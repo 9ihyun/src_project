@@ -3,14 +3,14 @@ package kosta.mvc.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import kosta.mvc.dao.ReplyDAO;
-import kosta.mvc.dao.ReplyDAOImpl;
+import kosta.mvc.dao.PostReplyDAO;
+import kosta.mvc.dao.PostReplyDAOImpl;
 import kosta.mvc.dao.StudyDAO;
 import kosta.mvc.dao.StudyDAOImpl;
 import kosta.mvc.dto.PostReply;
 
-public class ReplyServiceImpl implements ReplyService {
-	private ReplyDAO replyDao = new ReplyDAOImpl();
+public class PostReplyServiceImpl implements PostReplyService {
+	private PostReplyDAO replyDao = new PostReplyDAOImpl();
 
 	@Override
 	public void insertReply(PostReply reply) throws SQLException {

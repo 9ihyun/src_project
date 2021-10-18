@@ -11,11 +11,11 @@ import java.util.Properties;
 import kosta.mvc.dto.PostReply;
 import kosta.mvc.util.DbUtil;
 
-public class ReplyDAOImpl implements ReplyDAO {
+public class PostReplyDAOImpl implements PostReplyDAO {
 	Properties proFile = new Properties();
 
 	
-	public ReplyDAOImpl() {
+	public PostReplyDAOImpl() {
 		try {
 			proFile.load(getClass().getClassLoader().getResourceAsStream("dbQuery.properties"));
 

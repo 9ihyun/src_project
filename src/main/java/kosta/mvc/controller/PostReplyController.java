@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kosta.mvc.dto.PostReply;
-import kosta.mvc.service.ReplyService;
-import kosta.mvc.service.ReplyServiceImpl;
+import kosta.mvc.service.PostReplyService;
+import kosta.mvc.service.PostReplyServiceImpl;
 
 /**
  * @author 홍전형
  */
-public class ReplyController implements Controller {
-	private ReplyService service = new ReplyServiceImpl();
+public class PostReplyController implements Controller {
+	private PostReplyService service = new PostReplyServiceImpl();
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)

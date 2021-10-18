@@ -5,7 +5,7 @@ import java.util.List;
 
 import kosta.mvc.dto.PostReply;
 
-public interface ReplyDAO {
+public interface PostReplyDAO {
 
 	/**
 	 * 댓글 등록
