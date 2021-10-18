@@ -33,7 +33,7 @@ public interface PostService {
 	/**
 	 * 게시글 상세보기
 	 */
-	public Post Postview(int postNo) throws SQLException;
+	public Post postView(int postNo) throws SQLException;
 	/**
 	 * 게시글 좋아요(따봉)
 	 */

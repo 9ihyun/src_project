@@ -68,7 +68,7 @@ public class SearchServicelmpl implements SearchService{
 	}
 
 	@Override
-	public List<Post> selectByTag(int tagNo) throws SQLException {
+	public List<Post> searchByTag(int tagNo) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -97,7 +97,7 @@ public class SearchServicelmpl implements SearchService{
 	 * 최근 게시글 보기
 	 */
 	@Override
-	public List<Post> selectByRecent() throws SQLException {
+	public List<Post> searchByRecent() throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -125,7 +125,7 @@ public class SearchServicelmpl implements SearchService{
 	 * 인기순 게시글 보기
 	 */
 	@Override
-	public List<Post> selectByLikes(int postUp) throws SQLException {
+	public List<Post> searchByLikes(int postUp) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -151,13 +151,13 @@ public class SearchServicelmpl implements SearchService{
 	}
 
 	@Override
-	public List<Post> selectByRegion(int postNo) throws SQLException {
+	public List<Post> searchByRegion(int postNo) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Post> selectByRecuit(int postNo) throws SQLException {
+	public List<Post> searchByRecuit(int postNo) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}

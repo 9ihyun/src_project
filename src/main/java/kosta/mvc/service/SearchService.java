@@ -19,29 +19,29 @@ public interface SearchService {
 	/**
 	 * 태그로 검색
 	 */
-	public List<Post> selectByTag(int tagNo) throws SQLException;
+	public List<Post> searchByTag(int tagNo) throws SQLException;
 
 	/**
 	 * 최근글 
 	 */
-	public List<Post> selectByRecent() throws SQLException;
+	public List<Post> searchByRecent() throws SQLException;
 
 	/**
 	 * 인기글
 	 */
-	public List<Post> selectByLikes(int postUp) throws SQLException;
+	public List<Post> searchByLikes(int postUp) throws SQLException;
 	/**
 	 * 지역으로 검색
 	 */
-	public List<Post> selectByRegion(int postNo) throws SQLException;
+	public List<Post> searchByRegion(int postNo) throws SQLException;
 	
 	/**
 	 * 모집여부 검색
 	 */
-	public List<Post> selectByRecuit(int postNo) throws SQLException;
+	public List<Post> searchByRecuit(int postNo) throws SQLException;
 	
 	/**
-	 * 내용 검색하기
+	 * 내용 검색하기~
 	 */
 	public List<Post> searchByContent(String postContent) throws SQLException;
 

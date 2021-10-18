@@ -3,43 +3,50 @@ package kosta.mvc.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import kosta.mvc.dao.PostDAO;
+import kosta.mvc.dao.PostDAOlmpl;
 import kosta.mvc.dto.Post;
 
 public class PostServicelmpl implements PostService {
+	private PostDAO postDao = new PostDAOlmpl();
 
 	@Override
 	public void postInsert(Post post) throws SQLException {
-		// TODO Auto-generated method stub
+		if (postDao.postInsert(post) == null)
+			throw new SQLException("게시글이 등록되지 않았습니다");
 		
 	}
 
 	@Override
 	public void postUpdate(Post post) throws SQLException {
-		// TODO Auto-generated method stub
+		if (postDao.postUpdate(post) == null)
+			throw new SQLException("게시글이 수정되지 않았습니다");
 		
 	}
 
 	@Override
 	public void postDelete(int postNo) throws SQLException {
-		// TODO Auto-generated method stub
+		if (postDao.postDelete(postNo) == 0)
+			throw new SQLException("게시글이 삭제되지 않았습니다");
 		
 	}
 
 	@Override
 	public List<Post> selectAllPost() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return postDao.selectAllPost();
 	}
 
 	@Override
-	public Post Postview(int postNo) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public Post postView(int postNo) throws SQLException {
+		return postDao.postView(postNo);
 	}
 
 	@Override
 	public void postLike(int postNo) throws SQLException {
-		// TODO Auto-generated method stub
+		return;
+				//postDao.postLike(postNo);
+		
 		
 	}
 	

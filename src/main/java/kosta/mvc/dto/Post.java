@@ -21,6 +21,15 @@ public class Post {
 		this.postContent=postContent;
 		
 	}
+	public Post(int tagNo, int boardNo, String userId, String postTitle, String postContent) {
+		
+		this.tagNo=tagNo;
+		this.boardNo=boardNo;
+		this.userId=userId;
+		this.postTitle=postTitle;
+		this.postContent=postContent;
+		
+	}
 	
 	public Post(int postNo, int tagNo, int boardNo, String userId, String postTitle, String postContent) {
 		this.postNo=postNo;
