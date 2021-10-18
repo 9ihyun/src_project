@@ -133,7 +133,7 @@ img{width:200px; height:350px}
     </tr>
   
     <c:choose>
-    <c:when test="${empty requestScope.list}">
+    <c:when test="${empty requestScope.studyList}">
 	   <tr>
         <td colspan="5">
             <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
