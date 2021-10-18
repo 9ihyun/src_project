@@ -15,7 +15,9 @@
   $(function(){
 	  <% session.setAttribute("userId", "admin");
 	  session.setAttribute("loginUser", "admin"); %>
-	  location.href="../front?key=user&methodName=myInfo";
+	  //alert("${pageContext.request.contextPath}")
+	 // alert("${applicationScope.path}")
+	  location.href="${path}/front?key=user&methodName=myInfo";
 	  alert(user.id);
 	  
 	  $(document).on("click", "#withdraw", function(){

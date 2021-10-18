@@ -27,24 +27,28 @@ public class HandlerMappingListener implements ServletContextListener {
     	
     	ResourceBundle rb = ResourceBundle.getBundle(fileName);
     	
-    	try {
+    	
 	    	for(String key : rb.keySet()) {
+	    		try {
 	    		String value = rb.getString(key);
 	    		
 	    		Class<?> className = Class.forName(value);
 	    		Controller controller = (Controller)className.getDeclaredConstructor().newInstance();
 	    		
-	    		map.put(key, controller);
-	    		clzMap.put(key, className);
+		    		map.put(key, controller);
+		    		clzMap.put(key, className);
+	    		}catch (Exception ex) {
+	        		ex.printStackTrace();
+	    		}
 	    	}
 	    	
 	    	application.setAttribute("map", map);
 	    	application.setAttribute("clzMap", clzMap);
 	    	application.setAttribute("path", application.getContextPath());
+	    	System.out.println("path = "+application.getAttribute("path"));
 	    	
-    	}catch (Exception ex) {
-    		ex.printStackTrace();
-		}
+	    	
+    	
     }
 	
 }
