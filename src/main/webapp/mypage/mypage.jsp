@@ -13,7 +13,10 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
   $(function(){
-	  location.href="../front?key=user&methodName=myInfo"
+	  <% session.setAttribute("userId", "admin");
+	  session.setAttribute("loginUser", "admin"); %>
+	  location.href="../front?key=user&methodName=myInfo";
+	  alert(user.id);
 	  
 	  $(document).on("click", "#withdraw", function(){
 		 confirm("정말 탈퇴하시겠습니까?");

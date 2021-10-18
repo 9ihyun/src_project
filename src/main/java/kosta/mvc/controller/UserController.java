@@ -37,7 +37,7 @@ public class UserController implements Controller {
 		User user = userService.myInfo(id);
 		request.setAttribute("user", user);
 		
-		return new ModelAndView(""); //마이페이지 메인
+		return new ModelAndView("mypage.jsp"); //마이페이지 메인
 	}
 	
 	/**
