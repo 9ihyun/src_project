@@ -17,7 +17,7 @@ import kosta.mvc.dto.User;
 import net.sf.json.JSONArray;
 
 /**
- * 스터디 신청이 거절되면 신청한 스터디에서 삭제해주는 서블릿
+ * 스터디 신청이 취소/거절되면 신청한 스터디에서 삭제해주는 서블릿
  */
 @WebServlet("/removeSignStudy")
 public class RemoveSignStudyServlet extends HttpServlet {
