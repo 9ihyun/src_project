@@ -3,18 +3,19 @@ package kosta.mvc.dto;
 public class StudyChat {
 	private int chatNo;
 	private int studyNo;
+	private String id;
 	private String nickname;
 	private String chatContent;
 	private String chatDate;
 	
 	public StudyChat() {}
-	public StudyChat(int studyNo, String nickname, String chatContent) {
+	public StudyChat(int studyNo, String id, String chatContent) {
 		this.studyNo = studyNo;
-		this.nickname = nickname;
+		this.id = id;
 		this.chatContent = chatContent;
 	}
-	public StudyChat(int chatNo, int studyNo, String nickname, String chatContent, String chatDate) {
-		this(studyNo, nickname, chatContent);
+	public StudyChat(int chatNo, int studyNo, String id, String chatContent, String chatDate) {
+		this(studyNo, id, chatContent);
 		this.chatNo = chatNo;		
 		this.chatDate = chatDate;
 	}
@@ -30,6 +31,12 @@ public class StudyChat {
 	}
 	public void setStudyNo(int studyNo) {
 		this.studyNo = studyNo;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getNickname() {
 		return nickname;
