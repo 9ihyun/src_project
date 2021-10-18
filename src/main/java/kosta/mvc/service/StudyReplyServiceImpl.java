@@ -13,6 +13,7 @@ import kosta.mvc.dto.PostReply;
 import kosta.mvc.dto.StudyReply;
 
 public class StudyReplyServiceImpl implements StudyReplyService {
+
 	private StudyReplyDAO replyDao = new StudyReplyDAOImpl();
 
 	@Override
@@ -20,7 +21,6 @@ public class StudyReplyServiceImpl implements StudyReplyService {
 		if(replyDao.insertReply(reply) == 0) {
 			throw new SQLException("댓글이 등록되지 않았습니다");
 		}
-
 	}
 
 	@Override
@@ -53,6 +53,5 @@ public class StudyReplyServiceImpl implements StudyReplyService {
 	public List<StudyReply> selectAllReply(int postNo) throws SQLException {
 		return replyDao.selectAllReply(postNo);
 	}
-
-
+	
 }
