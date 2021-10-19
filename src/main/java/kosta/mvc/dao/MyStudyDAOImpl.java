@@ -208,6 +208,9 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 				Study study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6),
 						rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12));
 				
+				study.setSignUserNo(getSignUserNo(con, rs.getInt(1)));
+				study.setStudyCurrNo(getStudyCurrNo(con, rs.getInt(1)));
+				
 				myStudyList.add(study);
 			}
 			
@@ -216,6 +219,56 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		}
 		
 		return myStudyList;
+	}
+	
+	/**
+	 * 신청자 수 가져오기
+	 * */
+	private int getSignUserNo(Connection con, int studyNo) throws SQLException{
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("myStudy.getSignUserNo");
+		int result = 0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 현재 모집 완료 인원 가져오기
+	 * */
+	private int getStudyCurrNo(Connection con, int studyNo) throws SQLException{
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("myStudy.getStudyCurrNo");
+		int result = 0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		
+		return result;
 	}
 	
 	/**
