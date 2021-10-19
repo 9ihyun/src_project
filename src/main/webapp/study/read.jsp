@@ -7,16 +7,14 @@
 <link rel="stylesheet" href="css/style.css">
 
 <SCRIPT language=javascript>
-function sendUpdate(){
-	document.requestForm.methodName.value ="updateForm";
-	document.requestForm.submit();
-}
+
 
 </script>
 
 
 </HEAD>
 
+<body>
 <table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
     <tr>
         <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
@@ -28,22 +26,56 @@ function sendUpdate(){
         <td width="100" height="20" >
             <p align="right"><b><span style="font-size:9pt;">모집여부</span></b></p>
         </td>
-        <td width="450" height="20" colspan="3">
+        <td width="200" height="20">
         	<span style="font-size:9pt;"><b>${study.stateNo}</b></span>
+        </td>
+        <td width="100" height="20" >
+            <p align="right"><b><span style="font-size:9pt;">태그 번호</span></b></p>
+        </td>
+        <td width="200" height="20">
+        	<span style="font-size:9pt;"><b>${requestScope.study.tagNo}</b></span>
+        </td>
+    </tr>
+    <tr>
+        <td width="100" height="20" >
+            <p align="right"><b><span style="font-size:9pt;">작성자 아이디</span></b></p>
+        </td>
+        <td width="200" height="20">
+        	<span style="font-size:9pt;"><b>${study.userId}</b></span>
+        </td>
+        <td width="100" height="20" >
+            <p align="right"><b><span style="font-size:9pt;">모집 정원</span></b></p>
+        </td>
+        <td width="200" height="20">
+        	<span style="font-size:9pt;"><b>${requestScope.study.studyMaxnum}</b></span>
         </td>
     </tr>
     <tr>
         <td width="100" height="20" >
             <p align="right"><b><span style="font-size:9pt;">마감일</span></b></p>
         </td>
-        <td width="300" height="20">
+        <td width="100" height="20">
         	<span style="font-size:9pt;"><b>${requestScope.study.studyDuedate}</b></span>
         </td>
         <td width="100" height="20" >
-			<p align="right"><b><span style="font-size:9pt;">조회수</span></b></p>
+			<p align="right"><b><span style="font-size:9pt;">요일</span></b></p>
 		</td>
         <td width="100" height="20">
 			<p><b><span style="font-size:9pt;"></span>${requestScope.study.studyRegdate}</b></p>
+		</td>
+    </tr>
+    <tr>
+        <td width="100" height="20" >
+            <p align="right"><b><span style="font-size:9pt;">지역(시)</span></b></p>
+        </td>
+        <td width="100" height="20">
+        	<span style="font-size:9pt;"><b>${requestScope.study.studyLocationSi}</b></span>
+        </td>
+        <td width="100" height="20" >
+			<p align="right"><b><span style="font-size:9pt;">지역(구)</span></b></p>
+		</td>
+        <td width="100" height="20">
+			<p><b><span style="font-size:9pt;"></span>${requestScope.study.studyLocationGu}</b></p>
 		</td>
     </tr>
     <tr>
@@ -68,10 +100,10 @@ function sendUpdate(){
 			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
 				<input type=hidden name="studyNo" value="${Study.studyNo}">
 				<input type=hidden name="key" value="Study">
-				<input type=hidden name="methodName" >
+				<input type=hidden name="methodName" value = "updateStudy">
 				
-				<input type=button value="수정하기" onClick="sendUpdate()">
-				<input type=button value="삭제하기" onClick="sendDelete()">
+				<input type=button value="수정하기" onClick="">
+				<input type=button value="삭제하기" onClick="">
     </form>
 			
 		</td>
@@ -91,6 +123,7 @@ function sendUpdate(){
 </c:choose>
 <hr>
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div>
+</body>
 
 
 
