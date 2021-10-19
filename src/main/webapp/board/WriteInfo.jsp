@@ -69,8 +69,8 @@ function checkValid(frm){
 
 </head>
 <body>
-<form name="writeForm" method="post" action="" 
-  onSubmit='return checkValid(this)' enctype="multipart/form-data">
+<form action="${path}/front" >
+  
 <!-- 
      ${path}/front?key=StudyDAOImpl&methodName=insertStudy
      아래 문장으로 전송하면 post방식으로 전송이되고 현재 파일업로드때문에 enctype="multipart/form-data" 설정되어 있기때문에 
@@ -80,7 +80,7 @@ function checkValid(frm){
 	<input type="hidden" name="key" value = "elec" />
 	<input type="hidden" name="methodName" value = "insert" />  
  -->
- 
+  
 <table align="center" cellpadding="5" cellspacing="2" width="600" border="1" >
 
     <tr>
@@ -88,12 +88,26 @@ function checkValid(frm){
             <p align="center"><font color="white" size="3"><b> 게시글 등록 </b></font></p>
         </td>
     </tr>
-    <tr>
+      </tr>
+     <tr>
         <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">제목</span></b></p>
+            <p align="center"><b><span style="font-size:9pt;">태그 번호</span></b></p>
         </td>
-        <td width="450" height="20" ><b><span style="font-size:9pt;">
-		<input type=text name="postTitle" id="postTitle" size="50"></span></b></td>
+         <td width="450" height="20">
+        	<b><span style="font-size:9pt;">
+        		<input type="text" name="tagNo" id="tagNo" size="12">
+        	   </span></b>
+        </td>
+    </tr>
+     <tr>
+        <td width="150" height="20">
+            <p align="center"><b><span style="font-size:9pt;">보드 번호</span></b></p>
+        </td>
+         <td width="450" height="20">
+        	<b><span style="font-size:9pt;">
+        		<input type="text" name="boardNo" id="boardNo" size="12">
+        	   </span></b>
+        </td>
     </tr>
      <tr>
         <td width="150" height="20">
@@ -104,8 +118,16 @@ function checkValid(frm){
         		<input type="text" name="userId" id="userId" size="12">
         	   </span></b>
         </td>
-    </tr>
+  
     <tr>
+    <tr>
+        <td width="150" height="20">
+            <p align="center"><b><span style="font-size:9pt;">제목</span></b></p>
+        </td>
+        <td width="450" height="20" ><b><span style="font-size:9pt;">
+		<input type=text name="postTitle" id="postTitle" size="50"></span></b></td>
+    </tr>
+    
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;"> 내용</span></b></p>
         </td>
@@ -114,16 +136,8 @@ function checkValid(frm){
     </tr>
     
     
-    <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">비밀번호</span></b></p>
-        </td>
-        <td width="450" height="20">
-        	<b><span style="font-size:9pt;">
-        		<input type=password name="password" id="password" size="12">  (글 수정, 삭제시 필요합니다.)
-        	   </span></b>
-        </td>
-    </tr>
+    
+  
     <tr>
         <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;">
         <input type=submit value=등록하기>
@@ -131,7 +145,8 @@ function checkValid(frm){
         <!--  <a href="freeBoardMain.jsp" id="cancel" >취소하기a</a>  a태그에서-->
     </tr>
 </table>
-
+ 	  <input type = hidden name = "key" value = "post">
+      <input type = hidden name = "methodName" value = "postInsert">
 </form>
 
 

@@ -22,10 +22,11 @@ public class PostController implements Controller{
 	}
 	
 	public ModelAndView postInsert(HttpServletRequest request, HttpServletResponse response)throws Exception {
-	String userId = getUserId(request);
-	
+	//String userId = getUserId(request);
+		
 	int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 	int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+	String userId = request.getParameter("userId");
 	String postTitle = request.getParameter("postTitle");
 	String postContent = request.getParameter("postContent");
 	
@@ -34,7 +35,7 @@ public class PostController implements Controller{
 	
 	service.postInsert(post);
 
-	return null;
+	return new ModelAndView("board/freeBoardMain.jsp", true);
 	}
 	
 	public ModelAndView postUpdate(HttpServletRequest request, HttpServletResponse response)throws Exception{
