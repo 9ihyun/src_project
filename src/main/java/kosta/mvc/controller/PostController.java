@@ -50,15 +50,15 @@ public class PostController implements Controller{
 		
 		Post post = new Post(postNo,tagNo, boardNo, postTitle, postContent );
 		
-		service.postInsert(post);
+		service.postUpdate(post);
 
-		return null;
+		return new ModelAndView("board/freeBoardWrite.jsp", true);
 	}
 	public ModelAndView postDelete(HttpServletRequest request, HttpServletResponse response)throws Exception{
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
 
 		service.postDelete(postNo);
-		return null;
+		return new ModelAndView("board/freeBoardWrite.jsp", true);
 	}
 	public ModelAndView postSelectAllPost(HttpServletRequest request, HttpServletResponse response)throws Exception{
 		
