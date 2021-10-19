@@ -80,7 +80,7 @@ function checkValid() {
         </td>
         <td width="450" height="20">
         	<b><span style="font-size:9pt;">
-        		<input type=password name="password" size="12">
+        		<input type=text name="password" size="12">
         	   </span></b>
         </td>
     </tr>
@@ -90,7 +90,7 @@ function checkValid() {
         </td>
          <td width="450" height="20">
         	<b><span style="font-size:9pt;">
-        		<input type=password name="password" size="12">
+        		<input type=text name="password" size="12">
         	   </span></b>
         </td>
     </tr>
