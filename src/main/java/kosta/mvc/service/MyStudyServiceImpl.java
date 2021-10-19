@@ -16,12 +16,7 @@ public class MyStudyServiceImpl implements MyStudyService {
 	 * */
 	@Override
 	public List<Study> viewWishStudy(String id) throws SQLException {
-		List<Study> wishList = myStudyDAO.viewWishStudy(id);
-		
-		if(wishList.size() == 0)
-			throw new SQLException("찜한 스터디가 없습니다.");
-		
-		return wishList;
+		return myStudyDAO.viewWishStudy(id);
 	}
 
 	/**
@@ -42,12 +37,7 @@ public class MyStudyServiceImpl implements MyStudyService {
 	 * */
 	@Override
 	public List<Study> viewSignStudy(String id) throws SQLException {
-		List<Study> signList = myStudyDAO.viewSignStudy(id);
-		
-		if(signList.size() == 0)
-			throw new SQLException("신청한 스터디가 없습니다.");
-		
-		return signList;
+		return myStudyDAO.viewSignStudy(id);
 	}
 
 	/**
@@ -94,12 +84,7 @@ public class MyStudyServiceImpl implements MyStudyService {
 	 * */
 	@Override
 	public List<Study> viewMyStudy(String id) throws SQLException {
-		List<Study> myStudyList = myStudyDAO.viewMyStudy(id);
-		
-		if(myStudyList.size() == 0)
-			throw new SQLException("등록한 스터디가 없습니다.");
-		
-		return myStudyList;
+		return myStudyDAO.viewMyStudy(id);
 	}
 	
 	/**
@@ -107,12 +92,7 @@ public class MyStudyServiceImpl implements MyStudyService {
 	 * */
 	@Override
 	public List<StudyChat> viewStudyRoomChat(int studyNo) throws SQLException {
-		List<StudyChat> chatList = myStudyDAO.viewStudyRoomChat(studyNo);
-		
-		if(chatList.size() == 0)
-			throw new SQLException("아직 스터디원들과 나눈 대화가 없습니다.");
-			
-		return chatList;
+		return myStudyDAO.viewStudyRoomChat(studyNo);
 	}
 	
 	/**
