@@ -43,6 +43,11 @@ public interface MyStudyService {
 	public List<Study> viewMyStudy(String id) throws SQLException;
 	
 	/**
+	 * 참여중/종료 스터디 보기
+	 * */
+	public List<Study> viewJoinStudy(String id) throws SQLException;
+	
+	/**
 	 * 스터디룸 대화 내용 불러오기
 	 * */
 	public List<StudyChat> viewStudyRoomChat(int studyNo) throws SQLException;

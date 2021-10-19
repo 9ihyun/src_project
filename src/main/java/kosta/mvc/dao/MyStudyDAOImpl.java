@@ -278,6 +278,39 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	}
 	
 	/**
+	 * 참여중/종료 스터디 보기
+	 * */
+	@Override
+	public List<Study> viewJoinStudy(String id) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("myStudy.viewJoinStudy");
+		List<Study> joinList = new ArrayList<Study>();
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Study study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6),
+						rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12));
+				
+				study.setStudyCurrNo(getStudyCurrNo(con, rs.getInt(1)));
+				
+				joinList.add(study);
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		return joinList;
+	}
+	
+	/**
 	 * 스터디룸 대화 내용 불러오기
 	 * */
 	@Override

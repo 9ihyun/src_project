@@ -141,15 +141,7 @@ public class MyStudyController implements Controller {
 	public ModelAndView viewJoinStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = getUserId(request);
 		
-		List<Study> joinList = myStudyService.viewMyStudy(id); //내가 등록한 스터디
-		List<Study> signList = myStudyService.viewSignStudy(id); //내가 신청한 스터디
-		
-		for(Study study : signList) {
-			if(study.getStateNo() == 2) {
-				joinList.add(study);
-			}
-		}
-		
+		List<Study> joinList = myStudyService.viewJoinStudy(id);		
 		request.setAttribute("joinList", joinList);
 		
 		return new ModelAndView("mypage/myStudy.jsp"); //참여중/완료 스터디

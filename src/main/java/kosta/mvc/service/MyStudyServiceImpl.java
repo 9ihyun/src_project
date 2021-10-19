@@ -88,6 +88,14 @@ public class MyStudyServiceImpl implements MyStudyService {
 	}
 	
 	/**
+	 * 참여중/종료 스터디 보기
+	 * */
+	@Override
+	public List<Study> viewJoinStudy(String id) throws SQLException {
+		return myStudyDAO.viewJoinStudy(id);
+	}
+	
+	/**
 	 * 스터디룸 대화 내용 불러오기
 	 * */
 	@Override
