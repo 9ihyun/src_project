@@ -50,10 +50,8 @@ public class DispatcherServlet extends HttpServlet {
 			Controller controller = map.get(key);
 			
 			ModelAndView mv = (ModelAndView) method.invoke(controller, request, response); 
-//			System.out.println("mv = " + mv.getViewName());
 			
 			if(mv.isRedirect()) {
-//			System.out.println("mv.getViewName() = " + mv.getViewName());
 				response.sendRedirect(mv.getViewName());
 			}else {
 				request.getRequestDispatcher(mv.getViewName()).forward(request, response);

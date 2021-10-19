@@ -27,8 +27,8 @@ public class LoginController implements Controller {
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = request.getParameter("userId");
 		String pw = request.getParameter("pw");
-		System.out.println("userId= " + userId);
-		System.out.println("pw= " + pw);
+//		System.out.println("userId= " + userId);
+//		System.out.println("pw= " + pw);
 		
 		String nickname = loginService.loginCheck(userId, pw);
 		

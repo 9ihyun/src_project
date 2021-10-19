@@ -28,7 +28,7 @@ public class LoginDAOImpl implements LoginDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("login.loginCheck");
+		String sql = proFile.getProperty("login.loginCheck");//select nickname from member_user where user_id=? and pw=?
 		String nickname = null;
 		
 		try {
