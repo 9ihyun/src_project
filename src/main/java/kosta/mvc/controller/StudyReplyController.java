@@ -86,6 +86,7 @@ public class StudyReplyController implements Controller {
 	public ModelAndView selectAllReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		List<StudyReply> replyList = service.selectAllReply(studyNo);
+		System.out.println(studyNo);
 		
 		request.setAttribute("StudyReply", replyList);
 		return new ModelAndView("study/read.jsp");

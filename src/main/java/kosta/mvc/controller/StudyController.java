@@ -124,7 +124,6 @@ public class StudyController implements Controller {
 			System.out.println(studyNo);
 		Study study = service.viewStudy(studyNo);
 		
-		
 		request.setAttribute("study", study);
 		return new ModelAndView("study/read.jsp");//이동 위치
 	}
