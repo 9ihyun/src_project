@@ -103,7 +103,7 @@
 				<input type=hidden name="key" value="Study">
 				<input type=hidden name="methodName">
 				
-				<input type="submit" value="수정하기"  onclick="location.href = 'update.jsp'">
+				<input type="submit" value="수정하기"  onclick="location.href = 'update2.jsp'">
 				<input type="submit" value="삭제하기">		
 		</td>
     </tr>
