@@ -9,14 +9,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-beanutils-1.8.3.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ezmorph-1.0.6.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ojdbc8.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jstl.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/jstl.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

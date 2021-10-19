@@ -40,7 +40,6 @@ public class StudyController implements Controller {
 	public ModelAndView insertStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
 		
-		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 			userId = request.getParameter("userId");
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
@@ -57,7 +56,7 @@ public class StudyController implements Controller {
 		
 		service.insertStudy(study);
 
-		return new ModelAndView("study/write.jsp"); //이동 위치 
+		return new ModelAndView("study/list.jsp"); //이동 위치 
 	}
 
 	/**
