@@ -1,6 +1,7 @@
 package kosta.mvc.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -50,7 +51,7 @@ public class LoginController implements Controller {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		return new ModelAndView(request.getRealPath("/singin.jsp"), true);
+		return new ModelAndView("/singin.jsp", true);
 	}
 	
 	/**
@@ -66,7 +67,7 @@ public class LoginController implements Controller {
 		
 		loginService.register(new User(id, nickname, pass, birth, question, anwser));
 		
-		return new ModelAndView(request.getRealPath("/singin.jsp"), true);
+		return new ModelAndView("/singin.jsp", true);
 	}
 	
 	/**
@@ -81,6 +82,38 @@ public class LoginController implements Controller {
 		request.setAttribute("user", user);
 		
 		return new ModelAndView(""); //찾기 페이지 기입
+	}
+	
+	/**
+	 * 아이디 중복 확인
+	 * */
+	public void idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/html;charset=UTF-8");
+		
+		String id = request.getParameter("id");		
+		PrintWriter out = response.getWriter();		
+		
+		if(loginService.idCheck(id)) {
+			out.print("이미 사용 중인 아이디입니다.");
+		}else {
+			out.print("사용가능한 아이디입니다.");
+		}
+	}
+	
+	/**
+	 * 닉네임 중복 확인
+	 * */
+	public void nicknameCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/html;charset=UTF-8");
+		
+		String nickname = request.getParameter("nickname");		
+		PrintWriter out = response.getWriter();
+		
+		if(loginService.nicknameCheck(nickname)) {
+			out.print("이미 사용 중인 닉네임입니다.");
+		}else {
+			out.print("사용가능한 닉네임입니다.");
+		}
 	}
 	
 }

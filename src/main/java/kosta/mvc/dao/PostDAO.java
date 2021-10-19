@@ -12,12 +12,12 @@ public interface PostDAO {
 	/**
 	 * 게시글 등록
 	 */
-	Post postInsert(Post post) throws SQLException;
+	int postInsert(Post post) throws SQLException;
 	
 	/**
 	 * 게시글 수정
 	 */
-	Post postUpdate(Post post) throws SQLException;
+	int postUpdate(Post post) throws SQLException;
 
 	/**
 	 * 게시글 삭제

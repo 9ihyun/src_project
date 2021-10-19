@@ -44,5 +44,27 @@ public class LoginServiceImpl implements LoginService {
 		
 		return user;
 	}
+	
+	/**
+	 * 아이디 중복 확인
+	 * */
+	@Override
+	public boolean idCheck(String id) throws SQLException {
+		if(loginDAO.idCheck(id))
+			return true;
+		
+		return false;
+	}
+	
+	/**
+	 * 닉네임 중복 확인
+	 * */
+	@Override
+	public boolean nicknameCheck(String nickname) throws SQLException {
+		if(loginDAO.nicknameCheck(nickname))
+			return true;
+		
+		return false;
+	}
 
 }

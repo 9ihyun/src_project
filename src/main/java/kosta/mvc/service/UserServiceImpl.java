@@ -58,25 +58,4 @@ public class UserServiceImpl implements UserService {
 			throw new SQLException("탈퇴 처리에 실패했습니다.");
 	}
 	
-	/**
-	 * 아이디 중복 확인
-	 * */
-	@Override
-	public boolean idCheck(String id) throws SQLException {
-		if(userDAO.idCheck(id))
-			return true;
-		
-		return false;
-	}
-	
-	/**
-	 * 닉네임 중복 확인
-	 * */
-	@Override
-	public boolean nicknameCheck(String nickname) throws SQLException {
-		if(userDAO.nicknameCheck(nickname))
-			return true;
-		
-		return false;
-	}
 }

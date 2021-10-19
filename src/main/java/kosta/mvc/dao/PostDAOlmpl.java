@@ -24,12 +24,13 @@ public class PostDAOlmpl implements PostDAO {
 	}	
 
 	@Override
-	public Post postInsert(Post post) throws SQLException {
+	public int postInsert(Post post) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps =null;
-		ResultSet rs =null;
+		//ResultSet rs =null;
+		int result=0;
 	
-		String sql="insert into post(post_no, tag_no, board_no, user_id, post_title, post_content) values(post_seq.nextval, ?, ?, ?, ?,?)";
+		String sql="insert into post(tag_no, board_no, user_id, post_title, post_content) values(?, ?, ?, ?,?)";
 		Post dbPost=null;
 		try {
 			con=DbUtil.getConnection();
@@ -41,23 +42,23 @@ public class PostDAOlmpl implements PostDAO {
 			ps.setString(5, post.getPostContent());
 			
 			
-			rs = ps.executeQuery();
-			//rs = ps.executeUpdate();
-			if(rs.next()) {
-				dbPost = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7), rs.getInt(8));
-			}
+			//rs = ps.executeQuery();
+			result = ps.executeUpdate();
+			
+			
 			
 		}finally {
-			DbUtil.dbClose(rs, ps, con);
+			DbUtil.dbClose(ps, con);
 		}
-		return dbPost; 
+		return result; 
 	}
 
 	@Override
-	public Post postUpdate(Post post) throws SQLException {
+	public int postUpdate(Post post) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps =null;
 		ResultSet rs =null;
+		int result=0;
 		
 		String sql="update post set tag_no=?, board_no=?, post_title=?, post_content=? where post_no=?";
 		Post dbPost=null;
@@ -70,8 +71,8 @@ public class PostDAOlmpl implements PostDAO {
 			ps.setString(5, post.getPostContent());
 			ps.setInt(6, post.getPostNo());
 			
-			
-			rs = ps.executeQuery();
+			result = ps.executeUpdate();
+			//rs = ps.executeQuery();
 			if(rs.next()) {
 				dbPost = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7), rs.getInt(8));
 			}
@@ -79,7 +80,7 @@ public class PostDAOlmpl implements PostDAO {
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
-		return dbPost; 
+		return result; 
 		
 	}
 	public int postDelete(int postNo) throws SQLException {
