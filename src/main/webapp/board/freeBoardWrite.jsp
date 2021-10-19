@@ -185,7 +185,7 @@ img{width:200px; height:350px}
 	
 		
 		  <c:if test="${(startPage-p.blockcount) > 0}"> <!-- (-2) > 0  -->
-		      <a class="pagination-newer" href="${path}/front?key=elec&methodName=select&pageNo=${startPage-1}">PREV</a>
+		      <a class="pagination-newer" href="${path}/front?key=Post&methodName=select&postNo=${startPage-1}">PREV</a>
 		  </c:if>
 		  
 		  
@@ -196,7 +196,7 @@ img{width:200px; height:350px}
 			       <c:set var="doneLoop" value="true"/>
 			    </c:if> 
 			  <c:if test="${not doneLoop}" >
-			         <a class="${i==pageNo?'pagination-active':page}" href="${path}/front?key=elec&methodName=select&pageNo=${i}">${i}</a> 
+			         <a class="${i==pageNo?'pagination-active':page}" href="${path}/front?key=Post&methodName=select&postNo=${i}">${i}</a> 
 			  </c:if>
 		  
 		</c:forEach>
@@ -213,7 +213,7 @@ img{width:200px; height:350px}
 					      }
 				 -->
 				 <c:if test="${(startPage+p.blockcount)<=p.pageCnt}">
-				     <a class="pagination-older" href="${path}/front?key=elec&methodName=select&pageNo=${startPage+p.blockcount}">NEXT</a>
+				     <a class="pagination-older" href="${path}/front?key=Post&methodName=select&postNo=${startPage+p.blockcount}">NEXT</a>
 				 </c:if>
 				 
 			
