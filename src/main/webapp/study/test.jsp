@@ -1,21 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
-
-<HEAD>
-<link rel="stylesheet" href="css/style.css">
-
-<SCRIPT language=javascript>
-
-
-</script>
-
-
-</HEAD>
-
+<%@page import="kosta.mvc.dao.StudyDAOImpl"%>
+<%@page import="kosta.mvc.dao.StudyDAO"%>
+<%@page import="kosta.mvc.dto.Study"%>
+<%@page import="java.io.PrintWriter"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 <body>
-<form>
+<%
+	//로그인 한 사람은 userId에 해당 아이디 등록, 그렇지 않으면 null
+	String userId = null;
+if(session.getAttribute("userId") != null){
+	userId = (String)session.getAttribute("userId");
+}
+
+	//로그인 안했을 떄
+	if(userId == null){
+		PrintWriter script = response.getWriter();
+		script.print("<script>");
+		script.print("alert('로그인 이후 이용하세요')");
+		script.print("location.href='signin.jsp'");
+		script.print("</script>");
+		
+	}
+	
+	//글번호
+	int studyNo = 0;
+	if(request.getParameter("studyNo")!=null){
+		studyNo = Integer.parseInt(request.getParameter("studyNo"));
+	}
+	
+	if(studyNo == 0){
+		PrintWriter script = response.getWriter();
+		script.print("<script>");
+		script.print("alert('유효하지 않은 글 입니다.')");
+		script.print("location.href='list.jsp'");
+		script.print("</script>");
+	}
+	
+%>
+
+<!-- 게시글 보기 -->
+<form action="updateProc.jsp?studyNo=<%=studyNo %>">
 <table align="center" cellpadding="5" cellspacing="2" width="600" border='1' >
     <tr>
         <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
@@ -95,52 +125,12 @@
         <td width="450" height="200" valign="top" colspan="3">
         <span style="font-size:9pt;"><b><pre>${requestScope.study.studyContent}</pre></b></span></td>
     </tr>
-    
     <tr>
-        <td height="20" colspan="4" align="center" valign="middle">
-			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
-				<input type=hidden name="studyNo" value="${Study.studyNo}">
-				<input type=hidden name="key" value="Study">
-				<input type=hidden name="methodName">
-				
-				<input type="submit" value="수정하기"  onclick="location.href = 'test.jsp'">
-				<input type="submit" value="삭제하기">		
-		</td>
+    	<button type= "submit">수정하기</button>
     </tr>
 </table>
 </form>
-<hr>
-<h3>Replies 정보</h3>
-<c:choose>
-	<c:when test = "${empty StudyReply.sReplyNo}">
-		<h5>댓글정보가 없습니다.</h5>
-	</c:when>
-	<c:otherwise>
-		<c:forEach items = "${StudyReply.sReplyNo}" var = "reply">
-			${StudyReply.sReplyNo} / ${StudyReply.sReplyContent} /${StudyReply.sReplyDate} /${StudyReply.studyNo}<p>
-		</c:forEach>
-	</c:otherwise>
-</c:choose>
-<div>  
-	<p class="star_rating" >
-    <a href="#" class="">★</a> <!-- on 을 해두면 색이 노란색으로 나옴 -->
-    <a href="#" class="">★</a>
-    
-    <a href="#" class="">★</a>
-    <a href="#">★</a>
-    <a href="#">★</a>
-</p>
-	<input type="text"  value="댓글을 입력해주세요">
-	</div>
-	<div align="right">
-	<input type="submit"  value=등록>
-	</div>
-<hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div>
+
+
 </body>
-
-
-
-
-
-
+</html>
