@@ -12,18 +12,6 @@ function sendUpdate(){
 	document.requestForm.submit();
 }
 
-
-
-function sendDelete(){
-	if(document.requestForm.password.value==""){
-		alert("비밀번호 입력하세요.");
-		document.requestForm.password.focus();
-		return;
-	}
-	
-	document.requestForm.methodName.value ="delete";
-	document.requestForm.submit();
-}
 </script>
 
 
@@ -75,17 +63,6 @@ function sendDelete(){
         <span style="font-size:9pt;"><b><pre>${requestScope.study.studyContent}</pre></b></span></td>
     </tr>
     
-    
-    <tr>
-    <td width="100" height="20">
-           <p align="right"><b><span style="font-size:9pt;">비밀번호</span></b></p>
-        </td>
-        
-    <form name="requestForm" method="post" action="${path}/front">
-        <td height="20" colspan="3" align="left" valign="middle">
-				<input type=password name="password" value="">		
-		</td>
-    </tr>
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
 			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
