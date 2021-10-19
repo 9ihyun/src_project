@@ -109,7 +109,7 @@ public class LoginDAOImpl implements LoginDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("user.idCheck");
+		String sql = proFile.getProperty("login.idCheck");
 		boolean result = false;
 		
 		try {
@@ -139,7 +139,7 @@ public class LoginDAOImpl implements LoginDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("user.nicknameCheck");
+		String sql = proFile.getProperty("login.nicknameCheck");
 		boolean result = false;
 		
 		try {
