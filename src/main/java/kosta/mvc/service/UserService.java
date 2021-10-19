@@ -30,13 +30,4 @@ public interface UserService {
 	 * */
 	public void delete(String id) throws SQLException;
 	
-	/**
-	 * 아이디 중복 확인
-	 * */
-	public boolean idCheck(String id) throws SQLException;
-	
-	/**
-	 * 닉네임 중복 확인
-	 * */
-	public boolean nicknameCheck(String nickname) throws SQLException;
 }
