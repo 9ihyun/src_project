@@ -129,6 +129,9 @@ img{width:200px; height:350px}
     </tr>
     </c:when>
     <c:otherwise>
+    
+   
+		            
 	<c:forEach items="${requestScope.list}" var="Post">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
