@@ -89,6 +89,20 @@ function sendUpdate(){
 		</c:forEach>
 	</c:otherwise>
 </c:choose>
+<div>  
+	<p class="star_rating" >
+    <a href="#" class="">★</a> <!-- on 을 해두면 색이 노란색으로 나옴 -->
+    <a href="#" class="">★</a>
+    
+    <a href="#" class="">★</a>
+    <a href="#">★</a>
+    <a href="#">★</a>
+</p>
+	<input type="text"  value="댓글을 입력해주세요">
+	</div>
+	<div align="right">
+	<input type="submit"  value=등록>
+	</div>
 <hr>
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div>
 
