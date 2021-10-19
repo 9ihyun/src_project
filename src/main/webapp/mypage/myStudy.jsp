@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,22 +36,50 @@
     <th>지역</th>
     <th>신청자수</th>
   </tr>
-  <tr>
-    <th>모집중</th>
-    <th>10/6</th>
-    <th>프론트 모집합니다</th>
-    <th>1/5</th>
-    <th>경기</th>
-    <th>6</th>
-  </tr>
-  <tr>
-    <th>모집중</th>
-    <th>10/20</th>
-    <th>벡엔드</th>
-    <th>3/7</th>
-    <th>서울</th>
-    <th>5</th>
-  </tr>
+  <c:choose>
+    <c:when test="${empty requestScope.myStudyList}">
+	   <tr>
+        <td colspan="5">
+            <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
+        </td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+	<c:forEach items="${requestScope.myStudyList}" var="Study">
+		    <tr onmouseover="this.style.background='#eaeaea'"
+		        onmouseout="this.style.background='white'">
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.stateNo}</span></p>
+		        </td>
+		        <td bgcolor="">
+					<p><span style="font-size:9pt;">
+					  ${Study.studyDuedate}</span></p>
+		        </td>
+		        
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyTitle}"</span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyTitle}</span></p>
+		        </td>
+		         
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyLocationSi}시${Study.studyLocationGu}구</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyTitle}</span></p>
+		        </td>
+		        
+		      
+		    </tr>
+    </c:forEach>
+	</c:otherwise>
+    </c:choose>
 </table>
 
 </body>
