@@ -136,6 +136,26 @@ public class MyStudyController implements Controller {
 	}
 	
 	/**
+	 * 참여중/종료 스터디 보기
+	 * */
+	public ModelAndView viewJoinStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id = getUserId(request);
+		
+		List<Study> joinList = myStudyService.viewMyStudy(id); //내가 등록한 스터디
+		List<Study> signList = myStudyService.viewSignStudy(id); //내가 신청한 스터디
+		
+		for(Study study : signList) {
+			if(study.getStateNo() == 2) {
+				joinList.add(study);
+			}
+		}
+		
+		request.setAttribute("joinList", joinList);
+		
+		return new ModelAndView("mypage/myStudy.jsp"); //참여중/완료 스터디
+	}
+	
+	/**
 	 * 스터디룸 대화 내용 불러오기
 	 * */
 	public ModelAndView viewStudyRoomChat(HttpServletRequest request, HttpServletResponse response) throws Exception {
