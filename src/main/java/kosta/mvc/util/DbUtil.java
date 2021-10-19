@@ -31,26 +31,26 @@ public class DbUtil {
 		}
 	}
 	//로드
-	static {
-		try {
-			// 외부 ~.properties 파일 로딩
-			proFile.load(new FileInputStream("src/main/java/kosta/mvc/util/DBProperties.properties"));
-			Class.forName(proFile.getProperty("driverName"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-//	//front 연결할때 
-//	public static Connection getConnection() throws SQLException{
-//		return  ds.getConnection();
-//	} 
+//	static {
+//		try {
+//			// 외부 ~.properties 파일 로딩
+//			proFile.load(new FileInputStream("src/main/java/kosta/mvc/util/DBProperties.properties"));
+//			Class.forName(proFile.getProperty("driverName"));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+	//front 연결할때 
+	public static Connection getConnection() throws SQLException{
+		return  ds.getConnection();
+	} 
 	
-	//back 연결할때
-	public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(proFile.getProperty("url"), proFile.getProperty("userName"),
-				proFile.getProperty("userPass"));
-
-	}
+//	//back 연결할때
+//	public static Connection getConnection() throws SQLException {
+//		return DriverManager.getConnection(proFile.getProperty("url"), proFile.getProperty("userName"),
+//				proFile.getProperty("userPass"));
+//
+//	}
 	
 	public static void dbClose(ResultSet rs, Statement st ,Connection con) {
 		try {

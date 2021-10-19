@@ -12,14 +12,14 @@ public class PostServicelmpl implements PostService {
 
 	@Override
 	public void postInsert(Post post) throws SQLException {
-		if (postDao.postInsert(post) == null)
+		if (postDao.postInsert(post) == 0)
 			throw new SQLException("게시글이 등록되지 않았습니다");
 		
 	}
 
 	@Override
 	public void postUpdate(Post post) throws SQLException {
-		if (postDao.postUpdate(post) == null)
+		if (postDao.postUpdate(post) == 0)
 			throw new SQLException("게시글이 수정되지 않았습니다");
 		
 	}
