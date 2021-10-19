@@ -121,7 +121,7 @@ img{width:200px; height:350px}
     </tr>
   
     <c:choose>
-    <c:when test="${empty requestScope.list}">
+    <c:when test="${empty requestScope.postList}">
 	   <tr>
         <td colspan="5">
             <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
@@ -129,68 +129,66 @@ img{width:200px; height:350px}
     </tr>
     </c:when>
     <c:otherwise>
-    
-   
-		            
-	<c:forEach items="${requestScope.list}" var="Post">
+	<c:forEach items="${requestScope.postList}" var="Post">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
+		        
+		        <!-- 번호 -->
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Post.postNo}</span></p>
 		        </td>
+		        <!-- 제목 -->
 		        <td bgcolor="">
-					<p><span style="font-size:9pt;">
-					<a href="${path}/front?key=Post&methodName=viewPost&postNo=${Post.boardNo}">
-					  ${Post.postTitle}
-					</a>
-					</span></p>
+					<p align="center"><span style="font-size:9pt;">
+					<a href="${path}/front?key=post&methodName=postViewPost&postNo=${Post.postNo}"> </a>
+					  ${Post.postTitle}</span></p>
 		        </td>
-		        
+		        <!-- 추천수 -->
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <fmt:formatNumber value="${Post.postUp}"/></span></p>
+		            ${Post.postUp}</span></p>
 		        </td>
+		        <!-- 날짜 -->
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Post.postDate}</span></p>
 		        </td>
 		        
-		      
 		    </tr>
-    </c:forEach>
-	</c:otherwise>
-    </c:choose>
-</table>
-<hr>
-<div align=right>
-<span style="font-size:9pt;">&lt;<a href="${path}/board/WriteInfo.jsp">글쓰기</a>&gt;</span>
-</div>
+	    </c:forEach>
+		</c:otherwise>
+	    </c:choose>
+	</table>
+	<hr>
+	<div align=right>
+	<span style="font-size:9pt;">&lt;<a href="${path}/board/WriteInfo.jsp">글쓰기</a>&gt;</span>
+	</div>
+	
 
 
-
-<hr>
-
-   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
-    
-  <p>
-
- 
- <!--  블럭당  -->
- <nav class="pagination-container">
-		<div class="pagination">
-		<c:set var="doneLoop" value="false"/>
-		
-		<c:set var="temp" value="${(pageNo-1) % p.blockcount}"/> <!-- (1-1)%2  =0  , (2-1)%2    1 , (3-1)%2  0 -->
-		<c:set var="startPage" value="${pageNo - temp}"/> <!--   1- 1 -->
-		
+	<hr>
+	
+	   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
+	    
+	  <p>
+	
+	 
+	 <!--  블럭당  -->
+	 <nav class="pagination-container">
+			<div class="pagination">
+			<c:set var="doneLoop" value="false"/>
+			
+			<c:set var="temp" value="${(pageNo-1) % p.blockcount}"/> <!-- (1-1)%2  =0  , (2-1)%2    1 , (3-1)%2  0 -->
+			<c:set var="startPage" value="${pageNo - temp}"/> <!--   1- 1 -->
+			
 	<br>
 	
 		
 		  <c:if test="${(startPage-p.blockcount) > 0}"> <!-- (-2) > 0  -->
-		      <a class="pagination-newer" href="${path}/front?key=Post&methodName=select&postNo=${startPage-1}">PREV</a>
+		      <a class="pagination-newer" href="${path}/front?key=post&methodName=selectAllPost&pageNo=${startPage-1}">PREV</a>
 		  </c:if>
-		  
+		  													
 		  
 		
 		<span class="pagination-inner"> 
@@ -199,7 +197,7 @@ img{width:200px; height:350px}
 			       <c:set var="doneLoop" value="true"/>
 			    </c:if> 
 			  <c:if test="${not doneLoop}" >
-			         <a class="${i==pageNo?'pagination-active':page}" href="${path}/front?key=Post&methodName=select&postNo=${i}">${i}</a> 
+			         <a class="${i==pageNo?'pagination-active':page}" href="${path}/front?key=post&methodName=selectAllPost&pageNo=${i}">${i}</a> 
 			  </c:if>
 		  
 		</c:forEach>
@@ -216,7 +214,7 @@ img{width:200px; height:350px}
 					      }
 				 -->
 				 <c:if test="${(startPage+p.blockcount)<=p.pageCnt}">
-				     <a class="pagination-older" href="${path}/front?key=Post&methodName=select&postNo=${startPage+p.blockcount}">NEXT</a>
+				     <a class="pagination-older" href="${path}/front?key=post&methodName=selectAllPost&pageNo=${startPage+p.blockcount}">NEXT</a>
 				 </c:if>
 				 
 			
