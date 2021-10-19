@@ -44,19 +44,20 @@ public class PostController implements Controller {
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 		String postTitle = request.getParameter("postTitle");
 		String postContent = request.getParameter("postContent");
+		
+		
+		Post post = new Post(postNo,tagNo, boardNo, postTitle, postContent );
+		
+		service.postUpdate(post);
 
-		Post post = new Post(postNo, tagNo, boardNo, postTitle, postContent);
-
-		service.postInsert(post);
-
-		return null;
+		return new ModelAndView("board/freeBoardWrite.jsp", true);
 	}
 
 	public ModelAndView postDelete(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
 
 		service.postDelete(postNo);
-		return null;
+		return new ModelAndView("board/freeBoardWrite.jsp", true);
 	}
 
 	public ModelAndView postSelectAllPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
