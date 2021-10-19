@@ -42,6 +42,7 @@ public class StudyController implements Controller {
 		
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
+			userId = request.getParameter("userId");
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
 		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
 		int studyMaxnum = Integer.parseInt(request.getParameter("studyMaxnum"));
@@ -56,7 +57,7 @@ public class StudyController implements Controller {
 		
 		service.insertStudy(study);
 
-		return new ModelAndView("study/read.jsp", true); //이동 위치 
+		return new ModelAndView("study/write.jsp"); //이동 위치 
 	}
 
 	/**

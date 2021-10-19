@@ -186,7 +186,7 @@ img{width:200px; height:350px}
 </table>
 <hr>
 <div align=right>
-<span style="font-size:9pt;">&lt;<a href="${path}/study/write.jsp">글쓰기</a>&gt;</span>
+<span style="font-size:9pt;">&lt;<a href="${path}/study/write2.jsp">글쓰기</a>&gt;</span>
 </div>
 
 

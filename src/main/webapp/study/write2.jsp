@@ -1,50 +1,104 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스터디</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="CSS/style.css">
+<style>
 
+
+</style>
 
 <script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
 
-<SCRIPT language=javascript>
-function checkValid() {
-    var f = window.document.insertStudy;
-		
-	if ( f.stateNo.value == "") {
-	    alert( "모집여부를 입력해 주세요." );
-	    f.stateNo.focus();
-		return false;
-    }
-	if ( f.studyTitle.value == "" ) {
-		alert( "제목을 입력해 주세요." );
-		f.studyTitle.focus();
+
+//$(function(){ 
+	//취소했을때 1
+	 //$("#cancel").click(function(){
+		// if(confirm("취소하시겠습니까?") == true){
+			// parent.location.href = "freeBoardMain.jsp";
+		 //}else{
+			 //return false;
+		// }
+	 //}); 
+//});
+
+
+function cancel(){ //취소하기 눌렀을때
+	if(confirm("취소하시겠습니까?") == true){
+		parent.location.href = "freeBoardMain.jsp";
+	 }
+}
+
+function checkValid(frm){
+	
+	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+		alert("태그를 입력해주세요.");
+		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
 		return false;
 	}
-	if ( f.studyMaxnum.value == "" ) {
-		alert( "정원을 입력해 주세요." );
-		f.studyMaxnum.focus();
+	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+		alert("아이디를  입력해주세요.");
+		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
 		return false;
 	}
-	if ( f.studyContent.value == "" ) {
-        alert( "설명을 입력해 주세요." );
-        f.studyContent.focus();
-        return false;
-    }
-	if ( f.password.value == "" ) {
-        alert( "비밀번호를 입력해 주세요" );
-        f.password.focus();
-        return false;
-    }
+	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+		alert("상태를 입력해주세요.");
+		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+		return false;
+	}
+	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+		alert("요일을 입력해주세요.");
+		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+		return false;
+	}
+	if(frm.userId.value == ""){
+		alert("정원을 입력해주세요.");
+		frm.userId.focus();
+		return false;
+	}
+	
+	if(frm.postContent.value == ""){
+		alert("시를 입력해주세요.");
+		frm.postContent.focus();
+		return false;
+	}
+	
+	if(frm.password.value == ""){
+		alert("구를 입력해주세요.");
+		frm.password.focus();
+		return false;
+	}
+	
+	if(frm.password.value == ""){
+		alert("마감일을 입력해주세요.");
+		frm.password.focus();
+		return false;
+	}
+	
+	if(frm.password.value == ""){
+		alert("제목을 입력해주세요.");
+		frm.password.focus();
+		return false;
+	}
+	
+	if(frm.password.value == ""){
+		alert("내용을 입력해주세요.");
+		frm.password.focus();
+		return false;
+	}
 	
 	if(confirm("등록하시겠습니까?") == true){
 		return true;
 	}
 }
-</SCRIPT>
 
+</script>
 
-</HEAD>
+</head>
 <BODY>
 
 <form action="${path}/front" >
