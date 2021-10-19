@@ -136,7 +136,7 @@ public class StudyDAOImpl implements StudyDAO {
 		ResultSet rs=null;
 		
 		List<Study> studyList = new ArrayList<>();
-		String sql = proFile.getProperty("query.pagingSelect"); //where rnum <=? and rnum>=?
+		String sql = proFile.getProperty("study.pagingSelect"); //where rnum <=? and rnum>=?
 		try {
 			
 			//전체 레코드 수 구하기 
@@ -178,7 +178,7 @@ public class StudyDAOImpl implements StudyDAO {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 	    int result=0;
-		String sql = proFile.getProperty("query.totalCount"); //
+		String sql = proFile.getProperty("study.totalCount"); //
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
