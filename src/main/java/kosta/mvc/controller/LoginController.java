@@ -26,6 +26,8 @@ public class LoginController implements Controller {
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = request.getParameter("userId");
 		String pw = request.getParameter("pw");
+		System.out.println("userId= " + userId);
+		System.out.println("pw= " + pw);
 		
 		String nickname = loginService.loginCheck(userId, pw);
 		
@@ -33,8 +35,9 @@ public class LoginController implements Controller {
 		session.setAttribute("userId", userId);
 		session.setAttribute("nickname", nickname);
 		
+		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("user/singin.jsp"); //메인페이지 기입
+		mv.setViewName("mypage/startPage.jsp"); //메인페이지 기입
 		mv.setRedirect(true);
 		
 		return mv;

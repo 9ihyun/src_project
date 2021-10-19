@@ -45,7 +45,7 @@ public class HandlerMappingListener implements ServletContextListener {
 	    	application.setAttribute("map", map);
 	    	application.setAttribute("clzMap", clzMap);
 	    	application.setAttribute("path", application.getContextPath());
-	    	System.out.println("path = "+application.getAttribute("path"));
+//	    	System.out.println("path22222 = "+application.getAttribute("path"));
 	    	
 	    	
     	

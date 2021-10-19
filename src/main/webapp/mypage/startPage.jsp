@@ -8,13 +8,13 @@
 <style type="text/css">
 
 </style>
-<script src="../js/jquery-3.6.0.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 $(function(){
-	  
+	  alert(111)
 	  //alert("${pageContext.request.contextPath}")
 	 // alert("${applicationScope.path}")
-	  location.href="${path}/front?key=user&methodName=myInfo";
+	  location.href="${pageContext.request.contextPath}/front?key=user&methodName=myInfo";
 	  
 });
 </script>
