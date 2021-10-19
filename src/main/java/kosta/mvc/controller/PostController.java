@@ -32,8 +32,8 @@ public class PostController implements Controller {
 		Post post = new Post(tagNo, boardNo, userId, postTitle, postContent);
 
 		service.postInsert(post);
-
-		return new ModelAndView("board/freeBoardWrite.jsp", true);
+		
+		return new ModelAndView("/front?key=post&methodName=postSelectAllPost");
 	}
 
 	public ModelAndView postUpdate(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -64,16 +64,18 @@ public class PostController implements Controller {
 
 		List<Post> postList = service.selectAllPost();
 			System.out.println(postList.size());
-		request.setAttribute("postList", postList);
+		
+			request.setAttribute("postList", postList);
+			
 		return new ModelAndView("board/freeBoardWrite.jsp");
 	}
 
 	public ModelAndView postViewPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
-		Post postList = service.postView(postNo);
+		Post view = service.postView(postNo);
 
-		request.setAttribute("postList", postList);
-		return new ModelAndView("board/freeBoardWrite.jsp");
+		request.setAttribute("view", view);
+		return new ModelAndView("board/freeBoardread.jsp");
 	}
 
 	public ModelAndView postLike(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -101,8 +101,7 @@ function checkValid(frm){
 					</p>
 				</td>
 				<td width="450" height="20">
-					<form>
-						<select name="taglist">
+						<select name="tagNo">
 							<option value="none">태그번호 선택</option>
 							<option value="1" >C/C++</option>
 							<option value="2" >C#</option>
@@ -134,7 +133,7 @@ function checkValid(frm){
 							<option value="28">토이프로젝트</option>
 							<option value="29">기타</option>
 						</select>
-					</form></td>
+					</td>
 			</tr>
      	<tr>
 				<td width="150" height="20">
@@ -143,14 +142,14 @@ function checkValid(frm){
 					</p>
 				</td>
 				<td width="450" height="20">
-					<form>
-						<select name="taglist">
-							<option value="none">1.자유게시판</option>
+					
+						<select name="boardNo">
+							<option value="1">1.자유게시판</option>
 							<b><span style="font-size:9pt;">
         	   				</span></b>
 
 						</select>
-					</form></td>
+					</td>
 			</tr>
      
      <tr>

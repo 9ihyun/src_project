@@ -129,33 +129,30 @@ img{width:200px; height:350px}
     </tr>
     </c:when>
     <c:otherwise>
-	<c:forEach items="${requestScope.postList}" var="Post">
+	<c:forEach var="Post" items="${postList}">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
 		        
 		        <!-- 번호 -->
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Post.postNo}</span></p>
+		        <td bgcolor="" align="center">
+		            <span style="font-size:9pt;">${Post.postNo}</span>
 		        </td>
 		        
 		        <!-- 제목 -->
-		        <td bgcolor="">
-					<p align="center"><span style="font-size:9pt;">
-					<a href="${path}/front?key=post&methodName=postViewPost&postNo=${Post.postNo}"> </a>
-					  ${Post.postTitle}</span></p>
+		        <td bgcolor="" align="center">
+					<a href="${path}/front?key=post&methodName=postViewPost&postNo=${Post.postNo}"> 
+				  		<span style="font-size:9pt;">${Post.postTitle}</span>
+				  	</a>
 		        </td>
 		        
 		        <!-- 추천수 -->
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Post.postUp}</span></p>
+		        <td bgcolor="" align="center">
+					<span style="font-size:9pt;">${Post.postUp}</span>
 		        </td>
 		        
 		        <!-- 날짜 -->
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Post.postDate}</span></p>
+		        <td bgcolor="" align="center">
+		            <span style="font-size:9pt;">${Post.postDate}</span>
 		        </td>
 		        
 		    </tr>

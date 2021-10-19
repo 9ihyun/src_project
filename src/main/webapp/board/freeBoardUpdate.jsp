@@ -14,16 +14,6 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 
-//$(function(){ 
-	//취소했을때 1
-	 //$("#cancel").click(function(){
-		// if(confirm("취소하시겠습니까?") == true){
-			// parent.location.href = "freeBoardMain.jsp";
-		 //}else{
-			 //return false;
-		// }
-	 //}); 
-//});
 
 
 function cancel(){ //취소하기 눌렀을때

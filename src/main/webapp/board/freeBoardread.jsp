@@ -2,8 +2,11 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
-
-<HEAD>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시글 상세</title>
 <link rel="stylesheet" href="css/style.css">
 
 <style type="text/css">
@@ -54,12 +57,7 @@ function checkValid(frm){
 
 
 </script>
-
-
-
-</HEAD>
 <body>
-</body>
 
 <table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
     <tr>
@@ -74,7 +72,7 @@ function checkValid(frm){
             <p align="right"><b><span style="font-size:9pt;"> 제목 </span></b></p>
         </td>
         <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${requestScope.post.postTitle}</b></span>
+        	<span style="font-size:9pt;"><b>${view.postTitle}</b></span>
         </td>
     </tr>
     <tr>
@@ -83,7 +81,7 @@ function checkValid(frm){
         </td>
 		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
         <td width="450" height="200" valign="top" colspan="3">
-        <span style="font-size:9pt;"><b><pre>${requestScope.post.postContent}</pre></b></span></td>
+        <span style="font-size:9pt;"><b><pre>${view.postContent}</pre></b></span></td>
     </tr>
     
     
@@ -102,7 +100,7 @@ function checkValid(frm){
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
 			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
-				<input type=hidden name="postNo" value="${post.postNo}">
+				<input type=hidden name="postNo" value="${view.postNo}">
 				<input type=hidden name="key" value="Post">
 				<input type=hidden name="methodName" value ="">
 		
@@ -138,8 +136,6 @@ function checkValid(frm){
 	</div>
 <hr>
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div>
-
-
 
 </body>
 </html>
