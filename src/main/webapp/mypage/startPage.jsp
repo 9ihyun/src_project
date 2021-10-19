@@ -20,6 +20,7 @@ $(function(){
 </script>
 </head>
 <body>
+	<h3>메인페이지</h3>
 
 </body>
 </html>

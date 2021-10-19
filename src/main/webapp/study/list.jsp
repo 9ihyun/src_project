@@ -158,7 +158,7 @@ img{width:200px; height:350px}
 		        
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <fmt:formatNumber value="${Study.studyMaxnum}"/></span></p>
+		            ${Study.studyMaxnum}"</span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
@@ -171,7 +171,7 @@ img{width:200px; height:350px}
 		        </td>
 		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <fmt:formatNumber value="${Study.studyLocationSi}"/> byte</span></p>
+		            ${Study.studyLocationSi}</span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
