@@ -104,7 +104,7 @@ function checkValid(frm){
 			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
 				<input type=hidden name="postNo" value="${post.postNo}">
 				<input type=hidden name="key" value="Post">
-				<input type=hidden name="methodName" >
+				<input type=hidden name="methodName" value ="">
 		
     </form>
 			
