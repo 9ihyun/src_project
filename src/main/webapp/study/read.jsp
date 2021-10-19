@@ -41,7 +41,7 @@ function sendDelete(){
             <p align="right"><b><span style="font-size:9pt;">모집여부</span></b></p>
         </td>
         <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${Study.stateNo}</b></span>
+        	<span style="font-size:9pt;"><b>${study.stateNo}</b></span>
         </td>
     </tr>
     <tr>
@@ -49,13 +49,13 @@ function sendDelete(){
             <p align="right"><b><span style="font-size:9pt;">마감일</span></b></p>
         </td>
         <td width="300" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.Study.studyDuedate}</b></span>
+        	<span style="font-size:9pt;"><b>${requestScope.study.studyDuedate}</b></span>
         </td>
         <td width="100" height="20" >
 			<p align="right"><b><span style="font-size:9pt;">조회수</span></b></p>
 		</td>
         <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${requestScope.Study.studyRegdate}</b></p>
+			<p><b><span style="font-size:9pt;"></span>${requestScope.study.studyRegdate}</b></p>
 		</td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@ function sendDelete(){
             <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${requestScope.Study.studyTitle}</b></span>
+        	<span style="font-size:9pt;"><b>${requestScope.study.studyTitle}</b></span>
         </td>
     </tr>
     <tr>
@@ -72,7 +72,7 @@ function sendDelete(){
         </td>
 		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
         <td width="450" height="200" valign="top" colspan="3">
-        <span style="font-size:9pt;"><b><pre>${requestScope.Study.studyContent}</pre></b></span></td>
+        <span style="font-size:9pt;"><b><pre>${requestScope.study.studyContent}</pre></b></span></td>
     </tr>
     
     
