@@ -69,7 +69,8 @@ public class PostController implements Controller{
 	}
 	public ModelAndView postViewPost(HttpServletRequest request, HttpServletResponse response)throws Exception{
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
-		List<Post> postList = (List<Post>) service.postView(postNo);
+		Post postList = service.postView(postNo);
+		
 		request.setAttribute("postList", postList);
 		return new ModelAndView("board/freeBoardWrite.jsp", true);
 	}
