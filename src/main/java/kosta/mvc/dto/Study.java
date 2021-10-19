@@ -16,6 +16,8 @@ public class Study {
 	private String studyRegdate;
 	
 	private int signStateNo;
+	private int signUserNo;
+	private int studyCurrNo;
 	
 	public Study() {
 		// TODO Auto-generated constructor stub
@@ -151,6 +153,23 @@ public class Study {
 
 	public void setSignStateNo(int signStateNo) {
 		this.signStateNo = signStateNo;
+	}
+
+	public int getSignUserNo() {
+		return signUserNo;
+	}
+
+	public void setSignUserNo(int signUserNo) {
+		this.signUserNo = signUserNo;
+	}
+
+	public int getStudyCurrNo() {
+		return studyCurrNo;
+	}
+
+	public void setStudyCurrNo(int studyCurrNo) {
+		this.studyCurrNo = studyCurrNo;
 	}	
+	
 
 }
