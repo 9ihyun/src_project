@@ -93,26 +93,66 @@ function checkValid(frm){
         </td>
     </tr>
       </tr>
-     <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">태그 번호</span></b></p>
-        </td>
-         <td width="450" height="20">
-        	<b><span style="font-size:9pt;">
-        		<input type="text" name="tagNo" id="tagNo" size="12">
-        	   </span></b>
-        </td>
-    </tr>
-     <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">보드 번호</span></b></p>
-        </td>
-         <td width="450" height="20">
-        	<b><span style="font-size:9pt;">
-        		<input type="text" name="boardNo" id="boardNo" size="12">
-        	   </span></b>
-        </td>
-    </tr>
+     
+     			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;">태그 번호</span></b>
+					</p>
+				</td>
+				<td width="450" height="20">
+					<form>
+						<select name="taglist">
+							<option value="none">태그번호 선택</option>
+							<option value="1" >C/C++</option>
+							<option value="2" >C#</option>
+							<option value="3">Python</option>
+							<option value="4">Go</option>
+							<option value="5">Swift</option>
+							<option value="6">Perl</option>
+							<option value="7">Java</option>
+							<option value="8">Kotlin</option>
+							<option value="9">JavaScript</option>
+							<option value="10">Vue.js</option>
+							<option value="11">React</option>
+							<option value="12">node.js</option>
+							<option value="13">Typescript</option>
+							<option value="14">Ajax</option>
+							<option value="15">JQuery</option>
+							<option value="16">HTML</option>
+							<option value="17">CSS</option>
+							<option value="18">spring</option>
+							<option value="19">JPA</option>
+							<option value="20">Ruby</option>
+							<option value="21">Mysql</option>
+							<option value="22">ORACLE</option>
+							<option value="23">git</option>
+							<option value="24">Linux</option>
+							<option value="25">Ubuntu</option>
+							<option value="26">프론트엔드</option>
+							<option value="27">백엔드</option>
+							<option value="28">토이프로젝트</option>
+							<option value="29">기타</option>
+						</select>
+					</form></td>
+			</tr>
+     	<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;">보드 번호</span></b>
+					</p>
+				</td>
+				<td width="450" height="20">
+					<form>
+						<select name="taglist">
+							<option value="none">1.자유게시판</option>
+							<b><span style="font-size:9pt;">
+        	   				</span></b>
+
+						</select>
+					</form></td>
+			</tr>
+     
      <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;">아이디</span></b></p>

@@ -138,17 +138,20 @@ img{width:200px; height:350px}
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Post.postNo}</span></p>
 		        </td>
+		        
 		        <!-- 제목 -->
 		        <td bgcolor="">
 					<p align="center"><span style="font-size:9pt;">
 					<a href="${path}/front?key=post&methodName=postViewPost&postNo=${Post.postNo}"> </a>
 					  ${Post.postTitle}</span></p>
 		        </td>
+		        
 		        <!-- 추천수 -->
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Post.postUp}</span></p>
 		        </td>
+		        
 		        <!-- 날짜 -->
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
