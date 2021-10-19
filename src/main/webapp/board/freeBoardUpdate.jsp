@@ -69,7 +69,7 @@ function checkValid(frm){
 
 </head>
 <body>
-<form name="writeForm" method="post" action="" 
+<form name="writeForm" method="post" action="${path}/front" 
   onSubmit='return checkValid(this)' enctype="multipart/form-data">
 <!-- 
      ${path}/front?key=StudyDAOImpl&methodName=insertStudy

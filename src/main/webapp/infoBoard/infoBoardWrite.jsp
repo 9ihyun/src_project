@@ -92,7 +92,8 @@ img{width:200px; height:350px}
 
 
 
-<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
+<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white"
+ bordercolorlight="black">
 <caption><h2 align="center">자유게시판</h2></caption>
 	<colgroup>
 		<col width="15%"/>

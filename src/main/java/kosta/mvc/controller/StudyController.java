@@ -121,6 +121,7 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView viewStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+			System.out.println(studyNo);
 		Study study = service.viewStudy(studyNo);
 		
 		request.setAttribute("study", study);
