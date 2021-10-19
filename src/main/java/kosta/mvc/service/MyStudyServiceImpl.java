@@ -94,7 +94,7 @@ public class MyStudyServiceImpl implements MyStudyService {
 	 * */
 	@Override
 	public List<Study> viewMyStudy(String id) throws SQLException {
-		List<Study> myStudyList = myStudyDAO.viewWishStudy(id);
+		List<Study> myStudyList = myStudyDAO.viewMyStudy(id);
 		
 		if(myStudyList.size() == 0)
 			throw new SQLException("등록한 스터디가 없습니다.");
