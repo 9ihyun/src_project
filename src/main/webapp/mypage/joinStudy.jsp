@@ -5,14 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
-<link rel="stylesheet" href="../CSS/myStudyStyle.css">
+<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
+<link rel="stylesheet" href="${path }/CSS/myStudyStyle.css">
 <style type="text/css">
   img{
     width: 10px; height: 10px;
   }
 </style>
-<script src="../js/jquery-3.6.0.js"></script>
+<script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
   $(function(){
 	 $(document).on("click", "[value=평가하기]", function(){

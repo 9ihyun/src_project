@@ -5,9 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
-<script src="../js/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
+<script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
   $(function(){
 	 $("#mypage").click(function(){

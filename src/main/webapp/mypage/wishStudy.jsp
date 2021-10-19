@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
-<link rel="stylesheet" href="../CSS/myStudyStyle.css">
+<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
+<link rel="stylesheet" href="${path }/CSS/myStudyStyle.css">
 <style type="text/css">
 
 </style>

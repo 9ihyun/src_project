@@ -11,7 +11,7 @@
 <script src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 $(function(){
-	  alert(111)
+	  //alert(111);
 	  //alert("${pageContext.request.contextPath}")
 	 // alert("${applicationScope.path}")
 	  location.href="${pageContext.request.contextPath}/front?key=user&methodName=myInfo";

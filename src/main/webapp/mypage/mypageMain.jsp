@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>mypage</title>
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
+<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
 <style type="text/css">
   iframe{
     width: 500px; height: 500px

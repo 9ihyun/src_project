@@ -5,14 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
+<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
 <style type="text/css">
   span{
     color: red;
   }
 </style>
-<script src="../js/jquery-3.6.0.js"></script>
+<script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
     $(function(){
     	let change = false;
@@ -40,11 +39,10 @@
     	});
     	
     	$(document).on("click", "[value=변경하기]", function(){
-    		if(change){
-    			location.href="${path}/front?key=user&methodName=pwChange&currentPw="+$("#currentPw").val()+"&newPw="+$("#newPw").val();
-    		} else{
+    		if(!change){
     			if($("#rePass").val()=="" || $("#newPw").val()=="" || $("#currentPw").val()==""){
     				alert("비밀번호를 입력해주세요");
+    				return false;
     			}
     			else{
 	    			if($("span").text() == "비밀번호가 일치합니다."){
@@ -53,12 +51,14 @@
 	    				$("#rePass").val("");
 	    				$("#newPw").focus();
 	    				$("span").text("");
+	    				return false;
 	    			}
 	    			if($("span").text() == "값이 일치하지 않습니다."){
 	    				alert("변경할 비밀번호를 정확히 입력해주세요");
 	    				$("#rePass").val("");
 	    				$("#rePass").focus();
 	    				$("span").text("");
+	    				return false;
 	    			}
     			}
     		}
@@ -68,13 +68,17 @@
 </script>
 </head>
 <body>
+<form action="${path }/front">
+<input type="hidden" name = "key" value = "user">
+<input type = "hidden" name = "methodName" value = "pwChange"> 
 현재 비밀번호 입력<br>
-<input type="password" id="currentPw"><br>
+<input type="password" id="currentPw" name="currentPw"><br>
 변경할 비밀번호 입력<br>
-<input type="password" id="newPw"><br>
+<input type="password" id="newPw" name="newPw"><br>
 변경할 비밀번호 확인<br>
 <input type="password" id="rePass"><br>
 <span name = "check"></span><br>
-<input type="button" value="변경하기">
+<input type="submit" value="변경하기">
+</form>
 </body>
 </html>
