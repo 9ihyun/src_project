@@ -261,7 +261,7 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				result = rs.getInt(1);
+				result = rs.getInt(1) + 1;
 			}
 			
 		}finally {
