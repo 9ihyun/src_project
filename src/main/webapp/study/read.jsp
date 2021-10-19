@@ -15,7 +15,8 @@
 </HEAD>
 
 <body>
-<table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
+<form>
+<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' >
     <tr>
         <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
             <p align="center"><font color="white" size="3"><b>
@@ -100,15 +101,14 @@
 			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
 				<input type=hidden name="studyNo" value="${Study.studyNo}">
 				<input type=hidden name="key" value="Study">
-				<input type=hidden name="methodName" value = "updateStudy">
+				<input type=hidden name="methodName">
 				
-				<input type=button value="수정하기" onClick="">
-				<input type=button value="삭제하기" onClick="">
-    </form>
-			
+				<input type="submit" value="수정하기"  onclick="location.href = 'update.jsp'">
+				<input type="submit" value="삭제하기">		
 		</td>
     </tr>
 </table>
+</form>
 <hr>
 <h3>Replies 정보</h3>
 <c:choose>
