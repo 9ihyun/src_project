@@ -14,21 +14,21 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 
-function cancel(){ //취소하기 눌렀을때
+/**function cancel(){ //취소하기 눌렀을때
 	location.href = "${path}/front?key=post&methodName=postViewPost&postNo=${view.postNo}";	 
-}
+}**/
 
 function checkValid(frm){
 	
-	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
-		alert("제목을 입력해주세요.");
-		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+	if(frm.tagNo.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+		alert("태그번호를 선택해주세요.");
+		frm.tagNo.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
 		return false;
 	}
 	
-	if(frm.userId.value == ""){
+	if(frm.boardNo.value == ""){
 		alert("작성자를 입력해주세요.");
-		frm.userId.focus();
+		frm.boardNo.focus();
 		return false;
 	}
 	
@@ -70,6 +70,10 @@ function checkValid(frm){
      request로 값을 받을수가 없다. ( MulitpartRequest로 받아야한다.) 그런데 Controller로 가기전에 Controller를 찾기위해서 
      DispatherServlet에서 request로 두개의 값을 받고 있기때문에 key, methodName은 get방식으로 별도로 전송해야한다.
 -->
+	<!-- 삭제시 -->
+	
+	
+	
 	
 <table align="center" cellpadding="5" cellspacing="2" width="600" border="1" >
 
@@ -84,7 +88,7 @@ function checkValid(frm){
             <p align="center"><b><span style="font-size:9pt;">태그 번호 </span></b></p>
         </td>
          <td width="450" height="20">
-        	<select name="tagNo">
+        	<select name="tagNo" id="tagNo">
 				<option value="none">태그번호 선택</option>
 				<option value="1"${view.tagNo eq 1 ? ' selected':''}>C/C++</option>
 				<option value="2"${view.tagNo eq 2 ? ' selected':''}>C#</option>
@@ -124,7 +128,7 @@ function checkValid(frm){
             <p align="center"><b><span style="font-size:9pt;">보드 번호 </span></b></p>
         </td>
          <td width="450" height="20">
-        	<select name="boardNo">
+        	<select name="boardNo" id="boardNo">
 				<option value="1">1.자유게시판</option>
 			</select>
         </td>
@@ -159,18 +163,15 @@ function checkValid(frm){
     
     <tr>
         <td width="450" height="20" colspan="2" align="center">
-	        <input type=submit value=수정하기>
-	        <button type="button" onclick="cancel();">취소하기</button>
+	        <input type=submit value="수정하기">
+	        <input type="button" value="삭제하기">
         </td>
     </tr>
 </table>
 
 </form>
 
-
-<!-- <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div> -->
-
-
+<div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front?key=post&methodName=postSelectAllPost">리스트로 돌아가기</a>&gt;</span></div>
 
 </body>
 </html>

@@ -92,9 +92,8 @@ img{width:200px; height:350px}
 
 
 
-<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white"
- bordercolorlight="black">
-<caption><h2 align="center">자유게시판</h2></caption>
+<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
+<caption><h2 align="center">지식 정보 공유 게시판</h2></caption>
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
@@ -122,7 +121,7 @@ img{width:200px; height:350px}
     </tr>
   
     <c:choose>
-    <c:when test="${empty requestScope.list}">
+    <c:when test="${empty requestScope.postList2}">
 	   <tr>
         <td colspan="5">
             <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
@@ -130,96 +129,66 @@ img{width:200px; height:350px}
     </tr>
     </c:when>
     <c:otherwise>
-	<c:forEach items="${requestScope.list}" var="Study">
+	<c:forEach var="Post2" items="${postList2}">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyNo}</span></p>
-		        </td>
-		        <td bgcolor="">
-					<p><span style="font-size:9pt;">
-					<a href="${path}/front?key=Study&methodName=viewStudy&studyNo=${Study.studyNo}">
-					  ${Study.studyTitle}
-					</a>
-					</span></p>
+		        
+		        <!-- 번호 -->
+		        <td bgcolor="" align="center">
+		            <span style="font-size:9pt;">${Post2.postNo}</span>
 		        </td>
 		        
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            <fmt:formatNumber value="${Study.studyMaxnum}"/></span></p>
-		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyRegdate}</span></p>
-		        </td>
-		         
-		         <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.userId}</span></p>
-		        </td>
-		         <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            <fmt:formatNumber value="${Study.studyLocationSi}"/> byte</span></p>
-		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyLocationGu}</span></p>
+		        <!-- 제목 -->
+		        <td bgcolor="" align="center">
+					<a href="${path}/front?key=post&methodName=postViewPost2&postNo=${Post2.postNo}"> 
+				  		<span style="font-size:9pt;">${Post2.postTitle}</span>
+				  	</a>
 		        </td>
 		        
-		      
+		        <!-- 추천수 -->
+		        <td bgcolor="" align="center">
+					<span style="font-size:9pt;">${Post2.postUp}</span>
+		        </td>
+		        
+		        <!-- 날짜 -->
+		        <td bgcolor="" align="center">
+		            <span style="font-size:9pt;">${Post2.postDate}</span>
+		        </td>
+		        
 		    </tr>
-    </c:forEach>
-	</c:otherwise>
-    </c:choose>
-</table>
-<hr>
-<div align=right>
-<span style="font-size:9pt;">&lt;<a href="WriteInfo.jsp">글쓰기</a>&gt;</span>
-</div>
+	    </c:forEach>
+		</c:otherwise>
+	    </c:choose>
+	</table>
+	<hr>
+	<div align=right>
+	<span style="font-size:9pt;">&lt;<a href="${path}/infoBoard/write.jsp">글쓰기</a>&gt;</span>
+	</div>
+	
 
 
-
-<hr>
-
-   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
-    
-  <p>
-
- 
- <!--  블럭당  -->
- <nav class="pagination-container">
-		<div class="pagination">
-		<c:set var="doneLoop" value="false"/>
-		
-		<c:set var="temp" value="${(pageNo-1) % p.blockcount}"/> <!-- (1-1)%2  =0  , (2-1)%2    1 , (3-1)%2  0 -->
-		<c:set var="startPage" value="${pageNo - temp}"/> <!--   1- 1 -->
-		
+	<hr>
+	
+	   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
+	    
+	  <p>
+	
+	 
+	 <!--  블럭당  -->
+	 <nav class="pagination-container">
+			<div class="pagination">
+			<c:set var="doneLoop" value="false"/>
+			
+			<c:set var="temp" value="${(pageNo-1) % p.blockcount}"/> <!-- (1-1)%2  =0  , (2-1)%2    1 , (3-1)%2  0 -->
+			<c:set var="startPage" value="${pageNo - temp}"/> <!--   1- 1 -->
+			
 	<br>
 	
-		  <!-- 
-     if( ( 시작페이지 - 한블록당뿌려질[]개수) > 0 ){ // if()
-	       [이전]출력한다.	
-     } 
-     ex) if( ( startPage -blockcount) > 0 ){
-
-          }
-		-->
-		
-		<!-- 
-		 시작페이지 구한다(몇번부터 출력할지를 정함 [번호] )
-           방법 => int temp=(현재페이지번호-1)% 한블록당 보여질[]개수;
-                   int startPage=현재페이지번호 -temp; => 시작번호[]
-             
-             
-					   int temp = (pageNo-1) % p.blockcount ;         //시작 페이지 구하기
-				      int startPage = pageNo - temp;
-		 -->
 		
 		  <c:if test="${(startPage-p.blockcount) > 0}"> <!-- (-2) > 0  -->
-		      <a class="pagination-newer" href="${path}/front?key=elec&methodName=select&pageNo=${startPage-1}">PREV</a>
+		      <a class="pagination-newer" href="${path}/front?key=post&methodName=Allpost&pageNo=${startPage-1}">PREV</a>
 		  </c:if>
-		  
+		  													
 		  
 		
 		<span class="pagination-inner"> 
@@ -228,7 +197,7 @@ img{width:200px; height:350px}
 			       <c:set var="doneLoop" value="true"/>
 			    </c:if> 
 			  <c:if test="${not doneLoop}" >
-			         <a class="${i==pageNo?'pagination-active':page}" href="${path}/front?key=elec&methodName=select&pageNo=${i}">${i}</a> 
+			         <a class="${i==pageNo?'pagination-active':page}" href="${path}/front?key=post&methodName=Allpost&pageNo=${i}">${i}</a> 
 			  </c:if>
 		  
 		</c:forEach>
@@ -245,7 +214,7 @@ img{width:200px; height:350px}
 					      }
 				 -->
 				 <c:if test="${(startPage+p.blockcount)<=p.pageCnt}">
-				     <a class="pagination-older" href="${path}/front?key=elec&methodName=select&pageNo=${startPage+p.blockcount}">NEXT</a>
+				     <a class="pagination-older" href="${path}/front?key=post&methodName=Allpost&pageNo=${startPage+p.blockcount}">NEXT</a>
 				 </c:if>
 				 
 			
