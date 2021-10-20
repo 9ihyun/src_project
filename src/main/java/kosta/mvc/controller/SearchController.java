@@ -126,4 +126,68 @@ public class SearchController implements Controller{
 
 		return new ModelAndView("study/list.jsp"); //이동 위치
 	}
+	public ModelAndView searchByTags(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String tagName = request.getParameter("tagName");;
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		List<Study> studyList = new ArrayList<>();
+		String sql = "SELECT study_no, user_id, study_maxnum, study_location_si, study_location_gu, study_duedate, study_title, state_name FROM study join study_state using(state_no) WHERE tag_no LIKE ?"; //where rnum <=? and rnum>=?
+		try {
+				con = DbUtil.getConnection();
+				ps = con.prepareStatement(sql);
+				ps.setString(1, "%"+tagName+"%");
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					Study study = new Study(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+							rs.getString(6), rs.getString(7), rs.getString(8));
+					studyList.add(study);
+				}
+	
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		List<Study> list = studyList;
+		System.out.println(list);
+		
+		request.setAttribute("studyList", list);
+		
+
+		return new ModelAndView("study/list.jsp"); //이동 위치
+	}
+	public ModelAndView searchByState(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String stateName = request.getParameter("stateName");;
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		List<Study> studyList = new ArrayList<>();
+		String sql = "SELECT study_no, user_id, study_maxnum, study_location_si, study_location_gu, study_duedate, study_title, state_name FROM study join study_state using(state_no) WHERE state_no LIKE ?"; //where rnum <=? and rnum>=?
+		try {
+				con = DbUtil.getConnection();
+				ps = con.prepareStatement(sql);
+				ps.setString(1, "%"+stateName+"%");
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					Study study = new Study(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+							rs.getString(6), rs.getString(7), rs.getString(8));
+					studyList.add(study);
+				}
+	
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		List<Study> list = studyList;
+		System.out.println(list);
+		
+		request.setAttribute("studyList", list);
+		
+
+		return new ModelAndView("study/list.jsp"); //이동 위치
+	}
 }
