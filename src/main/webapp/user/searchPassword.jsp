@@ -15,8 +15,9 @@
 </script>
 </head>
 <body>
-	<p>아이디/비밀번호 찾기</p>
-   <form action="${pageContext.request.contextPath}/front?key=login&methodName=idPwFind" method="post">
+<div class="main">
+	<p class="title" align="center">아이디/비밀번호 찾기</p>
+   <form class="form1" action="${pageContext.request.contextPath}/front?key=login&methodName=idPwFind" method="post">
    <input type="hidden" name="key" value = "LoginContoller" /> 
 	<input type="hidden" name="methodName" value = "idPwFind" />
     생년월일: <input type="text" name="birth" placeholder="8자리로 입력하세요." required><br>
@@ -32,6 +33,7 @@
     비밀번호 찾기 답: <input type="text" name="anwser" required><br>
     <input type="submit" value="확인"><br>
 </form>
+</div>
 
 <!-- error에 대한 처리 -->
    <%if(request.getParameter("error") != null){ %>
