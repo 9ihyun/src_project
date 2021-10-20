@@ -150,9 +150,11 @@ img{width:200px; height:350px}
 		        </td>
 		        <td bgcolor="">
 					<p><span style="font-size:9pt;">
-					<a href="${path}/front?key=study&methodName=viewStudy&studyNo=${Study.studyNo}">
-					<a href="${path}/front?key=studyReply&methodName=selectAllReply&studyNo=${Study.studyNo}">
+					<%-- <a href="${path}/front?key=study&methodName=viewStudy&studyNo=${Study.studyNo}">
+					    ddddd
+					</a> --%>
 					
+					<a href="${path}/front?key=study&methodName=viewStudy&studyNo=${Study.studyNo}">
 					  ${Study.studyTitle}
 					</a>
 					</span></p>

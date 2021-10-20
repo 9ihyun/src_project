@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kosta.mvc.dto.Post;
 import kosta.mvc.dto.Study;
+import kosta.mvc.dto.StudyReply;
 import kosta.mvc.dto.User;
+import kosta.mvc.service.StudyReplyService;
+import kosta.mvc.service.StudyReplyServiceImpl;
 import kosta.mvc.service.StudyService;
 import kosta.mvc.service.StudyServiceImpl;
 
@@ -20,6 +22,7 @@ import kosta.mvc.service.StudyServiceImpl;
 public class StudyController implements Controller {
 
 	private StudyService service = new StudyServiceImpl();
+	private StudyReplyService replyService = new StudyReplyServiceImpl();
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
@@ -136,8 +139,13 @@ public class StudyController implements Controller {
 	public ModelAndView viewStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		Study study = service.viewStudy(studyNo);
+			request.setAttribute("study", study); //ㄱ게시물
 		
-		request.setAttribute("study", study);
+			//StudyReply 이름에 저장....
+			List<StudyReply> listReply = replyService.selectAllReply(studyNo);
+			System.out.println("listReply = " + listReply);
+			request.setAttribute("StudyReply", listReply);
+			
 		return new ModelAndView("study/read.jsp");//이동 위치
 	}
 

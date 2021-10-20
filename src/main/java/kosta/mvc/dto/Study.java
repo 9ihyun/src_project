@@ -22,6 +22,8 @@ public class Study {
 	private int signUserNo;
 	private int studyCurrNo;
 	
+	
+	
 	public Study() {
 		// TODO Auto-generated constructor stub
 	}

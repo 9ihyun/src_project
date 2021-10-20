@@ -97,7 +97,7 @@ public class StudyReplyDAOImpl implements StudyReplyDAO {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		List<StudyReply> replyList = new ArrayList<>();
-		String sql = proFile.getProperty("reply.selectAllStudyReply");
+		String sql = proFile.getProperty("reply.selectAllStudyReply");//select * from study_reply where study_no = ?
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
