@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +16,7 @@
 </style>
 <script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-  $(function(){
+  /*$(function(){
 	 $(document).on("click", "[value=평가하기]", function(){
 		$(this).val("평가완료");
 		let num = $(this).attr("id");
@@ -38,16 +40,16 @@
 		 }
 		 
 	 });
-  });
+  });*/
 </script>
 </head>
 <body>
 <table>
   <tr>
-    <th><a href="myStudy.jsp">내가 모집한 스터디</a></th>
-    <th><a href="wishStudy.jsp">내가 찜한 스터디</a></th>
-    <th><a href="signStudy.jsp">내가 신청한 스터디</a></th>
-    <th style="background-color:aqua;"><a href="joinStudy.jsp">참여중/완료 스터디</a></th>
+    <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
+    <th><a href="{path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
+    <th><a href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a></th>
+    <th style="background-color:aqua;"><a href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a></th>
   </tr>
 </table>
 
@@ -60,6 +62,50 @@
     <th>지역</th>
     <th>스터디룸/평가</th>
   </tr>
+  <c:choose>
+    <c:when test="${empty requestScope.joinList}">
+	   <tr>
+        <td colspan="5">
+            <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
+        </td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+	<c:forEach items="${requestScope.joinList}" var="Study">
+		    <tr onmouseover="this.style.background='#eaeaea'"
+		        onmouseout="this.style.background='white'">
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.stateNo}</span></p>
+		        </td>
+		        <td bgcolor="">
+					<p><span style="font-size:9pt;">
+					  ${Study.studyDuedate}</span></p>
+		        </td>
+		        
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyTitle}</span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyCurrNo}/${Study.studyMaxnum }</span></p>
+		        </td>
+		         
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyLocationSi}${Study.studyLocationGu}</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            </span></p>
+		        </td>
+		        
+		      
+		    </tr>
+    </c:forEach>
+	</c:otherwise>
+    </c:choose>
   <tr>
     <th>진행중</th>
     <th>9/23</th>

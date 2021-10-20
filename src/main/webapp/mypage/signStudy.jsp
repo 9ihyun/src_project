@@ -16,7 +16,7 @@
 <script type="text/javascript">
   $(function(){
 	  $(document).on("click", "#delete", function(){
-		  if(confirm("정말 탈퇴하시겠습니까?")){
+		  if(confirm("정말 신청을 취소하시겠습니까?")){
 			$.ajax({
 				type: "post",
 				url: "${path}/ajax?key=myStudy&methodName=removeSignStudy",
@@ -40,7 +40,7 @@
     <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
     <th><a href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
     <th style="background-color:aqua;"><a href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a></th>
-    <th><a href="joinStudy.jsp">참여중/완료 스터디</a></th>
+    <th><a href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a></th>
   </tr>
 </table>
 
@@ -94,7 +94,7 @@
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <input type="button" value="삭제하기" id="delete" name="${Study.studyNo }"></span></p>
+		            <input type="button" value="신청취소" id="delete" name="${Study.studyNo }"></span></p>
 		        </td>
 		      
 		    </tr>

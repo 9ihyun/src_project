@@ -23,7 +23,7 @@
     <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
     <th style="background-color:aqua;"><a href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
     <th><a href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a></th>
-    <th><a href="joinStudy.jsp">참여중/완료 스터디</a></th>
+    <th><a href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a></th>
   </tr>
 </table>
 
