@@ -26,6 +26,7 @@ public class PostReplyDAOImpl implements PostReplyDAO {
 
 	@Override
 	public int insertReply(PostReply reply) throws SQLException {
+		
 		Connection con=null;
 		PreparedStatement ps=null;
 		int result=0;
@@ -106,7 +107,7 @@ public class PostReplyDAOImpl implements PostReplyDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				PostReply reply = new PostReply(rs.getInt(1), rs.getString(2), rs.getString(3));
+				PostReply reply = new PostReply(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
 				
 				replyList.add(reply);
 			}

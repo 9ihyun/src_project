@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 	public int starPoint(String id, int point) throws SQLException {
 		int result = userDAO.starPoint(id, point);
 		
-		if(userDAO.starPoint(id, point) == 0)
+		if(result == 0)
 			throw new SQLException(id + "님의 별점을 평가하는데 실패했습니다.");
 		
 		return result;

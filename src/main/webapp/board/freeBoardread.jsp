@@ -27,33 +27,63 @@
 </style>
 
 
-<script type="text/javascript" src="../js/jquery-3.6.0.js"></script> 
+<script type="text/javascript" src="${path}/js/jquery-3.6.0.js"></script>
 
 <!--  // 자바스크립트 부분 --> 
 
 <script type="text/javascript">
 
-$(function(){  //꼭 호출 function()을 해야지만 밑에기능들이 제대로 실행됨 
-$(".star_rating a").click(function() { // 별을 클릭했을때 
-    $(this).parent().children("a").removeClass("on");
-    $(this).addClass("on").prevAll("a").addClass("on");
-    return false;
-});
-});
-
-function checkValid(frm){
-	
-	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
-		alert("제목을 입력해주세요.");
-		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+function replyInsertValidate(postNo){
+		
+	if($("#replytext").val() < 1 || $("#replytext").val() == ''){
+		alert('댓글 내용을 등록하세요.');
 		return false;
 	}
 	
-
-	if(confirm("등록하시겠습니까?") == true){
-		return true;
+	var userId = '${sessionScope.userId}';
+	
+	/* 앞에서 세션체크를 했으나, 한번 더 유효성 체크 */
+	if(userId == null || userId == ''){
+		alert('세션이 없습니다.');
+		return false;
 	}
+		
+	replyInsert(postNo, userId);
 }
+
+function replyInsert(postNo, userId){
+	
+	var replytext = $("#replytext").val(); //댓글 내용
+	
+    var param = { "replytext": replytext, "postNo": postNo, "userId": userId};
+    //var param="replytext="+replytext+"&bno="+bno;
+    $.ajax({
+        type: "post", //데이터를 보낼 방식
+        url: "${path}/front?key=postReply&methodName=insertReply", //데이터를 보낼 url
+        data: param, //보낼 데이터
+        
+        success: function(){ //데이터를 보내는것이 성공했을시 출력되는 메시지
+            alert("댓글이 등록되었습니다.");
+            listReply(); //댓글 목록 출력
+        }
+    });//ajax 끝
+	
+}
+
+//댓글 목록 출력 함수
+function listReply(){
+    $.ajax({
+        type: "get", //get방식으로 자료를 전달한다
+        url: "${path}/front?key=postReply&methodName=selectAllReply&postNo=${view.postNo}", //컨트롤러로 보내기.. 게시판 번호도 같이 보낸다.
+        success: function(result){ //자료를 보내는것이 성공했을때 출력되는 메시지
+        	//alert('result : ' + result);
+            //result : responseText 응답텍스트(html)
+            //$("#listReply").html(result);
+        	location.reload();
+        }
+    });
+}
+
 
 
 
@@ -103,40 +133,105 @@ function checkValid(frm){
   
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
+        	<c:if test="${sessionScope.sessionID != null}">
+        	<c:if test="${sessionScope.sessionID != post.userId}">
+			</c:if>
+			</c:if>
 			<a href="${path}/front?key=post&methodName=postSelectAllPost" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
 			<a href="${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}" >수정</a>
 		</td>
     </tr>
 </table>
-
 <hr>
-<h3> 댓글 </h3>
+<h3>Replies 정보</h3>
+
+<div>  
 <c:choose>
-	<c:when test = "${empty PostReply.pReplyNo}">
+	<c:when test = "${empty requestScope.postReply}">
 		<h5>댓글정보가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
-		<c:forEach items = "${PostReply.pReplyNo}" var = "reply">
-			${PostReply.pReplyNo} / ${PostReply.pReplyContent} <!--/${PostReply.pReplyDate} /${PostReply.postNo}--><p>
+		<c:forEach items = "${postReply}" var = "reply">
+			${reply.userId} | ${reply.sReplyDate}<p>
+			${reply.sReplyContent}<p>
+			<form action="${path}/front" method="post">
+				<input type=hidden name="studyNo" value="${view.postNo}">
+				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+
+					<input type="submit"  value=삭제>
+					<input type=hidden name="key" value="postReply"> 
+					<input type=hidden name="methodName" value="deleteReply">			
+			</form>		
+			<form action="${path}/front" method="post">
+				<input type=hidden name="postNo" value="${view.postNo}">
+				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+
+					<input type="submit"  value=수정>
+					<input type=hidden name="key" value="postReply"> 
+					<input type=hidden name="methodName" value="updateReply">			
+			</form>		
+			<hr>
 		</c:forEach>
 	</c:otherwise>
 </c:choose>
 
-	<div>  
+<div>  
 	<p class="star_rating" >
-    <a href="#" class="">★</a> <!-- on 을 해두면 색이 노란색으로 나옴 -->
+    <a href="#" class="on">★</a> <!-- on 을 해두면 색이 노란색으로 나옴 -->
     <a href="#" class="">★</a>
+    
     <a href="#" class="">★</a>
     <a href="#">★</a>
     <a href="#">★</a>
 </p>
-	<input type="text"  value="댓글을 입력해주세요">
 	</div>
-	<div align="right">
-	<input type="submit"  value=등록>
+
+<!-- 댓글 작성 -->
+<!-- 너비와 정렬방식 설정 -->
+<div style="width:700px; text-align:center;">
+ 
+<!-- 세션에 저장되어있는 userid가 null이 아닐때 -->
+<!-- 그러니까 로그인을 한 상태이어야만 댓글을 작성 할 수 있다.-->
+
+     <!-- 댓글쓰기 버튼을 누르면 id값인 btnReply값이 넘어가서 -->
+     <!-- 위쪽에 있는 스크립트 구문이 실행되고 -->
+     <!-- 내가 댓글을 작성한 값이 스크립트문을 거쳐서 컨트롤러로 맵핑되게 된다. -->
+          
+     
+	<textarea rows="5" cols="80" id="replytext" name="replytext" placeholder="댓글을 작성하세요"></textarea><br>
+	
+	<!-- 로그인 했을때 -->
+	<c:if test="${not empty sessionScope.userid}">
+		<button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글쓰기</button>
+	</c:if>
+	
+	<!-- 로그인 안했을때 -->
+	<c:if test="${empty sessionScope.userid}">
+		<button type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
+	</c:if>
+	
+	<%-- <button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글등록테스트용</button> --%>
+</div>
+
+<!-- 댓글 목록 -->
+<!-- 댓글이 등록이 되면 listReply에 댓글이 쌓이게 된다 -->
+<c:if test="${not empty replyList}">
+	<div id="listReply">
+		<c:forEach var="item" items="${replyList}" varStatus="status">
+			작성자 : ${item.userId} /	내용  : ${item.pReplyContent} / 작성일자 : ${item.pReplyDate} <br>
+		</c:forEach>
 	</div>
+</c:if>
+
+
+</div>
+
 <hr>
+ <c:if test="${sessionScope.sessionID != null}">
+	 <c:if test="${sessionScope.sessionID != post.userId}">
 
-
+	</c:if>
+</c:if>
+<hr>
 </body>
 </html>
