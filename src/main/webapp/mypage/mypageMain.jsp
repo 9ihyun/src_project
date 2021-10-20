@@ -16,10 +16,7 @@
 </script>
 </head>
 <body>
-<% session.setAttribute("userId", "test123");
-   session.setAttribute("loginUser", "test123");
-   
-   %>
+
 <table>
   <tr>
     <th><iframe src="mypageMenu.jsp"></iframe></th>

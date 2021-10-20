@@ -31,9 +31,7 @@ public class LoginController implements Controller {
 		User user = loginService.loginCheck(userId, pw);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("userId", userId);
-		session.setAttribute("user", user);
-		
+		session.setAttribute("user", user);		
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/freeBoardMain.jsp"); //메인페이지 기입
