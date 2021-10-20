@@ -85,6 +85,33 @@ public class PostDAOlmpl implements PostDAO {
 		return result; 
 		
 	}
+	
+	@Override
+	public int postUpdate2(Post post) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps =null;
+		int result=0;
+		
+		String sql="update post set tag_no=?, board_no=?, post_title=?, post_content=? where post_no=?";
+		//Post dbPost=null;
+		try {
+			con=DbUtil.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, post.getTagNo());
+			ps.setInt(2, post.getBoardNo());
+			ps.setString(3, post.getPostTitle());
+			ps.setString(4, post.getPostContent());
+			ps.setInt(5, post.getPostNo());
+			
+			result = ps.executeUpdate();
+		}finally {
+			//DbUtil.dbClose(rs, ps, con);
+			DbUtil.dbClose(ps, con);
+		}
+		return result; 
+		
+	}
+	
 	public int postDelete(int postNo) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps=null;

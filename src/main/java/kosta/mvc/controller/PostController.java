@@ -107,7 +107,6 @@ public class PostController implements Controller {
 	 * update처리 (지식정보공유 수정)
 	 */
 	public ModelAndView postUpdate2(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// int postNo = getPostNo(request);
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
 
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
