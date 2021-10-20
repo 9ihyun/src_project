@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>${user.nickname}님의 회원정보 입니다.</h2>
-<table>
+<h2 align="center">${user.nickname}님의 회원정보 입니다.</h2>
+<table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
 <tr>
 	<td>아이디</td>
 	<td>${user.userId}</td>
