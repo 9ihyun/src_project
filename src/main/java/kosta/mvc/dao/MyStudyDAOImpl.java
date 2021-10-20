@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import kosta.mvc.dto.SignStudy;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
+import kosta.mvc.dto.User;
+import kosta.mvc.dto.WishStudy;
 import kosta.mvc.util.DbUtil;
 
 public class MyStudyDAOImpl implements MyStudyDAO {
@@ -61,9 +64,10 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	 * 스터디 찜하기
 	 * */
 	@Override
-	public int putWishStudy(String id, int studyNo) {
+	public int putWishStudy(String id, int studyNo) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
+		List<Integer> list = new ArrayList<>();
 		String sql = proFile.getProperty("myStudy.putWishStudy");
 		int result = 0;
 		
@@ -72,6 +76,14 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setInt(2, studyNo);
+			
+			list = checkWishDuplicate(con, id);
+			for (int i : list) {
+				if (i == studyNo) {
+					throw new SQLException("이미 찜한 스터디입니다.");
+				}
+			}
+			
 			result = ps.executeUpdate();
 			
 		}catch (SQLException e) {
@@ -82,6 +94,28 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		
 		return result;
 	}
+	
+	/**
+	 * 사용자가 찜한 스터디개수 가져오기(중복체크)
+	 */
+	public List<Integer> checkWishDuplicate(Connection con, String id) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<Integer> list = new ArrayList<>();
+		String sql = "select study_no from wish_study where user_id = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(rs.getInt(1));
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		return list;
+	}
+	
 
 	/**
 	 * 내가 신청한 스터디 보기
@@ -121,9 +155,10 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	 * 스터디 신청하기
 	 * */
 	@Override
-	public int putSignStudy(String id, int studyNo) {
+	public int putSignStudy(String id, int studyNo) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
+		List<Integer> list = new ArrayList<>();
 		String sql = proFile.getProperty("myStudy.putSignStudy");
 		int result = 0;
 		
@@ -132,6 +167,14 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setInt(2, studyNo);
+			
+			list = checkSignDuplicate(con, id);
+			for (int i : list) {
+				if (i == studyNo) {
+					throw new SQLException("이미 신청한 스터디입니다.");
+				}
+			}
+			
 			result = ps.executeUpdate();
 			
 		}catch (SQLException e) {
@@ -142,6 +185,28 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		
 		return result;
 	}
+	
+	/**
+	 * 사용자가 신청한 스터디번호 가져오기(중복체크)
+	 */
+	public List<Integer> checkSignDuplicate(Connection con, String id) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<Integer> list = new ArrayList<>();
+		String sql = "select study_no from sign_study where user_id = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(rs.getInt(1));
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		return list;
+	}
+	
 	
 	/**
 	 * 스터디 신청 상태 변경
@@ -300,6 +365,7 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 						rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12));
 				
 				study.setStudyCurrNo(getStudyCurrNo(con, rs.getInt(1)));
+				study.setUserList(getStudyMember(con, id, rs.getInt(1)));
 				
 				joinList.add(study);
 			}
@@ -309,6 +375,37 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		}
 		
 		return joinList;
+	}
+	
+	/**
+	 * 스터디 명단 가져오기
+	 * */
+	public List<User> getStudyMember(Connection con, String id, int studyNo) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("myStudy.getStudyMember");
+		List<User> userList = new ArrayList<User>();
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+			ps.setInt(2, studyNo);
+			ps.setString(3, id);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				User user = new User();
+				user.setUserId(rs.getString(1));
+				user.setNickname(rs.getString(2));
+				
+				userList.add(user);
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		
+		return userList;
 	}
 	
 	/**

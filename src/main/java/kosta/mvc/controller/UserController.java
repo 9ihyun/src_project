@@ -44,13 +44,14 @@ public class UserController implements Controller {
 	/**
 	 * 별점 평가
 	 * */
-	public ModelAndView starPoint(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void starPoint(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 		int point = Integer.parseInt(request.getParameter("point"));
 		
-		userService.starPoint(id, point);
+		int result = userService.starPoint(id, point);
 		
-		return new ModelAndView("", true); //평가 페이지
+		PrintWriter out = response.getWriter();
+		out.print(result);
 	}
 	
 	/**
@@ -97,7 +98,7 @@ public class UserController implements Controller {
 		
 		userService.delete(id);
 		
-		return new ModelAndView("", true); //로그인 페이지
+		return new ModelAndView("user/singin.jsp", true); //로그인 페이지
 	}
 	
 }

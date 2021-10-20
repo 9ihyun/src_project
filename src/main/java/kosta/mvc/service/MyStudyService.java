@@ -5,6 +5,7 @@ import java.util.List;
 
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
+import kosta.mvc.dto.User;
 
 public interface MyStudyService {
 	/**

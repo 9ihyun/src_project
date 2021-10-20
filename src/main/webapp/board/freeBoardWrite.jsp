@@ -127,7 +127,8 @@ img{width:200px; height:350px}
 	<div>
 			<form>
 				<fieldset>
-                    <legend>글 검색 필드</legend>                    
+				   <div align="right"> 
+                    <legend>글 검색 필드</legend>            
                     <label>검색분류</label>
                         <select name = "search" id=searchs>
                             <option id=title value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
@@ -135,13 +136,10 @@ img{width:200px; height:350px}
                             <option id=tag value = "/src_project/front?key=search&methodName=searchByTag&tagNo=">태그번호</option>
                         </select>
                     <label>검색어</label>
-                    <%-- 
-                     <td><iframe src="${pageContext.request.contextPath}/front?key=search&methodName=searchByTitle&postTitle=시간"height="600" width="800" name="board"></iframe></td>
-                        --%>
+                   
                         <input type = "text" id = "searchByTitle" placeholder="전송전"><br>
                         <input type="button" value = "검색" onclick="go()"><br>
-                        <input type = "hidden" id = "searchByTitle2" value=""><br>
-                        <input type = "hidden" id = "searchByTitle3" value="${pageContext.request.contextPath}/front?key=search&methodName=searchByTitle&postTitle="><br>
+                        
                           
                         
                                     

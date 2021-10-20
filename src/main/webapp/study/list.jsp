@@ -99,11 +99,11 @@ img{width:200px; height:350px}
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
+		<col width="7%"/>
 		<col width="16%"/>
+		<col width="7%"/>
+		<col width="7%"/>
 		<col width="16%"/>
-		<col width="7%"/>
-		<col width="7%"/>
-		<col width="7%"/>
 	</colgroup>
 	<tr>
         <td bgcolor="#00cc00">
@@ -141,41 +141,47 @@ img{width:200px; height:350px}
     </tr>
     </c:when>
     <c:otherwise>
-	<c:forEach items="${requestScope.studyList}" var="Study">
+	<c:forEach items="${requestScope.studyList}" var="study">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyNo}</span></p>
+		            ${study.stateName}</span></p>
 		        </td>
 		        <td bgcolor="">
 					<p><span style="font-size:9pt;">
 					<a href="${path}/front?key=study&methodName=viewStudy&studyNo=${Study.studyNo}">
-					  ${Study.studyTitle}
+					  ${study.studyTitle}
 					</a>
 					</span></p>
 		        </td>
 		        
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyMaxnum}"</span></p>
+		            ${study.studyMaxnum}"</span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyRegdate}</span></p>
+		            ${study.studyRegdate}</span></p>
 		        </td>
 		         
 		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.userId}</span></p>
+		            ${study.userId}</span></p>
 		        </td>
 		         <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyLocationSi}</span></p>
+		            <p align="center">
+		            <form action="${path}/front" method="post">
+						<input type=hidden name="studyNo" value="${Study.studyNo}">
+						<input type="submit"  value=찜하기>
+						<input type=hidden name="key" value="myStudy"> 
+						<input type=hidden name="methodName" value="putWishStudy">			
+					</form>	
+					</p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyLocationGu}</span></p>
+		            ${study.studyLocationSi} ${study.studyLocationGu}</span></p>
 		        </td>
 		        
 		      

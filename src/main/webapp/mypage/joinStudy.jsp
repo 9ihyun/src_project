@@ -29,22 +29,39 @@
 		$("#join > tbody >tr:nth-child(" + num + ") > th:nth-child(3) > ul").hide();
 	 });
 	 
+	 $(document).on("click", "[value=별점주기]", function(){
+		  if(confirm($(this).attr("class") + "님에게 별점을 주시겠습니까?")){
+			$.ajax({
+				type: "post",
+				url: "${path}/ajax?key=user&methodName=starPoint",
+				data: {"id" : $(this).attr("class"), "point" : $(this).attr("name")},
+				dataType: "json",
+				success: function(result){
+					alert("별점이 적용되었습니다");
+				},
+				error:function() {
+					console.log("실패");
+				}
+			});
+		  }
+	  });
+	 
 	 $(document).on("click", "img", function(){
 		 var num = $(this).attr("name");
 		 num = num.split("-");
 		 for(var i = 1; i<= 5; i++){
-			 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > img:nth-child(" + i + ")").attr("src", "../img/blackstar.jpg");
+			 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > img:nth-child(" + i + ")").attr("src", "${path}/img/blackstar.jpg");
 		 }
 		 for(var i = 1; i<= num[2]; i++){
-			 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > img:nth-child(" + i + ")").attr("src", "../img/star.jpg");
+			 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > img:nth-child(" + i + ")").attr("src", "${path}/img/star.jpg");
 		 }
-		 
+		 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > input").attr("name", num[2]-1);
 	 });
   });
 </script>
 </head>
 <body>
-<% int i = 2; %>
+<% int tr = 2; %>
 <table>
   <tr>
     <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
@@ -87,7 +104,20 @@
 		        
 		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyTitle}</span></p>
+		            ${Study.studyTitle}
+		            <c:if test="${Study.stateNo eq 3}">
+		            <ul style="display:none">
+		              <%int li = 1; %>
+		              <c:forEach var="user" items="${Study.userList}">
+		              <% int num = 2; %>
+	                  <li>${user.nickname }(${user.userId })<br>
+	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li%>-<%=num++%>">
+	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li%>-<%=num++%>">
+	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li%>-<%=num++%>">
+	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li%>-<%=num++%>">
+	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li++%>-<%=num++%>">
+	                      <input type="button" value="별점주기" class="${user.userId }"></li>
+	                </c:forEach></ul></c:if></span></p>
 		        </th>
 		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
@@ -100,8 +130,8 @@
 		        </th>
 		         <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <c:if test="${Study.stateNo eq 2}"><a href="#" id="<%= i++%>">이동</a></c:if>
-		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id="<%= i++%>"></c:if>
+		            <c:if test="${Study.stateNo eq 2}"><a href="${path}/front?key=myStudy&methodName=viewStudyRoomChat&studyNo=${Study.studyNo}" id="<%= tr++%>">이동</a></c:if>
+		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id="<%= tr++%>"></c:if>
 		            </span></p>
 		        </th>
 		        
@@ -110,50 +140,7 @@
     </c:forEach>
 	</c:otherwise>
     </c:choose>
-  <tr>
-    <th>진행중</th>
-    <th>9/23</th>
-    <th>프론트 모집합니다</th>
-    <th>5/5</th>
-    <th>경기</th>
-    <th><a href="studyRoom.jsp">이동</a></th>
-  </tr>
-  <tr>
-    <th>스터디종료</th>
-    <th>7/7
-    </th>
-    <th>백엔드
-	  <ul style="display:none">
-	    <li>황선민<img src="../img/blackstar.jpg" name="3-1-1"><img src="../img/blackstar.jpg" name="3-1-2"><img src="../img/blackstar.jpg" name="3-1-3"><img src="../img/blackstar.jpg" name="3-1-4"><img src="../img/blackstar.jpg" name="3-1-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>이기현<img src="../img/blackstar.jpg" name="3-2-1"><img src="../img/blackstar.jpg" name="3-2-2"><img src="../img/blackstar.jpg" name="3-2-3"><img src="../img/blackstar.jpg" name="3-2-4"><img src="../img/blackstar.jpg" name="3-2-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>조성휘<img src="../img/blackstar.jpg" name="3-3-1"><img src="../img/blackstar.jpg" name="3-3-2"><img src="../img/blackstar.jpg" name="3-3-3"><img src="../img/blackstar.jpg" name="3-3-4"><img src="../img/blackstar.jpg" name="3-3-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>현지윤<img src="../img/blackstar.jpg" name="3-4-1"><img src="../img/blackstar.jpg" name="3-4-2"><img src="../img/blackstar.jpg" name="3-4-3"><img src="../img/blackstar.jpg" name="3-4-4"><img src="../img/blackstar.jpg" name="3-4-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>윤솔<img src="../img/blackstar.jpg" name="3-5-1"><img src="../img/blackstar.jpg" name="3-5-2"><img src="../img/blackstar.jpg" name="3-5-3"><img src="../img/blackstar.jpg" name="3-5-4"><img src="../img/blackstar.jpg" name="3-5-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>홍전형<img src="../img/blackstar.jpg" name="3-6-1"><img src="../img/blackstar.jpg" name="3-6-2"><img src="../img/blackstar.jpg" name="3-6-3"><img src="../img/blackstar.jpg" name="3-6-4"><img src="../img/blackstar.jpg" name="3-6-5"><input type="button" value="평가하기" name='star'></li>
-	  </ul>
-	</th>
-    <th>7/7</th>
-    <th>서울</th>
-    <th><input type="button" value="평가하기" id="4"></th>
-  </tr>
-  <tr>
-    <th>스터디종료</th>
-    <th>7/7
-    </th>
-    <th>백엔드
-	  <ul style="display:none">
-	    <li>황선민<img src="../img/blackstar.jpg" name="4-1-1"><img src="../img/blackstar.jpg" name="4-1-2"><img src="../img/blackstar.jpg" name="4-1-3"><img src="../img/blackstar.jpg" name="4-1-4"><img src="../img/blackstar.jpg" name="4-1-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>이기현<img src="../img/blackstar.jpg" name="4-2-1"><img src="../img/blackstar.jpg" name="4-2-2"><img src="../img/blackstar.jpg" name="4-2-3"><img src="../img/blackstar.jpg" name="4-2-4"><img src="../img/blackstar.jpg" name="4-2-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>조성휘<img src="../img/blackstar.jpg" name="4-3-1"><img src="../img/blackstar.jpg" name="4-3-2"><img src="../img/blackstar.jpg" name="4-3-3"><img src="../img/blackstar.jpg" name="4-3-4"><img src="../img/blackstar.jpg" name="4-3-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>현지윤<img src="../img/blackstar.jpg" name="4-4-1"><img src="../img/blackstar.jpg" name="4-4-2"><img src="../img/blackstar.jpg" name="4-4-3"><img src="../img/blackstar.jpg" name="4-4-4"><img src="../img/blackstar.jpg" name="4-4-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>윤솔<img src="../img/blackstar.jpg" name="4-5-1"><img src="../img/blackstar.jpg" name="4-5-2"><img src="../img/blackstar.jpg" name="4-5-3"><img src="../img/blackstar.jpg" name="4-5-4"><img src="../img/blackstar.jpg" name="4-5-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>홍전형<img src="../img/blackstar.jpg" name="4-6-1"><img src="../img/blackstar.jpg" name="4-6-2"><img src="../img/blackstar.jpg" name="4-6-3"><img src="../img/blackstar.jpg" name="4-6-4"><img src="../img/blackstar.jpg" name="4-6-5"><input type="button" value="평가하기" name='star'></li>
-	  </ul>
-	</th>
-    <th>7/7</th>
-    <th>서울</th>
-    <th><input type="button" value="평가하기" id="5"></th>
-  </tr>
+  
 </table>
 
 </body>

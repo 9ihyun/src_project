@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kosta.mvc.dao.MyStudyDAOImpl;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
 import kosta.mvc.dto.User;
@@ -76,15 +75,17 @@ public class MyStudyController implements Controller {
 	 * 스터디 신청하기
 	 */
 	public void putSignStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("sign study studyNo=" + request.getParameter("studyNo"));
+		//System.out.println("sign study studyNo=" + request.getParameter("studyNo"));
 		String id = getUserId(request);
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		
 		int result = myStudyService.putSignStudy(id, studyNo);
+		System.out.println(result);
 		
 		PrintWriter out = response.getWriter();
 		out.print(result);
 	}
+	
 	
 	/**
 	 * 스터디 신청 상태 변경
@@ -157,7 +158,7 @@ public class MyStudyController implements Controller {
 		List<StudyChat> chatList = myStudyService.viewStudyRoomChat(studyNo);
 		request.setAttribute("chatList", chatList);
 		
-		return new ModelAndView(""); //스터디룸 페이지
+		return new ModelAndView("studyRoom.jsp"); //스터디룸 페이지
 	}
 	
 	/**

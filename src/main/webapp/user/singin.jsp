@@ -4,10 +4,9 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/singinStyle.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <script src="../js/jquery-3.6.0.js"></script>
   <script type="text/javascript">
 		$(function(){
@@ -32,7 +31,7 @@
 <body>
   <div class="main">
     <p class="sign" align="center">LogIn</p>
-    <form class="form1" action = "${pageContext.request.contextPath}/front" align="center" id="loginForm" method="post">
+    <form class="form1" action = "${pageContext.request.contextPath}/front?key=login&methodName=login" align="center" id="loginForm" method="post">
       <input class="un " type="text" name="userId" placeholder="id" id="userId">
       <input class="pass" type="password" name="pw" placeholder="Password" id="pw">
       <input type = hidden name = "key" value = "login">

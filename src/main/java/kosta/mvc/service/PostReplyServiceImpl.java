@@ -14,6 +14,7 @@ public class PostReplyServiceImpl implements PostReplyService {
 
 	@Override
 	public void insertReply(PostReply reply) throws SQLException {
+				
 		if(replyDao.insertReply(reply) == 0) {
 			throw new SQLException("댓글이 등록되지 않았습니다");
 		}

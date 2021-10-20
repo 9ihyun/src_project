@@ -267,17 +267,7 @@
 					
 				</td>
 			</tr>
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">아이디 </span></b>
-					</p>
-				</td>
-				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <input type="text" name="userId"
-							id="userId" size="12">
-					</span></b></td>
-			</tr>
+			<input type="hidden" name="userId" value="${sessionScope.user.userId }">
 			<tr>
 				<td width="150" height="20">
 					<p align="center">

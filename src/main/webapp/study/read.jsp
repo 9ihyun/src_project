@@ -132,8 +132,8 @@
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
 			<a href="${path}/front?key=study&methodName=selectAllStudy" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			 <c:if test="${sessionScope.sessionID != null}">
-        	<c:if test="${sessionScope.sessionID != study.userId}">
+			 <c:if test="${sessionScope.user.userId != null}">
+        	<c:if test="${sessionScope.user.userId == study.userId}">
 			<a href="${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}" >수정</a>
 			<a href="${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}" >삭제</a>
 			</c:if>
@@ -144,11 +144,17 @@
 </table>
 </form>
 <form action="${path}/front" method="post">
-				<input type=hidden name="studyNo" value="${study.studyNo}">
-					<input type="submit"  value=신청하기>
-					<input type=hidden name="key" value="myStudy"> 
-					<input type=hidden name="methodName" value="putSignStudy">			
-			</form>	
+	<input type=hidden name="studyNo" value="${study.studyNo}">
+		<input type="submit"  value=찜하기>
+		<input type=hidden name="key" value="myStudy"> 
+		<input type=hidden name="methodName" value="putWishStudy">			
+</form>	
+<form action="${path}/front" method="post">
+	<input type=hidden name="studyNo" value="${study.studyNo}">
+		<input type="submit"  value=신청하기>
+		<input type=hidden name="key" value="myStudy"> 
+		<input type=hidden name="methodName" value="putSignStudy">			
+</form>	
 <hr>
 <h3>Replies 정보</h3>
 
@@ -209,18 +215,18 @@
 </div>
 <form action="${path}/front" method="post">
 	<input type=hidden name="studyNo" value="${study.studyNo}">
+	${sessionScope.user.userId}<p>
+
 	<input type="text" name="sReplyContent" value="댓글을 입력해주세요">
-		<input type="text" name="userId" value="아이디">
-	
-	<div align="right">
+	<input type="hidden" name="userId" value="${sessionScope.userId }">
 		<input type="submit"  value=등록>
 		<input type=hidden name="key" value="studyReply"> 
 		<input type=hidden name="methodName" value="insertReply">		
-	</div>
+
 </form>
 <hr>
- <c:if test="${sessionScope.sessionID != null}">
- <c:if test="${sessionScope.sessionID != study.userId}">
+ <c:if test="${sessionScope.user.userId != null}">
+ <c:if test="${sessionScope.user.userId == study.userId}">
 <h2>스터디 신청자 목록</h2>
 <c:choose>
 	<c:when test = "${empty wishStudy.userId}">
@@ -228,7 +234,7 @@
 	</c:when>
 	<c:otherwise>
 		<c:forEach items = "${wishStudy.userId}" var = "wishUser">
-			${User.nickname} | ${User.starPoint}<p>
+			${wishUser.nickname} | ${wishUser.starPoint}<p>
 		</c:forEach>
 	</c:otherwise>
 </c:choose>

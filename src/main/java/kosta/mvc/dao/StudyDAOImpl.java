@@ -111,7 +111,6 @@ public class StudyDAOImpl implements StudyDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-
 		List<Study> studyList = new ArrayList<>();
 		String sql = proFile.getProperty("study.selectAll");
 		try {
@@ -119,9 +118,8 @@ public class StudyDAOImpl implements StudyDAO {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				Study study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
-						rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
-						rs.getString(12));
+				Study study = new Study(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7));
 				studyList.add(study);
 			}
 		} finally {
@@ -159,12 +157,16 @@ public class StudyDAOImpl implements StudyDAO {
 			
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				Study study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
-						rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
-						rs.getString(12));
+				Study study = new Study(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7));
 				
 				studyList.add(study);
 			}
+			
+			for(Study s : studyList) {
+				System.out.println(s.getUserId());
+			}
+			
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
 		}

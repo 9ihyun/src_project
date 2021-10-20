@@ -8,22 +8,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:set var="root" value="${pageContext.request.contextPath}"/>
-	<c:if test = "${check > 0}">
-		<script type="text/javascript">
-			alert("회원 가입이 완료되었습니다.");
-			location.href="${path}/study/studyMain.jsp";
-		</script>
-	</c:if>
-
-	<c:if test = "${check == 0}">
-		<script type="text/javascript">
-			alert("회원 가입이 완료되지 않았습니다.");
-			location.href="${path}/join.jsp";
-		</script>
-	</c:if>
+	<h3>${sessionScope.user.nickname}님 가입을 축하드립니다.</h3>
+	<h5>내 정보 확인하기</h5>
+	<table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
+	<tr>
+		<td>아이디</td>
+		<td>${sessionScope.user.userId}</td>
+	</tr>
+	<tr>
+		<td>닉네임</td>
+		<td>${sessionScope.user.nickname}</td>
+	</tr>
+	<tr>
+		<td>생년월일</td>
+		<td>${sessionScope.user.birth}</td>
+	</tr>
+	</table>
 	
-	<input type="button" value="확인" action="${path}/singin.jsp">
+	<a href="${path}/user/singin.jsp">로그인</a>
 
 </body>
 </html>

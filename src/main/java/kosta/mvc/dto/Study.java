@@ -1,5 +1,8 @@
 package kosta.mvc.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Study {
 	
 	private int studyNo;
@@ -21,7 +24,7 @@ public class Study {
 	private int signStateNo;
 	private int signUserNo;
 	private int studyCurrNo;
-	
+	private List<User> userList = new ArrayList<User>();
 	
 	
 	public Study() {
@@ -54,6 +57,18 @@ public class Study {
 		this.stateName = stateName;
 		this.dayName = dayName;
 	}
+	
+	//selectAllStudy constructor
+	public Study(String userId, int studyMaxnum, String studyLocationSi, String studyLocationGu, String studyDuedate,
+				String studyTitle, String stateName) {
+			this.userId = userId;
+			this.studyMaxnum = studyMaxnum;
+			this.studyLocationSi = studyLocationSi;
+			this.studyLocationGu = studyLocationGu;
+			this.studyDuedate = studyDuedate;
+			this.studyTitle = studyTitle;
+			this.stateName = stateName;
+		}
 
 	//11
 	public Study(int studyNo, int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
@@ -61,7 +76,7 @@ public class Study {
 		this(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
 		this.studyNo = studyNo;
 	}
-	
+
 	//10
 	public Study(int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
@@ -220,9 +235,14 @@ public class Study {
 
 	public void setDayName(String dayName) {
 		this.dayName = dayName;
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}	
-	
-	
-	
 
 }

@@ -29,17 +29,15 @@ public class LoginController implements Controller {
 		String pw = request.getParameter("pw");
 		
 		User user = loginService.loginCheck(userId, pw);
+		if(user == null) {
+			return new ModelAndView("user/loginFail.jsp", true);
+		}			
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("userId", userId);
 		session.setAttribute("user", user);
 		
-		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("board/freeBoardMain.jsp"); //메인페이지 기입
-		mv.setRedirect(true);
-		
-		return mv;
+		return new ModelAndView("board/freeBoardMain.jsp", true); //메인페이지 기입
 	}
 	
 	/**
@@ -65,7 +63,7 @@ public class LoginController implements Controller {
 		
 		loginService.register(new User(id, nickname, pass, birth, question, anwser));
 		
-		return new ModelAndView("/joinProc.jsp", true);
+		return new ModelAndView("user/joinProc.jsp", true);
 	}
 	
 	/**
@@ -79,7 +77,7 @@ public class LoginController implements Controller {
 		User user = loginService.idPwFind(birth, pwq, pwa);
 		request.setAttribute("user", user);
 		
-		return new ModelAndView(""); //찾기 페이지 기입
+		return new ModelAndView("user/idPassView.jsp"); //찾기 페이지 기입
 	}
 	
 	/**
