@@ -35,7 +35,7 @@
 <img src="../img/main.png">
 </div>
 
-  <div class="main" style="float:left; margin-left: 30px;">
+  <div class="main" style="float:left; margin-left: 40px;">
     <p class="sign" align="center">LogIn</p>
     <form class="form1" action = "${pageContext.request.contextPath}/front?key=login&methodName=login" align="center" id="loginForm" method="post">
       <input class="un " type="text" name="userId" placeholder="id" id="userId">
