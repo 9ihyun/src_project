@@ -7,7 +7,7 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <SCRIPT >
 function cancel(){ 
-	location.href = "${path}/front?key=study&methodName=selectAllStudy&studyNo=${view.studyNo}";	 
+	location.href = "${path}/front?key=study&methodName=selectAllStudy&studyNo=${study.studyNo}";	 
 }
 
 function checkValid(f) {

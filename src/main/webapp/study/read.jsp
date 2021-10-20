@@ -99,7 +99,7 @@
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
 			<a href="${path}/front?key=study&methodName=selectAllStudy" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			<a href="${path}/front?key=study&methodName=updateStudy&studyNo=${view.studyNo}" >수정</a>
+			<a href="${path}/front?key=study&methodName=updateStudy&studyNo=${study.studyNo}" >수정</a>
 		</td>
     </tr>
 </table>
