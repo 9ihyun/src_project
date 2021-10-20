@@ -32,7 +32,7 @@
 <body>
   <div class="main">
     <p class="sign" align="center">LogIn</p>
-    <form class="form1" action = "${pageContext.request.contextPath}/front" align="center" id="loginForm" method="post">
+    <form class="form1" action = "${pageContext.request.contextPath}/front?key=login&methodName=login" align="center" id="loginForm" method="post">
       <input class="un " type="text" name="userId" placeholder="id" id="userId">
       <input class="pass" type="password" name="pw" placeholder="Password" id="pw">
       <input type = hidden name = "key" value = "login">
