@@ -24,7 +24,7 @@
 </ol>
 <table>
   <tr><a href="#" id="mypage">메인페이지</a></tr>&nbsp;
-  <tr><a href="${path}/front?key=login&methodName=logout">로그아웃</a></tr>
+  <tr><a href="${pageContext.request.contextPath}/front?key=login&methodName=logout">로그아웃</a></tr>
 </table>
 </body>
 </html>
