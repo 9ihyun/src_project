@@ -141,25 +141,7 @@ img{width:200px; height:350px}
 		<col width="7%"/>
 		<col width="16%"/>
 	</colgroup>
-	<div>
-			<form>
-				<fieldset>
-				   <div align="right"> 
-                    <legend>글 검색 필드</legend>            
-                    <label>검색분류</label>
-                        <select name = "search">
-                            <option value = "title">제목</option>
-                            <option value = "userId">작성자</option>
-                        </select>
-                    <label>검색어</label>
-                        <input type = "text" name = "searchByTitle" src= "${path}/front?key=search&methodName=searchByTitle&postTitle"/>
-                        <input type = "submit" value = "검색">        
-                        </div>        
-                </fieldset>        
-			
-				
-			</form>	
-		</div>
+	
 	<tr>
         <td bgcolor="#00cc00">
             <p align="center">

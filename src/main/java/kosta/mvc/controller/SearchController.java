@@ -103,24 +103,16 @@ public class SearchController implements Controller{
 		List<Study> studyList = new ArrayList<>();
 		String sql = "SELECT * FROM study WHERE study_title LIKE ?"; //where rnum <=? and rnum>=?
 		try {
+				con = DbUtil.getConnection();
+				ps = con.prepareStatement(sql);
+				ps.setString(1, "%"+studyTitle+"%");
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					Study study = new Study(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+							rs.getString(6), rs.getString(7), rs.getString(8));
+					studyList.add(study);
+				}
 	
-			con = DbUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			ps.setString(1, "%"+studyTitle+"%");
-			
-			rs = ps.executeQuery();
-			
-			
-			while(rs.next()) {
-				Study study = new Study(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
-						rs.getString(5), rs.getString(6), rs.getString(7));
-				
-				studyList.add(study);
-			}
-			
-			for(Study s : studyList) {
-				//System.out.println(s.getUserId());
-			}
 			
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
