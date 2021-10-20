@@ -22,6 +22,8 @@
 			location.href="${path}/join.jsp";
 		</script>
 	</c:if>
+	
+	<input type="button" value="확인" action="${path}/singin.jsp">
 
 </body>
 </html>

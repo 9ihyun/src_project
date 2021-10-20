@@ -40,7 +40,7 @@ function checkValue()
 <h3 class="sign" align="center">회원가입</h3>
 
 <div class="main">
-<form method = "post" align="center" action = "joinProc.jsp" name="userInfo" onsubmit="return checkValue()">
+<form method = "post" align="center" action = "${pageContext.request.contextPath}/front" name="userInfo" onsubmit="return checkValue()">
 	ID : <input type = "text" name = "id"><br>
 	<div class="checkFont" id="idCheck"></div>
 	비밀번호 : <input type = "password" name = "pass"><br>
