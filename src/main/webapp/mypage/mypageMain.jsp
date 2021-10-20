@@ -7,9 +7,6 @@
 <title>mypage</title>
 <link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
 <style type="text/css">
-  iframe{
-    width: 500px; height: 500px
-  }
 </style>
 <script type="text/javascript">
 
@@ -19,8 +16,8 @@
 
 <table>
   <tr>
-    <th><iframe src="mypageMenu.jsp"></iframe></th>
-    <th><iframe src="startPage.jsp" name="page"></iframe></th>
+    <th><jsp:include page="mypageMenu.jsp" /></th>
+    <th><iframe src="startPage.jsp" name="page" height="600" width="800"></iframe></th>
   </tr>
 </table>
 </body>
