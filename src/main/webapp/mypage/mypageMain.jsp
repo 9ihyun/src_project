@@ -16,8 +16,8 @@
 </script>
 </head>
 <body>
-<% session.setAttribute("userId", "test1");
-   session.setAttribute("loginUser", "test1");
+<% session.setAttribute("userId", "test123");
+   session.setAttribute("loginUser", "test123");
    
    %>
 <table>

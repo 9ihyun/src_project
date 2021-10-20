@@ -228,6 +228,7 @@ public class StudyDAOImpl implements StudyDAO {
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				User user = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
