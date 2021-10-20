@@ -29,7 +29,7 @@
 		$("#join > tbody >tr:nth-child(" + num + ") > th:nth-child(3) > ul").hide();
 	 });
 	 
-	 $(document).on("click", "[name=star]", function(){
+	 $(document).on("click", "[value=별점주기]", function(){
 		  if(confirm($(this).attr("class") + "님에게 별점을 주시겠습니까?")){
 			$.ajax({
 				type: "post",
@@ -37,7 +37,7 @@
 				data: {"id" : $(this).attr("class"), "point" : $(this).attr("name")},
 				dataType: "json",
 				success: function(result){
-					
+					alert("별점이 적용되었습니다");
 				},
 				error:function() {
 					console.log("실패");
@@ -55,7 +55,7 @@
 		 for(var i = 1; i<= num[2]; i++){
 			 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > img:nth-child(" + i + ")").attr("src", "${path}/img/star.jpg");
 		 }
-		 
+		 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > input").attr("name", num[2]-1);
 	 });
   });
 </script>
@@ -116,7 +116,7 @@
 	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li%>-<%=num++%>">
 	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li%>-<%=num++%>">
 	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li++%>-<%=num++%>">
-	                      <input type="button" value="별점주기" name='star' class="${user.userId }"></li>
+	                      <input type="button" value="별점주기" class="${user.userId }"></li>
 	                </c:forEach></ul></c:if></span></p>
 		        </th>
 		        <th bgcolor="">
