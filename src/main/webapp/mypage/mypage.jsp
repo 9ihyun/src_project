@@ -20,7 +20,9 @@
 </script>
 </head>
 <body>
-
+<% session.setAttribute("user", request.getAttribute("user"));
+   
+   %>
 <table>
   <tr>
     <th>아이디</th>

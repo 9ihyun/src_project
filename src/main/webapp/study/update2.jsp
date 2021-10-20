@@ -7,7 +7,7 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <SCRIPT >
 function cancel(){ 
-	location.href = "${path}/front?key=study&methodName=selectAllStudy&studyNo=${study.studyNo}";	 
+	location.href = "${path}/front?key=study&methodName=viewStudy&studyNo=${study.studyNo}";	 
 }
 
 function checkValid(f) {
@@ -82,7 +82,7 @@ function checkValid(f) {
 <form name="updateForm" method="post" action="${path}/front" onSubmit="return checkValid(this);">
     <input type="hidden" name="key" value="study" >
     <input type="hidden" name="methodName" value="updateStudy" >
-    <input type='hidden' name='studyNo' value="${view.studyNo}">
+    <input type='hidden' name='studyNo' value="${study.studyNo}">
 	<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' >
     <tr>
         <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
@@ -95,13 +95,13 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">모집여부</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${study.stateNo}</b></span>
+        	<input type="text" name="stateNo" value="${study.stateNo}" id="stateNo">
         </td>
         <td width="100" height="20" >
             <p align="right"><b><span style="font-size:9pt;">태그 번호</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.tagNo}</b></span>
+        	<input type="text" name="tagNo" value="${study.tagNo}" id="tagNo">
         </td>
     </tr>
     <tr>
@@ -109,13 +109,13 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">작성자 아이디</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${study.userId}</b></span>
+        	<input type="text" name="userId" value="${study.userId}" id="userId">
         </td>
         <td width="100" height="20" >
             <p align="right"><b><span style="font-size:9pt;">모집 정원</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.studyMaxnum}</b></span>
+        	<input type="text" name="studyMaxnum" value="${study.studyMaxnum}" id="studyMaxnum">
         </td>
     </tr>
     <tr>
@@ -123,13 +123,13 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">마감일</span></b></p>
         </td>
         <td width="100" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.studyDuedate}</b></span>
+        	<input type="text" name="studyDuedate" value="${study.studyDuedate}" id="studyDuedate">
         </td>
         <td width="100" height="20" >
 			<p align="right"><b><span style="font-size:9pt;">요일</span></b></p>
 		</td>
         <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${requestScope.study.studyRegdate}</b></p>
+        	<input type="text" name="studyRegdate" value="${study.studyRegdate}" id="studyRegdate">
 		</td>
     </tr>
     <tr>
@@ -137,13 +137,13 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">지역(시)</span></b></p>
         </td>
         <td width="100" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.studyLocationSi}</b></span>
+        	<input type="text" name="studyLocationSi" value="${study.studyLocationSi}" id="studyLocationSi">
         </td>
         <td width="100" height="20" >
 			<p align="right"><b><span style="font-size:9pt;">지역(구)</span></b></p>
 		</td>
         <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${requestScope.study.studyLocationGu}</b></p>
+        	<input type="text" name="studyLocationGu" value="${study.studyLocationGu}" id="studyLocationGu">
 		</td>
     </tr>
     <tr>
@@ -151,7 +151,7 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${requestScope.study.studyTitle}</b></span>
+        	<input type="text" name="studyTitle" value="${study.studyTitle}" id="studyTitle">
         </td>
     </tr>
     <tr>
@@ -160,7 +160,7 @@ function checkValid(f) {
         </td>
 		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
         <td width="450" height="200" valign="top" colspan="3">
-        <span style="font-size:9pt;"><b><pre>${requestScope.study.studyContent}</pre></b></span></td>
+        <textarea name="studyContent" id="studyContent" cols="50" rows="10">${study.studyContent}</textarea>
     </tr>
     
     <tr>
