@@ -205,12 +205,9 @@ function checkValid(f) {
     
     <tr>
         <td width="450" height="20" colspan="2" align="center">
-        <c:if test="${sessionScope.sessionID != null}">
-        	<c:if test="${sessionScope.sessionID != study.userId}">
 				<input type="submit" value="수정하기">
 				<button type="button" onclick="cancel();">취소하기</button>
-				</c:if>
-				</c:if>	
+				
 		</td>
     </tr>
 </table>
