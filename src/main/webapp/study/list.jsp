@@ -141,6 +141,25 @@ img{width:200px; height:350px}
 		<col width="7%"/>
 		<col width="16%"/>
 	</colgroup>
+	<div>
+			<form>
+				<fieldset>
+				   <div align="right"> 
+                    <legend>글 검색 필드</legend>            
+                    <label>검색분류</label>
+                        <select name = "search">
+                            <option value = "title">제목</option>
+                            <option value = "userId">작성자</option>
+                        </select>
+                    <label>검색어</label>
+                        <input type = "text" name = "searchByTitle" src= "${path}/front?key=search&methodName=searchByTitle&postTitle"/>
+                        <input type = "submit" value = "검색">        
+                        </div>        
+                </fieldset>        
+			
+				
+			</form>	
+		</div>
 	<tr>
         <td bgcolor="#00cc00">
             <p align="center">
@@ -186,7 +205,7 @@ img{width:200px; height:350px}
 		        </td>
 		        <td bgcolor="">
 					<p><span style="font-size:9pt;">
-					<a href="${path}/front?key=study&methodName=viewStudy&studyNo=${Study.studyNo}">
+					<a href="${path}/front?key=study&methodName=viewStudy&studyNo=${study.studyNo}">
 					  ${study.studyTitle}
 					</a>
 					</span></p>
@@ -198,7 +217,7 @@ img{width:200px; height:350px}
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${study.studyRegdate}</span></p>
+		            ${study.studyDuedate}</span></p>
 		        </td>
 		         
 		         <td bgcolor="">
