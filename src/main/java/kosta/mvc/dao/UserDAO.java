@@ -13,7 +13,7 @@ public interface UserDAO {
 	/**
 	 * 별점 평가
 	 * */
-	public int starPoint(String id, int point) throws SQLException;
+	public int starPoint(String id, int point, String evaluator) throws SQLException;
 	
 	/**
 	 * 내 정보 수정

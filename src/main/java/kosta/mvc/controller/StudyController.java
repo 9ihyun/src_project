@@ -144,6 +144,8 @@ public class StudyController implements Controller {
 			//StudyReply 이름에 저장....
 			List<StudyReply> listReply = replyService.selectAllReply(studyNo);
 			request.setAttribute("StudyReply", listReply);
+			List<User> userList = service.getUserList(studyNo);
+			request.setAttribute("userList", userList);
 			
 		return new ModelAndView("study/read.jsp");//이동 위치
 	}

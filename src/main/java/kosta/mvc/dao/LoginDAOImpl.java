@@ -125,7 +125,7 @@ public class LoginDAOImpl implements LoginDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-					result = true;
+				result = true;
 			}
 			
 		}catch (SQLException e) {
@@ -155,7 +155,7 @@ public class LoginDAOImpl implements LoginDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-					result = true;
+				result = true;
 			}
 			
 		}catch (SQLException e) {

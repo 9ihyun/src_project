@@ -141,7 +141,58 @@ img{width:200px; height:350px}
 		<col width="7%"/>
 		<col width="16%"/>
 	</colgroup>
-	
+	<div>
+			<form>
+				<fieldset>
+				   <div align="right"> 
+                    <legend>스터디 검색</legend>   
+                    <label>스터디언어</label>
+                    <select name="tagNo" id="tagNo">
+							<option value="none">==선택==</option>
+							<option value="1">C/C++</option>
+							<option value="2">C#</option>
+							<option value="3">Python</option>
+							<option value="4">Go</option>
+							<option value="5">Swift</option>
+							<option value="6">Perl</option>
+							<option value="7">Java</option>
+							<option value="8">Kotlin</option>
+							<option value="9">JavaScript</option>
+							<option value="10">Vue.js</option>
+							<option value="11">React</option>
+							<option value="12">node.js</option>
+							<option value="13">Typescript</option>
+							<option value="14">Ajax</option>
+							<option value="15">JQuery</option>
+							<option value="16">HTML</option>
+							<option value="17">CSS</option>
+							<option value="18">spring</option>
+							<option value="19">JPA</option>
+							<option value="20">Ruby</option>
+							<option value="21">Mysql</option>
+							<option value="22">ORACLE</option>
+							<option value="23">git</option>
+							<option value="24">Linux</option>
+							<option value="25">Ubuntu</option>
+							<option value="26">프론트엔드</option>
+							<option value="27">백엔드</option>
+							<option value="28">토이프로젝트</option>
+							<option value="29">기타</option>
+						</select>         
+                    <label>검색분류</label>
+                        <select name = "search">
+                            <option value = "title">제목</option>
+                            <option value = "userId">작성자</option>
+                        </select>
+                    <label>검색어</label>
+                        <input type = "text" name = "searchByTitle" src= "${path}/front?key=search&methodName=searchByTitle&postTitle"/>
+                        <input type = "submit" value = "검색">        
+                        </div>        
+                </fieldset>        
+			
+				
+			</form>	
+		</div>
 	<tr>
         <td bgcolor="#00cc00">
             <p align="center">
@@ -209,7 +260,7 @@ img{width:200px; height:350px}
 		         <td bgcolor="">
 		            <p align="center">
 		            <form action="${path}/front" method="post">
-						<input type=hidden name="studyNo" value="${Study.studyNo}">
+						<input type=hidden name="studyNo" value="${study.studyNo}">
 						<input type="submit"  value=찜하기>
 						<input type=hidden name="key" value="myStudy"> 
 						<input type=hidden name="methodName" value="putWishStudy">			
