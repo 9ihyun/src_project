@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kosta.mvc.dto.Post;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.User;
 import kosta.mvc.service.StudyService;
@@ -58,7 +59,19 @@ public class StudyController implements Controller {
 		
 		service.insertStudy(study);
 
-		return new ModelAndView("study/studyMain.jsp"); //이동 위치 
+		return new ModelAndView("/front?key=study&methodName=selectAllStudy"); //이동 위치 
+	}
+	
+	/**
+	 * 스터디 게시물 수정 폼 이동
+	 */
+	public ModelAndView updateStudyView(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		Study view = service.updateStudyView(studyNo);
+
+		request.setAttribute("view", view);
+		return new ModelAndView("study/update2.jsp");
+		
 	}
 
 	/**

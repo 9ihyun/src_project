@@ -50,4 +50,9 @@ public interface StudyDAO {
 	 * 스터디 게시물 작성자 아이디 가져오기
 	 */
 	String getDBUserId(int studyNo) throws SQLException;
+
+	/**
+	 * 스터디 게시물 수정 폼 이동
+	 */
+	Study updateStudyView(int studyNo) throws SQLException;
 }

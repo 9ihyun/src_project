@@ -67,4 +67,9 @@ public class StudyServiceImpl implements StudyService {
 		return studyDao.getUserList(studyNo);
 	}
 
+	@Override
+	public Study updateStudyView(int studyNo) throws SQLException {
+		return studyDao.updateStudyView(studyNo);
+	}
+
 }
