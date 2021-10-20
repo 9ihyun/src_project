@@ -126,9 +126,12 @@ public class PostController implements Controller {
 	//삭제하기 
 	public ModelAndView postDelete(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
-
+		
+		
 		service.postDelete(postNo);
-		return new ModelAndView("board/freeBoardWrite.jsp", true);
+		
+		return new ModelAndView("/front?key=post&methodName=postSelectAllPost");
+		
 	}
 	//자유게시판 (전체리스트 보기)
 	public ModelAndView postSelectAllPost(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -116,7 +116,9 @@ public class PostDAOlmpl implements PostDAO {
 		Connection con=null;
 		PreparedStatement ps=null;
 		int result=0;
-		String sql="delete post where post_no=?";
+		//System.out.println(postNo);
+		String sql = proFile.getProperty("post.delete");
+		//String sql="delete post where post_no=?";
 		try {
 			con=DbUtil.getConnection();
 			ps=con.prepareStatement(sql);
@@ -127,7 +129,9 @@ public class PostDAOlmpl implements PostDAO {
 		}finally {
 			DbUtil.dbClose(ps, con);
 		}
+		//System.out.println(result);
 		return result;
+		
 	}
 
 	
