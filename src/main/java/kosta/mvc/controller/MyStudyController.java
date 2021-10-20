@@ -85,6 +85,7 @@ public class MyStudyController implements Controller {
 		out.print(result);
 	}
 	
+	
 	/**
 	 * 스터디 신청 상태 변경
 	 * */
