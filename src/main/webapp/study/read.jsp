@@ -215,14 +215,14 @@
 </div>
 <form action="${path}/front" method="post">
 	<input type=hidden name="studyNo" value="${study.studyNo}">
+	${sessionScope.userId}<p>
+	${sessionScope.starPoint}
 	<input type="text" name="sReplyContent" value="댓글을 입력해주세요">
-		<input type="text" name="userId" value="아이디">
-	
-	<div align="right">
+	<input type="hidden" name="userId" value="${sessionScope.userId }">
 		<input type="submit"  value=등록>
 		<input type=hidden name="key" value="studyReply"> 
 		<input type=hidden name="methodName" value="insertReply">		
-	</div>
+
 </form>
 <hr>
  <c:if test="${sessionScope.user.userId != null}">
@@ -234,7 +234,7 @@
 	</c:when>
 	<c:otherwise>
 		<c:forEach items = "${wishStudy.userId}" var = "wishUser">
-			${User.nickname} | ${User.starPoint}<p>
+			${wishUser.nickname} | ${wishUser.starPoint}<p>
 		</c:forEach>
 	</c:otherwise>
 </c:choose>
