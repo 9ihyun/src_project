@@ -46,7 +46,7 @@ public class StudyReplyController implements Controller {
 		
 		service.insertReply(reply);
 
-		return new ModelAndView("study/read.jsp");
+		return new ModelAndView("/front?key=study&methodName=viewStudy&studyNo=" + studyNo);
 	}
 	
 	
