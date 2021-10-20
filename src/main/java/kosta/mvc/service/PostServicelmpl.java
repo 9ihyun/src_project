@@ -36,6 +36,11 @@ public class PostServicelmpl implements PostService {
 		
 		return postDao.selectAllPost();
 	}
+	@Override
+	public List<Post> AllPost() throws SQLException {
+		
+		return postDao.AllPost();
+	}
 
 	@Override
 	public Post postView(int postNo) throws SQLException {

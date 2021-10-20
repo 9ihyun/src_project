@@ -26,9 +26,13 @@ public interface PostService {
 	public void postDelete(int postNo) throws SQLException;
 
 	/**
-	 * 게시글 리스트
+	 * 자유게시글 리스트
 	 */
 	public List<Post> selectAllPost() throws SQLException;
+	/**
+	 * 지식정보게시글 리스트
+	 */
+	public List<Post> AllPost() throws SQLException;
 
 	/**
 	 * 게시글 상세보기

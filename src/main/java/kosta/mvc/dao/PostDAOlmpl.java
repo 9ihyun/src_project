@@ -126,6 +126,28 @@ public class PostDAOlmpl implements PostDAO {
 		}
 		return postList;
 	}
+	
+	@Override
+	public List<Post> AllPost() throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		List<Post> postList = new ArrayList<>();
+		String sql = proFile.getProperty("post.Allpost");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Post post = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7), rs.getInt(8));
+				postList.add(post);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return postList;
+	}
 
 	
 

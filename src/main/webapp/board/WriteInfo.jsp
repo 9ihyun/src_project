@@ -145,7 +145,9 @@ function checkValid(frm){
 					
 						<select name="boardNo">
 							<option value="1">1.자유게시판</option>
+							<option value="2">2.지식정보게시판</option>
 						</select>
+						
 					</td>
 			</tr>
      
