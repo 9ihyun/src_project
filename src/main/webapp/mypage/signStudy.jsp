@@ -23,7 +23,7 @@
 				data: {"id" : "${sessionScope.userId}", "studyNo" : $(this).attr("name")},
 				dataType: "json",
 				success: function(result){
-					alert("성공");
+					$("#"+result[0].studyTitle).remove();
 				},
 				error:function() {
 					console.log("실패");
@@ -65,7 +65,7 @@
     <c:otherwise>
 	<c:forEach items="${requestScope.signList}" var="Study">
 		    <tr onmouseover="this.style.background='#eaeaea'"
-		        onmouseout="this.style.background='white'">
+		        onmouseout="this.style.background='white'" id="${Study.studyTitle}">
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Study.stateNo}</span></p>
