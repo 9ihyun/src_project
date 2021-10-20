@@ -7,7 +7,6 @@ import kosta.mvc.dao.MyStudyDAO;
 import kosta.mvc.dao.MyStudyDAOImpl;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
-import kosta.mvc.dto.User;
 
 public class MyStudyServiceImpl implements MyStudyService {
 	MyStudyDAO myStudyDAO = new MyStudyDAOImpl();
@@ -94,19 +93,6 @@ public class MyStudyServiceImpl implements MyStudyService {
 	@Override
 	public List<Study> viewJoinStudy(String id) throws SQLException {
 		return myStudyDAO.viewJoinStudy(id);
-	}
-	
-	/**
-	 * 스터디 명단 가져오기
-	 * */
-	@Override
-	public List<User> viewStudyMember(String id, int studyNo) throws SQLException {
-		List<User> userList = myStudyDAO.viewStudyMember(id, studyNo);
-		
-		if(userList.size() == 0)
-			throw new SQLException("스터디 명단을 가져오는데 실패했습니다.");
-		
-		return userList;
 	}
 	
 	/**

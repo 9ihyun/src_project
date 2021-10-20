@@ -1,5 +1,8 @@
 package kosta.mvc.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Study {
 	
 	private int studyNo;
@@ -21,7 +24,7 @@ public class Study {
 	private int signStateNo;
 	private int signUserNo;
 	private int studyCurrNo;
-	
+	private List<User> userList = new ArrayList<User>();
 	
 	
 	public Study() {
@@ -220,9 +223,14 @@ public class Study {
 
 	public void setDayName(String dayName) {
 		this.dayName = dayName;
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}	
-	
-	
-	
 
 }

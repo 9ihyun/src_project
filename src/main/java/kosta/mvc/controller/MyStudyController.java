@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kosta.mvc.dao.MyStudyDAOImpl;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
 import kosta.mvc.dto.User;
@@ -146,19 +145,6 @@ public class MyStudyController implements Controller {
 		request.setAttribute("joinList", joinList);
 		
 		return new ModelAndView("mypage/joinStudy.jsp"); //참여중/완료 스터디
-	}
-	
-	/**
-	 * 스터디 명단 가져오기
-	 * */
-	public ModelAndView viewStudyMember(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = getUserId(request);
-		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-		
-		List<User> userList = myStudyService.viewStudyMember(id, studyNo);
-		request.setAttribute("userList", userList);
-		
-		return new ModelAndView(""); //스터디원 평가 페이지
 	}
 	
 	/**

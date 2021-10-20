@@ -301,6 +301,7 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 						rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12));
 				
 				study.setStudyCurrNo(getStudyCurrNo(con, rs.getInt(1)));
+				study.setUserList(getStudyMember(con, id, rs.getInt(1)));
 				
 				joinList.add(study);
 			}
@@ -315,16 +316,13 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	/**
 	 * 스터디 명단 가져오기
 	 * */
-	@Override
-	public List<User> viewStudyMember(String id, int studyNo) throws SQLException {
-		Connection con = null;
+	public List<User> getStudyMember(Connection con, String id, int studyNo) throws SQLException {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("myStudy.viewStudyMember");
+		String sql = proFile.getProperty("myStudy.getStudyMember");
 		List<User> userList = new ArrayList<User>();
 		
 		try {
-			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, studyNo);
 			ps.setInt(2, studyNo);
@@ -340,7 +338,7 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			}
 			
 		}finally {
-			DbUtil.dbClose(rs, ps, con);
+			DbUtil.dbClose(rs, ps, null);
 		}
 		
 		return userList;
