@@ -79,7 +79,7 @@ public class LoginController implements Controller {
 		User user = loginService.idPwFind(birth, pwq, pwa);
 		request.setAttribute("user", user);
 		
-		return new ModelAndView(""); //찾기 페이지 기입
+		return new ModelAndView("../user/idPassView.jsp"); //찾기 페이지 기입
 	}
 	
 	/**
