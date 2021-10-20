@@ -56,12 +56,18 @@ public class LoginDAOImpl implements LoginDAO {
 	public int register(User user) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("login.register"); //insert into member_user values(?, ?, ?, ?, ?, ?, default)
+		String sql = proFile.getProperty("login.register");
 		int result = 0;
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
+			ps.setString(1, user.getUserId());
+			ps.setString(2, user.getNickname());
+			ps.setString(3, user.getPw());
+			ps.setInt(4, user.getBirth());
+			ps.setString(5, user.getPwq());
+			ps.setString(6, user.getPwa());
 			result = ps.executeUpdate();			
 			
 		}finally {
