@@ -9,11 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kosta.mvc.dto.Post;
+import kosta.mvc.dto.PostReply;
+import kosta.mvc.service.PostReplyService;
+import kosta.mvc.service.PostReplyServiceImpl;
 import kosta.mvc.service.PostService;
 import kosta.mvc.service.PostServicelmpl;
 
 public class PostController implements Controller {
 	private PostService service = new PostServicelmpl();
+	
+	private PostReplyService postReplyService = new PostReplyServiceImpl();
 
 	private String getUserId(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -159,8 +164,11 @@ public class PostController implements Controller {
 	public ModelAndView postViewPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
 		Post view = service.postView(postNo);
-
 		request.setAttribute("view", view);
+		
+		List<PostReply> replyList = postReplyService.selectAllReply(postNo);		
+		request.setAttribute("replyList", replyList);		
+			
 		return new ModelAndView("board/freeBoardread.jsp");
 		
 	}
