@@ -155,8 +155,10 @@
 		<input type=hidden name="key" value="myStudy"> 
 		<input type=hidden name="methodName" value="putSignStudy">			
 </form>	
+<br>
+<br>
+<h3>댓글 정보</h3>
 <hr>
-<h3>Replies 정보</h3>
 
 <div>  
 <c:choose>
@@ -229,12 +231,12 @@
  <c:if test="${sessionScope.user.userId == study.userId}">
 <h2>스터디 신청자 목록</h2>
 <c:choose>
-	<c:when test = "${empty wishStudy.userId}">
+	<c:when test = "${empty userList}">
 		<h5>신청자가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
-		<c:forEach items = "${wishStudy.userId}" var = "wishUser">
-			${wishUser.nickname} | ${wishUser.starPoint}<p>
+		<c:forEach items = "${userList}" var = "user">
+			${user.nickname} | ${user.starPoint}<p>
 		</c:forEach>
 	</c:otherwise>
 </c:choose>

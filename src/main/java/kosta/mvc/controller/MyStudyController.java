@@ -77,6 +77,7 @@ public class MyStudyController implements Controller {
 	public void putSignStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//System.out.println("sign study studyNo=" + request.getParameter("studyNo"));
 		String id = getUserId(request);
+		System.out.println(id);
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		
 		int result = myStudyService.putSignStudy(id, studyNo);
