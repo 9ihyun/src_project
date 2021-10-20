@@ -240,6 +240,13 @@
 		</c:forEach>
 	</c:otherwise>
 </c:choose>
+					<input type="submit"  value=수락>
+					<input type=hidden name="key" value="myStudy"> 
+					<input type=hidden name="methodName" value="changeSignState">
+					
+					<input type="submit"  value=거절>
+					<input type=hidden name="key" value="myStudy"> 
+					<input type=hidden name="methodName" value="changeSignState">
 </c:if>
 </c:if>
 <hr>
