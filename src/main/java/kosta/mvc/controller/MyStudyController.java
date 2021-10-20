@@ -154,11 +154,14 @@ public class MyStudyController implements Controller {
 	 * */
 	public ModelAndView viewStudyRoomChat(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		String studyTitle = request.getParameter("studyTitle");
 		
 		List<StudyChat> chatList = myStudyService.viewStudyRoomChat(studyNo);
 		request.setAttribute("chatList", chatList);
+		request.setAttribute("studyTitle", studyTitle);
+		request.setAttribute("studyNo", studyNo);
 		
-		return new ModelAndView("studyRoom.jsp"); //스터디룸 페이지
+		return new ModelAndView("mypage/studyRoom.jsp"); //스터디룸 페이지
 	}
 	
 	/**

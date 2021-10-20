@@ -130,7 +130,7 @@
 		        </th>
 		         <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <c:if test="${Study.stateNo eq 2}"><a href="${path}/front?key=myStudy&methodName=viewStudyRoomChat&studyNo=${Study.studyNo}" id="<%= tr++%>">이동</a></c:if>
+		            <c:if test="${Study.stateNo eq 2}"><a href="${path}/front?key=myStudy&methodName=viewStudyRoomChat&studyNo=${Study.studyNo}&studyTitle=${Study.studyTitle}" id="<%= tr++%>">이동</a></c:if>
 		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id="<%= tr++%>"></c:if>
 		            </span></p>
 		        </th>
