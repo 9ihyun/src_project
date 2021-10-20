@@ -48,34 +48,34 @@
 	<c:forEach items="${requestScope.wishList}" var="Study">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
-		        <td bgcolor="">
+		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            <c:if test="${Study.stateNo eq 1}">모집중</c:if>
 		            <c:if test="${Study.stateNo eq 2}">스터디진행중</c:if>
 		            <c:if test="${Study.stateNo eq 3}">스터디완료</c:if></span></p>
-		        </td>
-		        <td bgcolor="">
+		        </th>
+		        <th bgcolor="">
 					<p><span style="font-size:9pt;">
 					  ${Study.studyDuedate}</span></p>
-		        </td>
+		        </th>
 		        
-		        <td bgcolor="">
+		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Study.studyTitle}</span></p>
-		        </td>
-		        <td bgcolor="">
+		        </th>
+		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Study.studyCurrNo}/${Study.studyMaxnum }</span></p>
-		        </td>
+		        </th>
 		         
-		         <td bgcolor="">
+		         <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Study.studyLocationSi}${Study.studyLocationGu}</span></p>
-		        </td>
-		         <td bgcolor="">
+		        </th>
+		         <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Study.signUserNo}</span></p>
-		        </td>
+		        </th>
 		        
 		      
 		    </tr>

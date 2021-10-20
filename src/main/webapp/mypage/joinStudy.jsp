@@ -44,6 +44,7 @@
 </script>
 </head>
 <body>
+<% int i = 2; %>
 <table>
   <tr>
     <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
@@ -64,45 +65,45 @@
   <c:choose>
     <c:when test="${empty requestScope.joinList}">
 	   <tr>
-        <td colspan="5">
+        <th colspan="5">
             <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
-        </td>
+        </th>
     </tr>
     </c:when>
     <c:otherwise>
 	<c:forEach items="${requestScope.joinList}" var="Study">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
-		        <td bgcolor="">
+		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            <c:if test="${Study.stateNo eq 1}">모집중</c:if>
 		            <c:if test="${Study.stateNo eq 2}">스터디진행중</c:if>
 		            <c:if test="${Study.stateNo eq 3}">스터디완료</c:if></span></p>
-		        </td>
-		        <td bgcolor="">
+		        </th>
+		        <th bgcolor="">
 					<p><span style="font-size:9pt;">
 					  ${Study.studyDuedate}</span></p>
-		        </td>
+		        </th>
 		        
-		        <td bgcolor="">
+		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Study.studyTitle}</span></p>
-		        </td>
-		        <td bgcolor="">
+		        </th>
+		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Study.studyCurrNo}/${Study.studyMaxnum }</span></p>
-		        </td>
+		        </th>
 		         
-		         <td bgcolor="">
+		         <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${Study.studyLocationSi}${Study.studyLocationGu}</span></p>
-		        </td>
-		         <td bgcolor="">
+		        </th>
+		         <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <c:if test="${Study.stateNo eq 2}"><a href="#">이동</a></c:if>
-		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id=""></c:if>
+		            <c:if test="${Study.stateNo eq 2}"><a href="#" id="<%= i++%>">이동</a></c:if>
+		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id="<%= i++%>"></c:if>
 		            </span></p>
-		        </td>
+		        </th>
 		        
 		      
 		    </tr>
