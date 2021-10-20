@@ -133,7 +133,7 @@
         <td height="20" colspan="4" align="center" valign="middle">
 			<a href="${path}/front?key=study&methodName=selectAllStudy" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
 			 <c:if test="${sessionScope.user.userId != null}">
-        	<c:if test="${sessionScope.user.userId != study.userId}">
+        	<c:if test="${sessionScope.user.userId == study.userId}">
 			<a href="${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}" >수정</a>
 			<a href="${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}" >삭제</a>
 			</c:if>
@@ -219,8 +219,8 @@
 	</div>
 </form>
 <hr>
- <c:if test="${sessionScope.sessionID != null}">
- <c:if test="${sessionScope.sessionID != study.userId}">
+ <c:if test="${sessionScope.user.userId != null}">
+ <c:if test="${sessionScope.user.userId == study.userId}">
 <h2>스터디 신청자 목록</h2>
 <c:choose>
 	<c:when test = "${empty wishStudy.userId}">
