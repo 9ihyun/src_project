@@ -20,7 +20,7 @@
 			$.ajax({
 				type: "post",
 				url: "${path}/ajax?key=myStudy&methodName=removeSignStudy",
-				data: {"id" : ${sessionScope.userId}, "studyNo" : $(this).attr("name")},
+				data: {"id" : "${sessionScope.userId}", "studyNo" : $(this).attr("name")},
 				dataType: "json",
 				success: function(result){
 					alert("성공");
