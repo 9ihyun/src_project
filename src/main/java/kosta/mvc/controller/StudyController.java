@@ -67,7 +67,7 @@ public class StudyController implements Controller {
 	public ModelAndView updateStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
 
-		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		//int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
 		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
@@ -98,7 +98,7 @@ public class StudyController implements Controller {
 
 		service.deleteStudy(studyNo, userId);
 		
-		return new ModelAndView("study/list.jsp", true); //이동 위치
+		return new ModelAndView("study/studyMain.jsp", true); //이동 위치
 	}
 
 	/**
