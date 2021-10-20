@@ -56,7 +56,7 @@ public class LoginDAOImpl implements LoginDAO {
 	public int register(User user) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("login.register");
+		String sql = proFile.getProperty("login.register"); //insert into member_user values(?, ?, ?, ?, ?, ?, default)
 		int result = 0;
 		
 		try {
