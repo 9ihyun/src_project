@@ -144,7 +144,7 @@ public class MyStudyController implements Controller {
 		List<Study> joinList = myStudyService.viewJoinStudy(id);		
 		request.setAttribute("joinList", joinList);
 		
-		return new ModelAndView("mypage/myStudy.jsp"); //참여중/완료 스터디
+		return new ModelAndView("mypage/joinStudy.jsp"); //참여중/완료 스터디
 	}
 	
 	/**

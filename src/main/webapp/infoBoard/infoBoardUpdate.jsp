@@ -164,7 +164,7 @@ function checkValid(frm){
     <tr>
         <td width="450" height="20" colspan="2" align="center">
 	        <input type=submit value="수정하기">
-	        <input type="button" value="삭제하기">
+	        <input type="button"  value="삭제하기">
         </td>
     </tr>
 </table>

@@ -163,14 +163,6 @@
 					<input type=hidden name="key" value="studyReply"> 
 					<input type=hidden name="methodName" value="deleteReply">			
 			</form>		
-			<form action="${path}/front" method="post">
-				<input type=hidden name="studyNo" value="${study.studyNo}">
-				<input type=hidden name="sReplyNo" value="${reply.sReplyNo}">
-
-					<input type="submit"  value=수정>
-					<input type=hidden name="key" value="studyReply"> 
-					<input type=hidden name="methodName" value="updateReply">			
-			</form>		
 			<hr>
 		</c:forEach>
 	</c:otherwise>
