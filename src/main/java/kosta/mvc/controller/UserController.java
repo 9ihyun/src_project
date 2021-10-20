@@ -47,8 +47,9 @@ public class UserController implements Controller {
 	public void starPoint(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 		int point = Integer.parseInt(request.getParameter("point"));
+		String evaluator = getUserId(request);
 		
-		int result = userService.starPoint(id, point);
+		int result = userService.starPoint(id, point, evaluator);
 		
 		PrintWriter out = response.getWriter();
 		out.print(result);
