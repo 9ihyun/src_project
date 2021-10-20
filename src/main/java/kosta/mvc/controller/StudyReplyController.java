@@ -37,17 +37,16 @@ public class StudyReplyController implements Controller {
 	 */
 	public ModelAndView insertReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
-		System.out.println(request.getParameter("sReplyContent"));
-		System.out.println(request.getParameter("studyNo"));
 
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		userId = request.getParameter("userId");
 		String sReplyContent = request.getParameter("sReplyContent");
 		
 		StudyReply reply = new StudyReply(studyNo, userId, sReplyContent);
 		
 		service.insertReply(reply);
 
-		return null;
+		return new ModelAndView("study/read.jsp");
 	}
 	
 	
@@ -58,15 +57,14 @@ public class StudyReplyController implements Controller {
 	public ModelAndView updateReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
 		
-		int sReplyNo = Integer.parseInt(request.getParameter("sReplyNo"));
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		userId = request.getParameter("userId");
 		String sReplyContent = request.getParameter("sReplyContent");
-		String sReplyDate = request.getParameter("sReplyDate");
 		
-		StudyReply reply = new StudyReply(sReplyNo, studyNo, userId, sReplyContent, sReplyDate);
+		StudyReply reply = new StudyReply(studyNo, userId, sReplyContent);
 		
 		service.updateReply(reply);
-		return null;
+		return new ModelAndView("/front?key=study&methodName=viewStudy&studyNo=" + studyNo);
 	}
 	
 	/**
@@ -74,10 +72,11 @@ public class StudyReplyController implements Controller {
 	 */
 	public ModelAndView deleteReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int sReplyNo = Integer.parseInt(request.getParameter("sReplyNo"));
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		String userId = getUserId(request);
 
 		service.deleteReply(sReplyNo, userId);
-		return null;
+		return new ModelAndView("/front?key=study&methodName=viewStudy&studyNo=" + studyNo);
 	}
 	
 	/**

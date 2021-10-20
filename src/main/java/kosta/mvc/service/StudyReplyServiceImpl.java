@@ -38,10 +38,10 @@ public class StudyReplyServiceImpl implements StudyReplyService {
 
 	@Override
 	public void deleteReply(int replyNo, String userId) throws SQLException {
-		String dbId = replyDao.getDBUserId(replyNo);
-		if(!dbId.equals(userId)) {
-			throw new SQLException("본인이 작성한 댓글만 수정할 수 있습니다.");
-		}
+		//String dbId = replyDao.getDBUserId(replyNo);
+		//if(!dbId.equals(userId)) {
+		//	throw new SQLException("본인이 작성한 댓글만 수정할 수 있습니다.");
+		//}
 		
 		if(replyDao.deleteReply(replyNo) == 0) {
 			throw new SQLException("댓글이 삭제되지 않았습니다");

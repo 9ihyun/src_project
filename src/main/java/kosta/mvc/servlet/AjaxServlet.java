@@ -1,10 +1,7 @@
 package kosta.mvc.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.lang.reflect.Method;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -15,11 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta.mvc.controller.Controller;
-import kosta.mvc.controller.ModelAndView;
-import kosta.mvc.dao.MyStudyDAOImpl;
-import kosta.mvc.dao.StudyDAOImpl;
-import kosta.mvc.dto.User;
-import net.sf.json.JSONArray;
 
 /**
  * 비동기화 통신 요청을 관리하는 서블릿

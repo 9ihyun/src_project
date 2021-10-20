@@ -12,16 +12,18 @@
 	<c:if test = "${check > 0}">
 		<script type="text/javascript">
 			alert("회원 가입이 완료되었습니다.");
-			location.href="${root}/user/join.do";
+			location.href="${path}/study/studyMain.jsp";
 		</script>
 	</c:if>
 
 	<c:if test = "${check == 0}">
 		<script type="text/javascript">
 			alert("회원 가입이 완료되지 않았습니다.");
-			location.href="${root}/user/join.do";
+			location.href="${path}/join.jsp";
 		</script>
 	</c:if>
+	
+	<input type="button" value="확인" action="${path}/singin.jsp">
 
 </body>
 </html>
