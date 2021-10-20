@@ -98,13 +98,8 @@
     
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
-			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
-				<input type=hidden name="studyNo" value="${Study.studyNo}">
-				<input type=hidden name="key" value="Study">
-				<input type=hidden name="methodName">
-				
-				<input type="submit" value="수정하기"  onclick="location.href = 'test.jsp'">
-				<input type="submit" value="삭제하기">		
+			<a href="${path}/front?key=study&methodName=selectAllStudy" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
+			<a href="${path}/front?key=study&methodName=updateStudy&studyNo=${view.studyNo}" >수정</a>
 		</td>
     </tr>
 </table>
