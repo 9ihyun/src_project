@@ -17,7 +17,11 @@
 /**function cancel(){ //취소하기 눌렀을때
 	location.href = "${path}/front?key=post&methodName=postViewPost&postNo=${view.postNo}";	 
 }**/
-
+function deletes(){ 
+	
+	location.href = "${path}/front?key=post&methodName=postDelete&postNo=${view.postNo}";
+	
+}//src_project/front?key=post&methodName=postDelete&postNo=35
 function checkValid(frm){
 	
 	if(frm.tagNo.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
@@ -164,7 +168,7 @@ function checkValid(frm){
     <tr>
         <td width="450" height="20" colspan="2" align="center">
 	        <input type=submit value="수정하기">
-	        <input type="button" value="삭제하기">
+	        <input type="button" onclick="deletes();" value="삭제하기">
         </td>
     </tr>
 </table>

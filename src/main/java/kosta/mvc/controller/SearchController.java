@@ -19,12 +19,17 @@ public class SearchController implements Controller{
 	private String getUserId(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		return (String)session.getAttribute("userId");
+		
 	}
 	
 	public ModelAndView searchByTilte(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		String postTitle = request.getParameter("postTitle");
 		List<Post> postList = service.searchByTitle(postTitle);
-		return null;
+		
+
+		request.setAttribute("postList", postList);
+		return new ModelAndView("/front?key=Search&methodName=searchByTilte&postTitle="+postTitle);
+		//return new ModelAndView("board/freeBoardWrite.jsp");
 		
 	}
 	public ModelAndView searchById(HttpServletRequest request, HttpServletResponse response)throws Exception {
