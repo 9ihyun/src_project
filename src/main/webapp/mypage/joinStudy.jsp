@@ -16,7 +16,7 @@
 </style>
 <script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-  /*$(function(){
+  $(function(){
 	 $(document).on("click", "[value=평가하기]", function(){
 		$(this).val("평가완료");
 		let num = $(this).attr("id");
@@ -40,7 +40,7 @@
 		 }
 		 
 	 });
-  });*/
+  });
 </script>
 </head>
 <body>

@@ -292,6 +292,7 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
+			ps.setString(2, id);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
