@@ -13,7 +13,7 @@ public interface UserService {
 	/**
 	 * 별점 평가
 	 * */
-	public void starPoint(String id, int point) throws SQLException;
+	public int starPoint(String id, int point) throws SQLException;
 	
 	/**
 	 * 내 정보 수정
