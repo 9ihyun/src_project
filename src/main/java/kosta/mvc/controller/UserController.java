@@ -98,7 +98,7 @@ public class UserController implements Controller {
 		
 		userService.delete(id);
 		
-		return new ModelAndView("signin.jsp", true); //로그인 페이지
+		return new ModelAndView("user/singin.jsp", true); //로그인 페이지
 	}
 	
 }

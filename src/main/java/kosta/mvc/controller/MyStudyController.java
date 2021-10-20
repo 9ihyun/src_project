@@ -158,7 +158,7 @@ public class MyStudyController implements Controller {
 		List<StudyChat> chatList = myStudyService.viewStudyRoomChat(studyNo);
 		request.setAttribute("chatList", chatList);
 		
-		return new ModelAndView(""); //스터디룸 페이지
+		return new ModelAndView("studyRoom.jsp"); //스터디룸 페이지
 	}
 	
 	/**
