@@ -14,7 +14,10 @@ public class Study {
 	private String studyTitle;
 	private String studyContent;
 	private String studyRegdate;
-	
+	private String tagName;
+	private String stateName;
+	private String dayName;
+
 	private int signStateNo;
 	private int signUserNo;
 	private int studyCurrNo;
@@ -22,7 +25,8 @@ public class Study {
 	public Study() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
+	//12
 	public Study(int studyNo, int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent, String studyRegdate) {
 		this(studyNo, tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
@@ -30,12 +34,33 @@ public class Study {
 		
 	}
 
+	//view study에서 쓸 constructor 
+	public Study(int studyNo, String userId, int studyMaxnum, String studyLocationSi, String studyLocationGu,
+			String studyDuedate, String studyTitle, String studyContent, String studyRegdate, String tagName,
+			String stateName, String dayName) {
+		super();
+		this.studyNo = studyNo;
+		this.userId = userId;
+		this.studyMaxnum = studyMaxnum;
+		this.studyLocationSi = studyLocationSi;
+		this.studyLocationGu = studyLocationGu;
+		this.studyDuedate = studyDuedate;
+		this.studyTitle = studyTitle;
+		this.studyContent = studyContent;
+		this.studyRegdate = studyRegdate;
+		this.tagName = tagName;
+		this.stateName = stateName;
+		this.dayName = dayName;
+	}
+
+	//11
 	public Study(int studyNo, int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
 		this(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
 		this.studyNo = studyNo;
 	}
 	
+	//10
 	public Study(int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
 		super();
@@ -169,7 +194,33 @@ public class Study {
 
 	public void setStudyCurrNo(int studyCurrNo) {
 		this.studyCurrNo = studyCurrNo;
+	}
+
+	public String getTagName() {
+		return tagName;
+	}
+
+	public String getStateName() {
+		return stateName;
+	}
+
+	public String getDayName() {
+		return dayName;
+	}
+
+	public void setTagName(String tagName) {
+		this.tagName = tagName;
+	}
+
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
+
+	public void setDayName(String dayName) {
+		this.dayName = dayName;
 	}	
+	
+	
 	
 
 }

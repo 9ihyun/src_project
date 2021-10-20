@@ -28,13 +28,13 @@
             <p align="right"><b><span style="font-size:9pt;">모집여부</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${study.stateNo}</b></span>
+        	<span style="font-size:9pt;"><b>${study.stateName}</b></span>
         </td>
         <td width="100" height="20" >
             <p align="right"><b><span style="font-size:9pt;">태그 번호</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.tagNo}</b></span>
+        	<span style="font-size:9pt;"><b>${requestScope.study.tagName}</b></span>
         </td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@
 			<p align="right"><b><span style="font-size:9pt;">요일</span></b></p>
 		</td>
         <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${requestScope.study.studyRegdate}</b></p>
+			<p><b><span style="font-size:9pt;"></span>${requestScope.study.dayName}</b></p>
 		</td>
     </tr>
     <tr>
