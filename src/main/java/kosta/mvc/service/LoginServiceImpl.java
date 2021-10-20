@@ -15,12 +15,7 @@ public class LoginServiceImpl implements LoginService {
 	 * */
 	@Override
 	public User loginCheck(String id, String pw) throws SQLException, AuthenticationException {
-		User user = loginDAO.loginCheck(id, pw);
-		
-		if(user == null)
-			throw new AuthenticationException("아이디 혹은 비밀번호를 다시 확인하고 입력해주세요.");
-		
-		return user;
+		return loginDAO.loginCheck(id, pw);
 	}
 
 	/**
