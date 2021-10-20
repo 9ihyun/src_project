@@ -45,4 +45,9 @@ public interface StudyService {
 	 * 스터디 신청자 리스트 가져오기
 	 */
 	public List<User> getUserList(int studyNo) throws SQLException;
+
+	/**
+	 * 스터디 게시물 수정 폼 이동
+	 */
+	public Study updateStudyView(int studyNo) throws SQLException;
 }

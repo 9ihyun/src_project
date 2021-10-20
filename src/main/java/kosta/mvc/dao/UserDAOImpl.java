@@ -121,7 +121,7 @@ public class UserDAOImpl implements UserDAO {
 			ps.setString(1, user.getNickname());
 			ps.setInt(2, user.getBirth());
 			ps.setString(3, user.getPwq());
-			ps.setString(4, user.getPwq());
+			ps.setString(4, user.getPwa());
 			ps.setString(5, user.getUserId());
 			result = ps.executeUpdate();
 			

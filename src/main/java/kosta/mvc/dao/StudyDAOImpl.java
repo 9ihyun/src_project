@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import kosta.mvc.dto.Post;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.User;
 import kosta.mvc.paging.PageCnt;
@@ -147,7 +148,7 @@ public class StudyDAOImpl implements StudyDAO {
 			//총 페이지수 구하기
 			PageCnt pageCnt = new PageCnt();
 			pageCnt.setPageCnt( totalPage ) ;
-			pageCnt.setPageNo(pageNo);//사용자가 클릭한 페이지 번호로 설정
+			PageCnt.setPageNo(pageNo);//사용자가 클릭한 페이지 번호로 설정
 			
 			
 			con = DbUtil.getConnection();
@@ -206,8 +207,8 @@ public class StudyDAOImpl implements StudyDAO {
 
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
-						rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
+				study = new Study(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
 						rs.getString(12));
 			}
 		} finally {
@@ -263,5 +264,29 @@ public class StudyDAOImpl implements StudyDAO {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return id;
+	}
+
+	@Override
+	public Study updateStudyView(int studyNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Study study = null;
+		String sql = proFile.getProperty("study.updateStudyView");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				study = new Study(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
+						rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
+						rs.getString(12));
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return study;
 	}
 }

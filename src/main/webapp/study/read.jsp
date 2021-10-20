@@ -28,13 +28,13 @@
             <p align="right"><b><span style="font-size:9pt;">모집여부</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${study.stateNo}</b></span>
+        	<span style="font-size:9pt;"><b>${study.stateName}</b></span>
         </td>
         <td width="100" height="20" >
-            <p align="right"><b><span style="font-size:9pt;">태그 번호</span></b></p>
+            <p align="right"><b><span style="font-size:9pt;">스터디 항목</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.tagNo}</b></span>
+        	<span style="font-size:9pt;"><b>${study.tagName}</b></span>
         </td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@
             <p align="right"><b><span style="font-size:9pt;">모집 정원</span></b></p>
         </td>
         <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.studyMaxnum}</b></span>
+        	<span style="font-size:9pt;"><b>${study.studyMaxnum}</b></span>
         </td>
     </tr>
     <tr>
@@ -56,13 +56,13 @@
             <p align="right"><b><span style="font-size:9pt;">마감일</span></b></p>
         </td>
         <td width="100" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.studyDuedate}</b></span>
+        	<span style="font-size:9pt;"><b>${study.studyDuedate}</b></span>
         </td>
         <td width="100" height="20" >
-			<p align="right"><b><span style="font-size:9pt;">요일</span></b></p>
+			<p align="right"><b><span style="font-size:9pt;">스터디 요일</span></b></p>
 		</td>
         <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${requestScope.study.studyRegdate}</b></p>
+			<p><b><span style="font-size:9pt;"></span>${study.dayName}</b></p>
 		</td>
     </tr>
     <tr>
@@ -70,13 +70,13 @@
             <p align="right"><b><span style="font-size:9pt;">지역(시)</span></b></p>
         </td>
         <td width="100" height="20">
-        	<span style="font-size:9pt;"><b>${requestScope.study.studyLocationSi}</b></span>
+        	<span style="font-size:9pt;"><b>${study.studyLocationSi}</b></span>
         </td>
         <td width="100" height="20" >
 			<p align="right"><b><span style="font-size:9pt;">지역(구)</span></b></p>
 		</td>
         <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${requestScope.study.studyLocationGu}</b></p>
+			<p><b><span style="font-size:9pt;"></span>${study.studyLocationGu}</b></p>
 		</td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@
             <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${requestScope.study.studyTitle}</b></span>
+        	<span style="font-size:9pt;"><b>${study.studyTitle}</b></span>
         </td>
     </tr>
     <tr>
@@ -93,13 +93,19 @@
         </td>
 		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
         <td width="450" height="200" valign="top" colspan="3">
-        <span style="font-size:9pt;"><b><pre>${requestScope.study.studyContent}</pre></b></span></td>
+        <span style="font-size:9pt;"><b><pre>${study.studyContent}</pre></b></span></td>
     </tr>
     
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
 			<a href="${path}/front?key=study&methodName=selectAllStudy" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			<a href="${path}/front?key=study&methodName=updateStudy&studyNo=${study.studyNo}" >수정</a>
+			 <c:if test="${sessionScope.sessionID != null}">
+        	<c:if test="${sessionScope.sessionID != study.userId}">
+			<a href="${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}" >수정</a>
+			<a href="${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}" >삭제</a>
+			</c:if>
+			</c:if>
+			
 		</td>
     </tr>
 </table>

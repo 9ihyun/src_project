@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kosta.mvc.dto.Post;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.User;
 import kosta.mvc.service.StudyService;
@@ -39,7 +40,7 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView insertStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
-		
+
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 			userId = request.getParameter("userId");
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
@@ -51,12 +52,26 @@ public class StudyController implements Controller {
 		String studyTitle = request.getParameter("studyTitle");
 		String studyContent = request.getParameter("studyContent");
 
+		System.out.println("tagNo=" + tagNo);
+		
 		Study study = new Study(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu,
 				studyDuedate, studyTitle, studyContent);
 		
 		service.insertStudy(study);
 
-		return new ModelAndView("study/list.jsp"); //이동 위치 
+		return new ModelAndView("/front?key=study&methodName=selectAllStudy"); //이동 위치 
+	}
+	
+	/**
+	 * 스터디 게시물 수정 폼 이동
+	 */
+	public ModelAndView updateStudyView(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		Study view = service.updateStudyView(studyNo);
+
+		request.setAttribute("view", view);
+		return new ModelAndView("study/update2.jsp");
+		
 	}
 
 	/**
@@ -64,7 +79,7 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView updateStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
-		
+
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
@@ -75,13 +90,14 @@ public class StudyController implements Controller {
 		String studyDuedate = request.getParameter("studyDuedate");
 		String studyTitle = request.getParameter("studyTitle");
 		String studyContent = request.getParameter("studyContent");
+		System.out.println(studyNo + ", " + tagNo);
 		
 		Study study = new Study(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu,
 				studyDuedate, studyTitle, studyContent);
 		
 		service.updateStudy(study);
 		
-		Study dbStudy = service.viewStudy(studyNo);
+		Study dbStudy = service.viewStudy(study.getStudyNo());
 		
 		request.setAttribute("study", dbStudy);
 		return new ModelAndView("study/read.jsp");
@@ -96,7 +112,7 @@ public class StudyController implements Controller {
 
 		service.deleteStudy(studyNo, userId);
 		
-		return new ModelAndView("study/list.jsp", true); //이동 위치
+		return new ModelAndView("study/studyMain.jsp", true); //이동 위치
 	}
 
 	/**
@@ -121,7 +137,6 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView viewStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-			System.out.println(studyNo);
 		Study study = service.viewStudy(studyNo);
 		
 		request.setAttribute("study", study);

@@ -24,12 +24,12 @@ public class LoginDAOImpl implements LoginDAO {
 	 * 로그인 체크
 	 * */
 	@Override
-	public String loginCheck(String id, String pw) throws SQLException {
+	public User loginCheck(String id, String pw) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("login.loginCheck");//select nickname from member_user where user_id=? and pw=?
-		String nickname = null;
+		String sql = proFile.getProperty("login.loginCheck");
+		User user = null;
 		
 		try {
 			con = DbUtil.getConnection();
@@ -39,14 +39,14 @@ public class LoginDAOImpl implements LoginDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				nickname = rs.getString(1);
+				user = new User(rs.getString(1), rs.getString(2), rs.getInt(4), rs.getString(5), rs.getString(6));
 			}
 			
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		
-		return nickname;
+		return user;
 	}
 
 	/**
@@ -62,6 +62,12 @@ public class LoginDAOImpl implements LoginDAO {
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
+			ps.setString(1, user.getUserId());
+			ps.setString(2, user.getNickname());
+			ps.setString(3, user.getPw());
+			ps.setInt(4, user.getBirth());
+			ps.setString(5, user.getPwq());
+			ps.setString(6, user.getPwa());
 			result = ps.executeUpdate();			
 			
 		}finally {

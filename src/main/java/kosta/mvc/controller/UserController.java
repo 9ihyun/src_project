@@ -66,7 +66,9 @@ public class UserController implements Controller {
 		userService.update(new User(id, nickname, birth, pwq, pwa));
 		
 		User user = userService.myInfo(id);
-		request.setAttribute("user", user);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("user", user);
 		
 		return new ModelAndView("mypage/infoChange.jsp"); //마이페이지 메인
 	}
