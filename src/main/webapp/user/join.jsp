@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../CSS/signUpstyle.css">
+<link rel="stylesheet" href="../CSS/joinstyle.css">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
 <title>회원가입</title>
 <style type="text/css">
@@ -37,9 +37,9 @@ function checkValue()
 </script>
 </head>
 <body>
-<h3 class="sign" align="center">회원가입</h3>
 
 <div class="main">
+<h3 class="sign" align="center">회원가입</h3>
 <form method = "post" align="center" action = "${pageContext.request.contextPath}/front?key=login&methodName=register" onsubmit="return checkValue()">
 	ID : <input type = "text" name = "id"><br>
 	<div class="checkFont" id="idCheck"></div>
