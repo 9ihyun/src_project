@@ -20,7 +20,7 @@ $(function(){
 </script>
 </head>
 <body>
-	<h3>메인페이지</h3>
+	<h3>마이페이지 정보를 불러오는 중입니다</h3>
 
 </body>
 </html>

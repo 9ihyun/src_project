@@ -10,10 +10,11 @@
 <style type="text/css">
 
 </style>
-
 <script type="text/javascript">
   function withdraw(){
-	  confirm("정말 탈퇴하시겠습니까?");
+	  if(confirm("정말 탈퇴하시겠습니까?")){
+		  parent.location.href = "${path}/front?key=user&methodName=delete";
+	  }
   }
   
   
