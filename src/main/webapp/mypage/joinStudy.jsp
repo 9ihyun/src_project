@@ -47,12 +47,11 @@
 <table>
   <tr>
     <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
-    <th><a href="{path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
+    <th><a href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
     <th><a href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a></th>
     <th style="background-color:aqua;"><a href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a></th>
   </tr>
 </table>
-
 <table id="join">
   <tr>
     <th>모집여부</th>
@@ -76,7 +75,9 @@
 		        onmouseout="this.style.background='white'">
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.stateNo}</span></p>
+		            <c:if test="${Study.stateNo eq 1}">모집중</c:if>
+		            <c:if test="${Study.stateNo eq 2}">스터디진행중</c:if>
+		            <c:if test="${Study.stateNo eq 3}">스터디완료</c:if></span></p>
 		        </td>
 		        <td bgcolor="">
 					<p><span style="font-size:9pt;">
@@ -98,6 +99,8 @@
 		        </td>
 		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
+		            <c:if test="${Study.stateNo eq 2}"><a href="#">이동</a></c:if>
+		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id=""></c:if>
 		            </span></p>
 		        </td>
 		        
@@ -130,7 +133,7 @@
 	</th>
     <th>7/7</th>
     <th>서울</th>
-    <th><input type="button" value="평가하기" id="3"></th>
+    <th><input type="button" value="평가하기" id="4"></th>
   </tr>
   <tr>
     <th>스터디종료</th>
@@ -148,7 +151,7 @@
 	</th>
     <th>7/7</th>
     <th>서울</th>
-    <th><input type="button" value="평가하기" id="4"></th>
+    <th><input type="button" value="평가하기" id="5"></th>
   </tr>
 </table>
 

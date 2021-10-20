@@ -68,7 +68,9 @@
 		        onmouseout="this.style.background='white'" id="${Study.studyTitle}">
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.stateNo}</span></p>
+		            <c:if test="${Study.stateNo eq 1}">모집중</c:if>
+		            <c:if test="${Study.stateNo eq 2}">스터디진행중</c:if>
+		            <c:if test="${Study.stateNo eq 3}">스터디완료</c:if></span></p>
 		        </td>
 		        <td bgcolor="">
 					<p><span style="font-size:9pt;">
