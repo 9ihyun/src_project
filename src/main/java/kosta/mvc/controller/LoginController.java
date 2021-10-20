@@ -49,7 +49,7 @@ public class LoginController implements Controller {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		return new ModelAndView("/singin.jsp", true);
+		return new ModelAndView("user/singin.jsp", true);
 	}
 	
 	/**
