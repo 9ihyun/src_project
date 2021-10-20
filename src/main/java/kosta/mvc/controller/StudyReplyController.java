@@ -41,6 +41,7 @@ public class StudyReplyController implements Controller {
 		System.out.println(request.getParameter("studyNo"));
 
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		userId = request.getParameter("userId");
 		String sReplyContent = request.getParameter("sReplyContent");
 		
 		StudyReply reply = new StudyReply(studyNo, userId, sReplyContent);

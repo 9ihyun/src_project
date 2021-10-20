@@ -194,7 +194,10 @@
 <div id="listReply"></div>
 </div>
 <form action="${path}/front" method="post">
+	<input type=hidden name="studyNo" value="${study.studyNo}">
 	<input type="text" name="sReplyContent" value="댓글을 입력해주세요">
+		<input type="text" name="userId" value="아이디">
+	
 	<div align="right">
 		<input type="submit"  value=등록>
 		<input type=hidden name="key" value="studyReply"> 
