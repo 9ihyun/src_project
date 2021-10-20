@@ -25,7 +25,7 @@
 	 
 	.format { display: none; }
 </style>
-<script src="../js/jquery-3.6.0.js"></script>
+<script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	const Chat = (function(){
 	    const myName = "blue";
@@ -37,11 +37,23 @@
 	            if(e.keyCode == 13 && !e.shiftKey) {
 	                e.preventDefault();
 	                const message = $(this).val();
+	                $.ajax({
+	    				type: "post",
+	    				url: "${path}/ajax?key=myStudy&methodName=putStudyRoomChat",
+	    				data: {"studyNo" : "${studyNo }", "chatContent" : message},
+	    				dataType: "json",
+	    				success: function(result){
+	    					// 메시지 전송
+	    	                sendMessage(message);
+	    	                // 입력창 clear
+	    	                clearTextarea();
+	    				},
+	    				error:function() {
+	    					console.log("실패");
+	    				}
+	    			});
 	 
-	                // 메시지 전송
-	                sendMessage(message);
-	                // 입력창 clear
-	                clearTextarea();
+	                
 	            }
 	        });
 	    }
@@ -73,7 +85,7 @@
 	    function sendMessage(message) {
 	        // 서버에 전송하는 코드로 후에 대체
 	        const data = {
-	            "senderName"    : "blue",
+	            "senderName"    : ${userId},
 	            "message"        : message
 	        };
 	 
@@ -105,7 +117,7 @@
 <body>
 <div class="chat_wrap">
     <div class="header">
-        CHAT
+        ${studyTitle }
     </div>
     <div class="chat">
         <ul>
