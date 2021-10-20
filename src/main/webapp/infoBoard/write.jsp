@@ -13,7 +13,7 @@
 
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-
+<!-- 이 주석은 지워주세요~ -->
 
 function cancel(){ //취소하기 눌렀을때
 	

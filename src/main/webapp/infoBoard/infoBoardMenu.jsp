@@ -13,6 +13,6 @@
 	<a href="../mypage/mypageMain.jsp">마이페이지</a>&nbsp;
 	<a href="${pageContext.request.contextPath}/front?key=user&methodName=logout">로그아웃</a>
 </div>
-
+<!-- 이 주석은 지워주세요~ -->
 
 

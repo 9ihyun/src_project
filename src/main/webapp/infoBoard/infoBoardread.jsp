@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- 이 주석은 지워주세요~ -->
 <meta charset="UTF-8">
 <title>게시글 상세</title>
 <link rel="stylesheet" href="css/style.css">

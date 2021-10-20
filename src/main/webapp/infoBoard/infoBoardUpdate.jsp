@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 수정</title>
-
+<!-- 이 주석은 지워주세요~ -->
 <style>
 
 
