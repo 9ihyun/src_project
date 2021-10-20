@@ -36,8 +36,7 @@ public class SearchController implements Controller{
 		
 	}
 	public ModelAndView searchById(HttpServletRequest request, HttpServletResponse response)throws Exception {
-		//String userId = request.getParameter("userId");
-		String userId = getUserId(request);
+		String userId = request.getParameter("userId");;
 		List<Post> postList = service.searchById(userId);
 		request.setAttribute("postList", postList);
 		

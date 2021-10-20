@@ -137,7 +137,7 @@ img{width:200px; height:350px}
                         </select>
                     <label>검색어</label>
                    
-                        <input type = "text" id = "searchByTitle" placeholder="전송전"><br>
+                        <input type = "text" id = "searchByTitle" placeholder="전송전">
                         <input type="button" value = "검색" onclick="go()"><br>
                         
                           
