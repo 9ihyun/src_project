@@ -87,7 +87,16 @@
 		        
 		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyTitle}</span></p>
+		            ${Study.studyTitle}
+		            <c:if test="${Study.stateNo eq 3}">
+		            <ul style="display:none">
+	                  <li>황선민<img src="../img/blackstar.jpg" name="3-1-1"><img src="../img/blackstar.jpg" name="3-1-2"><img src="../img/blackstar.jpg" name="3-1-3"><img src="../img/blackstar.jpg" name="3-1-4"><img src="../img/blackstar.jpg" name="3-1-5"><input type="button" value="평가하기" name='star'></li>
+	                  <li>이기현<img src="../img/blackstar.jpg" name="3-2-1"><img src="../img/blackstar.jpg" name="3-2-2"><img src="../img/blackstar.jpg" name="3-2-3"><img src="../img/blackstar.jpg" name="3-2-4"><img src="../img/blackstar.jpg" name="3-2-5"><input type="button" value="평가하기" name='star'></li>
+	                  <li>조성휘<img src="../img/blackstar.jpg" name="3-3-1"><img src="../img/blackstar.jpg" name="3-3-2"><img src="../img/blackstar.jpg" name="3-3-3"><img src="../img/blackstar.jpg" name="3-3-4"><img src="../img/blackstar.jpg" name="3-3-5"><input type="button" value="평가하기" name='star'></li>
+	                  <li>현지윤<img src="../img/blackstar.jpg" name="3-4-1"><img src="../img/blackstar.jpg" name="3-4-2"><img src="../img/blackstar.jpg" name="3-4-3"><img src="../img/blackstar.jpg" name="3-4-4"><img src="../img/blackstar.jpg" name="3-4-5"><input type="button" value="평가하기" name='star'></li>
+	                  <li>윤솔<img src="../img/blackstar.jpg" name="3-5-1"><img src="../img/blackstar.jpg" name="3-5-2"><img src="../img/blackstar.jpg" name="3-5-3"><img src="../img/blackstar.jpg" name="3-5-4"><img src="../img/blackstar.jpg" name="3-5-5"><input type="button" value="평가하기" name='star'></li>
+	                  <li>홍전형<img src="../img/blackstar.jpg" name="3-6-1"><img src="../img/blackstar.jpg" name="3-6-2"><img src="../img/blackstar.jpg" name="3-6-3"><img src="../img/blackstar.jpg" name="3-6-4"><img src="../img/blackstar.jpg" name="3-6-5"><input type="button" value="평가하기" name='star'></li>
+	                </ul></c:if></span></p>
 		        </th>
 		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
@@ -124,17 +133,17 @@
     </th>
     <th>백엔드
 	  <ul style="display:none">
-	    <li>황선민<img src="../img/blackstar.jpg" name="3-1-1"><img src="../img/blackstar.jpg" name="3-1-2"><img src="../img/blackstar.jpg" name="3-1-3"><img src="../img/blackstar.jpg" name="3-1-4"><img src="../img/blackstar.jpg" name="3-1-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>이기현<img src="../img/blackstar.jpg" name="3-2-1"><img src="../img/blackstar.jpg" name="3-2-2"><img src="../img/blackstar.jpg" name="3-2-3"><img src="../img/blackstar.jpg" name="3-2-4"><img src="../img/blackstar.jpg" name="3-2-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>조성휘<img src="../img/blackstar.jpg" name="3-3-1"><img src="../img/blackstar.jpg" name="3-3-2"><img src="../img/blackstar.jpg" name="3-3-3"><img src="../img/blackstar.jpg" name="3-3-4"><img src="../img/blackstar.jpg" name="3-3-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>현지윤<img src="../img/blackstar.jpg" name="3-4-1"><img src="../img/blackstar.jpg" name="3-4-2"><img src="../img/blackstar.jpg" name="3-4-3"><img src="../img/blackstar.jpg" name="3-4-4"><img src="../img/blackstar.jpg" name="3-4-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>윤솔<img src="../img/blackstar.jpg" name="3-5-1"><img src="../img/blackstar.jpg" name="3-5-2"><img src="../img/blackstar.jpg" name="3-5-3"><img src="../img/blackstar.jpg" name="3-5-4"><img src="../img/blackstar.jpg" name="3-5-5"><input type="button" value="평가하기" name='star'></li>
-	    <li>홍전형<img src="../img/blackstar.jpg" name="3-6-1"><img src="../img/blackstar.jpg" name="3-6-2"><img src="../img/blackstar.jpg" name="3-6-3"><img src="../img/blackstar.jpg" name="3-6-4"><img src="../img/blackstar.jpg" name="3-6-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>황선민<img src="../img/blackstar.jpg" name="6-1-1"><img src="../img/blackstar.jpg" name="3-1-2"><img src="../img/blackstar.jpg" name="3-1-3"><img src="../img/blackstar.jpg" name="3-1-4"><img src="../img/blackstar.jpg" name="3-1-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>이기현<img src="../img/blackstar.jpg" name="6-2-1"><img src="../img/blackstar.jpg" name="3-2-2"><img src="../img/blackstar.jpg" name="3-2-3"><img src="../img/blackstar.jpg" name="3-2-4"><img src="../img/blackstar.jpg" name="3-2-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>조성휘<img src="../img/blackstar.jpg" name="6-3-1"><img src="../img/blackstar.jpg" name="3-3-2"><img src="../img/blackstar.jpg" name="3-3-3"><img src="../img/blackstar.jpg" name="3-3-4"><img src="../img/blackstar.jpg" name="3-3-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>현지윤<img src="../img/blackstar.jpg" name="6-4-1"><img src="../img/blackstar.jpg" name="3-4-2"><img src="../img/blackstar.jpg" name="3-4-3"><img src="../img/blackstar.jpg" name="3-4-4"><img src="../img/blackstar.jpg" name="3-4-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>윤솔<img src="../img/blackstar.jpg" name="6-5-1"><img src="../img/blackstar.jpg" name="3-5-2"><img src="../img/blackstar.jpg" name="3-5-3"><img src="../img/blackstar.jpg" name="3-5-4"><img src="../img/blackstar.jpg" name="3-5-5"><input type="button" value="평가하기" name='star'></li>
+	    <li>홍전형<img src="../img/blackstar.jpg" name="6-6-1"><img src="../img/blackstar.jpg" name="3-6-2"><img src="../img/blackstar.jpg" name="3-6-3"><img src="../img/blackstar.jpg" name="3-6-4"><img src="../img/blackstar.jpg" name="3-6-5"><input type="button" value="평가하기" name='star'></li>
 	  </ul>
 	</th>
     <th>7/7</th>
     <th>서울</th>
-    <th><input type="button" value="평가하기" id="4"></th>
+    <th><input type="button" value="평가하기" id="6"></th>
   </tr>
   <tr>
     <th>스터디종료</th>
