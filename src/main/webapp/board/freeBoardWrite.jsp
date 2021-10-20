@@ -9,18 +9,8 @@
 	function go(){
 		var a = document.getElementById("searchs").value;
 		var b = document.getElementById("searchByTitle").value;
-		//var d = document.getElementById("searchs").value;
-		//console.log(d);
 		var c = a+b;
-		
-		location.href = c;
-	
-		//var a ="";
-		//var b ="";
-		//var c ="";
-		
-		
-		
+		location.href = c;	
 	}
 	
 

@@ -85,7 +85,7 @@ public class UserDAOImpl implements UserDAO {
 	 * 별점 평가
 	 * */
 	@Override
-	public int starPoint(String id, int point) throws SQLException {
+	public int starPoint(String id, int point, String evaluator) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		String sql = proFile.getProperty("user.starPoint");
@@ -96,10 +96,63 @@ public class UserDAOImpl implements UserDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setInt(2, point);
+			ps.setString(3, evaluator);
+			
+			if(evaluatedCheck(con, id, evaluator)) {
+				return updateStarPoint(con, point, id, evaluator);
+			}	
 			result = ps.executeUpdate();
 			
 		}finally {
 			DbUtil.dbClose(ps, con);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 별점 평가 중복 체크
+	 * */
+	private boolean evaluatedCheck(Connection con, String id, String evaluator) throws SQLException{
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("user.evaluatedCheck");
+		boolean result = false;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, evaluator);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = true;
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 별점 평가 수정 (중복 시)
+	 * */
+	private int updateStarPoint(Connection con, int point, String id, String evaluator) throws SQLException{
+		PreparedStatement ps = null;
+		String sql = proFile.getProperty("user.updateStarPoint");
+		int result = 0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, point);
+			ps.setString(2, id);
+			ps.setString(3, evaluator);
+			result = ps.executeUpdate();
+			
+		}finally {
+			DbUtil.dbClose(ps, null);
 		}
 		
 		return result;

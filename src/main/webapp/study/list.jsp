@@ -5,9 +5,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <link rel="stylesheet" href="${path}/css/style.css">
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	function go(){
+		var a = document.getElementById("searchs").value;
+		var b = document.getElementById("searchByStudy").value;
+		var c = a+b;
+		location.href = c;	
+	}
+	
 
+</script>
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
+
+
 
 body {
 	color: #2c3e50;
@@ -91,7 +103,31 @@ table td {
 img{width:200px; height:350px}
 </style>
 
-
+<div>
+			<form>
+				<fieldset>
+				   <div align="right"> 
+                    <legend>글 검색 필드</legend>            
+                    <label>검색분류</label>
+                        <select name = "search" id=searchs>
+                            <option id=title value = "/src_project/front?key=search&methodName=selectTitleStudy&studyTitle=">제목</option>
+                            <option id=user value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
+                            <option id=tag value = "/src_project/front?key=search&methodName=searchByTag&tagNo=">태그번호</option>
+                        </select>
+                    <label>검색어</label>
+                   
+                        <input type = "text" id = "searchByStudy" placeholder="입력하시오">
+                        <input type="button" value = "검색" onclick="go()"><br>
+                        
+                          
+                        
+                                    
+                </fieldset>        
+			
+				<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes'">인기글</button>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent'">최근글</button>
+			</form>	
+		</div>	
 
 
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
