@@ -65,7 +65,7 @@ public class LoginController implements Controller {
 		
 		loginService.register(new User(id, nickname, pass, birth, question, anwser));
 		
-		return new ModelAndView("/singin.jsp", true);
+		return new ModelAndView("/joinProc.jsp", true);
 	}
 	
 	/**
