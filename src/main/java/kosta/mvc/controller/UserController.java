@@ -57,7 +57,6 @@ public class UserController implements Controller {
 	 * 내 정보 수정
 	 * */
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		HttpSession session = request.getSession();
 		String id = getUserId(request);
 		String nickname = request.getParameter("nickname");
 		int birth = Integer.parseInt(request.getParameter("birth"));
@@ -67,7 +66,8 @@ public class UserController implements Controller {
 		userService.update(new User(id, nickname, birth, pwq, pwa));
 		
 		User user = userService.myInfo(id);
-		request.setAttribute("user", user);
+		
+		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
 		
 		return new ModelAndView("mypage/infoChange.jsp"); //마이페이지 메인

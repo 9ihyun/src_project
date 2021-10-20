@@ -27,14 +27,12 @@ public class LoginController implements Controller {
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = request.getParameter("userId");
 		String pw = request.getParameter("pw");
-//		System.out.println("userId= " + userId);
-//		System.out.println("pw= " + pw);
 		
-		String nickname = loginService.loginCheck(userId, pw);
+		User user = loginService.loginCheck(userId, pw);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("userId", userId);
-		session.setAttribute("nickname", nickname);
+		session.setAttribute("user", user);
 		
 		
 		ModelAndView mv = new ModelAndView();

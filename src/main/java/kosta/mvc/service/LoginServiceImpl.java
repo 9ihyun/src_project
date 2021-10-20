@@ -14,13 +14,13 @@ public class LoginServiceImpl implements LoginService {
 	 * 로그인 체크
 	 * */
 	@Override
-	public String loginCheck(String id, String pw) throws SQLException, AuthenticationException {
-		String nickname = loginDAO.loginCheck(id, pw);
+	public User loginCheck(String id, String pw) throws SQLException, AuthenticationException {
+		User user = loginDAO.loginCheck(id, pw);
 		
-		if(nickname == null)
+		if(user == null)
 			throw new AuthenticationException("아이디 혹은 비밀번호를 다시 확인하고 입력해주세요.");
 		
-		return nickname;
+		return user;
 	}
 
 	/**

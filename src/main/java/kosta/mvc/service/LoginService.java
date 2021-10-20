@@ -9,7 +9,7 @@ public interface LoginService {
 	/**
 	 * 로그인 체크
 	 * */
-	public String loginCheck(String id, String pw) throws SQLException, AuthenticationException;
+	public User loginCheck(String id, String pw) throws SQLException, AuthenticationException;
 	
 	/**
 	 * 회원가입

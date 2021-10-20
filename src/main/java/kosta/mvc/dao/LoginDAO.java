@@ -8,7 +8,7 @@ public interface LoginDAO {
 	/**
 	 * 로그인 체크
 	 * */
-	public String loginCheck(String id, String pw) throws SQLException;
+	public User loginCheck(String id, String pw) throws SQLException;
 	
 	/**
 	 * 회원가입
