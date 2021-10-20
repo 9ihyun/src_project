@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Study {
-	
+
 	private int studyNo;
 	private int tagNo;
 	private String userId;
@@ -25,21 +25,21 @@ public class Study {
 	private int signUserNo;
 	private int studyCurrNo;
 	private List<User> userList = new ArrayList<User>();
-	
-	
+
 	public Study() {
 		// TODO Auto-generated constructor stub
 	}
 
-	//12
+	// 12
 	public Study(int studyNo, int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent, String studyRegdate) {
-		this(studyNo, tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
-		this.studyRegdate =studyRegdate;
-		
+		this(studyNo, tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu, studyDuedate,
+				studyTitle, studyContent);
+		this.studyRegdate = studyRegdate;
+
 	}
 
-	//view study에서 쓸 constructor 
+	// view study에서 쓸 constructor
 	public Study(int studyNo, String userId, int studyMaxnum, String studyLocationSi, String studyLocationGu,
 			String studyDuedate, String studyTitle, String studyContent, String studyRegdate, String tagName,
 			String stateName, String dayName) {
@@ -57,27 +57,29 @@ public class Study {
 		this.stateName = stateName;
 		this.dayName = dayName;
 	}
-	
-	//selectAllStudy constructor
-	public Study(String userId, int studyMaxnum, String studyLocationSi, String studyLocationGu, String studyDuedate,
-				String studyTitle, String stateName) {
-			this.userId = userId;
-			this.studyMaxnum = studyMaxnum;
-			this.studyLocationSi = studyLocationSi;
-			this.studyLocationGu = studyLocationGu;
-			this.studyDuedate = studyDuedate;
-			this.studyTitle = studyTitle;
-			this.stateName = stateName;
-		}
 
-	//11
+	// selectAllStudy constructor
+	public Study(int studyNo, String userId, int studyMaxnum, String studyLocationSi, String studyLocationGu, String studyDuedate,
+			String studyTitle, String stateName) {
+		this.studyNo = studyNo;
+		this.userId = userId;
+		this.studyMaxnum = studyMaxnum;
+		this.studyLocationSi = studyLocationSi;
+		this.studyLocationGu = studyLocationGu;
+		this.studyDuedate = studyDuedate;
+		this.studyTitle = studyTitle;
+		this.stateName = stateName;
+	}
+
+	// 11
 	public Study(int studyNo, int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
-		this(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
+		this(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu, studyDuedate, studyTitle,
+				studyContent);
 		this.studyNo = studyNo;
 	}
 
-	//10
+	// 10
 	public Study(int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
 		super();
@@ -243,6 +245,6 @@ public class Study {
 
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
-	}	
+	}
 
 }
