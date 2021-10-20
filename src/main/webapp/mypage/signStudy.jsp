@@ -12,8 +12,26 @@
 <style type="text/css">
 
 </style>
+<script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-
+  $(function(){
+	  $(document).on("click", "#delete", function(){
+		  if(confirm("정말 탈퇴하시겠습니까?")){
+			$.ajax({
+				type: "post",
+				url: "${path}/ajax?key=myStudy&methodName=removeSignStudy",
+				data: {"id" : ${sessionScope.userId}, "studyNo" : $(this).attr("name")},
+				dataType: "json",
+				success: function(result){
+					alert("성공");
+				},
+				error:function() {
+					console.log("실패");
+				}
+			});
+		  }
+	  });
+  });
 </script>
 </head>
 <body>
@@ -76,7 +94,7 @@
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <input type="button" value="삭제하기"></span></p>
+		            <input type="button" value="삭제하기" id="delete" name="${Study.studyNo }"></span></p>
 		        </td>
 		      
 		    </tr>

@@ -113,7 +113,7 @@ public class MyStudyController implements Controller {
 		String id = request.getParameter("id");
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		
-		if(myStudyService.changeSignState(id, studyNo) != 0) {
+		if(myStudyService.removeSignStudy(id, studyNo) != 0) {
 			List<User> userList = new StudyServiceImpl().getUserList(studyNo);
 				
 			JSONArray arr = JSONArray.fromObject(userList);
