@@ -20,8 +20,8 @@
 <body>
 <table>
   <tr>
-    <th style="background-color:aqua;"><a href="myStudy.jsp" >내가 모집한 스터디</a></th>
-    <th><a href="wishStudy.jsp">내가 찜한 스터디</a></th>
+    <th style="background-color:aqua;"><a href="${path}/front?key=myStudy&methodName=viewMyStudy" >내가 모집한 스터디</a></th>
+    <th><a href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
     <th><a href="signStudy.jsp">내가 신청한 스터디</a></th>
     <th><a href="joinStudy.jsp">참여중/완료 스터디</a></th>
   </tr>
@@ -59,20 +59,20 @@
 		        
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyTitle}"</span></p>
+		            ${Study.studyTitle}</span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyTitle}</span></p>
+		            ${Study.studyCurrNo}/${Study.studyMaxnum }</span></p>
 		        </td>
 		         
 		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyLocationSi}시${Study.studyLocationGu}구</span></p>
+		            ${Study.studyLocationSi}${Study.studyLocationGu}</span></p>
 		        </td>
 		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyTitle}</span></p>
+		            ${Study.signUserNo}</span></p>
 		        </td>
 		        
 		      

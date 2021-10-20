@@ -44,7 +44,7 @@ public class MyStudyController implements Controller {
 		List<Study> wishList = myStudyService.viewWishStudy(id);
 		request.setAttribute("wishList", wishList);
 		
-		return new ModelAndView(""); //찜한 스터디 페이지
+		return new ModelAndView("mypage/wishStudy.jsp"); //찜한 스터디 페이지
 	}
 	
 	/**
