@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +19,9 @@
 <body>
 <table>
   <tr>
-    <th><a href="myStudy.jsp">내가 모집한 스터디</a></th>
-    <th><a href="wishStudy.jsp">내가 찜한 스터디</a></th>
-    <th style="background-color:aqua;"><a href="signStudy.jsp">내가 신청한 스터디</a></th>
+    <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
+    <th><a href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
+    <th style="background-color:aqua;"><a href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a></th>
     <th><a href="joinStudy.jsp">참여중/완료 스터디</a></th>
   </tr>
 </table>
@@ -34,24 +36,53 @@
     <th>신청자수</th>
     <th>신청취소</th>
   </tr>
-  <tr>
-    <th>모집중</th>
-    <th>10/6</th>
-    <th>프론트 모집합니다</th>
-    <th>1/5</th>
-    <th>경기</th>
-    <th>6</th>
-    <th><input type="button" value="신청취소"></th>
+  <c:choose>
+    <c:when test="${empty requestScope.signList}">
+	   <tr>
+        <td colspan="5">
+            <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
+        </td>
     </tr>
-  <tr>
-    <th>모집완료</th>
-    <th>9/10</th>
-    <th>토이프로젝트</th>
-    <th>5/5</th>
-    <th>경기</th>
-    <th>12</th>
-    <th><input type="button" value="신청취소"></th>
-  </tr>
+    </c:when>
+    <c:otherwise>
+	<c:forEach items="${requestScope.signList}" var="Study">
+		    <tr onmouseover="this.style.background='#eaeaea'"
+		        onmouseout="this.style.background='white'">
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.stateNo}</span></p>
+		        </td>
+		        <td bgcolor="">
+					<p><span style="font-size:9pt;">
+					  ${Study.studyDuedate}</span></p>
+		        </td>
+		        
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyTitle}</span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyCurrNo}/${Study.studyMaxnum }</span></p>
+		        </td>
+		         
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.studyLocationSi}${Study.studyLocationGu}</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${Study.signUserNo}</span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            <input type="button" value="삭제하기"></span></p>
+		        </td>
+		      
+		    </tr>
+    </c:forEach>
+	</c:otherwise>
+    </c:choose>
 </table>
 
 </body>

@@ -69,7 +69,7 @@ public class MyStudyController implements Controller {
 		List<Study> signList = myStudyService.viewSignStudy(id);
 		request.setAttribute("signList", signList);
 		
-		return new ModelAndView(""); //신청한 스터디 페이지
+		return new ModelAndView("mypage/signStudy.jsp"); //신청한 스터디 페이지
 	}
 	
 	/**
