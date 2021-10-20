@@ -145,9 +145,6 @@ function checkValid(frm){
 					
 						<select name="boardNo">
 							<option value="1">1.자유게시판</option>
-							<b><span style="font-size:9pt;">
-        	   				</span></b>
-
 						</select>
 					</td>
 			</tr>
@@ -191,8 +188,6 @@ function checkValid(frm){
       <input type = hidden name = "methodName" value = "postInsert">
 </form>
 
-
-<!-- <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div> -->
 
 
 

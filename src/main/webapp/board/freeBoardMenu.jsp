@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<ul>
+<ul style="text-align:left;">
 	<li><a href="../study/list.jsp" target="board"> 스터디 </a></li> &nbsp;&nbsp;
 	<li><a href="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost" target="board"> 자유게시판</a></li> &nbsp;&nbsp;
 	<li><a href="#"target = "board"> 지식 정보 공유 게시판 </a></li> &nbsp;&nbsp;

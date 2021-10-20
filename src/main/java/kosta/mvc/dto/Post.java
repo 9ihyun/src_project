@@ -13,13 +13,17 @@ public class Post {
 	public Post(int postNo) {
 		this.postNo=postNo;	
 	}
-	public Post(int postNo, String postTitle,int postUp, String postDate) {
+	
+	
+	public Post(int postNo, String postTitle, int postUp, String postDate) {
 		this.postNo=postNo;
 		this.postTitle=postTitle;
 		this.postDate = postDate;
 		this.postUp=postUp;
 		
 	}
+	
+	
 	public Post(int postNo, int tagNo, int boardNo, String postTitle, String postContent) {
 		this.postNo=postNo;
 		this.tagNo=tagNo;
@@ -28,15 +32,26 @@ public class Post {
 		this.postContent=postContent;
 		
 	}
-	public Post(int tagNo, int boardNo, String userId, String postTitle, String postContent) {
+	
+	// update용 한개더 만들어서 수정한 부분입니다.
+	public Post(int tagNo, int boardNo, String postTitle, String postContent, int postNo) {
+		this.postNo=postNo;
+		this.tagNo=tagNo;
+		this.boardNo=boardNo;
+		this.postTitle=postTitle;
+		this.postContent=postContent;
 		
+	}
+	
+	
+	public Post(int tagNo, int boardNo, String userId, String postTitle, String postContent) {
 		this.tagNo=tagNo;
 		this.boardNo=boardNo;
 		this.userId=userId;
 		this.postTitle=postTitle;
 		this.postContent=postContent;
-		
 	}
+	
 	
 	public Post(int postNo, int tagNo, int boardNo, String userId, String postTitle, String postContent) {
 		this.postNo=postNo;
@@ -48,6 +63,7 @@ public class Post {
 		
 	}
 	
+	//
 	public Post(int postNo, int tagNo, int boardNo, String userId, String postTitle, String postDate,
 			String postContent, int postUp) {
 		this(postNo, tagNo, boardNo, userId, postTitle, postContent);

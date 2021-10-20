@@ -53,32 +53,34 @@ public class PostDAOlmpl implements PostDAO {
 		return result; 
 	}
 
+	//수정한 부분입니다. 
 	@Override
 	public int postUpdate(Post post) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps =null;
-		ResultSet rs =null;
+		//ResultSet rs =null;
 		int result=0;
 		
 		String sql="update post set tag_no=?, board_no=?, post_title=?, post_content=? where post_no=?";
-		Post dbPost=null;
+		//Post dbPost=null;
 		try {
 			con=DbUtil.getConnection();
 			ps=con.prepareStatement(sql);
 			ps.setInt(1, post.getTagNo());
 			ps.setInt(2, post.getBoardNo());
-			ps.setString(4, post.getPostTitle());
-			ps.setString(5, post.getPostContent());
-			ps.setInt(6, post.getPostNo());
+			ps.setString(3, post.getPostTitle());
+			ps.setString(4, post.getPostContent());
+			ps.setInt(5, post.getPostNo());
 			
 			result = ps.executeUpdate();
 			//rs = ps.executeQuery();
-			if(rs.next()) {
-				dbPost = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7), rs.getInt(8));
-			}
+			//if(rs.next()) {
+			//	dbPost = new Post(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+			//}
 			
 		}finally {
-			DbUtil.dbClose(rs, ps, con);
+			//DbUtil.dbClose(rs, ps, con);
+			DbUtil.dbClose(ps, con);
 		}
 		return result; 
 		

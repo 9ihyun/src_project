@@ -36,6 +36,22 @@ public class PostController implements Controller {
 		return new ModelAndView("/front?key=post&methodName=postSelectAllPost");
 	}
 
+	
+	/**
+	 * update form (수정)
+	 */
+	public ModelAndView postUpdateView(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int postNo = Integer.parseInt(request.getParameter("postNo"));
+		Post view = service.postView(postNo);
+
+		request.setAttribute("view", view);
+		return new ModelAndView("board/freeBoardUpdate.jsp");
+		
+	}
+	
+	/**
+	 * update처리 (수정)
+	 */
 	public ModelAndView postUpdate(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// int postNo = getPostNo(request);
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
@@ -46,11 +62,12 @@ public class PostController implements Controller {
 		String postContent = request.getParameter("postContent");
 		
 		
-		Post post = new Post(postNo,tagNo, boardNo, postTitle, postContent );
+		Post post = new Post(postNo, tagNo, boardNo, postTitle, postContent);
 		
 		service.postUpdate(post);
 
-		return new ModelAndView("board/freeBoardWrite.jsp", true);
+		//return new ModelAndView("board/freeBoardread.jsp", true);
+		return new ModelAndView("/front?key=post&methodName=postViewPost&postNo="+postNo);
 	}
 
 	public ModelAndView postDelete(HttpServletRequest request, HttpServletResponse response) throws Exception {

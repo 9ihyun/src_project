@@ -66,6 +66,22 @@ function checkValid(frm){
              게시물 상세보기</b></font></p>
         </td>
     </tr>
+    <tr>
+        <td width="100" height="20">
+            <p align="right"><b><span style="font-size:9pt;"> 태그번호 </span></b></p>
+        </td>
+        <td width="450" height="20" colspan="3">
+        	<span style="font-size:9pt;"><b>${view.tagNo}</b></span>
+        </td>
+    </tr>
+    <tr>
+        <td width="100" height="20">
+            <p align="right"><b><span style="font-size:9pt;"> 게시판번호 </span></b></p>
+        </td>
+        <td width="450" height="20" colspan="3">
+        	<span style="font-size:9pt;"><b>${view.boardNo}</b></span>
+        </td>
+    </tr>
    
     <tr>
         <td width="100" height="20">
@@ -83,32 +99,15 @@ function checkValid(frm){
         <td width="450" height="200" valign="top" colspan="3">
         <span style="font-size:9pt;"><b><pre>${view.postContent}</pre></b></span></td>
     </tr>
-    
-    
-  <!--    <tr>
-    <td width="100" height="20">
-           <p align="right"><b><span style="font-size:9pt;">비밀번호</span></b></p>
-        </td>
-        
-    <form name="requestForm" method="post" action="${path}/front">
-        <td height="20" colspan="3" align="left" valign="middle">
-				<input type=password name="password" value="">		
-		</td>
-    </tr>
-    -->
-    
+  
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
-			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
-				<input type=hidden name="postNo" value="${view.postNo}">
-				<input type=hidden name="key" value="Post">
-				<input type=hidden name="methodName" value ="">
-		
-    </form>
-			
+			<a href="${path}/front?key=post&methodName=postSelectAllPost" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
+			<a href="${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}" >수정</a>
 		</td>
     </tr>
 </table>
+
 <hr>
 <h3> 댓글 </h3>
 <c:choose>
@@ -135,7 +134,7 @@ function checkValid(frm){
 	<input type="submit"  value=등록>
 	</div>
 <hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div>
+
 
 </body>
 </html>
