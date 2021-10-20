@@ -132,17 +132,23 @@
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
 			<a href="${path}/front?key=study&methodName=selectAllStudy" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			 <c:if test="${sessionScope.sessionID != null}">
-        	<c:if test="${sessionScope.sessionID != study.userId}">
+			 <!--c:if test="${sessionScope.sessionID != null}"-->
+        	<!--  c:if test="${sessionScope.sessionID != study.userId}"-->
 			<a href="${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}" >수정</a>
 			<a href="${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}" >삭제</a>
-			</c:if>
-			</c:if>
+			<!-- /c:if-->
+			<!-- /c:if -->
 			
 		</td>
     </tr>
 </table>
 </form>
+<form action="${path}/front" method="post">
+				<input type=hidden name="studyNo" value="${study.studyNo}">
+					<input type="submit"  value=신청하기>
+					<input type=hidden name="key" value="myStudy"> 
+					<input type=hidden name="methodName" value="putSignStudy">			
+			</form>	
 <hr>
 <h3>Replies 정보</h3>
 

@@ -75,7 +75,8 @@ public class MyStudyController implements Controller {
 	/**
 	 * 스터디 신청하기
 	 */
-	public void putSignStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView putSignStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("sign study studyNo=" + request.getParameter("studyNo"));
 		String id = getUserId(request);
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		
@@ -83,6 +84,8 @@ public class MyStudyController implements Controller {
 		
 		PrintWriter out = response.getWriter();
 		out.print(result);
+		
+		return new ModelAndView("/front?key=study&methodName=viewStudy&studyNo=" + studyNo); //신청한 스터디 페이지
 	}
 	
 	/**
