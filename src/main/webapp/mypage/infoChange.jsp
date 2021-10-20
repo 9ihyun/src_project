@@ -28,7 +28,7 @@
     <th>비밀번호 찾기 질문</th>
   </tr>
   <tr>
-    <th><input type="text" name="nickname" placeholder="${sessionScope.user.nickname}"></th>
+    <th><input type="text" name="nickname" value="${sessionScope.user.nickname}"></th>
     <th><select class="question" name="pwq" >
        <option value="0">--질문 선택--</option>
 	   <option value="보물 1호는?">보물 1호는?</option>
@@ -43,8 +43,8 @@
     <th>비밀번호 찾기 답</th>
   </tr>
   <tr>
-    <th><input type="text" name="birth" placeholder="${sessionScope.user.birth}"></th>
-    <th><input type="text" name="pwa" placeholder="${sessionScope.user.pwa}"></th>
+    <th><input type="text" name="birth" value="${sessionScope.user.birth}"></th>
+    <th><input type="text" name="pwa" value="${sessionScope.user.pwa}"></th>
   </tr>
   <tr>
     <th colspan="2"><input type="submit" value="수정하기"></th>
