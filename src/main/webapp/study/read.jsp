@@ -205,6 +205,22 @@
 	</div>
 </form>
 <hr>
+ <c:if test="${sessionScope.sessionID != null}">
+ <c:if test="${sessionScope.sessionID != study.userId}">
+<h2>스터디 신청자 목록</h2>
+<c:choose>
+	<c:when test = "${empty wishStudy.userId}">
+		<h5>신청자가 없습니다.</h5>
+	</c:when>
+	<c:otherwise>
+		<c:forEach items = "${wishStudy.userId}" var = "wishUser">
+			${User.nickname} | ${User.starPoint}<p>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
+</c:if>
+</c:if>
+<hr>
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/study/list.jsp">리스트로 돌아가기</a>&gt;</span></div>
 </body>
 
