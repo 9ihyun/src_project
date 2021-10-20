@@ -17,16 +17,6 @@
 // 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수
 function checkValue()
 {
-    if(!document.userInfo.id.value){
-        alert("아이디를 입력하세요.");
-        return false;
-    }
-    
-    if(!document.userInfo.password.value){
-        alert("비밀번호를 입력하세요.");
-        return false;
-    }
-    
     // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
     if(document.userInfo.password.value != document.userInfo.passcheck.value ){
         alert("비밀번호를 동일하게 입력하세요.");
@@ -41,13 +31,13 @@ function checkValue()
 <div class="main">
 <h3 class="sign" align="center">회원가입</h3>
 <form method = "post" align="center" action = "${pageContext.request.contextPath}/front?key=login&methodName=register" onsubmit="return checkValue()">
-	ID : <input type = "text" name = "id"><br>
+	ID : <input type = "text" name = "id" autofocus required><br>
 	<div class="checkFont" id="idCheck"></div>
-	비밀번호 : <input type = "password" name = "pass"><br>
-	비밀번호 확인 : <input type = "password" name = "passcheck"><br>
+	비밀번호 : <input type = "password" name = "pass" autofocus required><br>
+	비밀번호 확인 : <input type = "password" name = "passcheck" autofocus required><br>
 	<font name = "check" size="2" color="red"></font>
-	닉네임 : <input type = "text" name = "nickname"><br>
-	생년월일 : <input type = "text" name = "birth" placeholder="8자리로 입력해주세요."><br>
+	닉네임 : <input type = "text" name = "nickname" autofocus required><br>
+	생년월일 : <input type = "text" name = "birth" placeholder="ex) 19991231" autofocus required><br>
 	비밀번호 찾기 질문 : 
 	<select name="question">
        <option value="0">--질문 선택--</option>
@@ -57,7 +47,7 @@ function checkValue()
 	   <option value="가장 자주가는 음식점은?">가장 자주가는 음식점은?</option>
 	   <option value="만약 물고기를 한마리 기른다면?">만약 물고기를 한마리 기른다면?</option>	
 	</select> <br>
-	비밀번호 찾기 답 : <input type = "text" name = "anwser"><br>
+	비밀번호 찾기 답 : <input type = "text" name = "anwser" autofocus required><br>
 	<input type = "submit" value="가 입">
 </form>
 
