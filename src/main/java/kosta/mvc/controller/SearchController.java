@@ -101,7 +101,7 @@ public class SearchController implements Controller{
 		ResultSet rs=null;
 		
 		List<Study> studyList = new ArrayList<>();
-		String sql = "SELECT * FROM study WHERE study_title LIKE ?"; //where rnum <=? and rnum>=?
+		String sql = "SELECT study_no, user_id, study_maxnum, study_location_si, study_location_gu, study_duedate, study_title, state_name FROM study join study_state using(state_no) WHERE study_title LIKE ?"; //where rnum <=? and rnum>=?
 		try {
 				con = DbUtil.getConnection();
 				ps = con.prepareStatement(sql);
