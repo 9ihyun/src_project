@@ -162,6 +162,7 @@ public class PostController implements Controller {
 		return new ModelAndView("board/freeBoardread.jsp");
 		
 	}
+	
 	//지식정보공유 게시판 view2
 	public ModelAndView postViewPost2(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
