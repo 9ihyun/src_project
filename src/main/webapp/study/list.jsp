@@ -99,11 +99,11 @@ img{width:200px; height:350px}
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
+		<col width="7%"/>
 		<col width="16%"/>
+		<col width="7%"/>
+		<col width="7%"/>
 		<col width="16%"/>
-		<col width="7%"/>
-		<col width="7%"/>
-		<col width="7%"/>
 	</colgroup>
 	<tr>
         <td bgcolor="#00cc00">
@@ -170,12 +170,18 @@ img{width:200px; height:350px}
 		            ${Study.userId}</span></p>
 		        </td>
 		         <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyLocationSi}</span></p>
+		            <p align="center">
+		            <form action="${path}/front" method="post">
+						<input type=hidden name="studyNo" value="${Study.studyNo}">
+						<input type="submit"  value=찜하기>
+						<input type=hidden name="key" value="myStudy"> 
+						<input type=hidden name="methodName" value="putWishStudy">			
+					</form>	
+					</p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyLocationGu}</span></p>
+		            ${Study.studyLocationSi} ${Study.studyLocationGu}</span></p>
 		        </td>
 		        
 		      
