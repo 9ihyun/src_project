@@ -30,6 +30,7 @@
 <script type="text/javascript" src="../js/jquery-3.6.0.js"></script> 
 
 <!--  // 자바스크립트 부분 --> 
+
 <script type="text/javascript">
 
 $(function(){  //꼭 호출 function()을 해야지만 밑에기능들이 제대로 실행됨 
@@ -120,6 +121,7 @@ function checkValid(frm){
 		</c:forEach>
 	</c:otherwise>
 </c:choose>
+
 	<div>  
 	<p class="star_rating" >
     <a href="#" class="">★</a> <!-- on 을 해두면 색이 노란색으로 나옴 -->

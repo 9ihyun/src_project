@@ -15,25 +15,10 @@
 <script type="text/javascript">
 
 
-//$(function(){ 
-	//취소했을때 1
-	 //$("#cancel").click(function(){
-		// if(confirm("취소하시겠습니까?") == true){
-			// parent.location.href = "freeBoardMain.jsp";
-		 //}else{
-			 //return false;
-		// }
-	 //}); 
-//});
-<% session.setAttribute("userId", "admin");
-   session.setAttribute("loginUser", "admin");
-   
-   %>
-
-
 function cancel(){ //취소하기 눌렀을때
-		parent.location.href = "freeBoardMain.jsp";
 	
+	parent.location.href = "infoBoardMain.jsp";
+
 }
 
 function checkValid(frm){
@@ -187,7 +172,7 @@ function checkValid(frm){
     </tr>
 </table>
  	  <input type = hidden name = "key" value = "post">
-      <input type = hidden name = "methodName" value = "postInsert">
+      <input type = hidden name = "methodName" value = "postInsert2">
 </form>
 
 

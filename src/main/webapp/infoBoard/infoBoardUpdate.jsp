@@ -69,8 +69,11 @@ function checkValid(frm){
 
 </head>
 <body>
-<form name="writeForm" method="post" action="" 
-  onSubmit='return checkValid(this)' enctype="multipart/form-data">
+<form action="${path}/front" method="post" onsubmit="return checkValid(this);">
+  	<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
+	<input type="hidden" name="key" value="post">
+	<input type="hidden" name="methodName" value="postUpdate2">
+	<input type="hidden" name="postNo" value="${view2.postNo}">
 <!-- 
      ${path}/front?key=StudyDAOImpl&methodName=insertStudy
      아래 문장으로 전송하면 post방식으로 전송이되고 현재 파일업로드때문에 enctype="multipart/form-data" 설정되어 있기때문에 

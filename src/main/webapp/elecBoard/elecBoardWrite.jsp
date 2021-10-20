@@ -129,41 +129,41 @@ img{width:200px; height:350px}
     </tr>
     </c:when>
     <c:otherwise>
-	<c:forEach items="${requestScope.list}" var="Study">
+	<c:forEach items="${requestScope.list}" var="Post2">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyNo}</span></p>
+		            ${Post2.studyNo}</span></p>
 		        </td>
 		        <td bgcolor="">
 					<p><span style="font-size:9pt;">
-					<a href="${path}/front?key=Study&methodName=viewStudy&studyNo=${Study.studyNo}">
-					  ${Study.studyTitle}
+					<a href="${path}/front?key=Study&methodName=viewStudy&studyNo=${Post2.studyNo}">
+					  ${Post2.studyTitle}
 					</a>
 					</span></p>
 		        </td>
 		        
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <fmt:formatNumber value="${Study.studyMaxnum}"/></span></p>
+		            <fmt:formatNumber value="${Post2.studyMaxnum}"/></span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyRegdate}</span></p>
+		            ${Post2.studyRegdate}</span></p>
 		        </td>
 		         
 		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.userId}</span></p>
+		            ${Post2.userId}</span></p>
 		        </td>
 		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <fmt:formatNumber value="${Study.studyLocationSi}"/> byte</span></p>
+		            <fmt:formatNumber value="${Post2.studyLocationSi}"/> byte</span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyLocationGu}</span></p>
+		            ${Post2.studyLocationGu}</span></p>
 		        </td>
 		        
 		      
