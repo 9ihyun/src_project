@@ -65,7 +65,7 @@ public class LoginController implements Controller {
 		
 		loginService.register(new User(id, nickname, pass, birth, question, anwser));
 		
-		return new ModelAndView("../user/joinProc.jsp", true);
+		return new ModelAndView("user/joinProc.jsp", true);
 	}
 	
 	/**
@@ -79,7 +79,7 @@ public class LoginController implements Controller {
 		User user = loginService.idPwFind(birth, pwq, pwa);
 		request.setAttribute("user", user);
 		
-		return new ModelAndView("../user/idPassView.jsp"); //찾기 페이지 기입
+		return new ModelAndView("user/idPassView.jsp"); //찾기 페이지 기입
 	}
 	
 	/**
