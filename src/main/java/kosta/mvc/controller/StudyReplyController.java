@@ -39,6 +39,7 @@ public class StudyReplyController implements Controller {
 		String userId = getUserId(request);
 		System.out.println(request.getParameter("sReplyContent"));
 		System.out.println(request.getParameter("studyNo"));
+		
 
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		userId = request.getParameter("userId");
@@ -48,7 +49,7 @@ public class StudyReplyController implements Controller {
 		
 		service.insertReply(reply);
 
-		return null;
+		return new ModelAndView("study/read.jsp");
 	}
 	
 	
@@ -75,10 +76,11 @@ public class StudyReplyController implements Controller {
 	 */
 	public ModelAndView deleteReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int sReplyNo = Integer.parseInt(request.getParameter("sReplyNo"));
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		String userId = getUserId(request);
 
 		service.deleteReply(sReplyNo, userId);
-		return null;
+		return new ModelAndView("/front?key=study&methodName=viewStudy&studyNo=" + studyNo);
 	}
 	
 	/**

@@ -155,6 +155,14 @@
 		<c:forEach items = "${StudyReply}" var = "reply">
 			${reply.userId} | ${reply.sReplyDate}<p>
 			${reply.sReplyContent}<p>
+			<form action="${path}/front" method="post">
+				<input type=hidden name="studyNo" value="${study.studyNo}">
+				<input type=hidden name="sReplyNo" value="${reply.sReplyNo}">
+
+					<input type="submit"  value=삭제>
+					<input type=hidden name="key" value="studyReply"> 
+					<input type=hidden name="methodName" value="deleteReply">			
+			</form>			
 			<hr>
 		</c:forEach>
 	</c:otherwise>
@@ -201,7 +209,7 @@
 	<div align="right">
 		<input type="submit"  value=등록>
 		<input type=hidden name="key" value="studyReply"> 
-		<input type=hidden name="methodName" value="insertReply">
+		<input type=hidden name="methodName" value="insertReply">		
 	</div>
 </form>
 <hr>
