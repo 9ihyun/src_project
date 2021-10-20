@@ -39,7 +39,7 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView insertStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
-		
+
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 			userId = request.getParameter("userId");
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
@@ -51,12 +51,14 @@ public class StudyController implements Controller {
 		String studyTitle = request.getParameter("studyTitle");
 		String studyContent = request.getParameter("studyContent");
 
+		System.out.println("tagNo=" + tagNo);
+		
 		Study study = new Study(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu,
 				studyDuedate, studyTitle, studyContent);
 		
 		service.insertStudy(study);
 
-		return new ModelAndView("study/list.jsp"); //이동 위치 
+		return new ModelAndView("study/studyMain.jsp"); //이동 위치 
 	}
 
 	/**
@@ -64,7 +66,7 @@ public class StudyController implements Controller {
 	 */
 	public ModelAndView updateStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
-		
+
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
@@ -81,7 +83,7 @@ public class StudyController implements Controller {
 		
 		service.updateStudy(study);
 		
-		Study dbStudy = service.viewStudy(studyNo);
+		Study dbStudy = service.viewStudy(study.getStudyNo());
 		
 		request.setAttribute("study", dbStudy);
 		return new ModelAndView("study/read.jsp");

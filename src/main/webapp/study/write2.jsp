@@ -1,3 +1,4 @@
+<!-- @author 홍전형 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -203,7 +204,7 @@
 </head>
 <BODY>
 
-	<form action="${path}/front">
+	<form action="${path}/front" method="post">
 		<!-- 
      아래 문장으로 전송하면 post방식으로 전송이되고 현재 파일업로드때문에 enctype="multipart/form-data" 설정되어 있기때문에 
      request로 값을 받을수가 없다. ( MulitpartRequest로 받아야한다.) 그런데 Controller로 가기전에 Controller를 찾기위해서 
@@ -230,8 +231,8 @@
 					</p>
 				</td>
 				<td width="450" height="20">
-					<form>
-						<select name="taglist">
+					
+						<select name="tagNo" id="tagNo">
 							<option value="none">스터디 항목을 선택하세요</option>
 							<option value="1">C/C++</option>
 							<option value="2">C#</option>
@@ -263,7 +264,7 @@
 							<option value="28">토이프로젝트</option>
 							<option value="29">기타</option>
 						</select>
-					</form>
+					
 				</td>
 			</tr>
 			<tr>
@@ -284,13 +285,13 @@
 					</p>
 				</td>
 				<td width="450" height="20">
-					<form>
-						<select name="studyState">
+					
+						<select name="stateNo" id="stateNo">
 							<option value="1" selected>모집중</option>
 							<option value="2">진행중</option>
 							<option value="3">스터디 종료</option>
 						</select>
-					</form>
+					
 				</td>
 			</tr>
 			<tr>
@@ -300,14 +301,14 @@
 					</p>
 				</td>
 				<td width="450" height="20">
-					<form>
-						<select name="studyDay">
+					
+						<select name="dayNo" id="dayNo">
 							<option value="none">=== 선택 ===</option>
 							<option value="1">요일 무관</option>
 							<option value="2">평일</option>
 							<option value="3">주말</option>
 						</select>
-					</form>
+					
 				</td>
 			</tr>
 			<tr>
@@ -328,12 +329,12 @@
 					</p>
 				</td>
 				<td width="450" height="20">
-					<form>
-						<select name="addressRegion" id="addressRegion1"></select> 
-						<select name="studyLocationSi" id="si"></select>
-						<select name="studyLocationGu" id="gu"></select>
+					
+						<select name="addressRegion" ></select> 
+						<select name="studyLocationSi" id="studyLocationSi"></select>
+						<select name="studyLocationGu" id="studyLocationGu"></select>
 
-					</form>
+					
 				</td>
 			</tr>
 			<tr>
@@ -372,7 +373,7 @@
 
 			<tr>
 				<td width="450" height="20" colspan="2" align="center"><b><span
-						style="font-size: 9pt;"> <input type=submit value=등록하기>
+						style="font-size: 9pt;"></span> <input type=submit value=등록하기>
 							<button type="button" onclick="cancel();">취소하기</button>
 			</tr>
 		</table>
