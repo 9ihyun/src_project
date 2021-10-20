@@ -10,6 +10,7 @@ import java.util.Properties;
 
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
+import kosta.mvc.dto.User;
 import kosta.mvc.util.DbUtil;
 
 public class MyStudyDAOImpl implements MyStudyDAO {
@@ -309,6 +310,40 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		}
 		
 		return joinList;
+	}
+	
+	/**
+	 * 스터디 명단 가져오기
+	 * */
+	@Override
+	public List<User> viewStudyMember(String id, int studyNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("myStudy.viewStudyMember");
+		List<User> userList = new ArrayList<User>();
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, studyNo);
+			ps.setInt(2, studyNo);
+			ps.setString(3, id);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				User user = new User();
+				user.setUserId(rs.getString(1));
+				user.setNickname(rs.getString(2));
+				
+				userList.add(user);
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		return userList;
 	}
 	
 	/**

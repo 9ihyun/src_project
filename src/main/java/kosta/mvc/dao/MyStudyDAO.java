@@ -5,6 +5,7 @@ import java.util.List;
 
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
+import kosta.mvc.dto.User;
 
 public interface MyStudyDAO {
 	/**
@@ -46,6 +47,11 @@ public interface MyStudyDAO {
 	 * 참여중/종료 스터디 보기
 	 * */
 	public List<Study> viewJoinStudy(String id) throws SQLException;
+	
+	/**
+	 * 스터디 명단 가져오기
+	 * */
+	public List<User> viewStudyMember(String id, int studyNo) throws SQLException;
 	
 	/**
 	 * 스터디룸 대화 내용 불러오기

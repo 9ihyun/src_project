@@ -149,6 +149,19 @@ public class MyStudyController implements Controller {
 	}
 	
 	/**
+	 * 스터디 명단 가져오기
+	 * */
+	public ModelAndView viewStudyMember(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id = getUserId(request);
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		
+		List<User> userList = myStudyService.viewStudyMember(id, studyNo);
+		request.setAttribute("userList", userList);
+		
+		return new ModelAndView(""); //스터디원 평가 페이지
+	}
+	
+	/**
 	 * 스터디룸 대화 내용 불러오기
 	 * */
 	public ModelAndView viewStudyRoomChat(HttpServletRequest request, HttpServletResponse response) throws Exception {
