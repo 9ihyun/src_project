@@ -19,7 +19,7 @@
 </tr>
 </table>
 
-<a href="${path}/user/signin.jsp">로그인</a>
+<a href="${path}/user/singin.jsp">로그인</a>
 
 </body>
 </html>
