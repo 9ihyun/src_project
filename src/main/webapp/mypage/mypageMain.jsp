@@ -17,7 +17,7 @@
 <table>
   <tr>
     <th><jsp:include page="mypageMenu.jsp" /></th>
-    <th><iframe src="startPage.jsp" name="page" height="600" width="800"></iframe></th>
+    <th><iframe src="${path}/front?key=user&methodName=myInfo" name="page" height="600" width="800"></iframe></th>
   </tr>
 </table>
 </body>

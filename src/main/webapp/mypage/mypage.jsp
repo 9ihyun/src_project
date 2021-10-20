@@ -10,14 +10,15 @@
 <style type="text/css">
 
 </style>
+<script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-  function withdraw(){
-	  if(confirm("정말 탈퇴하시겠습니까?")){
-		  parent.location.href = "${path}/front?key=user&methodName=delete";
-	  }
-  }
-  
-  
+  $(function(){
+	  $(document).on("click", "#withdraw", function(){
+		  if(confirm("정말 탈퇴하시겠습니까?")){
+			  parent.location.href = "${path}/front?key=user&methodName=delete";
+		  }
+	  });
+  });
 </script>
 </head>
 <body>
@@ -46,6 +47,6 @@
     <th><input type="text" readonly="readonly" id="regdate" value="${requestScope.user.regdate }"></th>
   </tr>
 </table>
-<input type="button" id="withdraw" value="탈퇴하기" onclick="withdraw()">
+<input type="button" id="withdraw" value="탈퇴하기">
 </body>
 </html>

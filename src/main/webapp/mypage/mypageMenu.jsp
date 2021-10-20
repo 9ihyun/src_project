@@ -21,7 +21,7 @@
 </head>
 <body>
 <ol style="text-align:left;">
-  <li><a href="startPage.jsp" target="page">내정보</a></li>&nbsp;&nbsp;
+  <li><a href="${pageContext.request.contextPath}/front?key=user&methodName=myInfo" target="page">내정보</a></li>&nbsp;&nbsp;
   <li><a href="infoChange.jsp" target="page">정보수정</a></li>&nbsp;&nbsp;
   <li><a href="passChange.jsp" target="page">비밀번호 변경</a></li>&nbsp;&nbsp;
   <li><a href="${path}/front?key=myStudy&methodName=viewMyStudy" target="page">스터디관리</a></li>&nbsp;&nbsp;
