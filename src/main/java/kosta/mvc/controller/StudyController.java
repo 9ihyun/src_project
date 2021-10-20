@@ -126,7 +126,7 @@ public class StudyController implements Controller {
 		}
 		
 		List<Study> list = service.selectAllStudy(Integer.parseInt(pageNo));
-
+		
 		request.setAttribute("studyList", list);
 		request.setAttribute("pageNo", pageNo);
 
@@ -143,7 +143,6 @@ public class StudyController implements Controller {
 		
 			//StudyReply 이름에 저장....
 			List<StudyReply> listReply = replyService.selectAllReply(studyNo);
-			System.out.println("listReply = " + listReply);
 			request.setAttribute("StudyReply", listReply);
 			
 		return new ModelAndView("study/read.jsp");//이동 위치

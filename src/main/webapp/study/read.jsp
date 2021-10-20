@@ -215,8 +215,8 @@
 </div>
 <form action="${path}/front" method="post">
 	<input type=hidden name="studyNo" value="${study.studyNo}">
-	${sessionScope.userId}<p>
-	${sessionScope.starPoint}
+	${sessionScope.user.userId}<p>
+
 	<input type="text" name="sReplyContent" value="댓글을 입력해주세요">
 	<input type="hidden" name="userId" value="${sessionScope.userId }">
 		<input type="submit"  value=등록>

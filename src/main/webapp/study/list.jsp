@@ -141,33 +141,33 @@ img{width:200px; height:350px}
     </tr>
     </c:when>
     <c:otherwise>
-	<c:forEach items="${requestScope.studyList}" var="Study">
+	<c:forEach items="${requestScope.studyList}" var="study">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyNo}</span></p>
+		            ${study.stateName}</span></p>
 		        </td>
 		        <td bgcolor="">
 					<p><span style="font-size:9pt;">
 					<a href="${path}/front?key=study&methodName=viewStudy&studyNo=${Study.studyNo}">
-					  ${Study.studyTitle}
+					  ${study.studyTitle}
 					</a>
 					</span></p>
 		        </td>
 		        
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyMaxnum}"</span></p>
+		            ${study.studyMaxnum}"</span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyRegdate}</span></p>
+		            ${study.studyRegdate}</span></p>
 		        </td>
 		         
 		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.userId}</span></p>
+		            ${study.userId}</span></p>
 		        </td>
 		         <td bgcolor="">
 		            <p align="center">
@@ -181,7 +181,7 @@ img{width:200px; height:350px}
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${Study.studyLocationSi} ${Study.studyLocationGu}</span></p>
+		            ${study.studyLocationSi} ${study.studyLocationGu}</span></p>
 		        </td>
 		        
 		      

@@ -57,6 +57,18 @@ public class Study {
 		this.stateName = stateName;
 		this.dayName = dayName;
 	}
+	
+	//selectAllStudy constructor
+	public Study(String userId, int studyMaxnum, String studyLocationSi, String studyLocationGu, String studyDuedate,
+				String studyTitle, String stateName) {
+			this.userId = userId;
+			this.studyMaxnum = studyMaxnum;
+			this.studyLocationSi = studyLocationSi;
+			this.studyLocationGu = studyLocationGu;
+			this.studyDuedate = studyDuedate;
+			this.studyTitle = studyTitle;
+			this.stateName = stateName;
+		}
 
 	//11
 	public Study(int studyNo, int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
@@ -64,7 +76,7 @@ public class Study {
 		this(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi,studyLocationGu,studyDuedate, studyTitle, studyContent);
 		this.studyNo = studyNo;
 	}
-	
+
 	//10
 	public Study(int tagNo, String userId, int stateNo, int dayNo, int studyMaxnum, String studyLocationSi,
 			String studyLocationGu, String studyDuedate, String studyTitle, String studyContent) {
