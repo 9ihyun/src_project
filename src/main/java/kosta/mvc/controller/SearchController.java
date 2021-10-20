@@ -22,36 +22,52 @@ public class SearchController implements Controller{
 		
 	}
 	
-	public ModelAndView searchByTilte(HttpServletRequest request, HttpServletResponse response)throws Exception {
+	public ModelAndView searchByTitle(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		String postTitle = request.getParameter("postTitle");
 		List<Post> postList = service.searchByTitle(postTitle);
-		
-
+		System.out.println(postList);
+	
 		request.setAttribute("postList", postList);
-		return new ModelAndView("/front?key=Search&methodName=searchByTilte&postTitle="+postTitle);
-		//return new ModelAndView("board/freeBoardWrite.jsp");
+		
+	return new ModelAndView("board/freeBoardWrite.jsp");
+	
+	
+		
 		
 	}
 	public ModelAndView searchById(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		//String userId = request.getParameter("userId");
 		String userId = getUserId(request);
 		List<Post> postList = service.searchById(userId);
-		return null;
+		request.setAttribute("postList", postList);
+		
+		return new ModelAndView("board/freeBoardWrite.jsp");
 	}
 	public ModelAndView searchByTag(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 		List<Post> postList = service.searchByTag(tagNo);
-		return null;
+		request.setAttribute("postList", postList);
+		
+		return new ModelAndView("board/freeBoardWrite.jsp");
 	}
 	public ModelAndView searchByRecent(HttpServletRequest request, HttpServletResponse response)throws Exception {
-		int postDate = Integer.parseInt(request.getParameter("postDate"));
-		List<Post> postList = service.searchByTag(postDate);
-		return null;
+		List<Post> postList = service.searchByRecent();
+		System.out.println(postList.size());
+	
+		request.setAttribute("postList", postList);
+		
+	return new ModelAndView("board/freeBoardWrite.jsp");
 	}
 	public ModelAndView searchByLikes(HttpServletRequest request, HttpServletResponse response)throws Exception {
-	int postUp = Integer.parseInt(request.getParameter("postUp"));
-	List<Post> postList = service.searchByTag(postUp);
-	return null;
+		List<Post> postList = service.searchByLikes();
+		System.out.println(postList.size());
+	
+		request.setAttribute("postList", postList);
+		
+	return new ModelAndView("board/freeBoardWrite.jsp");
+//	int postUp = Integer.parseInt(request.getParameter("postUp"));
+//	List<Post> postList = service.searchByTag(postUp);
+//	return null;
 		
 	}
 	public ModelAndView searchByRegion(HttpServletRequest request, HttpServletResponse response)

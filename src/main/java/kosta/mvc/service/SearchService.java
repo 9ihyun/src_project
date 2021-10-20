@@ -29,7 +29,7 @@ public interface SearchService {
 	/**
 	 * 인기글
 	 */
-	public List<Post> searchByLikes(int postUp) throws SQLException;
+	public List<Post> searchByLikes() throws SQLException;
 	/**
 	 * 지역으로 검색
 	 */

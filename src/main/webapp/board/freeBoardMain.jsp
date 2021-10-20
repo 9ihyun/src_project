@@ -35,11 +35,18 @@
     	
 		<jsp:include page="freeBoardMenu.jsp" />
     </th>
+   
+   <td><iframe src="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost"height="600" width="800" name="board"></iframe></td>
+    
+    <%--
     <td><iframe src="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost"height="600" width="800" name="board"></iframe></td>
+     <td><iframe src="${pageContext.request.contextPath}/front?key=search&methodName=searchByTitle&postTitle=시간"height="600" width="800" name="board"></iframe></td>
+     
+    <td><iframe src="${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes"height="600" width="800" name="board"></iframe></td>
+    <td><iframe src="${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent"height="600" width="800" name="board"></iframe></td>
     
-    
-    
-    
+       --%>
+       
   </tr>
 </table>
 </body>

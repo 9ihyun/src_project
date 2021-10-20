@@ -4,6 +4,27 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <link rel="stylesheet" href="${path}/css/style.css">
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	function go(){
+		var a = document.getElementById("searchs").value;
+		var b = document.getElementById("searchByTitle").value;
+		//var d = document.getElementById("searchs").value;
+		//console.log(d);
+		var c = a+b;
+		
+		location.href = c;
+	
+		//var a ="";
+		//var b ="";
+		//var c ="";
+		
+		
+		
+	}
+	
+
+</script>
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
 
@@ -108,20 +129,32 @@ img{width:200px; height:350px}
 				<fieldset>
                     <legend>글 검색 필드</legend>                    
                     <label>검색분류</label>
-                        <select name = "search">
-                            <option value = "title">제목</option>
-                            <option value = "userId">작성자</option>
+                        <select name = "search" id=searchs>
+                            <option id=title value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
+                            <option id=user value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
+                            <option id=tag value = "/src_project/front?key=search&methodName=searchByTag&tagNo=">태그번호</option>
                         </select>
                     <label>검색어</label>
-                    
-                        <input type = "text" name = "searchByTitle" value = "${path}/front?key=search&methodName=searchByTitle&postTitle"/>
-                        <input type = "submit" value = "검색">                
+                    <%-- 
+                     <td><iframe src="${pageContext.request.contextPath}/front?key=search&methodName=searchByTitle&postTitle=시간"height="600" width="800" name="board"></iframe></td>
+                        --%>
+                        <input type = "text" id = "searchByTitle" placeholder="전송전"><br>
+                        <input type="button" value = "검색" onclick="go()"><br>
+                        <input type = "hidden" id = "searchByTitle2" value=""><br>
+                        <input type = "hidden" id = "searchByTitle3" value="${pageContext.request.contextPath}/front?key=search&methodName=searchByTitle&postTitle="><br>
+                          
+                        
+                                    
                 </fieldset>        
 			
-				
+				<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes'">인기글</button>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent'">최근글</button>
 			</form>	
 		</div>	
+		
+		
 	<tr>
+	
        
         <td bgcolor="#00cc00">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">번호</span></b></font></p>
@@ -185,11 +218,11 @@ img{width:200px; height:350px}
 	
 
 
-	<hr>
+	
 	
 	   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
 	    
-	  <p>
+	  
 	
 	 
 	 <!--  블럭당  -->
@@ -238,5 +271,6 @@ img{width:200px; height:350px}
 			
 		
 		</div>
+		
 	</nav> 
  
