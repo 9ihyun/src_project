@@ -21,13 +21,6 @@
 </head>
 <body>
 
-<% 
-
-	session.setAttribute("userId", "admin");
-   session.setAttribute("loginUser", "admin");
-   
-   %>
-
 <table>
   <tr>
     <%-- <th><iframe src="freeBoardMenu.jsp" height="600" width="250"></iframe></th> --%>
