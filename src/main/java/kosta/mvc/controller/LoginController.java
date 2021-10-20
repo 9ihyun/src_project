@@ -36,7 +36,7 @@ public class LoginController implements Controller {
 		
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mypage/startPage.jsp"); //메인페이지 기입
+		mv.setViewName("board/freeBoardMain.jsp"); //메인페이지 기입
 		mv.setRedirect(true);
 		
 		return mv;

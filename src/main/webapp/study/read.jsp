@@ -146,7 +146,7 @@
 <hr>
 <h3>Replies 정보</h3>
 
-<div>  <!-- 별점 구현 -->
+<div>  
 <c:choose>
 	<c:when test = "${empty requestScope.StudyReply}">
 		<h5>댓글정보가 없습니다.</h5>
@@ -162,7 +162,15 @@
 					<input type="submit"  value=삭제>
 					<input type=hidden name="key" value="studyReply"> 
 					<input type=hidden name="methodName" value="deleteReply">			
-			</form>			
+			</form>		
+			<form action="${path}/front" method="post">
+				<input type=hidden name="studyNo" value="${study.studyNo}">
+				<input type=hidden name="sReplyNo" value="${reply.sReplyNo}">
+
+					<input type="submit"  value=수정>
+					<input type=hidden name="key" value="studyReply"> 
+					<input type=hidden name="methodName" value="updateReply">			
+			</form>		
 			<hr>
 		</c:forEach>
 	</c:otherwise>
