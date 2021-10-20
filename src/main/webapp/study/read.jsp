@@ -144,11 +144,17 @@
 </table>
 </form>
 <form action="${path}/front" method="post">
-				<input type=hidden name="studyNo" value="${study.studyNo}">
-					<input type="submit"  value=신청하기>
-					<input type=hidden name="key" value="myStudy"> 
-					<input type=hidden name="methodName" value="putSignStudy">			
-			</form>	
+	<input type=hidden name="studyNo" value="${study.studyNo}">
+		<input type="submit"  value=찜하기>
+		<input type=hidden name="key" value="myStudy"> 
+		<input type=hidden name="methodName" value="putWishStudy">			
+</form>	
+<form action="${path}/front" method="post">
+	<input type=hidden name="studyNo" value="${study.studyNo}">
+		<input type="submit"  value=신청하기>
+		<input type=hidden name="key" value="myStudy"> 
+		<input type=hidden name="methodName" value="putSignStudy">			
+</form>	
 <hr>
 <h3>Replies 정보</h3>
 

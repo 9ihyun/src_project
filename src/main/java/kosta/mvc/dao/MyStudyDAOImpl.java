@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import kosta.mvc.dto.SignStudy;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
 import kosta.mvc.dto.User;
+import kosta.mvc.dto.WishStudy;
 import kosta.mvc.util.DbUtil;
 
 public class MyStudyDAOImpl implements MyStudyDAO {
@@ -62,9 +64,10 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	 * 스터디 찜하기
 	 * */
 	@Override
-	public int putWishStudy(String id, int studyNo) {
+	public int putWishStudy(String id, int studyNo) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
+		List<WishStudy> list = new ArrayList<>();
 		String sql = proFile.getProperty("myStudy.putWishStudy");
 		int result = 0;
 		
@@ -73,6 +76,14 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setInt(2, studyNo);
+			
+			list = checkWishDuplicate(con, id);
+			for (WishStudy w : list) {
+				if (w.getStudyNo() == studyNo) {
+					throw new SQLException("이미 찜한 스터디입니다.");
+				}
+			}
+			
 			result = ps.executeUpdate();
 			
 		}catch (SQLException e) {
@@ -83,6 +94,28 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		
 		return result;
 	}
+	
+	/**
+	 * 사용자가 찜한 스터디 가져오기(중복체크)
+	 */
+	public List<WishStudy> checkWishDuplicate(Connection con, String id) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<WishStudy> list = new ArrayList<>();
+		String sql = "select * from wish_study where user_id = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(new WishStudy(rs.getInt(1), rs.getString(2)));
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		return list;
+	}
+	
 
 	/**
 	 * 내가 신청한 스터디 보기
@@ -122,9 +155,10 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	 * 스터디 신청하기
 	 * */
 	@Override
-	public int putSignStudy(String id, int studyNo) {
+	public int putSignStudy(String id, int studyNo) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
+		List<SignStudy> list = new ArrayList<>();
 		String sql = proFile.getProperty("myStudy.putSignStudy");
 		int result = 0;
 		
@@ -133,6 +167,13 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setInt(2, studyNo);
+			
+			list = checkSignDuplicate(con, id);
+			for (SignStudy s : list) {
+				if (s.getStudyNo() == studyNo) {
+					throw new SQLException("이미 신청한 스터디입니다.");
+				}
+			}
 			result = ps.executeUpdate();
 			
 		}catch (SQLException e) {
@@ -143,6 +184,28 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		
 		return result;
 	}
+	
+	/**
+	 * 사용자가 신청한 스터디 가져오기(중복체크)
+	 */
+	public List<SignStudy> checkSignDuplicate(Connection con, String id) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<SignStudy> list = new ArrayList<>();
+		String sql = "select * from sign_study where user_id = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(new SignStudy(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		return list;
+	}
+	
 	
 	/**
 	 * 스터디 신청 상태 변경
