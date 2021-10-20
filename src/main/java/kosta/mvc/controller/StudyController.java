@@ -80,7 +80,7 @@ public class StudyController implements Controller {
 	public ModelAndView updateStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
 
-		//int studyNo = Integer.parseInt(request.getParameter("studyNo"));
+		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
 		int stateNo = Integer.parseInt(request.getParameter("stateNo"));
 		int dayNo = Integer.parseInt(request.getParameter("dayNo"));
@@ -90,6 +90,7 @@ public class StudyController implements Controller {
 		String studyDuedate = request.getParameter("studyDuedate");
 		String studyTitle = request.getParameter("studyTitle");
 		String studyContent = request.getParameter("studyContent");
+		System.out.println(studyNo + ", " + tagNo);
 		
 		Study study = new Study(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu,
 				studyDuedate, studyTitle, studyContent);
