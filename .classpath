@@ -3,20 +3,20 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/commons-beanutils-1.8.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/ezmorph-1.0.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/json-lib-2.4-jdk15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/jstl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/ojdbc8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/solra/Desktop/jar/standard.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/jstl.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="/Users/june/Edu/jar/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -37,13 +37,13 @@ public class StudyReplyController implements Controller {
 	 */
 	public ModelAndView insertReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userId = getUserId(request);
-		
-		int sReplyNo = Integer.parseInt(request.getParameter("sReplyNo"));
+		System.out.println(request.getParameter("sReplyContent"));
+		System.out.println(request.getParameter("studyNo"));
+
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		String sReplyContent = request.getParameter("sReplyContent");
-		String sReplyDate = request.getParameter("sReplyDate");
 		
-		StudyReply reply = new StudyReply(sReplyNo, studyNo, userId, sReplyContent, sReplyDate);
+		StudyReply reply = new StudyReply(studyNo, userId, sReplyContent);
 		
 		service.insertReply(reply);
 

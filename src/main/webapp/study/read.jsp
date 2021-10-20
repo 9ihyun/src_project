@@ -145,8 +145,22 @@
 </form>
 <hr>
 <h3>Replies 정보</h3>
+<<<<<<< Updated upstream
 
 <div>  <!-- 별점 구현 -->
+=======
+<c:choose>
+	<c:when test = "${empty requestScope.StudyReply}">
+		<h5>댓글정보가 없습니다.</h5>
+	</c:when>
+	<c:otherwise>
+		<c:forEach items = "${StudyReply}" var = "reply">
+			replyNo = ${reply.sReplyNo} / replycontent = ${reply.sReplyContent} /reply date = ${reply.sReplyDate} / study no = ${reply.studyNo}<p>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
+<div>  
+>>>>>>> Stashed changes
 	<p class="star_rating" >
     <a href="#" class="">★</a> <!-- on 을 해두면 색이 노란색으로 나옴 -->
     <a href="#" class="">★</a>
@@ -155,6 +169,7 @@
     <a href="#">★</a>
     <a href="#">★</a>
 </p>
+<<<<<<< Updated upstream
 	</div>
 
 <!-- 댓글 작성 -->
@@ -181,6 +196,17 @@
 <div id="listReply"></div>
 	
 	
+=======
+	</div>
+<form action="${path}/front" method="post">
+	<input type="text" name="sReplyContent" value="댓글을 입력해주세요">
+	<div align="right">
+		<input type="submit"  value=등록>
+		<input type=hidden name="key" value="studyReply"> 
+		<input type=hidden name="methodName" value="insertReply">
+	</div>
+</form>
+>>>>>>> Stashed changes
 <hr>
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front">리스트로 돌아가기</a>&gt;</span></div>
 </body>

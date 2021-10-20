@@ -105,7 +105,7 @@ public class StudyReplyDAOImpl implements StudyReplyDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				StudyReply reply = new StudyReply(rs.getInt(1), rs.getString(2), rs.getString(3));
+				StudyReply reply = new StudyReply(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
 				
 				replyList.add(reply);
 			}
