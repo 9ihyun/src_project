@@ -24,7 +24,7 @@ public class SessionCheckFilter implements Filter {
 			HttpServletRequest req = (HttpServletRequest) request;
 			HttpSession session = req.getSession();
 
-			if (session.getAttribute("user") == null) {
+			if (session.getAttribute("userId") == null) {
 				req.setAttribute("errorMsg", "로그인하고 이용해주세요.");
 				req.getRequestDispatcher("error/error.jsp").forward(request, response);
 				return;
