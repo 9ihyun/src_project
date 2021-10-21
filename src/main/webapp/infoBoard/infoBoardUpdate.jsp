@@ -19,8 +19,8 @@
 <script type="text/javascript">
 
 function deletes(){ 
-	
-	location.href = "${path}/front?key=post&methodName=postDelete2&postNo=${view2.postNo}";
+	console.log(${view2.postNo});
+	location.href = "/src_project/front?key=post&methodName=postDelete2&postNo=${view2.postNo}";
 	
 }
 
@@ -52,9 +52,16 @@ function checkValid(frm){
 	}
 	*/
 	
+
+	
 	
 	if(confirm("수정하시겠습니까?") == true){
+		//var id1="${view2.userId}";
+		//var id2="${sessionScope.user.userId}";
+		
+	//	else if(id1==id2){
 		return true;
+		
 	}else{
 		return false;
 	}

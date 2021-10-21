@@ -25,6 +25,19 @@ crossorigin="anonymous"></script>
 <script type="text/javascript">
 <!-- 이 주석은 지워주세요~ -->
 
+function inserts(){
+	var a="/src_project/front?key=post&methodName=postInsert2&userId=${sessionScope.user.userId}&boardNo=2&tagNo="
+	var b = document.getElementById("tagNo").value;
+	var c = document.getElementById("postTitle").value;
+	var e = "&postTitle=";
+	var d = document.getElementById("postContent").value;
+	var f = "&postContent=";
+	
+	var g = a+b+e+c+f+d;
+	location.href = g;	
+	
+}
+
 function cancel(){ //취소하기 눌렀을때
 	
 	parent.location.href = "infoBoardMain.jsp";
@@ -156,21 +169,22 @@ function checkValid(frm){
 				<h6 align="center">내용</h6>
 		</td>
 		<td width="450" height="20">
-		      <textarea class="form-control" name="postContent" rows="3"></textarea>
+		      <textarea class="form-control" name="postContent" id="postContent"rows="3"></textarea>
 		</td>
 	</tr>
     <tr>
         <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;">
-        <input type=submit class="btn btn-primary" value=등록하기>
+        <input type=submit class="btn btn-primary"  value=등록하기>
         <button type="button"class="btn btn-primary" onclick="cancel();">취소하기</button>
         
     </tr>
 </table>
 		<input type = hidden name = "userId" value = "${sessionScope.user.userId}">
-		<input type = hidden name = "tagNo" value = "29">
+		
 		<input type = hidden name = "boardNo" value = "2">
  	  <input type = hidden name = "key" value = "post">
       <input type = hidden name = "methodName" value = "postInsert2">
+      
 </form>
 
 
