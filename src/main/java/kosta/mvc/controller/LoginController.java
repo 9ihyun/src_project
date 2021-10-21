@@ -37,7 +37,7 @@ public class LoginController implements Controller {
 		session.setAttribute("userId", userId);
 		session.setAttribute("user", user);
 		
-		return new ModelAndView("board/freeBoardMain.jsp", true); //메인페이지 기입
+		return new ModelAndView("study/studyMain.jsp", true); //메인페이지 기입
 	}
 	
 	/**

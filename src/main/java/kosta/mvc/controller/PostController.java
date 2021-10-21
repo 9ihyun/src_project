@@ -195,8 +195,11 @@ public class PostController implements Controller {
 	public ModelAndView postViewPost2(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
 		Post view2 = service.postView(postNo);
-
 		request.setAttribute("view2", view2);
+		
+		List<PostReply> replyList = postReplyService.selectAllReply(postNo);		
+		request.setAttribute("replyList", replyList);
+		
 		return new ModelAndView("infoBoard/infoBoardread.jsp");
 		
 	}
@@ -206,10 +209,24 @@ public class PostController implements Controller {
 		String board = request.getParameter("board");
 		service.postLike(postUp,postNo);
 		
+		if("postSelectAllPost".equals(board)) {
+			Post view = service.postView(postNo);
+			request.setAttribute("view", view);
+			List<PostReply> replyList = postReplyService.selectAllReply(postNo);
+			request.setAttribute("replyList", replyList);
+			return new ModelAndView("board/freeBoardread.jsp");
+		}
+		
+		Post view2 = service.postView(postNo);
+		request.setAttribute("view2", view2);
+		List<PostReply> replyList = postReplyService.selectAllReply(postNo);		
+		request.setAttribute("replyList", replyList);
+		return new ModelAndView("infoBoard/infoBoardread.jsp");
+		
 		//return new ModelAndView("board/freeBoardread.jsp");
 	//return new ModelAndView(board+".jsp");
 	
-			return new ModelAndView("/front?key=post&methodName="+board);
+			
 	}
 
 	@Override
