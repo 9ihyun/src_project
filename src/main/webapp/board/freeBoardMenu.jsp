@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="../CSS/MenuStyle.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${path }/js/jquery-3.6.0.js"></script>
