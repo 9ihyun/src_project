@@ -29,8 +29,11 @@ ul{ list-style: none;}
   <li><a href="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost" target="board"class="btn btn-primary"> 자유게시판</a></li> &nbsp;&nbsp;
   <li><a href="${pageContext.request.contextPath}/front?key=post&methodName=Allpost"target = "board"class="btn btn-primary"> 지식 정보 공유 게시판 </a></li> &nbsp;&nbsp;
 </ul>
-<a href="#" id="mainpage">마이페이지</a>&nbsp;
-<a href="#" id="logout">로그아웃</a>
+
+<ul>
+	<li><button type="submit" class="btn btn-secondary" onClick="location.href='${path}/mypage/mypageMain.jsp'">마이페이지</button><br></li>&nbsp;&nbsp;
+	<li><button type="submit" class="btn btn-outline-dark" onClick="location.href='${path}/front?key=login&methodName=logout'">로그아웃</button></li>&nbsp;&nbsp;
+</ul>
 </body>
 </html>
 
