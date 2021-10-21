@@ -20,6 +20,13 @@ public class Post {
 		
 		
 	}
+	public Post(int postNo, int postUp) {
+		
+		this.postNo=postNo;
+		this.postUp=postUp;
+		
+		
+	}
 	
 	
 	public Post(int postNo, String postTitle, int postUp, String postDate) {

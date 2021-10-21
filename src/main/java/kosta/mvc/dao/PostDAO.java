@@ -41,7 +41,7 @@ public interface PostDAO {
 	/**
 	 * 게시글 좋아요(따봉)
 	 */
-	List<Post> postLike(int postNo) throws SQLException;
+	int postLike(int postUp, int postNo ) throws SQLException;
 
 	/**
 	 * 지식정보공유 게시글 수정

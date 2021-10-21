@@ -183,8 +183,15 @@ public class PostController implements Controller {
 		
 	}
 	public ModelAndView postLike(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		return null;
+		int postNo = Integer.parseInt(request.getParameter("postNo"));
+		int postUp = Integer.parseInt(request.getParameter("postUp"));
+		String board = request.getParameter("board");
+		service.postLike(postUp,postNo);
+		
+		//return new ModelAndView("board/freeBoardread.jsp");
+	//return new ModelAndView(board+".jsp");
+	
+			return new ModelAndView("/front?key=post&methodName="+board);
 	}
 
 	@Override

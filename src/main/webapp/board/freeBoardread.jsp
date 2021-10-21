@@ -84,7 +84,20 @@ function listReply(){
     });
 }
 
-
+function likey(){
+	var postups = document.getElementById("Likes").value;
+	var b = parseInt(postups)+1;
+	var postnos = document.getElementById("Likess").value;
+	var ups ="&postUp=";
+	var s = "/src_project/front?key=post&methodName=postLike&postNo=";
+	var t = "&board=postSelectAllPost"
+	var e =s+postnos+ups+b+t;
+	
+	//var two = "/src_project/front?key=post&methodName=postViewPost2&postNo=";
+	//location.href = two+postnos;
+	location.href = e;
+	
+}
 
 
 </script>
@@ -130,6 +143,7 @@ function listReply(){
         <td width="450" height="200" valign="top" colspan="3">
         <span style="font-size:9pt;"><b><pre>${view.postContent}</pre></b></span></td>
     </tr>
+    
   
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
@@ -137,8 +151,12 @@ function listReply(){
         	<c:if test="${sessionScope.sessionID != post.userId}">
 			</c:if>
 			</c:if>
+			  <input type = "hidden" id = "Likes" value="${view.postUp}">
+			  <input type = "hidden" id = "Likess" value="${view.postNo}">
 			<a href="${path}/front?key=post&methodName=postSelectAllPost" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
 			<a href="${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}" >수정</a>
+			
+			  <input type="button" value = "추천" onclick="likey()">
 		</td>
     </tr>
 </table>

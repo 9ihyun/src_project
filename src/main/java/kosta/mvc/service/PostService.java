@@ -41,6 +41,6 @@ public interface PostService {
 	/**
 	 * 게시글 좋아요(따봉)
 	 */
-	public void postLike(int postNo) throws SQLException;
+	public void postLike(int postUp,int postNo) throws SQLException;
 
 }
