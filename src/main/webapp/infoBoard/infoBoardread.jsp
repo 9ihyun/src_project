@@ -112,48 +112,40 @@ function likey(){
 
 </script>
 <body>
+<table class="table" align="center" cellpadding="10" cellspacing="2" width="90%">
 
-<table align="center" cellpadding="5" cellspacing="2" width="600" border='1'bgcolor="#FDF5E6">
+	<thead>
+	    <tr class="table-default">
+	      <td colspan="4">
+	      	<h4>게시물 상세보기</h4>
+	      </td>
+	    </tr>
+    </thead>
+      <tbody>
     <tr>
-        <td width="1220" height="20" colspan="4" bgcolor="#5ABEF5">
-            <p align="center"><font color="white" size="3"><b>
-             게시물 상세보기</b></font></p>
-        </td>
+    	<td colspan="4">
+      	<h4></h4>
+      </td>
     </tr>
-    <!-- 
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;"> 태그번호 </span></b></p>
+    <tr class="table-active">
+		<td width="50%" height="80" valign="middle">
+				<b><h5 align="center" style="bold">제목</h5></b>
+		</td>
+		<td valign="middle"><h5>${view2.postTitle}</h5>
         </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${view2.tagNo}</b></span>
-        </td>
-    </tr>
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;"> 게시판번호 </span></b></p>
-        </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${view2.boardNo}</b></span>
-        </td>
-    </tr>
-    -->
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;"> 제목 </span></b></p>
-        </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${view2.postTitle}</b></span>
-        </td>
-    </tr>
-    <tr>
-		<td width="100" height="200" valign="top">
-            <p align="right"><b><span style="font-size:9pt;"> 내용 </span></b></p>
-        </td>
-		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
-        <td width="450" height="200" valign="top" colspan="3">
-        <span style="font-size:9pt;"><b><pre>${view2.postContent}</pre></b></span></td>
-    </tr>
+	</tr>
+   
+	<tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">내용</h6>
+		</td>
+		<td valign="middle"><h6>${view2.postContent}</h6></td>
+	</tr>
+	
+  </tbody>
+
+
+
   
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
@@ -175,27 +167,6 @@ function likey(){
 <hr>
 <hr>
 
-<div>  
-<c:choose>
-	<c:when test = "${empty requestScope.replyList}">
-		<h5>댓글정보가 없습니다.</h5>
-	</c:when>
-	<c:otherwise>
-		<c:forEach items = "${requestScope.replyList}" var = "reply">
-			${reply.userId} | ${reply.pReplyDate}<p>
-			${reply.pReplyContent}<p>
-			<form action="${path}/front" method="post">
-				<input type=hidden name="postNo" value="${view2.postNo}">
-				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
-				<input type=hidden name="board" value="info">
-
-					<input type="submit"  value=삭제>
-					<input type=hidden name="key" value="postReply"> 
-					<input type=hidden name="methodName" value="deleteReply">			
-			</form>		
-			<form action="${path}/front" method="post">
-				<input type=hidden name="postNo" value="${view2.postNo}">
-				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
 
 
 <table align="center" cellpadding="10" cellspacing="2" width="90%">
