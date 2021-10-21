@@ -6,11 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 상세</title>
+<link rel="stylesheet" href="${path}/CSS/bootstrap.css">
 
-<style>
-
-
-</style>
 
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">

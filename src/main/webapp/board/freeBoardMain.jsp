@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
+
 <script type="text/javascript">
 
 
