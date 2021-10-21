@@ -8,6 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
 <title>회원가입</title>
 <style type="text/css">
+	input[type=submit]:hover{
+		background-color: #aaa;
+		color: #fff;
+		cursor: pointer;
+	}
 </style>
 <script src="../js/jquery-3.6.0.js"></script>
 
