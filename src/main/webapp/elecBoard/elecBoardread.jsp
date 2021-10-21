@@ -44,9 +44,9 @@
 <form name="writeForm" method="post" action="" 
   onSubmit='return checkValid(this)' enctype="multipart/form-data">
   
-<table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
+<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' bgcolor="#FDF5E6">
     <tr>
-        <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
+        <td width="1220" height="20" colspan="4" bgcolor="#5ABEF5">
             <p align="center"><font color="white" size="3"><b>
              게시물 상세보기</b></font></p>
         </td>

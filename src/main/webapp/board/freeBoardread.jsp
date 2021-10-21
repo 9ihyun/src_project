@@ -11,7 +11,7 @@
 
 <style type="text/css">
 
-.star_rating {font-size:0; letter-spacing:-4px;}
+/* .star_rating {font-size:0; letter-spacing:-4px;}
 .star_rating a {
     font-size:22px;
     letter-spacing:0;
@@ -23,7 +23,7 @@
 .star_rating a:first-child {margin-left:0;}
 .star_rating a.on {color:#FFF663;}
 
-
+ */
 </style>
 
 
@@ -90,10 +90,10 @@ function listReply(){
 </script>
 <body>
 
-<table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
+<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' bgcolor="#FDF5E6">
     <tr>
-        <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
-            <p align="center"><font color="white" size="3"><b>
+        <td width="1220" height="20" colspan="4" bgcolor="#2185C5">
+            <p align="center"><font color="white" size="4"><b>
              게시물 상세보기</b></font></p>
         </td>
     </tr>
@@ -175,16 +175,16 @@ function listReply(){
 	</c:otherwise>
 </c:choose>
 
-<div>  
+<!-- <div>  
 	<p class="star_rating" >
-    <a href="#" class="on">★</a> <!-- on 을 해두면 색이 노란색으로 나옴 -->
+    <a href="#" class="on">★</a> on 을 해두면 색이 노란색으로 나옴
     <a href="#" class="">★</a>
     
     <a href="#" class="">★</a>
     <a href="#">★</a>
     <a href="#">★</a>
 </p>
-	</div>
+	</div> -->
 
 <!-- 댓글 작성 -->
 <!-- 너비와 정렬방식 설정 -->

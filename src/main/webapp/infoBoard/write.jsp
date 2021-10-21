@@ -69,11 +69,11 @@ function checkValid(frm){
 	
    
    
-<table align="center" cellpadding="5" cellspacing="2" width="600" border="1" >
+<table align="center" cellpadding="5" cellspacing="2" width="600" border="1" bgcolor="#50B4F5">
 
     <tr>
-        <td width="1220" height="20" colspan="2" bgcolor="#00cc00">
-            <p align="center"><font color="white" size="3"><b> 게시글 등록 </b></font></p>
+        <td width="1220" height="20" colspan="2" bgcolor="#FAEBD7">
+            <p align="center"><font color="black" size="3"><b> 게시글 등록 </b></font></p>
         </td>
     </tr>
       </tr>
