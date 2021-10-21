@@ -182,7 +182,7 @@ img{width:200px; height:350px}
                         </select>
                     <label>검색어</label>
                    
-                        <input  type = "text" id = "searchByTitle" placeholder="전송전">
+                        <input  type = "text" id = "searchByTitle" placeholder="검색어를 입력하세요">
                         <input type="button" class="btn btn-primary" value = "검색" onclick="go()"><br>
                         
                           
@@ -259,76 +259,6 @@ img{width:200px; height:350px}
 	
 
 
-	<hr>
 	
-	   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
-  <p>
-
- 
- <!--  블럭당  -->
- <nav class="pagination-container">
-		<div class="pagination">
-		<c:set var="doneLoop" value="false"/>
-		
-		<c:set var="temp" value="${(pageNo-1) % p.blockcount}"/> <!-- (1-1)%2  =0  , (2-1)%2    1 , (3-1)%2  0 -->
-		<c:set var="startPage" value="${pageNo - temp}"/> <!--   1- 1 -->
-		
-	<br>
-	
-		  <!-- 
-     if( ( 시작페이지 - 한블록당뿌려질[]개수) > 0 ){ // if()
-	       [이전]출력한다.	
-     } 
-     ex) if( ( startPage -blockcount) > 0 ){
-
-          }
-		-->
-		
-		<!-- 
-		 시작페이지 구한다(몇번부터 출력할지를 정함 [번호] )
-           방법 => int temp=(현재페이지번호-1)% 한블록당 보여질[]개수;
-                   int startPage=현재페이지번호 -temp; => 시작번호[]
-             
-             
-					   int temp = (pageNo-1) % p.blockcount ;         //시작 페이지 구하기
-				      int startPage = pageNo - temp;
-		 -->
-		
-		  <c:if test="${(startPage-p.blockcount) > 0}"> <!-- (-2) > 0  -->
-		      <a class="pagination-newer" href="${path}/front?key=post&methodName=Allpost&pageNo=${startPage-1}">PREV</a>
-		  </c:if>
-		  
-		  
-		
-		<span class="pagination-inner"> 
-		  <c:forEach var='i' begin='${startPage}' end='${(startPage-1)+p.blockcount}'> 
-			  <c:if test="${(i-1)>=p.pageCnt}">
-			       <c:set var="doneLoop" value="true"/>
-			    </c:if> 
-			  <c:if test="${not doneLoop}" >
-			         <a class="${i==pageNo?'pagination-active':page}" href="${path}/front?key=post&methodName=Allpost&pageNo=${i}">${i}</a> 
-			  </c:if>
-		  
-		</c:forEach>
-		</span> 
-				<!-- 
-				[다음]
- 
-					  if( (시작페이지+한블록당뿌려질[]개수)<= 총페이지수){
-					      [다음]출력;
-					  }  
-					
-					  ex)if( (startPage+blockCount) <= pageCount){
-					
-					      }
-				 -->
-				 <c:if test="${(startPage+p.blockcount)<=p.pageCnt}">
-				     <a class="pagination-older" href="${path}/front?key=post&methodName=Allpost&pageNo=${startPage+p.blockcount}">NEXT</a>
-				 </c:if>
-				 
-			
-		
-		</div>
-	</nav> 
  </body>
  

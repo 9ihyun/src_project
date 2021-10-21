@@ -174,25 +174,25 @@ function goes(){
 	
 
 
-	
+	<!--
 	
 	   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
 	    
 	  
 	
 	 
-	 <!--  블럭당  -->
+	
 	 <nav class="pagination-container">
 			<div class="pagination">
 			<c:set var="doneLoop" value="false"/>
 			
-			<c:set var="temp" value="${(pageNo-1) % p.blockcount}"/> <!-- (1-1)%2  =0  , (2-1)%2    1 , (3-1)%2  0 -->
-			<c:set var="startPage" value="${pageNo - temp}"/> <!--   1- 1 -->
+			<c:set var="temp" value="${(pageNo-1) % p.blockcount}"/> 
+			<c:set var="startPage" value="${pageNo - temp}"/>
 			
 	<br>
 	
 		
-		  <c:if test="${(startPage-p.blockcount) > 0}"> <!-- (-2) > 0  -->
+		  <c:if test="${(startPage-p.blockcount) > 0}"> 
 		      <a class="pagination-newer" href="${path}/front?key=post&methodName=selectAllPost&pageNo=${startPage-1}">PREV</a>
 		  </c:if>
 		  													
@@ -209,17 +209,7 @@ function goes(){
 		  
 		</c:forEach>
 		</span> 
-				<!-- 
-				[다음]
- 
-					  if( (시작페이지+한블록당뿌려질[]개수)<= 총페이지수){
-					      [다음]출력;
-					  }  
-					
-					  ex)if( (startPage+blockCount) <= pageCount){
-					
-					      }
-				 -->
+				
 				 <c:if test="${(startPage+p.blockcount)<=p.pageCnt}">
 				     <a class="pagination-older" href="${path}/front?key=post&methodName=selectAllPost&pageNo=${startPage+p.blockcount}">NEXT</a>
 				 </c:if>
@@ -229,4 +219,4 @@ function goes(){
 		</div>
 		
 	</nav> 
- 
+ -->
