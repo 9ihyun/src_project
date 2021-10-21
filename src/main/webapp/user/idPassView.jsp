@@ -27,7 +27,7 @@
 </tr>
 </table>
 
-<a href="singin.jsp">로그인</a>
+<a href="${path}/user/singin.jsp">로그인</a>
 </div>
 
 </body>
