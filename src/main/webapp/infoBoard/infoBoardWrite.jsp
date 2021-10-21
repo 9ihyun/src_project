@@ -34,7 +34,7 @@ function goes(){
 
 </script>
 </head>
-<!--
+
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
 
@@ -119,11 +119,11 @@ table td {
 }
 img{width:200px; height:350px}
 </style>
--->
-<!-- 이 주석은 지워주세요~ -->
+
+
 
 <body>
-<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
+<table class="table">
 <caption></caption>
 	<colgroup>
 		<col width="15%"/>
@@ -140,7 +140,7 @@ img{width:200px; height:350px}
 				   <div align="right"> 
 				    <legend>검색 필드</legend>  
 				   <label>태그로 언어 찾기</label>
-                    <select name="tagNo" id="tagNo"class="btn btn-primary" >
+                    <select name="tagNo" id="tagNo"class="btn btn-outline-dark" >
 							<option value="none">==선택==</option>
 							<option value="1">C/C++</option>
 							<option value="2">C#</option>
@@ -172,7 +172,7 @@ img{width:200px; height:350px}
 							<option value="28">토이프로젝트</option>
 							<option value="29">기타</option>
 						</select>  
-						<input type="button" class="btn btn-primary" value = "찾기" onclick="goes()">
+						<input type="button" class="btn btn-outline-dark" value = "찾기" onclick="goes()">
                              
                    <td colspan="2">
 			<div align="left">
@@ -199,21 +199,25 @@ img{width:200px; height:350px}
 			
 			</form>	
 		</div>	
-		<h2 align="center">지식 정보 공유 게시판</h2>
-	<tr>
+		
+	<tr class="table-primary">
        
-        <td bgcolor="#1EAAAA">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">번호</span></b></font></p>
+        <td valign="middle">
+            <p align="center">
+            <font color="black"><h6>번호</h6></font></p>
         </td>
-        <td bgcolor="#1EAAAA">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">제목</span></b></font></p>
+        <td valign="middle">
+            <p align="center">
+            <font color="black"><h6>제목</h6></font></p>
         </td>
-        <td bgcolor="#1EAAAA">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">추천</span></b></font></p>
+        <td valign="middle">
+            <p align="center">
+            <font color="black"><h6>추천</h6></font></p>
         </td>
         
-        <td bgcolor="#1EAAAA">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">날짜</span></b></font></p>
+        <td valign="middle">
+            <p align="center">
+            <font color="black"><h6>날짜</h6></font></p>
     
     </tr>
   
@@ -232,24 +236,24 @@ img{width:200px; height:350px}
 		        
 		        <!-- 번호 -->
 		        <td bgcolor="" align="center">
-		            <span style="font-size:9pt;">${Post2.postNo}</span>
+		            <span style="font-size:11pt;">${Post2.postNo}</span>
 		        </td>
 		        
 		        <!-- 제목 -->
 		        <td bgcolor="" align="center">
 					<a href="${path}/front?key=post&methodName=postViewPost2&postNo=${Post2.postNo}"> 
-				  		<span style="font-size:9pt;">${Post2.postTitle}</span>
+				  		<span style="font-size:11pt;">${Post2.postTitle}</span>
 				  	</a>
 		        </td>
 		        
 		        <!-- 추천수 -->
 		        <td bgcolor="" align="center">
-					<span style="font-size:9pt;">${Post2.postUp}</span>
+					<span style="font-size:11pt;">${Post2.postUp}</span>
 		        </td>
 		        
 		        <!-- 날짜 -->
 		        <td bgcolor="" align="center">
-		            <span style="font-size:9pt;">${Post2.postDate}</span>
+		            <span style="font-size:11pt;">${Post2.postDate}</span>
 		        </td>
 		        
 		    </tr>
@@ -259,7 +263,7 @@ img{width:200px; height:350px}
 	</table>
 	<hr>
 	<div align=right>
-	<span style="font-size:9pt;">&lt;<a href="${path}/infoBoard/write.jsp">글쓰기</a>&gt;</span>
+	<span style="font-size:11pt;">&lt;<a href="${path}/infoBoard/write.jsp">글쓰기</a>&gt;</span>
 	</div>
 	
 
