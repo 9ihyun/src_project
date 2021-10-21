@@ -10,26 +10,26 @@ public interface SearchService {
 	/**
 	 * 제목으로 검색
 	 */
-	public List<Post> searchByTitle(String postTitle) throws SQLException;
+	public List<Post> searchByTitle(String postTitle, int boardNo) throws SQLException;
 	/**
 	 * id로 검색
 	 */
-	public List<Post> searchById(String userId) throws SQLException;
+	public List<Post> searchById(String userId, int boardNo) throws SQLException;
 
 	/**
 	 * 태그로 검색
 	 */
-	public List<Post> searchByTag(int tagNo) throws SQLException;
+	public List<Post> searchByTag(int tagNo, int boardNo) throws SQLException;
 
 	/**
 	 * 최근글 
 	 */
-	public List<Post> searchByRecent() throws SQLException;
+	public List<Post> searchByRecent(int boardNo) throws SQLException;
 
 	/**
 	 * 인기글
 	 */
-	public List<Post> searchByLikes() throws SQLException;
+	public List<Post> searchByLikes(int boardNo) throws SQLException;
 	/**
 	 * 지역으로 검색
 	 */
@@ -43,7 +43,7 @@ public interface SearchService {
 	/**
 	 * 내용 검색하기~
 	 */
-	public List<Post> searchByContent(String postContent) throws SQLException;
+	public List<Post> searchByContent(String postContent, int boardNo) throws SQLException;
 
 
 }

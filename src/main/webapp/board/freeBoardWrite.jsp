@@ -9,18 +9,20 @@
 	function go(){
 		var a = document.getElementById("searchs").value;
 		var b = document.getElementById("searchByTitle").value;
-		var c = a+b;
-		location.href = c;	
+		var c ="&boardNo=1&board=board/freeBoardWrite&postnum="
+		var d =a+b+c;
+		
+		location.href = d;	
 	}
 function goes(){
 		
 		
 		var d = document.getElementById("tagNo").value;
-		console.log(d);
-		var e= "/src_project/front?key=search&methodName=searchByTag&tagNo="
 		
+		var e= "/src_project/front?key=search&methodName=searchByTag&tagNo="
+		var f ="&boardNo=1&board=board/freeBoardWrite&postnum="
 	
-		var g = e+d;
+		var g = e+d+f;
 		location.href = g;	
 	}
 	
@@ -181,8 +183,8 @@ img{width:200px; height:350px}
                                     
                 </fieldset>        
 			
-				<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes'">인기글</button>
-		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent'">최근글</button>
+				<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=1&board=board/freeBoardWrite&postnum='">인기글</button>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=1&board=board/freeBoardWrite&postnum='">최근글</button>
 			</form>	
 		</div>	
 		

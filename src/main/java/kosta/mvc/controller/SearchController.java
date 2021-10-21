@@ -30,47 +30,67 @@ public class SearchController implements Controller{
 	}
 	
 	public ModelAndView searchByTitle(HttpServletRequest request, HttpServletResponse response)throws Exception {
-		String postTitle = request.getParameter("postTitle");
-		List<Post> postList = service.searchByTitle(postTitle);
-		System.out.println(postList);
-	
-		request.setAttribute("postList", postList);
+		String board = request.getParameter("board");
+		String postnum = request.getParameter("postnum");
 		
-	return new ModelAndView("board/freeBoardWrite.jsp");
+		String postTitle = request.getParameter("postTitle");
+		
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+	
+		 
+		List<Post> postList = service.searchByTitle(postTitle,boardNo);
+		
+	
+		request.setAttribute("postList"+postnum+"", postList);
+		
+		return new ModelAndView(board+".jsp");
 	
 	
 		
 		
 	}
 	public ModelAndView searchById(HttpServletRequest request, HttpServletResponse response)throws Exception {
+		String board = request.getParameter("board");
+		String postnum = request.getParameter("postnum");
 		String userId = request.getParameter("userId");;
-		List<Post> postList = service.searchById(userId);
-		request.setAttribute("postList", postList);
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		List<Post> postList = service.searchById(userId,boardNo);
 		
-		return new ModelAndView("board/freeBoardWrite.jsp");
+		request.setAttribute("postList"+postnum+"", postList);
+		
+		return new ModelAndView(board+".jsp");
 	}
 	public ModelAndView searchByTag(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		int tagNo = Integer.parseInt(request.getParameter("tagNo"));
-		List<Post> postList = service.searchByTag(tagNo);
-		request.setAttribute("postList", postList);
+		String postnum = request.getParameter("postnum");
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		String board = request.getParameter("board");
+		List<Post> postList = service.searchByTag(tagNo,boardNo);
+		request.setAttribute("postList"+postnum+"", postList);
 		
-		return new ModelAndView("board/freeBoardWrite.jsp");
+		return new ModelAndView(board+".jsp");
 	}
 	public ModelAndView searchByRecent(HttpServletRequest request, HttpServletResponse response)throws Exception {
-		List<Post> postList = service.searchByRecent();
-		System.out.println(postList.size());
-	
-		request.setAttribute("postList", postList);
+		String board = request.getParameter("board");
+		String postnum = request.getParameter("postnum");
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		List<Post> postList = service.searchByRecent(boardNo);
 		
-	return new ModelAndView("board/freeBoardWrite.jsp");
+	
+		request.setAttribute("postList"+postnum+"", postList);
+		
+		return new ModelAndView(board+".jsp");
 	}
 	public ModelAndView searchByLikes(HttpServletRequest request, HttpServletResponse response)throws Exception {
-		List<Post> postList = service.searchByLikes();
-		System.out.println(postList.size());
-	
-		request.setAttribute("postList", postList);
+		String board = request.getParameter("board");
+		String postnum = request.getParameter("postnum");
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		List<Post> postList = service.searchByLikes(boardNo);
 		
-	return new ModelAndView("board/freeBoardWrite.jsp");
+	
+		request.setAttribute("postList"+postnum+"", postList);
+		
+	return new ModelAndView(board+".jsp");
 //	int postUp = Integer.parseInt(request.getParameter("postUp"));
 //	List<Post> postList = service.searchByTag(postUp);
 //	return null;
@@ -119,7 +139,7 @@ public class SearchController implements Controller{
 		}
 		
 		List<Study> list = studyList;
-		System.out.println(list);
+	
 		
 		request.setAttribute("studyList", list);
 		
@@ -151,7 +171,7 @@ public class SearchController implements Controller{
 		}
 		
 		List<Study> list = studyList;
-		System.out.println(list);
+	
 		
 		request.setAttribute("studyList", list);
 		
@@ -183,7 +203,7 @@ public class SearchController implements Controller{
 		}
 		
 		List<Study> list = studyList;
-		System.out.println(list);
+		
 		
 		request.setAttribute("studyList", list);
 		

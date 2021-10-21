@@ -142,7 +142,7 @@ public class PostController implements Controller {
 	public ModelAndView postSelectAllPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		List<Post> postList = service.selectAllPost();
-			System.out.println(postList.size());
+			
 		
 			request.setAttribute("postList", postList);
 			
@@ -153,7 +153,7 @@ public class PostController implements Controller {
 	public ModelAndView Allpost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		List<Post> postList2 = service.AllPost();
-			System.out.println(postList2.size());
+			
 	
 			request.setAttribute("postList2", postList2);
 			

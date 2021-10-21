@@ -2,7 +2,30 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	function go(){
+		var a = document.getElementById("searchs").value;
+		var b = document.getElementById("searchByTitle").value;
+		var c ="&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2"
+		var d =a+b+c;
+		
+		location.href = d;	
+	}
+function goes(){
+		
+		
+		var d = document.getElementById("tagNo").value;
+		
+		var e= "/src_project/front?key=search&methodName=searchByTag&tagNo="
+		var f ="&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2"
+	
+		var g = e+d+f;
+		location.href = g;	
+	}
+	
 
+</script>
 <link rel="stylesheet" href="${path}/css/style.css">
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
@@ -103,6 +126,66 @@ img{width:200px; height:350px}
 		<col width="7%"/>
 		<col width="7%"/>
 	</colgroup>
+	<div>
+			<form>
+				<fieldset>
+				   <div align="right"> 
+				    <legend>글 검색 필드</legend>  
+				   <label>태그로 언어 찾기</label>
+                    <select name="tagNo" id="tagNo">
+							<option value="none">==선택==</option>
+							<option value="1">C/C++</option>
+							<option value="2">C#</option>
+							<option value="3">Python</option>
+							<option value="4">Go</option>
+							<option value="5">Swift</option>
+							<option value="6">Perl</option>
+							<option value="7">Java</option>
+							<option value="8">Kotlin</option>
+							<option value="9">JavaScript</option>
+							<option value="10">Vue.js</option>
+							<option value="11">React</option>
+							<option value="12">node.js</option>
+							<option value="13">Typescript</option>
+							<option value="14">Ajax</option>
+							<option value="15">JQuery</option>
+							<option value="16">HTML</option>
+							<option value="17">CSS</option>
+							<option value="18">spring</option>
+							<option value="19">JPA</option>
+							<option value="20">Ruby</option>
+							<option value="21">Mysql</option>
+							<option value="22">ORACLE</option>
+							<option value="23">git</option>
+							<option value="24">Linux</option>
+							<option value="25">Ubuntu</option>
+							<option value="26">프론트엔드</option>
+							<option value="27">백엔드</option>
+							<option value="28">토이프로젝트</option>
+							<option value="29">기타</option>
+						</select>  
+						<input type="button" value = "찾기" onclick="goes()">
+                             
+                    <label>검색분류</label>
+                        <select name = "search" id=searchs>
+                            <option id=title value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
+                            <option id=user value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
+                          
+                        </select>
+                    <label>검색어</label>
+                   
+                        <input type = "text" id = "searchByTitle" placeholder="전송전">
+                        <input type="button" value = "검색" onclick="go()"><br>
+                        
+                          
+                        
+                                   																												 <!-- infoBoard/infoBoardWrite -->
+                </fieldset>        
+			
+				<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">인기글</button>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">최근글</button>
+			</form>	
+		</div>	
 	<tr>
        
         <td bgcolor="#00cc00">
