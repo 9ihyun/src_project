@@ -5,8 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap.css">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style type="text/css">
+  *{font-family: 'Nanum Gothic', sans-serif;}
+  input[type=password]{width:200px;}
+  input[type=submit]{margin-top: 15px;}
+  th{padding-left: 15px; border: none;}
+  p{margin-left: 15px; margin-bottom: 0px;}
+  input{margin-left: 15px;}
   span{
     color: red;
   }
@@ -70,15 +77,31 @@
 <body>
 <form action="${path }/front">
 <input type="hidden" name = "key" value = "user">
-<input type = "hidden" name = "methodName" value = "pwChange"> 
-현재 비밀번호 입력<br>
-<input type="password" id="currentPw" name="currentPw"><br>
-변경할 비밀번호 입력<br>
-<input type="password" id="newPw" name="newPw"><br>
-변경할 비밀번호 확인<br>
-<input type="password" id="rePass"><br>
-<span name = "check"></span><br>
-<input type="submit" value="변경하기">
+<input type = "hidden" name = "methodName" value = "pwChange">		
+<table class="table talble-hover">
+	<tr>
+		<th><p class="text-primary">현재 비밀번호 입력</p></th>
+	</tr>
+	<tr>
+		<th><input type="password" id="currentPw" name="currentPw" class="form-control"></th>
+	</tr>
+	<tr>
+		<th><p class="text-primary">변경할 비밀번호 입력</p></th>
+	</tr>
+	<tr>
+		<th><input type="password" id="newPw" name="newPw" class="form-control"></th>		
+	</tr>
+	<tr>
+		<th><p class="text-primary">변경할 비밀번호 확인</p></th>
+	</tr>
+	<tr>
+		<th><input type="password" id="rePass" class="form-control"></th>
+		<th><span name = "check"></span></th>
+	</tr>
+	<tr>
+		<th><input type="submit" value="변경하기" class="btn btn-secondary"></th>
+	</tr>
+</table>
 </form>
 </body>
 </html>

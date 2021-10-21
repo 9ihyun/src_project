@@ -6,9 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap.css">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style type="text/css">
-
+	*{font-family: 'Nanum Gothic', sans-serif;}
+	th{padding-left: 15px; border: none;}
+	#withdraw{margin-top: 15px;}
+	p{margin-bottom: 0px;}
+	
 </style>
 <script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -23,30 +28,32 @@
 </head>
 <body>
 
-<table>
+<table class="table talble-hover">
   <tr>
-    <th>아이디</th>
-    <th>별점</th>
+    <th><p class="text-primary">아이디</p></th>
+    <th><p class="text-primary">별점</p></th>
   </tr>
   <tr>
-    <th><input type="text" readonly="readonly" id="id" value="${requestScope.user.userId }"></th>
-    <th><input type="text" readonly="readonly" id="star" value="${requestScope.user.starPoint }"></th>
+    <th><input type="text" readonly="readonly" id="id" value="${requestScope.user.userId }" class="form-control"></th>
+    <th><input type="text" readonly="readonly" id="star" value="${requestScope.user.starPoint }" class="form-control"></th>
   </tr>
   <tr>
-    <th>닉네임</th>
-    <th>생년월일</th>
+    <th><p class="text-primary">닉네임</p></th>
+    <th><p class="text-primary">생년월일</p></th>
   </tr>
   <tr>
-    <th><input type="text" readonly="readonly" id="nickname" value="${requestScope.user.nickname }"></th>
-    <th><input type="text" readonly="readonly" id="birth" value="${requestScope.user.birth }"></th>
+    <th><input type="text" readonly="readonly" id="nickname" value="${requestScope.user.nickname }" class="form-control"></th>
+    <th><input type="text" readonly="readonly" id="birth" value="${requestScope.user.birth }" class="form-control"></th>
   </tr>
   <tr>
-    <th>가입날짜</th>
+    <th><p class="text-primary">가입날짜</p></th>
   </tr>
   <tr>
-    <th><input type="text" readonly="readonly" id="regdate" value="${requestScope.user.regdate }"></th>
+    <th><input type="text" readonly="readonly" id="regdate" value="${requestScope.user.regdate }" class="form-control"></th>
+  </tr>
+  <tr>
+  	<th><input type="button" id="withdraw" value="탈퇴하기" class="btn btn-secondary"></th>
   </tr>
 </table>
-<input type="button" id="withdraw" value="탈퇴하기">
 </body>
 </html>

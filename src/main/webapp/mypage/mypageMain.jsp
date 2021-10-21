@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>mypage</title>
-<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
 <style type="text/css">
 </style>
 <script type="text/javascript">
