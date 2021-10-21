@@ -52,7 +52,7 @@ function goes(){
 				<fieldset>
 				   <div align="right"> 
 				    <legend >글 검색 필드</legend>  
-				   <label>태그로 언어 찾기</label>
+				<!--    <label>태그로 언어 찾기</label>
                     <select name="tagNo" id="tagNo" style=" height: 35px;"class="btn btn-primary">
 							<option value="none">==선택==</option>
 							<option value="1">C/C++</option>
@@ -86,7 +86,7 @@ function goes(){
 							<option value="29">기타</option>
 						</select>  
 						<input type="button" style=" height: 33px;" class="btn btn-primary" value = "찾기" onclick="goes()"> <br>
-                             
+                             --> 
                     <label>검색분류</label>
                         <select name = "search" id=searchs>
                             <option id=title class="btn btn-primary" value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
