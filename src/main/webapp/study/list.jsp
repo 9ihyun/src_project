@@ -121,7 +121,6 @@ table td {
 img{width:200px; height:350px}
 </style>
 
-<div>
 	<form>
 		<fieldset>
 		   <div align="right"> 
@@ -161,8 +160,8 @@ img{width:200px; height:350px}
 				<button type="button" value = "찾기" class="btn btn-outline-dark" onclick="goes()">찾기</button>
               </fieldset>        
 	</form>	
-</div>	
-<table class="table table-hover">
+
+<table class="table">
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
@@ -191,28 +190,28 @@ img{width:200px; height:350px}
 		</td>
 	</tr>
 	 <tr class="table-primary">
-       <td>
+       <td valign="middle">
             <p align="center">
-            <font color="black"><b><span style="font-size:10pt;">모집여부</span></b></font></p>
+            <font color="black"><h6>모집여부</h6></font></p>
         </td>
-        <td >
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">제목</span></b></font></p>
+        <td  valign="middle">
+            <p align="center"><font color="black"><h6>제목</h6></font></p>
         </td>
-        <td>
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">정원</span></b></font></p>
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>정원</h6></font></p>
         </td>
-        <td>
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">마감일</span></b></font></p>
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>모집마감일</h6></font></p>
         </td>
         
-        <td>
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">작성자</span></b></font></p>
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>작성자</h6></font></p>
         </td>
-        <td>
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">찜</span></b></font></p>
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>찜</h6></font></p>
         </td>
-        <td>
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">지역</span></b></font></p>
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>지역</h6></font></p>
         </td>
     </tr>
 
@@ -229,32 +228,32 @@ img{width:200px; height:350px}
 	<c:forEach items="${requestScope.studyList}" var="study">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		        <td bgcolor=""  valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            ${study.stateName}</span></p>
 		        </td>
-		        <td bgcolor="">
-					<p><span style="font-size:9pt;">
+		        <td bgcolor=""  valign="middle">
+					<p><span style="font-size:11pt;">
 					<a href="${path}/front?key=study&methodName=viewStudy&studyNo=${study.studyNo}">
 					  ${study.studyTitle}
 					</a>
 					</span></p>
 		        </td>
 		        
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		        <td bgcolor=""  valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            ${study.studyMaxnum}"</span></p>
 		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		        <td  valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            ${study.studyDuedate}</span></p>
 		        </td>
 		         
-		         <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		         <td valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            ${study.userId}</span></p>
 		        </td>
-		         <td bgcolor="">
+		         <td valign="middle">
 		            <p align="center">
 		            <form action="${path}/front" method="post">
 						<input type=hidden name="studyNo" value="${study.studyNo}">
@@ -265,8 +264,8 @@ img{width:200px; height:350px}
 					</form>	
 					</p>
 		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		        <td valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            ${study.studyLocationSi} ${study.studyLocationGu}</span></p>
 		        </td>
 		        
