@@ -99,7 +99,7 @@
       </td>
     </tr>
     <tr class="table-active">
-		<td width="50%" height="80" valign="middle">
+		<td width="30%" height="80" valign="middle">
 				<b><h5 align="center" style="bold">제목</h5></b>
 		</td>
 		<td valign="middle"><h5>${study.studyTitle}</h5>

@@ -126,53 +126,53 @@ img{width:200px; height:350px}
 <table class="table">
 <caption></caption>
 	<colgroup>
-		<col width="10%"/>
-		<col width="20%"/>
+		<col width="15%"/>
 		<col width="40%"/>
 		<col width="10%"/>
-		<col width="20%"/>
+		<col width="25%"/>
 	</colgroup>
-	<div >
-			<form>
-				<fieldset>
-				   <div align="right"> 
-				    <legend>검색 필드</legend>  
-				   <label>태그로 언어 찾기</label>
-                    <select name="tagNo" id="tagNo"class="btn btn-outline-dark" >
-							<option value="none">==선택==</option>
-							<option value="1">C/C++</option>
-							<option value="2">C#</option>
-							<option value="3">Python</option>
-							<option value="4">Go</option>
-							<option value="5">Swift</option>
-							<option value="6">Perl</option>
-							<option value="7">Java</option>
-							<option value="8">Kotlin</option>
-							<option value="9">JavaScript</option>
-							<option value="10">Vue.js</option>
-							<option value="11">React</option>
-							<option value="12">node.js</option>
-							<option value="13">Typescript</option>
-							<option value="14">Ajax</option>
-							<option value="15">JQuery</option>
-							<option value="16">HTML</option>
-							<option value="17">CSS</option>
-							<option value="18">spring</option>
-							<option value="19">JPA</option>
-							<option value="20">Ruby</option>
-							<option value="21">Mysql</option>
-							<option value="22">ORACLE</option>
-							<option value="23">git</option>
-							<option value="24">Linux</option>
-							<option value="25">Ubuntu</option>
-							<option value="26">프론트엔드</option>
-							<option value="27">백엔드</option>
-							<option value="28">토이프로젝트</option>
-							<option value="29">기타</option>
-						</select>  
-						<input type="button" class="btn btn-outline-dark" value = "찾기" onclick="goes()">
-         <tr>   
-                   <td colspan="2">
+	<tr>
+		<td colspan="4" align="right" valign="bottom">
+			<div align="right"> 
+		   		<label>태그로 언어 찾기</label>
+                  <select name="tagNo" id="tagNo">
+					<option value="none">==선택==</option>
+					<option value="1">C/C++</option>
+					<option value="2">C#</option>
+					<option value="3">Python</option>
+					<option value="4">Go</option>
+					<option value="5">Swift</option>
+					<option value="6">Perl</option>
+					<option value="7">Java</option>
+					<option value="8">Kotlin</option>
+					<option value="9">JavaScript</option>
+					<option value="10">Vue.js</option>
+					<option value="11">React</option>
+					<option value="12">node.js</option>
+					<option value="13">Typescript</option>
+					<option value="14">Ajax</option>
+					<option value="15">JQuery</option>
+					<option value="16">HTML</option>
+					<option value="17">CSS</option>
+					<option value="18">spring</option>
+					<option value="19">JPA</option>
+					<option value="20">Ruby</option>
+					<option value="21">Mysql</option>
+					<option value="22">ORACLE</option>
+					<option value="23">git</option>
+					<option value="24">Linux</option>
+					<option value="25">Ubuntu</option>
+					<option value="26">프론트엔드</option>
+					<option value="27">백엔드</option>
+					<option value="28">토이프로젝트</option>
+					<option value="29">기타</option>
+				</select>  
+				<input type="button" class="btn btn-primary btn-sm" value = "찾기" onclick="goes()">
+			</div>
+          </td>
+     </tr>  
+     <tr>
+    <td colspan="2">
 			<div align="left">
 			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">인기글</button>
 			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">최근글</button>
@@ -189,15 +189,7 @@ img{width:200px; height:350px}
            		 <button type="button" value = "검색" class="btn btn-primary btn-sm" onclick="go()">검색</button>
 			</div>
 		</td>
-	</tr> 
-                          
-                        
-                                   																												 <!-- infoBoard/infoBoardWrite -->
-                </fieldset>        
-			
-			</form>	
-		</div>	
-		
+		</tr>
 	<tr class="table-primary">
        
         <td valign="middle">

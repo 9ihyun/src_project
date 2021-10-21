@@ -128,13 +128,13 @@ function likey(){
       </td>
     </tr>
     <tr class="table-active">
-		<td width="50%" height="80" valign="middle">
+		<td width="30%" height="50" valign="middle">
 				<b><h5 align="center" style="bold">제목</h5></b>
 		</td>
 		<td valign="middle"><h5>${view2.postTitle}</h5>
         </td>
 	</tr>
-   	<tr>
+   <tr>
 		<td width="150" height="80" valign="middle">
 				<h6 align="center">작성자</h6>
 		</td>
@@ -146,17 +146,17 @@ function likey(){
 		</td>
 		<td valign="middle"><h6>${view2.postContent}</h6></td>
 	</tr>
-	
-  </tbody>
-
-
-
-  
-    <tr>
+	<tr>
         <td height="20" colspan="4" align="center" valign="middle">
-        			 <c:if test="${sessionScope.sessionID != null}">
-        	<c:if test="${sessionScope.sessionID != post2.userId}">
-			
+        	<c:if test="${sessionScope.userId != null}">
+        	<c:if test="${sessionScope.userId != post2.userId}">
+			  <input type = "hidden" id = "Likes" value="${view2.postUp}">
+			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
+			  <div align="right">
+				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=Allpost'">목록으로 돌아가기</button>
+				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}'">수정</button>
+				<button type="button" class="btn btn-secondary" onclick="likey()">게시물 추천</button>
+			  </div>
 			</c:if>
 			</c:if>
 			<input type = "hidden" id = "Likes" value="${view2.postUp}">
@@ -170,9 +170,9 @@ function likey(){
 			
 		</td>
     </tr>
+    </tbody>
 </table>
 
-<hr>
 <hr>
 
 

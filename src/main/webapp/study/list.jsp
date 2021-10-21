@@ -168,6 +168,7 @@ img{width:200px; height:350px}
 					<option value="29">기타</option>
 				</select>  
 				<button type="button" value = "찾기" class="btn btn-primary btn-sm" onclick="goes()">찾기</button>
+			</div>
 		</td>
 	</tr>
 	<tr>

@@ -92,16 +92,13 @@ img{width:200px; height:350px}
 
 
 
-<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
+<table class="table">
 <caption><h2 align="center">알쓸신술</h2></caption>
 	<colgroup>
 		<col width="15%"/>
-		<col width="30%"/>
-		<col width="16%"/>
-		<col width="16%"/>
-		<col width="7%"/>
-		<col width="7%"/>
-		<col width="7%"/>
+		<col width="40%"/>
+		<col width="10%"/>
+		<col width="25%"/>
 	</colgroup>
 	<tr>
        

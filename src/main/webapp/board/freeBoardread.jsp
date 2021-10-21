@@ -152,7 +152,7 @@ function likey(){
     </tr>
 </table>
 <hr>
-<h6>댓글</h6><br>
+<h5>댓글</h5><br>
 
 
 <table align="center" cellpadding="10" cellspacing="2" width="90%">
