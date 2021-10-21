@@ -13,6 +13,12 @@
   img{
     width: 10px; height: 10px;
   }
+  	table td {
+	text-align: center;
+	color: black;
+	font-weight: none;
+	font-family: 'Nanum Gothic', sans-serif;
+}
 </style>
 <script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -64,52 +70,71 @@
 <% int tr = 2; %>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a>
+    <a class="btn btn-outline-primary" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a>
+    <a class="btn btn-outline-primary" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a>
+    <a class="btn btn-outline-primary" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a>
+    <a class="btn btn-outline-primary" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a>
   </li>
 </ul>
 
-<table id="join" class="table table-hover">
-  <tr class="table-active">
-    <th>모집여부</th>
-    <th>마감일</th>
-    <th>제목</th>
-    <th>정원</th>
-    <th>지역</th>
-    <th>스터디룸/평가</th>
+<table id="join" class="table">
+  <tr class="table-primary">
+    <td valign="middle">
+            <p align="center">
+            <font color="black"><h6>모집여부</h6></font></p>
+        </td>
+    <td valign="middle">
+            <p align="center"><font color="black"><h6>모집마감일</h6></font></p>
+        </td>
+        
+   <td  valign="middle">
+            <p align="center"><font color="black"><h6>제목</h6></font></p>
+        </td>
+        
+    <td valign="middle">
+            <p align="center"><font color="black"><h6>정원</h6></font></p>
+        </td>
+        
+    <td valign="middle">
+            <p align="center"><font color="black"><h6>지역</h6></font></p>
+        </td>
+        
+   <td valign="middle">
+            <p align="center"><font color="black"><h6>스터디룸/평가</h6></font></p>
+        </td>
+
   </tr>
   <c:choose>
     <c:when test="${empty requestScope.joinList}">
 	   <tr>
         <th colspan="5">
-            <p align="center"><b><span style="font-size:9pt;" class="table-light">등록된 게시글이 없습니다.</span></b></p>
+            <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
         </th>
     </tr>
     </c:when>
     <c:otherwise>
 	<c:forEach items="${requestScope.joinList}" var="Study">
-		    <tr class="table-success">
-		        <th bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		    <tr onmouseover="this.style.background='#eaeaea'"
+		        onmouseout="this.style.background='white'">
+		        <th bgcolor="" valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            <c:if test="${Study.stateNo eq 1}">모집중</c:if>
 		            <c:if test="${Study.stateNo eq 2}">스터디진행중</c:if>
 		            <c:if test="${Study.stateNo eq 3}">스터디완료</c:if></span></p>
 		        </th>
-		        <th bgcolor="">
-					<p><span style="font-size:9pt;">
+		        <th bgcolor="" valign="middle">
+					<p><span style="font-size:11pt;">
 					  ${Study.studyDuedate}</span></p>
 		        </th>
 		        
-		        <th bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		        <th bgcolor="" valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            ${Study.studyTitle}
 		            <c:if test="${Study.stateNo eq 3}">
 		            <ul style="display:none">
@@ -125,17 +150,17 @@
 	                      <input type="button" value="별점주기" id="${user.userId }" class="btn btn-warning"></li>
 	                </c:forEach></ul></c:if></span></p>
 		        </th>
-		        <th bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		        <th bgcolor="" valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            ${Study.studyCurrNo}/${Study.studyMaxnum }</span></p>
 		        </th>
 		         
-		         <th bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		         <th bgcolor="" valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            ${Study.studyLocationSi}${Study.studyLocationGu}</span></p>
 		        </th>
-		         <th bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
+		         <th bgcolor="" valign="middle">
+		            <p align="center"><span style="font-size:11pt;">
 		            <c:if test="${Study.stateNo eq 2}"><a href="${path}/front?key=myStudy&methodName=viewStudyRoomChat&studyNo=${Study.studyNo}&studyTitle=${Study.studyTitle}" id="<%= tr++%>" class="btn btn-danger">스터디룸</a></c:if>
 		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id="<%= tr++%>" class="btn btn-warning"></c:if>
 		            </span></p>
