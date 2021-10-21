@@ -78,7 +78,7 @@
 	        $('div.chat:not(.format) ul').append(chatLi);
 	 
 	        // 스크롤바 아래 고정
-	        $("div.chat").scrollTop($("div.chat").prop("scrollHeight"));
+	        //$("div.chat").scrollTop($("div.chat").prop("scrollHeight"));
 	    }
 	 
 	    // 메세지 전송
@@ -89,6 +89,8 @@
 	        };
 	 
 	        resive(data);
+	        
+	        $("div.chat").scrollTop($("div.chat").prop("scrollHeight"));
 	    }
 	 
 	    // 메세지 입력박스 내용 지우기
@@ -135,6 +137,11 @@
         });
       </script>
     </c:forEach>
+    <script type="text/javascript">
+      $(function(){
+    	  $("div.chat").scrollTop($("div.chat").prop("scrollHeight"));
+      });
+    </script>
     <div class="chat">
         <ul>
         </ul>
