@@ -151,13 +151,13 @@ function likey(){
 
 <div>  
 <c:choose>
-	<c:when test = "${empty requestScope.postReply}">
+	<c:when test = "${empty requestScope.replyList}">
 		<h5>댓글정보가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
-		<c:forEach items = "${postReply}" var = "reply">
-			${reply.userId} | ${reply.sReplyDate}<p>
-			${reply.sReplyContent}<p>
+		<c:forEach items = "${requestScope.replyList}" var = "reply">
+			${reply.userId} | ${reply.pReplyDate}<p>
+			${reply.pReplyContent}<p>
 			<form action="${path}/front" method="post">
 				<input type=hidden name="studyNo" value="${view.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
