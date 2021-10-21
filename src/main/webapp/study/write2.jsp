@@ -216,21 +216,26 @@
 	<input type="hidden" name="methodName" value = "insert" />  
 
  -->
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
+<table class="table" align="center" cellpadding="10" cellspacing="2" width="90%">
 
+	<thead>
+	    <tr class="table-default">
+	      <td colspan="4">
+	      	<h4>스터디 등록</h4>
+	      </td>
+	    </tr>
+    </thead>
   <tbody>
-    <tr class="table-primary">
-      <th scope="row" height="80">스터디 등록</th>
-      <td></td>
-      <td></td>
-      <td></td>
+     <tr>
+    	<td colspan="4">
+      	<h4></h4>
+      </td>
     </tr>
-    <tr></tr>
     <tr>
-		<td scope="table-primary" width="400" height="80">
+		<td scope="table-primary" width="400" height="80" valign="middle">
 				<h6 align="center">태그번호</h6>
 		</td>
-		<td scope="table-primary" width="450" height="80">
+		<td scope="table-primary" width="450" height="80" valign="middle">
 				<select name="tagNo" id="tagNo">
 					<option value="none">스터디 항목을 선택하세요</option>
 					<option value="1">C/C++</option>
@@ -266,10 +271,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">스터디 상태</h6>
 		</td>
-		<td width="450" height="20">
+		<td width="450" height="20" valign="middle">
 				<select name="stateNo" id="stateNo">
 					<option value="1" selected>모집중</option>
 					<option value="2">진행중</option>
@@ -278,10 +283,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">스터디 요일</h6>
 		</td>
-		<td width="450" height="20">
+		<td width="450" height="20" valign="middle">
 			<select name="dayNo" id="dayNo">
 				<option value="none">=== 선택 ===</option>
 				<option value="1">요일 무관</option>
@@ -291,54 +296,57 @@
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">스터디 정원</h6>
 		</td>
-		<td width="450" height="20">
+		<td width="450" height="20" valign="middle">
   			<input type="text" class="form-control" placeholder="스터디 정원을 입력하세요" name="studyMaxnum">
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">스터디 위치</h6>
 		</td>
-		<td width="450" height="20">
+		<td width="450" height="20" valign="middle">
 				<select name="addressRegion" ></select> 
 				<select name="studyLocationSi" id="studyLocationSi"></select>
 				<select name="studyLocationGu" id="studyLocationGu"></select>
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">모집 마감일</h6>
 		</td>
-		<td width="450" height="40">
+		<td width="450" height="40" valign="middle">
 		  	<input type="text" class="form-control" placeholder="모집마감일자를 입력하세요" name="studyDuedate">
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">제목</h6>
 		</td>
-		<td width="450" height="20">
+		<td width="450" height="20" valign="middle">
 			<input type="text" class="form-control" placeholder="제목을 입력하세요" name="studyTitle">
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">내용</h6>
 		</td>
-		<td width="450" height="20">
+		<td width="450" height="20" valign="middle">
 		      <textarea class="form-control" name="studyContent" rows="3"></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
 		<td>
-			<button type="submit" class="btn btn-outline-primary">등록하기</button>
+		<div align="left">
 			<button type="submit" class="btn btn-outline-primary" onclick="cancel();">취소하기</button>
+			</div>
+		</td>
+		<td>
+		<div align="right">
+			<button type="submit" class="btn btn-outline-primary">등록하기</button>
+			</div>
 		</td>
 	</tr>
   </tbody>
