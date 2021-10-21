@@ -53,8 +53,10 @@
      a {
         text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
         color: #737373;
-        font-size: 15px;
-        text-decoration: none
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
     }
     a:hover{
     	font-size: 18px;
@@ -65,13 +67,49 @@
             border-radius: 0px;
         }
     }
+    
+    table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-left: 3px solid #369;
+  margin : 20px 10px;
+   margin-left:auto; 
+    margin-right:auto;
+}
+table th {
+    width: 147px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #66A399;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+table td {
+ width: 349px;
+  padding: 10px;
+  vertical-align: top;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+   font-weight: bold;
+   font-size: 15px;
+  color: black;
+}
+
+p{
+    	font-size: 15px;
+    	color: black;
+    	font-weight: bold;
+    }
 </style>
 </head>
 <body>
 	<div class="main">
 	<p class="title" align="center">${requestScope.nickname}님 가입을 환영합니다.</p>
 	<p align="center">내 정보 확인하기</p>
-	<table align="center" cellpadding="5" cellspacing="2" width="300" border='1'>
+	<table cellpadding="5" cellspacing="2" width="300" border='1'>
 	<tr>
 		<td width="40%">아이디</td>
 		<td width="60%">${requestScope.id}</td>

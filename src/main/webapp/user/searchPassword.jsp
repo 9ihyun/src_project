@@ -164,6 +164,12 @@
         color: #737373;
         text-decoration: none
     }
+    
+    p{
+    	font-size: 15px;
+    	color: black;
+    	font-weight: bold;
+    }
 </style>
 <script type="text/javascript">
 
