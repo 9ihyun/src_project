@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../CSS/joinViewStyle.css">
+<link rel="stylesheet" href="${path}/CSS/joinViewStyle.css">
  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <title>Insert title here</title>
