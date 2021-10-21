@@ -4,7 +4,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 
 <HEAD>
-<link rel="stylesheet" href="css/style.css">
+<!--link rel="stylesheet" href="css/style.css"-->
+
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+crossorigin="anonymous"> 
+
+  <script src="../ajaxBasic.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+crossorigin="anonymous"></script> 
 
 <script type="text/javascript" src="../js/jquery-3.6.0.js"></script> 
 
@@ -49,148 +59,166 @@
 
 <body>
 <form>
-<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' >
-    <tr>
-        <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
-            <p align="center"><font color="white" size="3"><b>
-             게시물 자세히보기</b></font></p>
-        </td>
-    </tr>
-    <tr>
-        <td width="100" height="20" >
-            <p align="right"><b><span style="font-size:9pt;">모집여부</span></b></p>
-        </td>
-        <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${study.stateName}</b></span>
-        </td>
-        <td width="100" height="20" >
-            <p align="right"><b><span style="font-size:9pt;">스터디 항목</span></b></p>
-        </td>
-        <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${study.tagName}</b></span>
-        </td>
-    </tr>
-    <tr>
-        <td width="100" height="20" >
-            <p align="right"><b><span style="font-size:9pt;">작성자 아이디</span></b></p>
-        </td>
-        <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${study.userId}</b></span>
-        </td>
-        <td width="100" height="20" >
-            <p align="right"><b><span style="font-size:9pt;">모집 정원</span></b></p>
-        </td>
-        <td width="200" height="20">
-        	<span style="font-size:9pt;"><b>${study.studyMaxnum}</b></span>
-        </td>
-    </tr>
-    <tr>
-        <td width="100" height="20" >
-            <p align="right"><b><span style="font-size:9pt;">마감일</span></b></p>
-        </td>
-        <td width="100" height="20">
-        	<span style="font-size:9pt;"><b>${study.studyDuedate}</b></span>
-        </td>
-        <td width="100" height="20" >
-			<p align="right"><b><span style="font-size:9pt;">스터디 요일</span></b></p>
-		</td>
-        <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${study.dayName}</b></p>
-		</td>
-    </tr>
-    <tr>
-        <td width="100" height="20" >
-            <p align="right"><b><span style="font-size:9pt;">지역(시)</span></b></p>
-        </td>
-        <td width="100" height="20">
-        	<span style="font-size:9pt;"><b>${study.studyLocationSi}</b></span>
-        </td>
-        <td width="100" height="20" >
-			<p align="right"><b><span style="font-size:9pt;">지역(구)</span></b></p>
-		</td>
-        <td width="100" height="20">
-			<p><b><span style="font-size:9pt;"></span>${study.studyLocationGu}</b></p>
-		</td>
-    </tr>
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
-        </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${study.studyTitle}</b></span>
-        </td>
-    </tr>
-    <tr>
-		<td width="100" height="200" valign="top">
-            <p align="right"><b><span style="font-size:9pt;">설명</span></b></p>
-        </td>
-		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
-        <td width="450" height="200" valign="top" colspan="3">
-        <span style="font-size:9pt;"><b><pre>${study.studyContent}</pre></b></span></td>
-    </tr>
-    
-    <tr>
-        <td height="20" colspan="4" align="center" valign="middle">
-			<a href="${path}/front?key=study&methodName=selectAllStudy" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			 <c:if test="${sessionScope.user.userId != null}">
-        	<c:if test="${sessionScope.user.userId == study.userId}">
-			<a href="${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}" >수정</a>
-			<a href="${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}" >삭제</a>
-			</c:if>
-			</c:if>
-			
-		</td>
-    </tr>
-</table>
-</form>
-<form action="${path}/front" method="post">
-	<input type=hidden name="studyNo" value="${study.studyNo}">
-		<input type="submit"  value=찜하기>
-		<input type=hidden name="key" value="myStudy"> 
-		<input type=hidden name="methodName" value="putWishStudy">			
-</form>	
-<form action="${path}/front" method="post">
-	<input type=hidden name="studyNo" value="${study.studyNo}">
-		<input type="submit"  value=신청하기>
-		<input type=hidden name="key" value="myStudy"> 
-		<input type=hidden name="methodName" value="putSignStudy">			
-</form>	
-<br>
-<br>
-<h3>댓글 정보</h3>
-<hr>
 
-<div>  
-<c:choose>
-	<c:when test = "${empty requestScope.StudyReply}">
-		<h5>댓글정보가 없습니다.</h5>
-	</c:when>
-	<c:otherwise>
-		<c:forEach items = "${StudyReply}" var = "reply">
-			${reply.userId} | ${reply.sReplyDate}<p>
-			${reply.sReplyContent}<p>
+<table align="center" cellpadding="10" cellspacing="2" width="90%">
+
+  <tbody>
+    <tr class="table-primary">
+      <th scope="row" height="80">스터디 상세보기</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr></tr>
+    <tr>
+		<td width="150" height="80">
+				<h6 align="center">제목</h6>
+		</td>
+		<td><h6>${study.studyTitle}</h6>
+        </td>
+	</tr>
+    <tr>
+		<td scope="table-primary" width="400" height="80">
+				<h6 align="center">스터디 모집여부</h6>
+		</td>
+		<td><h6>${study.stateName}</h6>
+        </td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">스터디 항목</h6>
+		</td>
+		<td><h6>${study.tagName}</h6>
+        </td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">작성자</h6>
+		</td>
+		 <td><h6>${study.userId}</h6>
+        </td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">스터디 모집정원</h6>
+		</td>
+		<td><h6>${study.studyMaxnum}</h6>
+        </td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">스터디 요일</h6>
+		</td>
+		<td><h6>${study.dayName}</h6>
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">스터디 지역</h6>
+		</td>
+		<td><h6>${study.studyLocationSi} ${study.studyLocationGu}</h6>
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">모집 마감일</h6>
+		</td>
+		<td><h6>${study.studyDuedate}</h6>
+        </td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">내용</h6>
+		</td>
+		<td><h6>${study.studyContent}</h6></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>
 			<form action="${path}/front" method="post">
 				<input type=hidden name="studyNo" value="${study.studyNo}">
-				<input type=hidden name="sReplyNo" value="${reply.sReplyNo}">
+				<button type="submit" class="btn btn-outline-primary">찜하기</button>
+				<input type=hidden name="key" value="myStudy"> 
+				<input type=hidden name="methodName" value="putWishStudy">			
+			</form>	<br>
+			<form action="${path}/front" method="post">
+				<input type=hidden name="studyNo" value="${study.studyNo}">
+				<button type="submit" class="btn btn-outline-primary">신청하기</button>
+				<input type=hidden name="key" value="myStudy"> 
+				<input type=hidden name="methodName" value="putSignStudy">			
+			</form>	
+		</td>
+	</tr>
+  </tbody>
+</table>
 
-					<input type="submit"  value=삭제>
-					<input type=hidden name="key" value="studyReply"> 
-					<input type=hidden name="methodName" value="deleteReply">			
-			</form>		
-			<hr>
-		</c:forEach>
-	</c:otherwise>
-</c:choose>
-<div>  
-	<p class="star_rating" >
-    <a href="#" class="">★</a> <!-- on 을 해두면 색이 노란색으로 나옴 -->
-    <a href="#" class="">★</a>
-    
-    <a href="#" class="">★</a>
-    <a href="#">★</a>
-    <a href="#">★</a>
-</p>
-	</div>
+<br>
+<br>
+<hr>
+
+<table align="center" cellpadding="10" cellspacing="2" width="90%">
+  <tbody>
+    <tr class="row">
+      <th scope="row" height="80" size="8">댓글</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr></tr>
+    <tr>
+		<td width="150" height="80">
+			<c:choose>
+				<c:when test = "${empty requestScope.StudyReply}">
+					<h6> </h6>
+				</c:when>
+				<c:otherwise>
+					<c:forEach items = "${StudyReply}" var = "reply">
+						<h6 align="center">${reply.userId}</h6>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</td>
+		<td>
+        	<c:choose>
+				<c:when test = "${empty requestScope.StudyReply}">
+					<h6>댓글정보가 없습니다.</h6>
+				</c:when>
+				<c:otherwise>
+					<c:forEach items = "${StudyReply}" var = "reply">
+						${reply.sReplyContent}<p>
+						<form action="${path}/front" method="post">
+							<input type=hidden name="studyNo" value="${study.studyNo}">
+							<input type=hidden name="sReplyNo" value="${reply.sReplyNo}">
+								<button type="submit" class="btn btn-primary">삭제</button>
+								<input type=hidden name="key" value="studyReply"> 
+								<input type=hidden name="methodName" value="deleteReply">			
+						</form>		
+						<hr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+        </td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">${sessionScope.user.userId}</h6>
+		</td>
+		<td>
+		<div id="listReply"></div>
+		<form action="${path}/front" method="post">
+			<input type=hidden name="studyNo" value="${study.studyNo}">
+			<input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent">
+			<input type="hidden" name="userId" value="${sessionScope.userId }"> 
+			<button type="submit" class="btn btn-primary">등록</button>
+			<input type=hidden name="key" value="studyReply"> 
+			<input type=hidden name="methodName" value="insertReply">		
+		</form>
+		</td>
+	</tr>
+	</tbody>
+</table>
 
 <!-- 댓글 작성 -->
 <!-- 너비와 정렬방식 설정 -->
@@ -210,47 +238,46 @@
          <button type="button" id="btnReply">댓글쓰기</button>
        </c:if>
 </div>
-	
-<!-- 댓글 목록 -->
-<!-- 댓글이 등록이 되면 listReply에 댓글이 쌓이게 된다 -->
-<div id="listReply"></div>
-</div>
-<form action="${path}/front" method="post">
-	<input type=hidden name="studyNo" value="${study.studyNo}">
-	${sessionScope.user.userId}<p>
 
-	<input type="text" name="sReplyContent" placeholder="댓글을 입력해주세요">
-	<input type="hidden" name="userId" value="${sessionScope.userId }">
-		<input type="submit"  value=등록>
-		<input type=hidden name="key" value="studyReply"> 
-		<input type=hidden name="methodName" value="insertReply">		
 
-</form>
 <hr>
+스터디 신청자
+<table align="center" cellpadding="10" cellspacing="2" width="90%">
  <c:if test="${sessionScope.user.userId != null}">
  <c:if test="${sessionScope.user.userId == study.userId}">
-<h3>스터디 신청자 목록</h3>
-<c:choose>
-	<c:when test = "${empty userList}">
-		<h5>신청자가 없습니다.</h5>
-	</c:when>
-	<c:otherwise>
-		<c:forEach items = "${userList}" var = "user">
-			${user.nickname} | ${user.starPoint}
-			<input type="submit"  value=수락>
-			<input type=hidden name="key" value="myStudy"> 
-			<input type=hidden name="methodName" value="changeSignState">
-			
-			<input type="submit"  value=거절>
-			<input type=hidden name="key" value="myStudy"> 
-			<input type=hidden name="methodName" value="changeSignState">
-			<p>
-		</c:forEach>
-	</c:otherwise>
-</c:choose>
+  <tbody>
+    <tr class="row">
+      <th scope="row" height="80" size="8">스터디 신청자</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr></tr>
+    <tr>
+    	<c:choose>
+			<c:when test = "${empty userList}">
+				<h5>신청자가 없습니다.</h5>
+			</c:when>
+			<c:otherwise>
+				<c:forEach items = "${userList}" var = "user">
+					${user.nickname} | ${user.starPoint}
+					<input type="submit"  value=수락>
+					<input type=hidden name="key" value="myStudy"> 
+					<input type=hidden name="methodName" value="changeSignState">
 					
-</c:if>
-</c:if>
+					<input type="submit"  value=거절>
+					<input type=hidden name="key" value="myStudy"> 
+					<input type=hidden name="methodName" value="changeSignState">
+					<p>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
+    </tr>
+   </tbody>
+  </c:if>
+  </c:if>
+ </table>
+
 <hr>
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/study/list.jsp">리스트로 돌아가기</a>&gt;</span></div>
 </body>
