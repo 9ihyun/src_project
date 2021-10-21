@@ -126,10 +126,11 @@ img{width:200px; height:350px}
 <table class="table">
 <caption></caption>
 	<colgroup>
-		<col width="15%"/>
+		<col width="10%"/>
+		<col width="20%"/>
 		<col width="40%"/>
 		<col width="10%"/>
-		<col width="25%"/>
+		<col width="20%"/>
 	</colgroup>
 	<tr>
 		<td colspan="4" align="right" valign="bottom">
