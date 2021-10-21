@@ -84,7 +84,7 @@ function checkValid(frm){
             <p align="center"><font color="black" size="3"><b> 게시글 수정 </b></font></p>
         </td>
     </tr>
-    
+    <!--  
      <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;">태그 번호 </span></b></p>
@@ -124,15 +124,13 @@ function checkValid(frm){
 			</select>
         </td>
     </tr>
-    
+    -->
      <tr>
         <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">보드 번호 </span></b></p>
+            <p align="center"><b><span style="font-size:9pt;">게시판 </span></b></p>
         </td>
          <td width="450" height="20">
-        	<select name="boardNo" id="boardNo">
-				<option value="1">1.자유게시판</option>
-			</select>
+        	<a name="boardNo" value="1">자유게시판</a>
         </td>
     </tr>
     
@@ -170,7 +168,9 @@ function checkValid(frm){
         </td>
     </tr>
 </table>
-
+<input type = hidden name = "userId" value = "${sessionScope.user.userId}">
+<input type = hidden name = "tagNo" value = "29">
+<input type = hidden name = "boardNo" value = "1">
 </form>
 
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front?key=post&methodName=postSelectAllPost">리스트로 돌아가기</a>&gt;</span></div>

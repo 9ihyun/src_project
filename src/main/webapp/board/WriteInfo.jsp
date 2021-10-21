@@ -22,10 +22,7 @@
 		// }
 	 //}); 
 //});
-<% session.setAttribute("userId", "admin");
-   session.setAttribute("loginUser", "admin");
-   
-   %>
+
 
 
 function cancel(){ //취소하기 눌렀을때
@@ -89,16 +86,18 @@ function checkValid(frm){
         </td>
     </tr>
       </tr>
+      <input type = "hidden" "name = "tagNo" value="29">
      
+     <!--
      			<tr>
 				<td width="150" height="20">
 					<p align="center">
-						<b><span style="font-size: 9pt;">태그 번호</span></b>
+						<b><span style="font-size: 9pt;">프로그래밍 언어</span></b>
 					</p>
 				</td>
 				<td width="450" height="20">
 						<select name="tagNo">
-							<option value="none">태그번호 선택</option>
+							<option value="none">언어 선택</option>
 							<option value="1" >C/C++</option>
 							<option value="2" >C#</option>
 							<option value="3">Python</option>
@@ -130,24 +129,20 @@ function checkValid(frm){
 							<option value="29">기타</option>
 						</select>
 					</td>
-			</tr>
+			</tr>-->
      	<tr>
 				<td width="150" height="20">
 					<p align="center">
-						<b><span style="font-size: 9pt;">보드 번호</span></b>
+						<b><span style="font-size: 9pt;">게시판</span></b>
 					</p>
 				</td>
 				<td width="450" height="20">
-					
-						<select name="boardNo">
-							<option value="1">1.자유게시판</option>
-							<option value="2">2.지식정보게시판</option>
-							<option value="3">3.알쓸신술게시판</option>
-						</select>
+					<a name="boardNo" value="1">자유게시판</a>
+						
 						
 					</td>
 			</tr>
-     
+     <!--
      <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;">아이디</span></b></p>
@@ -157,7 +152,7 @@ function checkValid(frm){
         		<input type="text" name="userId" id="userId" size="12">
         	   </span></b>
         </td>
-  
+  -->
     <tr>
     <tr>
         <td width="150" height="20">
@@ -181,10 +176,15 @@ function checkValid(frm){
         <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;">
         <input type=submit value=등록하기>
         <button type="button" onclick="cancel();">취소하기</button>
+        
     </tr>
 </table>
+		<input type = hidden name = "userId" value = "${sessionScope.user.userId}">
+		<input type = hidden name = "tagNo" value = "29">
+	<input type = hidden name = "boardNo" value = "1">
  	  <input type = hidden name = "key" value = "post">
       <input type = hidden name = "methodName" value = "postInsert">
+      
 </form>
 
 

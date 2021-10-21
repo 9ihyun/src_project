@@ -96,23 +96,8 @@ function likey(){
              게시물 상세보기</b></font></p>
         </td>
     </tr>
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;"> 태그번호 </span></b></p>
-        </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${view.tagNo}</b></span>
-        </td>
-    </tr>
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;"> 게시판번호 </span></b></p>
-        </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${view.boardNo}</b></span>
-        </td>
-    </tr>
    
+
     <tr>
         <td width="100" height="20">
             <p align="right"><b><span style="font-size:9pt;"> 제목 </span></b></p>
@@ -140,9 +125,9 @@ function likey(){
 			  <input type = "hidden" id = "Likes" value="${view.postUp}">
 			  <input type = "hidden" id = "Likess" value="${view.postNo}">
 			<a href="${path}/front?key=post&methodName=postSelectAllPost" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			<a href="${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}" >수정</a>
+			<a href="${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}" >수정</a>&nbsp;&nbsp;&nbsp;
+			<a href="#" onclick="likey()">추천</a>
 			
-			  <input type="button" value = "추천" onclick="likey()">
 		</td>
     </tr>
 </table>
