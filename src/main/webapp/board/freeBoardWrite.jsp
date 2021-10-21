@@ -43,10 +43,11 @@ function goes(){
 <table class="table">
 <caption>
 	<colgroup>
-		<col width="15%"/>
+		<col width="10%"/>
+		<col width="20%"/>
 		<col width="40%"/>
 		<col width="10%"/>
-		<col width="25%"/>
+		<col width="20%"/>
 	</colgroup>
     <tr>
 		<td colspan="2">
@@ -71,6 +72,9 @@ function goes(){
             <p align="center"><font color="black"><h6>글번호</h6></font></p>
         </td>
         <td valign="middle">
+            <p align="center"><font color="black"><h6>작성자</h6></font></p>
+        </td>
+        <td valign="middle">
             <p align="center"><font color="black"><h6>제목</h6></font></p>
         </td>
         <td valign="middle">
@@ -79,7 +83,7 @@ function goes(){
         
         <td valign="middle">
             <p align="center"><font color="black"><h6>등록날짜</h6></font></p>
-    
+    	</td>
     </tr>
   
     <c:choose>
@@ -98,6 +102,11 @@ function goes(){
 		        <!-- 번호 -->
 		        <td bgcolor="" align="center">
 		            <span style="font-size:11pt;">${Post.postNo}</span>
+		        </td>
+		        
+		        <!-- 작성자 -->
+		        <td bgcolor="" align="center">
+		            <span style="font-size:11pt;">${Post.userId}</span>
 		        </td>
 		        
 		        <!-- 제목 -->

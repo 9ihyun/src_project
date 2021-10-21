@@ -194,7 +194,7 @@
   </tbody>
 </table>
 <hr>
-
+<h5>댓글</h5><br>
 <c:choose>
 	<c:when test = "${empty requestScope.StudyReply}">
 		<h6>댓글정보가 없습니다.</h6>
@@ -215,83 +215,50 @@
 	</c:otherwise>
 </c:choose>
 
-
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
-	<tr>
-		<td width="150" height="80">
-			<h6 align="center">${sessionScope.userId}</h6>
-		</td>
-		<td>
-		<div id="listReply"></div>
-		<form action="${path}/front" method="post">
-			<input type=hidden name="studyNo" value="${study.studyNo}">
-			<input type = "text" name="sReplyContent" id = "searchByStudy" placeholder="댓글을 입력하세요" style=" width:400px; height:40px">
-			
-			<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
-			<input type="hidden" name="userId" value="${sessionScope.userId }"> 
-			<button type="submit" class="btn btn-primary">등록</button>
-			<input type=hidden name="key" value="studyReply"> 
-			<input type=hidden name="methodName" value="insertReply">		
-		</form>
-		</td>
-	</tr>
-	</tbody>
-</table>
-
-<!-- 댓글 작성 -->
-<!-- 너비와 정렬방식 설정 -->
-<div style="width:700px; text-align:center;">
- 
-<!-- 세션에 저장되어있는 userid가 null이 아닐때 -->
-<!-- 그러니까 로그인을 한 상태이어야만 댓글을 작성 할 수 있다.-->
-     <c:if test="${sessionScope.userId != null }">
-     
-     
-         <textarea rows="5" cols="80" id="replytext"
-             placeholder="댓글을 작성하세요"></textarea>
-         <br>
-         <!-- 댓글쓰기 버튼을 누르면 id값인 btnReply값이 넘어가서 -->
-         <!-- 위쪽에 있는 스크립트 구문이 실행되고 -->
-         <!-- 내가 댓글을 작성한 값이 스크립트문을 거쳐서 컨트롤러로 맵핑되게 된다. -->
-         <button type="button" id="btnReply">댓글쓰기</button>
-       </c:if>
-</div>
-
+<div id="listReply"></div>
+<form action="${path}/front" method="post">
+	<input type=hidden name="studyNo" value="${study.studyNo}">
+    <input type="text" class="form-control"  name="sReplyContent" placeholder="댓글을 입력하세요" id="searchByStudy" width="200px"><br>
+	
+	<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
+	<input type="hidden" name="userId" value="${sessionScope.userId }"> 
+	<button type="submit" class="btn btn-primary">등록</button>
+	<input type=hidden name="key" value="studyReply"> 
+	<input type=hidden name="methodName" value="insertReply">		
+</form>
 
 <hr>
+<h5>스터디 신청자</h5><br>
+
 <table align="center" cellpadding="10" cellspacing="2" width="90%">
- <c:if test="${sessionScope.userId != null}">
- <c:if test="${sessionScope.userId == study.userId}">
-  <tbody>
-    <tr class="row">
-      <th scope="row" height="80" size="8">스터디 신청자</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr></tr>
-    
-    	<c:choose>
-			<c:when test = "${empty userList}">
-				<tr><th><h5>신청자가 없습니다.</h5></th></tr>
-			</c:when>
-			<c:otherwise>
-				<c:forEach items = "${userList}" var = "user">
-				<tr>
-					<th>${user.nickname} | ${user.starPoint}</th>
-					<th><input type="button" name="${user.userId }" value="수락"></th>
-					<th><input type="button" name="${user.userId }" value="거절"></th>
-				</tr>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-   </tbody>
-  </c:if>
-  </c:if>
+	 <c:if test="${sessionScope.userId != null}">
+	 <c:if test="${sessionScope.userId == study.userId}">
+	 <c:choose>
+		<c:when test = "${empty userList}">
+			<tr><th><h5>신청자가 없습니다.</h5></th></tr>
+		</c:when>
+		<c:otherwise>
+			<c:forEach items = "${userList}" var = "user">
+			<tr>
+				<th><h6>${user.nickname} | ${user.starPoint}</h6></th>
+				<!-- <th><input type="button" name="${user.userId }" value="수락"></th>-->
+				<th><button type="button" class="btn btn-primary" name="${user.userId }">수락</button></th>
+				
+				<!--<th><input type="button" name="${user.userId }" value="거절"></th> -->
+				<th><button type="button" class="btn btn-outline-primary" name="${user.userId }">거절</button></th>
+				
+			</tr>
+			</c:forEach>
+		</c:otherwise>
+	</c:choose>
+  	</c:if>
+  	</c:if>
  </table>
 
 <hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front?key=study&methodName=selectAllStudy">리스트로 돌아가기</a>&gt;</span></div>
+<div align="right">
+<button type="button" value = "찾기" class="btn btn-primary btn-sm" onclick="location.href='${path}/front?key=study&methodName=selectAllStudy'">리스트로 돌아가기</button>	
+</div>
 </body>
 
 
