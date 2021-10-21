@@ -7,17 +7,10 @@
 <!-- link rel="stylesheet" href="${path}/css/style.css"-->
 
  <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" 
-href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-crossorigin="anonymous"> 
+ 
 
-<script src="../js/jquery-3.6.0.js"></script>
-  <script src="../ajaxBasic.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
-crossorigin="anonymous"></script>  
-
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	function go(){	
@@ -129,49 +122,47 @@ img{width:200px; height:350px}
 </style>
 
 <div>
-			
-			
-			<form>
-				<fieldset>
-				   <div align="right"> 
-                    <label><h5>스터디언어</h5></label>
-                    <select name="tagNo" id="tagNo" class="btn btn-outline-dark">
-							<option value="none">==선택==</option>
-							<option value="1">C/C++</option>
-							<option value="2">C#</option>
-							<option value="3">Python</option>
-							<option value="4">Go</option>
-							<option value="5">Swift</option>
-							<option value="6">Perl</option>
-							<option value="7">Java</option>
-							<option value="8">Kotlin</option>
-							<option value="9">JavaScript</option>
-							<option value="10">Vue.js</option>
-							<option value="11">React</option>
-							<option value="12">node.js</option>
-							<option value="13">Typescript</option>
-							<option value="14">Ajax</option>
-							<option value="15">JQuery</option>
-							<option value="16">HTML</option>
-							<option value="17">CSS</option>
-							<option value="18">spring</option>
-							<option value="19">JPA</option>
-							<option value="20">Ruby</option>
-							<option value="21">Mysql</option>
-							<option value="22">ORACLE</option>
-							<option value="23">git</option>
-							<option value="24">Linux</option>
-							<option value="25">Ubuntu</option>
-							<option value="26">프론트엔드</option>
-							<option value="27">백엔드</option>
-							<option value="28">토이프로젝트</option>
-							<option value="29">기타</option>
-						</select>  
-						<button type="button" value = "찾기" class="btn btn-outline-dark" onclick="goes()">찾기</button>
-                </fieldset>        
-			</form>	
-		</div>	
-<table align="center" border="0" cellpadding="5" cellspacing="2" width="90%" bordercolordark="white" bordercolorlight="black">
+	<form>
+		<fieldset>
+		   <div align="right"> 
+                  <label><h5>스터디언어</h5></label>
+                  <select name="tagNo" id="tagNo" class="btn btn-outline-dark">
+					<option value="none">==선택==</option>
+					<option value="1">C/C++</option>
+					<option value="2">C#</option>
+					<option value="3">Python</option>
+					<option value="4">Go</option>
+					<option value="5">Swift</option>
+					<option value="6">Perl</option>
+					<option value="7">Java</option>
+					<option value="8">Kotlin</option>
+					<option value="9">JavaScript</option>
+					<option value="10">Vue.js</option>
+					<option value="11">React</option>
+					<option value="12">node.js</option>
+					<option value="13">Typescript</option>
+					<option value="14">Ajax</option>
+					<option value="15">JQuery</option>
+					<option value="16">HTML</option>
+					<option value="17">CSS</option>
+					<option value="18">spring</option>
+					<option value="19">JPA</option>
+					<option value="20">Ruby</option>
+					<option value="21">Mysql</option>
+					<option value="22">ORACLE</option>
+					<option value="23">git</option>
+					<option value="24">Linux</option>
+					<option value="25">Ubuntu</option>
+					<option value="26">프론트엔드</option>
+					<option value="27">백엔드</option>
+					<option value="28">토이프로젝트</option>
+					<option value="29">기타</option>
+				</select>  
+				<button type="button" value = "찾기" class="btn btn-outline-dark" onclick="goes()">찾기</button>
+              </fieldset>        
+	</form>	
+</div>	
+<table class="table table-hover">
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
@@ -289,16 +280,8 @@ img{width:200px; height:350px}
 <div align=right>
 <button type="submit" class="btn btn-outline-primary" onClick="location.href='${path}/study/write2.jsp'">글쓰기</button>
 </div>
-
-
-
-<hr>
-
-   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
-    
+<jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
   <p>
-
- 
  <!--  블럭당  -->
  <nav class="pagination-container">
 		<div class="pagination">
@@ -344,26 +327,14 @@ img{width:200px; height:350px}
 			  </c:if>
 		  
 		</c:forEach>
-		</span> 
-				<!-- 
-				[다음]
- 
-					  if( (시작페이지+한블록당뿌려질[]개수)<= 총페이지수){
-					      [다음]출력;
-					  }  
-					
-					  ex)if( (startPage+blockCount) <= pageCount){
-					
-					      }
-				 -->
-				 <c:if test="${(startPage+p.blockcount)<=p.pageCnt}">
-				     <a class="pagination-older" href="${path}/front?key=study&methodName=selectAllStudy&pageNo=${startPage+p.blockcount}">NEXT</a>
-				 </c:if>
-				 
-			
-		
+		</span>
+		 <c:if test="${(startPage+p.blockcount)<=p.pageCnt}">
+		     <a class="pagination-older" href="${path}/front?key=study&methodName=selectAllStudy&pageNo=${startPage+p.blockcount}">NEXT</a>
+		 </c:if>
 		</div>
 	</nav> 
+
+ 
  
 
 
