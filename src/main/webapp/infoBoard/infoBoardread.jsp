@@ -177,19 +177,7 @@ function likey(){
       </td>
     </tr>
     <tr></tr>
-    <tr>
-	<!--  <td width="150" height="80">
-			<c:choose>
-				<c:when test = "${empty requestScope.replyList}">
-					<h6> </h6>
-				</c:when>
-				<c:otherwise>
-					<c:forEach items = "${requestScope.replyList}" var = "reply">
-						<h6 align="center">${reply.userId}</h6>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-		</td>-->	
+    <tr>	
 		<td>
         	<c:choose>
 				<c:when test = "${empty requestScope.replyList}">
