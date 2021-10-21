@@ -19,7 +19,6 @@ public class SessionCheckFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("Sessioncheck filter...");
 		String key = request.getParameter("key");
 		if (!key.equals("login")) {
 			HttpServletRequest req = (HttpServletRequest) request;
