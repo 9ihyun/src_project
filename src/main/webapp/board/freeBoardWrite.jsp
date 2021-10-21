@@ -51,7 +51,7 @@ function goes(){
 			<form>
 				<fieldset>
 				   <div align="right"> 
-				    <legend >글 검색 필드</legend>  
+				    <legend >검색 필드</legend>  
 				<!--    <label>태그로 언어 찾기</label>
                     <select name="tagNo" id="tagNo" style=" height: 35px;"class="btn btn-primary">
 							<option value="none">==선택==</option>
@@ -87,7 +87,26 @@ function goes(){
 						</select>  
 						<input type="button" style=" height: 33px;" class="btn btn-primary" value = "찾기" onclick="goes()"> <br>
                              --> 
-                    <label>검색분류</label>
+                             <tr>
+		<td colspan="2">
+			<div align="left">
+			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=1&board=board/freeBoardWrite&postnum='">인기글</button>
+			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=1&board=board/freeBoardWrite&postnum='">최근글</button>
+			
+			</div>
+		</td>
+		<td colspan="5">
+			<div align="right">
+				<select name = "search" id=searchs>
+                    <option id=title class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
+                	<option id=user class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=searchById&userId==">작성자</option>
+                </select>
+				<input type = "text" id = "searchByTitle" placeholder="검색어를 입력하세요">
+           		 <button type="button" value = "검색" class="btn btn-primary btn-sm" onclick="go()">검색</button>
+			</div>
+		</td>
+	</tr>
+              <!--       <label>검색분류</label>
                         <select name = "search" id=searchs>
                             <option id=title class="btn btn-primary" value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
                             <option id=user class="btn btn-primary" value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
@@ -99,13 +118,13 @@ function goes(){
                         <input type="button" style=" height: 33px;" class="btn btn-primary" value = "검색" onclick="go()"class="btn btn-primary"><br>
                         
                           
-                        
+                      
                                     
                 </fieldset>        
 			
 				<button type="button" style=" height: 35px;"class="btn btn-primary"onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=1&board=board/freeBoardWrite&postnum='">인기글</button>
 		<button type="button" style=" height: 35px;"class="btn btn-primary"onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=1&board=board/freeBoardWrite&postnum='">최근글</button>
-			</form>	
+			   --></form>	
 		</div>	
 		
 		<h2 align="center">자유게시판</h2>

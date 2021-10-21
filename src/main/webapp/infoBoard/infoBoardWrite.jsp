@@ -138,7 +138,7 @@ img{width:200px; height:350px}
 			<form>
 				<fieldset>
 				   <div align="right"> 
-				    <legend>글 검색 필드</legend>  
+				    <legend>검색 필드</legend>  
 				   <label>태그로 언어 찾기</label>
                     <select name="tagNo" id="tagNo"class="btn btn-primary" >
 							<option value="none">==선택==</option>
@@ -174,40 +174,45 @@ img{width:200px; height:350px}
 						</select>  
 						<input type="button" class="btn btn-primary" value = "찾기" onclick="goes()">
                              
-                    <label>검색분류</label>
-                        <select name = "search" id=searchs>
-                            <option id=title value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
-                            <option id=user value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
-                          
-                        </select>
-                    <label>검색어</label>
-                   
-                        <input  type = "text" id = "searchByTitle" placeholder="검색어를 입력하세요">
-                        <input type="button" class="btn btn-primary" value = "검색" onclick="go()"><br>
+                   <td colspan="2">
+			<div align="left">
+			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">인기글</button>
+			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">최근글</button>
+			
+			</div>
+		</td>
+		<td colspan="5">
+			<div align="right">
+				<select name = "search" id=searchs>
+                    <option id=title class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
+                	<option id=user class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=searchById&userId==">작성자</option>
+                </select>
+				<input type = "text" id = "searchByTitle" placeholder="검색어를 입력하세요">
+           		 <button type="button" value = "검색" class="btn btn-primary btn-sm" onclick="go()">검색</button>
+			</div>
+		</td>
                         
                           
                         
                                    																												 <!-- infoBoard/infoBoardWrite -->
                 </fieldset>        
 			
-				<button class="btn btn-primary" type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">인기글</button>
-		<button class="btn btn-primary" type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">최근글</button>
 			</form>	
 		</div>	
 		<h2 align="center">지식 정보 공유 게시판</h2>
 	<tr>
        
-        <td bgcolor="#9DE4FF">
+        <td bgcolor="#1EAAAA">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">번호</span></b></font></p>
         </td>
-        <td bgcolor="#9DE4FF">
+        <td bgcolor="#1EAAAA">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">제목</span></b></font></p>
         </td>
-        <td bgcolor="#9DE4FF">
+        <td bgcolor="#1EAAAA">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">추천</span></b></font></p>
         </td>
         
-        <td bgcolor="#9DE4FF">
+        <td bgcolor="#1EAAAA">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">날짜</span></b></font></p>
     
     </tr>
