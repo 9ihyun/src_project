@@ -126,13 +126,11 @@ img{width:200px; height:350px}
 <table class="table">
 <caption></caption>
 	<colgroup>
-		<col width="15%"/>
-		<col width="30%"/>
-		<col width="16%"/>
-		<col width="16%"/>
-		<col width="7%"/>
-		<col width="7%"/>
-		<col width="7%"/>
+		<col width="10%"/>
+		<col width="20%"/>
+		<col width="40%"/>
+		<col width="10%"/>
+		<col width="20%"/>
 	</colgroup>
 	<div >
 			<form>
@@ -173,7 +171,7 @@ img{width:200px; height:350px}
 							<option value="29">기타</option>
 						</select>  
 						<input type="button" class="btn btn-outline-dark" value = "찾기" onclick="goes()">
-                             
+         <tr>   
                    <td colspan="2">
 			<div align="left">
 			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">인기글</button>
@@ -191,7 +189,7 @@ img{width:200px; height:350px}
            		 <button type="button" value = "검색" class="btn btn-primary btn-sm" onclick="go()">검색</button>
 			</div>
 		</td>
-                        
+	</tr> 
                           
                         
                                    																												 <!-- infoBoard/infoBoardWrite -->
@@ -204,7 +202,11 @@ img{width:200px; height:350px}
        
         <td valign="middle">
             <p align="center">
-            <font color="black"><h6>번호</h6></font></p>
+            <font color="black"><h6>글번호</h6></font></p>
+        </td>
+        <td valign="middle">
+            <p align="center">
+            <font color="black"><h6>작성자</h6></font></p>
         </td>
         <td valign="middle">
             <p align="center">
@@ -212,12 +214,13 @@ img{width:200px; height:350px}
         </td>
         <td valign="middle">
             <p align="center">
-            <font color="black"><h6>추천</h6></font></p>
+            <font color="black"><h6>추천수</h6></font></p>
         </td>
         
         <td valign="middle">
             <p align="center">
-            <font color="black"><h6>날짜</h6></font></p>
+            <font color="black"><h6>등록날짜</h6></font></p>
+        </td>
     
     </tr>
   
@@ -237,6 +240,11 @@ img{width:200px; height:350px}
 		        <!-- 번호 -->
 		        <td bgcolor="" align="center">
 		            <span style="font-size:11pt;">${Post2.postNo}</span>
+		        </td>
+		        
+		        <!-- 작성자 -->
+		        <td bgcolor="" align="center">
+		            <span style="font-size:11pt;">${Post2.userId}</span>
 		        </td>
 		        
 		        <!-- 제목 -->

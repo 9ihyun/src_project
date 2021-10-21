@@ -134,7 +134,12 @@ function likey(){
 		<td valign="middle"><h5>${view2.postTitle}</h5>
         </td>
 	</tr>
-   
+   	<tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">작성자</h6>
+		</td>
+		<td valign="middle"><h6>${view2.userId}</h6></td>
+	</tr>
 	<tr>
 		<td width="150" height="80" valign="middle">
 				<h6 align="center">내용</h6>
