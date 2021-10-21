@@ -4,13 +4,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="${path}/CSS/joinViewStyle.css">
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
+<!-- css 등록 -->
+ <link rel="stylesheet" href="${path}/CSS/bootstrap.min.css">
+ <link rel="stylesheet" href="${path}/CSS/bootstrap.css">
+ <link rel="stylesheet" href="${path}/CSS/_variables.scss">
+ <link rel="stylesheet" href="${path}/CSS/_bootswatch.scss">
+ 
+ 
+<!-- 글꼴 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+ 
+ <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	body{text-align: center;}
+	body{
+	text-align: center;
+	  background-color: #66A399;
+		font-family: 'Nanum Gothic', sans-serif;
+	
+	}
 	table{margin-bottom: 30px;}
+	
+	.main {
+        background-color: #FFFFFF;
+        width: 400px;
+        height: 400px;
+        margin: 7em auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+    
+    .title {
+        padding-top: 20px;
+        color: #262626;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-weight: bold;
+        font-size: 23px;
+    }
+    
+    
+    form.form1 {
+        padding-top: 20px;
+    }
+  
+    
+     a {
+        text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+        color: #737373;
+        font-size: 15px;
+        text-decoration: none
+    }
+    a:hover{
+    	font-size: 18px;
+    }
+    
+    @media (max-width: 600px) {
+        .main {
+            border-radius: 0px;
+        }
+    }
 </style>
 </head>
 <body>

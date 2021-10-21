@@ -3,6 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- css 등록 -->
+ <link rel="stylesheet" href="${path}/CSS/bootstrap.min.css">
+ <link rel="stylesheet" href="${path}/CSS/bootstrap.css">
+ <link rel="stylesheet" href="${path}/CSS/_variables.scss">
+ <link rel="stylesheet" href="${path}/CSS/_bootswatch.scss">
+ 
+ <!-- 글꼴 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+ 
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${path}/CSS/joinstyle.css">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
@@ -13,6 +24,68 @@
 		color: #fff;
 		cursor: pointer;
 	}
+	
+	body{
+		  background-color: #66A399;
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+	
+	  .main {
+        background-color: #FFFFFF;
+        width: 450px;
+        height: 550px;
+        margin: 2.5em auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+    
+    .sign {
+        padding-top: 20px;
+        color: #262626;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-weight: bold;
+        font-size: 23px;
+    }
+    
+      input {
+    width: 50%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: 'Nanum Gothic', sans-serif;
+    }
+    
+    
+    select{
+    width: 50%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: 'Nanum Gothic', sans-serif;
+    }
+	
 </style>
 <script src="../js/jquery-3.6.0.js"></script>
 
