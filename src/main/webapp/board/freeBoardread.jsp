@@ -93,7 +93,7 @@ function likey(){
     <thead>
 	    <tr class="table-default">
 	      <td colspan="4">
-	      	<h4 align="center" >게시글 상세보기</h4>
+	      	<h4 align="left" >게시글 상세보기</h4>
 	      </td>
 	    </tr>
     </thead>
@@ -104,48 +104,47 @@ function likey(){
       </td>
     </tr>
     <tr class="table-active">
-		<td width="50%" height="80" valign="middle">
+		<td width="50%" height="50" valign="middle">
 				<b><h5 align="center" style="bold">제목</h5></b>
 		</td>
 		<td valign="middle"><h5>${view.postTitle}</h5>
         </td>
 	</tr>
- 
-	
+	<tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">작성자</h6>
+		</td>
+		<td valign="middle"><h6>${view.userId}</h6></td>
+	</tr>
 	<tr>
 		<td width="150" height="80" valign="middle">
 				<h6 align="center">내용</h6>
 		</td>
 		<td valign="middle"><h6>${view.postContent}</h6></td>
 	</tr>
-	
   </tbody>
-
-    
-    
-  
     <tr>
         <td height="20" colspan="4" align="center" valign="middle">
-        	<c:if test="${sessionScope.sessionID != null}">
-        	<c:if test="${sessionScope.sessionID != post.userId}">
-			</c:if>
-			</c:if>
+        	<c:if test="${sessionScope.userId != null}">
+        	<c:if test="${sessionScope.userId != post.userId}">
 			  <input type = "hidden" id = "Likes" value="${view.postUp}">
 			  <input type = "hidden" id = "Likess" value="${view.postNo}">
-			<a href="${path}/front?key=post&methodName=postSelectAllPost" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			<a href="${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}" >수정</a>&nbsp;&nbsp;&nbsp;
-			<a href="#" onclick="likey()">추천</a>
-			
+				<a href="${path}/front?key=post&methodName=postSelectAllPost" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
+				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}'">수정</button>
+				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}'">수정</button>
+				<button type="button" class="btn btn-danger" onclick="likey()">게시물 추천</button>
+			</c:if>
+			</c:if>
 		</td>
     </tr>
 </table>
 <hr>
-<h3>Replies 정보</h3>
+<h5>Replies 정보</h5><br>
 
 <div>  
 <c:choose>
 	<c:when test = "${empty requestScope.replyList}">
-		<h5>댓글정보가 없습니다.</h5>
+		<h6>댓글정보가 없습니다.</h6>
 	</c:when>
 	<c:otherwise>
 		<c:forEach items = "${requestScope.replyList}" var = "reply">
@@ -195,36 +194,18 @@ function likey(){
      <!-- 위쪽에 있는 스크립트 구문이 실행되고 -->
      <!-- 내가 댓글을 작성한 값이 스크립트문을 거쳐서 컨트롤러로 맵핑되게 된다. -->
           
-     
-	<textarea rows="5" cols="80" id="replytext" name="replytext" placeholder="댓글을 작성하세요"></textarea><br>
+    <textarea class="form-control" rows="3" ols="80" id="replytext" name="replytext" placeholder="댓글을 작성하세요"></textarea><br>
+	
 	
 	<!-- 로그인 했을때 -->
 	<c:if test="${not empty sessionScope.userId}">
-		<button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글쓰기</button>
+		<button class= "btn btn-primary btn-sm" type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글쓰기</button>
 	</c:if>
 	
 	<!-- 로그인 안했을때 -->
 	<c:if test="${empty sessionScope.userId}">
-		<button type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
+		<button class= "btn btn-primary btn-sm" type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
 	</c:if>
-	
-	<button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글등록테스트용</button>
-</div>
-
-<!-- 댓글 목록 -->
-<!-- 댓글이 등록이 되면 listReply에 댓글이 쌓이게 된다 -->
-<c:if test="${not empty replyList}">
-	<div id="listReply">
-		<c:forEach var="item" items="${replyList}" varStatus="status">
-			작성자 : ${item.userId} /	내용  : ${item.pReplyContent} / 작성일자 : ${item.pReplyDate} <br>
-		</c:forEach>
-	</div>
-</c:if>
-
-
-</div>
-
-<hr>
  <c:if test="${sessionScope.sessionID != null}">
 	 <c:if test="${sessionScope.sessionID != post.userId}">
 

@@ -7,7 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
 <style type="text/css">
+  *{font-family: 'Nanum Gothic', sans-serif;}
 	*{ margin: 0; padding: 0; }
 	 
 	.chat_wrap .header { position: fixed; top: 0; width:100%; font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
