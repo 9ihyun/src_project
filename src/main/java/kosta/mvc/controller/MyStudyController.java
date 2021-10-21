@@ -56,7 +56,7 @@ public class MyStudyController implements Controller {
 		int result = myStudyService.putWishStudy(id, studyNo);
 		
 		PrintWriter out = response.getWriter();
-		out.print(result);
+		out.print("찜하기에 성공했습니다.");
 	}
 	
 	/**
@@ -84,7 +84,7 @@ public class MyStudyController implements Controller {
 		System.out.println(result);
 		
 		PrintWriter out = response.getWriter();
-		out.print(result);
+		out.print("신청이 완료되었습니다.");
 	}
 	
 	
