@@ -214,7 +214,7 @@ function likey(){
 		<button type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
 	</c:if>
 	
-	<%-- <button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글등록테스트용</button> --%>
+	<button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글등록테스트용</button>
 </div>
 
 <!-- 댓글 목록 -->
