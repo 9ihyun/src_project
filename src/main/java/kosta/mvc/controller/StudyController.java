@@ -58,8 +58,6 @@ public class StudyController implements Controller {
 		String studyTitle = request.getParameter("studyTitle");
 		String studyContent = request.getParameter("studyContent");
 
-		System.out.println("tagNo=" + tagNo);
-
 		Study study = new Study(tagNo, userId, stateNo, dayNo, studyMaxnum, studyLocationSi, studyLocationGu,
 				studyDuedate, studyTitle, studyContent);
 
@@ -153,12 +151,12 @@ public class StudyController implements Controller {
 		List<User> userList = service.getUserList(studyNo);
 		request.setAttribute("userList", userList);
 
-		double point = 0;
-		for (User u : userList) {
-			User user = userService.myInfo(u.getUserId());
-			point = user.getStarPoint();
-		}
-		request.setAttribute("starPoint", point);
+		//double point = 0;
+		//for (User u : userList) {
+		//	User user = userService.myInfo(u.getUserId());
+		//	point = user.getStarPoint();
+		//}
+		//request.setAttribute("starPoint", point);
 
 		return new ModelAndView("study/read.jsp");// 이동 위치
 	}

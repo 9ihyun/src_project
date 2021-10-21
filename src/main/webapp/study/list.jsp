@@ -162,7 +162,7 @@ img{width:200px; height:350px}
                         </select>
                     <label>검색어</label>
                    
-                        <input type = "text" id = "searchByStudy" placeholder="입력하시오">
+                        <input type = "text" id = "searchByStudy" placeholder="검색어를 입력하세요">
                         <input type="button" value = "검색" onclick="go()"><br>
                         
                           

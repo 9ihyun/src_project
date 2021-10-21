@@ -219,7 +219,7 @@
 	<input type=hidden name="studyNo" value="${study.studyNo}">
 	${sessionScope.user.userId}<p>
 
-	<input type="text" name="sReplyContent" value="댓글을 입력해주세요">
+	<input type="text" name="sReplyContent" placeholder="댓글을 입력해주세요">
 	<input type="hidden" name="userId" value="${sessionScope.userId }">
 		<input type="submit"  value=등록>
 		<input type=hidden name="key" value="studyReply"> 
@@ -236,7 +236,7 @@
 	</c:when>
 	<c:otherwise>
 		<c:forEach items = "${userList}" var = "user">
-			${user.nickname} | ${starPoint}
+			${user.nickname} | ${user.starPoint}
 			<input type="submit"  value=수락>
 			<input type=hidden name="key" value="myStudy"> 
 			<input type=hidden name="methodName" value="changeSignState">
