@@ -33,7 +33,7 @@
 	  .main {
         background-color: #FFFFFF;
         width: 450px;
-        height: 550px;
+        height: 600px;
         margin: 2.5em auto;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -84,6 +84,12 @@
     text-align: center;
     margin-bottom: 15px;
     font-family: 'Nanum Gothic', sans-serif;
+    }
+    
+    p{
+    	font-size: 15px;
+    	color: black;
+    	font-weight: bold;
     }
 	
 </style>
@@ -164,14 +170,14 @@ $(function(){
 <div class="main">
 <h3 class="sign" align="center">회원가입</h3>
 <form method = "post" align="center" action = "${pageContext.request.contextPath}/front?key=login&methodName=register">
-	ID : <input type = "text" name = "id" id="id" autofocus required><br>
+	<p>ID : <input type = "text" name = "id" id="id" autofocus required></p>
 	<div id="idCheck"></div>
-	비밀번호 : <input type = "password" name = "pass" autofocus required><br>
-	비밀번호 확인 : <input type = "password" name = "passCheck" autofocus required><br>
-	닉네임 : <input type = "text" name = "nickname" id="nick" autofocus required><br>
+	<p>비밀번호 : <input type = "password" name = "pass" autofocus required></p>
+	<p>비밀번호 확인 : <input type = "password" name = "passCheck" autofocus required></p>
+	<p>닉네임 : <input type = "text" name = "nickname" id="nick" autofocus required></p>
 	<div id="nickCheck"></div>
-	생년월일 : <input type = "text" name = "birth" placeholder="ex) 19991231" autofocus required><br>
-	비밀번호 찾기 질문 : 
+	<p>생년월일 : <input type = "text" name = "birth" placeholder="ex) 19991231" autofocus required></p>
+	<p>비밀번호 찾기 질문 : 
 	<select name="question">
        <option value="0">--질문 선택--</option>
 	   <option value="보물 1호는?">보물 1호는?</option>
@@ -179,8 +185,8 @@ $(function(){
 	   <option value="가장 좋아하는 영화는?">가장 좋아하는 영화는?</option>
 	   <option value="가장 자주가는 음식점은?">가장 자주가는 음식점은?</option>
 	   <option value="만약 물고기를 한마리 기른다면?">만약 물고기를 한마리 기른다면?</option>	
-	</select> <br>
-	비밀번호 찾기 답 : <input type = "text" name = "anwser" autofocus required><br>
+	</select> </p>
+	<p>비밀번호 찾기 답 : <input type = "text" name = "anwser" autofocus required></p>
 	<input type = "submit" value="가 입">
 </form>
 

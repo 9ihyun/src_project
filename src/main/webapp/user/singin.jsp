@@ -108,10 +108,10 @@ crossorigin="anonymous"></script>
 
       <input type = hidden name = "key" value = "login">
       <input type = hidden name = "methodName" value = "login"> 
-      <button type="submit" class="btn btn-primary btn-sm">접속하기</button>
-      <br><br>
-	  <a href = "searchPassword.jsp">비밀번호 찾기</a><br>
-	  <a href = "join.jsp">회원가입</a>  <br>
+      <button type="submit" class="btn btn-primary btn-lg">접속하기</button>
+      <p><p><p>
+	  <a href = "searchPassword.jsp">비밀번호 찾기</a><p><p><p><p><p><p>
+	  <a href = "join.jsp">회원가입</a>
 
 	
 	    
