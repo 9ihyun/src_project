@@ -11,6 +11,8 @@
 
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
 <script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	function go(){	
@@ -36,8 +38,7 @@ function goes(){
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
-
-
+*{font-family: 'Nanum Gothic', sans-serif;}
 
 body {
 	color: #2c3e50;
@@ -120,9 +121,6 @@ table td {
 }
 img{width:200px; height:350px}
 </style>
-
-	
-
 <table class="table">
 	<colgroup>
 		<col width="15%"/>

@@ -28,6 +28,22 @@
     <th><input type = hidden name = "methodName" value = "update"></th> 
   </tr>
   <tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
+   <tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
+  <tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
+  <tr>
+  <tr>
     <th><p class="text-primary">닉네임</p></th>
     <th><p class="text-primary">비밀번호 찾기 질문</p></th>
   </tr>

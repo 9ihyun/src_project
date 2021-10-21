@@ -41,6 +41,11 @@
   	</th>
   </tr>
   <tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
+  <tr>
     <th><p class="text-primary">아이디</p></th>
     <th><p class="text-primary">별점</p></th>
   </tr>
