@@ -37,29 +37,7 @@
 
 	}//함수 끝
  			 
- 			 /////////////////////////////////////
- 			 //중복체크하기
- 			 $("#id").keyup(function(){
- 				 if($(this).val()==""){
- 					 $("span").text("");
- 					 return; //함수를 빠져나가라.
- 				 }
- 				 
- 				$.ajax({
- 					 url: "../idCheck", //서버요청주소
- 					 type: "post", //method 방식(get, post, put, delete)
- 					 dataType: "text", //서버가 응답해주는 데이터의 type(text, hmtl, xml, json)
- 					 data: $("#inForm").serialize(), //폼 전송
- 					 success: function(result){
- 						 //console.log("result:" + result);
- 						 $("span").text(result);
- 					
- 					 }, //성공했을 때 callback 함수
- 					 error: function(err){
- 						 alert(err+"발생했어요");
- 					 }//실패했을 때 함수
- 				 });//ajax 끝
- 			 });
+ 		
  			 
  			 ///////////////////////////////////
  			 //가입하기 OR 수정하기

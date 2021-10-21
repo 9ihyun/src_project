@@ -86,7 +86,8 @@ public class LoginController implements Controller {
 	public void idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html;charset=UTF-8");
 		
-		String id = request.getParameter("id");		
+		String id = request.getParameter("id");	
+		
 		PrintWriter out = response.getWriter();		
 		
 		if(loginService.idCheck(id)) {
