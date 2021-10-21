@@ -8,24 +8,8 @@
 
 <meta charset="UTF-8">
 <title>게시글 상세</title>
-<link rel="stylesheet" href="css/style.css">
-
-<style type="text/css">
-
-/* .star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:22px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
-}
-.star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#FFF663;} */
-
-
-</style>
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 
 <script type="text/javascript" src="${path}/js/jquery-3.6.0.js"></script>
 
@@ -190,13 +174,13 @@ function likey(){
 
 <div>  
 <c:choose>
-	<c:when test = "${empty requestScope.postReply}">
+	<c:when test = "${empty requestScope.replyList}">
 		<h5>댓글정보가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
-		<c:forEach items = "${postReply}" var = "reply">
-			${reply.userId} | ${reply.sReplyDate}<p>
-			${reply.sReplyContent}<p>
+		<c:forEach items = "${requestScope.replyList}" var = "reply">
+			${reply.userId} | ${reply.pReplyDate}<p>
+			${reply.pReplyContent}<p>
 			<form action="${path}/front" method="post">
 				<input type=hidden name="studyNo" value="${view2.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">

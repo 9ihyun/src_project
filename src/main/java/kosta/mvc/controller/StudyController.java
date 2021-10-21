@@ -1,6 +1,7 @@
 package kosta.mvc.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -164,11 +165,10 @@ public class StudyController implements Controller {
 	/**
 	 * 스터디 신청자 리스트 가져오기
 	 */
-	public ModelAndView getUserList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public List<User> getUserList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
-		List<User> userList = service.getUserList(studyNo);
+		List<User> userList = new ArrayList<User>();
+		return userList = service.getUserList(studyNo);
 
-		request.setAttribute("userList", userList);
-		return new ModelAndView("");// 이동 위치
 	}
 }

@@ -7,10 +7,42 @@
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 
-<script type="text/javascript" src="../js/jquery-3.6.0.js"></script> 
+<script type="text/javascript" src="${path }/js/jquery-3.6.0.js"></script> 
 
 <script type="text/javascript">
 	$(function(){
+		$(document).on("click", "[value=수락]", function(){
+			$.ajax({
+				type: "post",
+				url: "${path}/ajax?key=myStudy&methodName=changeSignState",
+				data: {"id" : $(this).attr("name"), "studyNo" : "${study.studyNo}"},
+				dataType: "json",
+				success: function(result){
+					alert("수락하셨습니다");
+					location.reload();
+				},
+				error:function() {
+					console.log("실패");
+				}
+			});
+		});
+		
+		$(document).on("click", "[value=거절]", function(){
+			$.ajax({
+				type: "post",
+				url: "${path}/ajax?key=myStudy&methodName=removeSignStudy",
+				data: {"id" : $(this).attr("name"), "studyNo" : "${study.studyNo}"},
+				dataType: "json",
+				success: function(result){
+					alert("거절하셨습니다");
+					location.reload();
+				},
+				error:function() {
+					console.log("실패");
+				}
+			});
+		});
+		
 		//댓글 쓰기 (버튼을 눌러서 id값이 넘어와 실행되는 자바스크립트 구문)
 	    $("#btnReply").click(function(){
 	        var replytext=$("#replytext").val(); //댓글 내용
@@ -255,26 +287,21 @@
       <td></td>
     </tr>
     <tr></tr>
-    <tr>
+    
     	<c:choose>
 			<c:when test = "${empty userList}">
-				<h5>신청자가 없습니다.</h5>
+				<tr><th><h5>신청자가 없습니다.</h5></th></tr>
 			</c:when>
 			<c:otherwise>
 				<c:forEach items = "${userList}" var = "user">
-					${user.nickname} | ${user.starPoint}
-					<input type="submit"  value=수락>
-					<input type=hidden name="key" value="myStudy"> 
-					<input type=hidden name="methodName" value="changeSignState">
-					
-					<input type="submit"  value=거절>
-					<input type=hidden name="key" value="myStudy"> 
-					<input type=hidden name="methodName" value="changeSignState">
-					<p>
+				<tr>
+					<th>${user.nickname} | ${user.starPoint}</th>
+					<th><input type="button" name="${user.userId }" value="수락"></th>
+					<th><input type="button" name="${user.userId }" value="거절"></th>
+				</tr>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
-    </tr>
    </tbody>
   </c:if>
   </c:if>

@@ -34,16 +34,12 @@ function cancel(){ //취소하기 눌렀을때
 function checkValid(frm){
 	
 	if(frm.tagNo.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
-		alert("태그번호을 선택해주세요.");
+		//alert("태그번호을 선택해주세요.");
 		frm.tagNo.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
 		return false;
 	}
 	
-	if(frm.boardNo.value == "1" || frm.boardNo.value == "3"){
-		alert("게시판번호는 2번을 선택하세요.");
-		frm.boardNo.focus();
-		return false;
-	}
+
 	
 	if(frm.userId.value == ""){
 		alert("아이디를 입력해주세요.");
@@ -61,11 +57,7 @@ function checkValid(frm){
 		return false;
 	}
 	
-	if(frm.postContent.value == ""){
-		alert("내용을 입력해주세요.");
-		frm.postContent.focus();
-		return false;
-	}
+
 	
 	
 	
@@ -104,15 +96,15 @@ function checkValid(frm){
 		<td></td>
 		<td></td>
     	</tr>
-   		 <tr></tr>
+   		 <tr>
      
 				<td width="150" height="80">
-					<h6 align="center">태그 번호</h6>
+					<h6 align="center">프로그래밍 언어</h6>
 				</td>
 			
 				<td scope="table-primary" width="450" height="80">
 						<select name="tagNo" id="tagNo">
-							<option value="">태그번호 선택</option>
+							<option value="">언어 선택</option>
 							<option value="1" >C/C++</option>
 							<option value="2" >C#</option>
 							<option value="3">Python</option>
