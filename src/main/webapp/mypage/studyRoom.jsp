@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +10,9 @@
 <style type="text/css">
 	*{ margin: 0; padding: 0; }
 	 
-	.chat_wrap .header { font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
+	.chat_wrap .header { position: fixed; top: 0; width:100%; font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
 	 
-	.chat_wrap .chat { padding-bottom: 80px; }
+	.chat_wrap .chat {  overflow: auto; padding-bottom: 80px; }
 	.chat_wrap .chat ul { width: 100%; list-style: none; }
 	.chat_wrap .chat ul li { width: 100%; }
 	.chat_wrap .chat ul li.left { text-align: left; }
@@ -28,7 +30,7 @@
 <script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	const Chat = (function(){
-	    const myName = "blue";
+	    const myName = "${userId}";
 	 
 	    // init 함수
 	    function init() {
@@ -52,8 +54,6 @@
 	    					console.log("실패");
 	    				}
 	    			});
-	 
-	                
 	            }
 	        });
 	    }
@@ -78,18 +78,16 @@
 	        $('div.chat:not(.format) ul').append(chatLi);
 	 
 	        // 스크롤바 아래 고정
-	        $('div.chat').scrollTop($('div.chat').prop('scrollHeight'));
+	        $("div.chat").scrollTop($("div.chat").prop("scrollHeight"));
 	    }
 	 
 	    // 메세지 전송
 	    function sendMessage(message) {
-	        // 서버에 전송하는 코드로 후에 대체
-	        data = {
+	        const data = {
 	            "senderName"    : "${userId}",
 	            "message"        : message
 	        };
 	 
-	        // 통신하는 기능이 없으므로 여기서 receive
 	        resive(data);
 	    }
 	 
@@ -100,38 +98,48 @@
 	 
 	    // 메세지 수신
 	    function resive(data) {
-	        const LR = (data.senderName != myName)? "left" : "right";
-	        appendMessageTag("right", data.senderName, data.message);
+	        LR = (data.senderName != myName)? "left" : "right";
+	        appendMessageTag(LR, data.senderName, data.message);
 	    }
 	 
 	    return {
-	        'init': init
+	        'init': init,
+	        'resive': function(data) {
+		        LR = (data.senderName != myName)? "left" : "right";
+		        appendMessageTag(LR, data.senderName, data.message);
+		    }
 	    };
-	})();	
+	})();
 	 
 	$(function(){
-		$.each("${requestScope.chatList}", function(index, item){
-			data = {
-		            "senderName"    : item.id,
-		            "message"        : item.chatContent
-		    };
-			
-			resive(data);
-		});
 	    Chat.init();
+	    
 	});
+
 </script>
 </head>
 <body>
 <div class="chat_wrap">
     <div class="header">
-        ${studyTitle }
-    </div>
+      ${studyTitle }
+    </div><br><br>
+    <c:forEach items="${requestScope.chatList}" var="chatList">
+      <script type="text/javascript">
+        $(function(){
+	      data = {
+		            "senderName"    : "${chatList.id}",
+		            "message"        : "${chatList.chatContent}"
+		        };
+		 
+		  Chat.resive(data);
+        });
+      </script>
+    </c:forEach>
     <div class="chat">
         <ul>
-            <!-- 동적 생성 -->
         </ul>
     </div>
+    <br>
     <div class="input-div">
         <textarea placeholder="Press Enter for send message."></textarea>
     </div>
