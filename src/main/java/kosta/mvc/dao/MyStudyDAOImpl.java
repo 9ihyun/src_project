@@ -8,11 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import kosta.mvc.dto.SignStudy;
 import kosta.mvc.dto.Study;
 import kosta.mvc.dto.StudyChat;
 import kosta.mvc.dto.User;
-import kosta.mvc.dto.WishStudy;
 import kosta.mvc.util.DbUtil;
 
 public class MyStudyDAOImpl implements MyStudyDAO {
@@ -67,7 +65,6 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	public int putWishStudy(String id, int studyNo) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
-		List<Integer> list = new ArrayList<>();
 		String sql = proFile.getProperty("myStudy.putWishStudy");
 		int result = 0;
 		
@@ -77,12 +74,9 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps.setString(1, id);
 			ps.setInt(2, studyNo);
 			
-			list = checkWishDuplicate(con, id);
-			for (int i : list) {
-				if (i == studyNo) {
-					throw new SQLException("이미 찜한 스터디입니다.");
-				}
-			}
+			if(checkWishDuplicate(con, id, studyNo)) {
+				return -1;
+			}			
 			
 			result = ps.executeUpdate();
 			
@@ -98,22 +92,26 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	/**
 	 * 사용자가 찜한 스터디개수 가져오기(중복체크)
 	 */
-	public List<Integer> checkWishDuplicate(Connection con, String id) throws SQLException {
+	public boolean checkWishDuplicate(Connection con, String id, int studyNo) throws SQLException {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		List<Integer> list = new ArrayList<>();
 		String sql = "select study_no from wish_study where user_id = ?";
+		boolean result = false;
+		
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				list.add(rs.getInt(1));
+				if(studyNo == rs.getInt(1)) {
+					return true;
+				}
 			}
+			
 		} finally {
 			DbUtil.dbClose(rs, ps, null);
 		}
-		return list;
+		return result;
 	}
 	
 
@@ -158,7 +156,6 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	public int putSignStudy(String id, int studyNo) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		List<Integer> list = new ArrayList<>();
 		String sql = proFile.getProperty("myStudy.putSignStudy");
 		int result = 0;
 		
@@ -168,11 +165,8 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps.setString(1, id);
 			ps.setInt(2, studyNo);
 			
-			list = checkSignDuplicate(con, id);
-			for (int i : list) {
-				if (i == studyNo) {
-					throw new SQLException("이미 신청한 스터디입니다.");
-				}
+			if(checkSignDuplicate(con, id, studyNo)){
+				return -1;
 			}
 			
 			result = ps.executeUpdate();
@@ -189,22 +183,25 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 	/**
 	 * 사용자가 신청한 스터디번호 가져오기(중복체크)
 	 */
-	public List<Integer> checkSignDuplicate(Connection con, String id) throws SQLException {
+	public boolean checkSignDuplicate(Connection con, String id, int studyNo) throws SQLException {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		List<Integer> list = new ArrayList<>();
 		String sql = "select study_no from sign_study where user_id = ?";
+		boolean result = false;
+		
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				list.add(rs.getInt(1));
-			}
+				if(studyNo == rs.getInt(1)) {
+					return true;
+				}
+			}			
 		} finally {
 			DbUtil.dbClose(rs, ps, null);
 		}
-		return list;
+		return result;
 	}
 	
 	
