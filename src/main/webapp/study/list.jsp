@@ -4,7 +4,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<link rel="stylesheet" href="${path}/css/style.css">
+<!-- link rel="stylesheet" href="${path}/css/style.css"-->
+
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+crossorigin="anonymous"> 
+
+<script src="../js/jquery-3.6.0.js"></script>
+  <script src="../ajaxBasic.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+crossorigin="anonymous"></script>  
+
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	function go(){	
@@ -116,6 +129,8 @@ img{width:200px; height:350px}
 </style>
 
 <div>
+			
+			
 			<form>
 				<fieldset>
 				   <div align="right"> 
@@ -175,10 +190,7 @@ img{width:200px; height:350px}
 		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=3'">스터디종료</button>
 			</form>	
 		</div>	
-
-
-<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
-<caption><h2 align="center">스터디 LIST</h2></caption>
+<table align="center" border="0" cellpadding="5" cellspacing="2" width="90%" bordercolordark="white" bordercolorlight="black">
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
@@ -189,32 +201,32 @@ img{width:200px; height:350px}
 		<col width="16%"/>
 	</colgroup>
 	
-	<tr>
-        <td bgcolor="#00cc00">
+	 <tr class="table-primary">
+       <td>
             <p align="center">
-            <font color="white"><b><span style="font-size:9pt;">모집여부</span></b></font></p>
+            <font color="black"><b><span style="font-size:10pt;">모집여부</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">제목</span></b></font></p>
+        <td >
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">제목</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">정원</span></b></font></p>
+        <td>
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">정원</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">마감일</span></b></font></p>
+        <td>
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">마감일</span></b></font></p>
         </td>
         
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">작성자</span></b></font></p>
+        <td>
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">작성자</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">찜</span></b></font></p>
+        <td>
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">찜</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">지역</span></b></font></p>
+        <td>
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">지역</span></b></font></p>
         </td>
-         
     </tr>
+
   
     <c:choose>
     <c:when test="${empty requestScope.studyList}">
@@ -257,7 +269,8 @@ img{width:200px; height:350px}
 		            <p align="center">
 		            <form action="${path}/front" method="post">
 						<input type=hidden name="studyNo" value="${study.studyNo}">
-						<input type="submit"  value=찜하기>
+						<button type="submit" class="btn btn-primary btn-sm">찜하기</button>
+						<!--input type="submit"  value=찜하기-->
 						<input type=hidden name="key" value="myStudy"> 
 						<input type=hidden name="methodName" value="putWishStudy">			
 					</form>	

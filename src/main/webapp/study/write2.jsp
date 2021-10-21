@@ -9,6 +9,15 @@
 
 <style>
 </style>
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+crossorigin="anonymous"> 
+
+  <script src="../ajaxBasic.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+crossorigin="anonymous"></script> 
 
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -214,168 +223,138 @@
 	<input type="hidden" name="methodName" value = "insert" />  
 
  -->
-		<table align="center" cellpadding="5" cellspacing="2" width="600"
-			border="1">
+<table align="center" cellpadding="10" cellspacing="2" width="90%">
 
-			<tr>
-				<td width="1220" height="20" colspan="2" bgcolor="#00cc00">
-					<p align="center">
-						<font color="white" size="3"><b> 게시글 등록 </b></font>
-					</p>
-				</td>
-			</tr>
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">태그 번호</span></b>
-					</p>
-				</td>
-				<td width="450" height="20">
-					
-						<select name="tagNo" id="tagNo">
-							<option value="none">스터디 항목을 선택하세요</option>
-							<option value="1">C/C++</option>
-							<option value="2">C#</option>
-							<option value="3">Python</option>
-							<option value="4">Go</option>
-							<option value="5">Swift</option>
-							<option value="6">Perl</option>
-							<option value="7">Java</option>
-							<option value="8">Kotlin</option>
-							<option value="9">JavaScript</option>
-							<option value="10">Vue.js</option>
-							<option value="11">React</option>
-							<option value="12">node.js</option>
-							<option value="13">Typescript</option>
-							<option value="14">Ajax</option>
-							<option value="15">JQuery</option>
-							<option value="16">HTML</option>
-							<option value="17">CSS</option>
-							<option value="18">spring</option>
-							<option value="19">JPA</option>
-							<option value="20">Ruby</option>
-							<option value="21">Mysql</option>
-							<option value="22">ORACLE</option>
-							<option value="23">git</option>
-							<option value="24">Linux</option>
-							<option value="25">Ubuntu</option>
-							<option value="26">프론트엔드</option>
-							<option value="27">백엔드</option>
-							<option value="28">토이프로젝트</option>
-							<option value="29">기타</option>
-						</select>
-					
-				</td>
-			</tr>
-			<input type="hidden" name="userId" value="${sessionScope.user.userId }">
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">스터디상태</span></b>
-					</p>
-				</td>
-				<td width="450" height="20">
-					
-						<select name="stateNo" id="stateNo">
-							<option value="1" selected>모집중</option>
-							<option value="2">진행중</option>
-							<option value="3">스터디 종료</option>
-						</select>
-					
-				</td>
-			</tr>
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">요일</span></b>
-					</p>
-				</td>
-				<td width="450" height="20">
-					
-						<select name="dayNo" id="dayNo">
-							<option value="none">=== 선택 ===</option>
-							<option value="1">요일 무관</option>
-							<option value="2">평일</option>
-							<option value="3">주말</option>
-						</select>
-					
-				</td>
-			</tr>
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">정원</span></b>
-					</p>
-				</td>
-				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <input type="text"
-							name="studyMaxnum" id="studyMaxnum" size="12">
-					</span></b></td>
-			</tr>
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;"> 장소 </span></b>
-					</p>
-				</td>
-				<td width="450" height="20">
-					
-						<select name="addressRegion" ></select> 
-						<select name="studyLocationSi" id="studyLocationSi"></select>
-						<select name="studyLocationGu" id="studyLocationGu"></select>
-
-					
-				</td>
-			</tr>
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">마감일자 </span></b>
-					</p>
-				</td>
-				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <input type="text"
-							name="studyDuedate" id="studyDuedate" size="12">
-					</span></b></td>
-
-			</tr>
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">제목</span></b>
-					</p>
-				</td>
-				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <input type="text"
-							name="studyTitle" id="studyTitle" size="12">
-					</span></b></td>
-			</tr>
-			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;"> 내용</span></b>
-					</p>
-				</td>
-				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <textarea name="studyContent"
-								id="studyContent" cols="50" rows="10"></textarea></span></b></td>
-			</tr>
-
-			<tr>
-				<td width="450" height="20" colspan="2" align="center"><b><span
-						style="font-size: 9pt;"></span> <input type=submit value=등록하기>
-							<button type="button" onclick="cancel();">취소하기</button>
-			</tr>
-		</table>
-		<input type=hidden name="key" value="study"> <input
-			type=hidden name="methodName" value="insertStudy">
+  <tbody>
+    <tr class="table-primary">
+      <th scope="row" height="80">스터디 등록</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr></tr>
+    <tr>
+		<td scope="table-primary" width="400" height="80">
+				<h6 align="center">태그번호</h6>
+		</td>
+		<td scope="table-primary" width="450" height="80">
+				<select name="tagNo" id="tagNo">
+					<option value="none">스터디 항목을 선택하세요</option>
+					<option value="1">C/C++</option>
+					<option value="2">C#</option>
+					<option value="3">Python</option>
+					<option value="4">Go</option>
+					<option value="5">Swift</option>
+					<option value="6">Perl</option>
+					<option value="7">Java</option>
+					<option value="8">Kotlin</option>
+					<option value="9">JavaScript</option>
+					<option value="10">Vue.js</option>
+					<option value="11">React</option>
+					<option value="12">node.js</option>
+					<option value="13">Typescript</option>
+					<option value="14">Ajax</option>
+					<option value="15">JQuery</option>
+					<option value="16">HTML</option>
+					<option value="17">CSS</option>
+					<option value="18">spring</option>
+					<option value="19">JPA</option>
+					<option value="20">Ruby</option>
+					<option value="21">Mysql</option>
+					<option value="22">ORACLE</option>
+					<option value="23">git</option>
+					<option value="24">Linux</option>
+					<option value="25">Ubuntu</option>
+					<option value="26">프론트엔드</option>
+					<option value="27">백엔드</option>
+					<option value="28">토이프로젝트</option>
+					<option value="29">기타</option>
+				</select>
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">스터디 상태</h6>
+		</td>
+		<td width="450" height="20">
+				<select name="stateNo" id="stateNo">
+					<option value="1" selected>모집중</option>
+					<option value="2">진행중</option>
+					<option value="3">스터디 종료</option>
+				</select>
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">스터디 요일</h6>
+		</td>
+		<td width="450" height="20">
+			<select name="dayNo" id="dayNo">
+				<option value="none">=== 선택 ===</option>
+				<option value="1">요일 무관</option>
+				<option value="2">평일</option>
+				<option value="3">주말</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">스터디 정원</h6>
+		</td>
+		<td width="450" height="20">
+  			<input type="text" class="form-control" placeholder="스터디 정원을 입력하세요" name="studyMaxnum">
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">스터디 위치</h6>
+		</td>
+		<td width="450" height="20">
+				<select name="addressRegion" ></select> 
+				<select name="studyLocationSi" id="studyLocationSi"></select>
+				<select name="studyLocationGu" id="studyLocationGu"></select>
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">모집 마감일</h6>
+		</td>
+		<td width="450" height="40">
+		  	<input type="text" class="form-control" placeholder="모집마감일자를 입력하세요" name="studyDuedate">
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">제목</h6>
+		</td>
+		<td width="450" height="20">
+			<input type="text" class="form-control" placeholder="제목을 입력하세요" name="studyTitle">
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">내용</h6>
+		</td>
+		<td width="450" height="20">
+		      <textarea class="form-control" name="studyContent" rows="3"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>
+			<button type="submit" class="btn btn-outline-primary">등록하기</button>
+			<button type="submit" class="btn btn-outline-primary" onclick="cancel();">취소하기</button>
+		</td>
+	</tr>
+  </tbody>
+</table>
+	<input type="hidden" name="userId" value="${sessionScope.user.userId }">
+	<input type=hidden name="key" value="study"> 
+	<input type=hidden name="methodName" value="insertStudy">
 	</form>
 
 
 
 	<hr>
-	<div align=right>
-		<span style="font-size: 9pt;">&lt;<a href="${path}/list">리스트로
-				돌아가기</a>&gt;
-		</span>
-	</div>
