@@ -242,12 +242,12 @@ function likey(){
 	<textarea rows="5" cols="80" id="replytext" name="replytext" placeholder="댓글을 작성하세요"></textarea><br>
 	
 	<!-- 로그인 했을때 -->
-	<c:if test="${not empty sessionScope.userid}">
+	<c:if test="${not empty sessionScope.userId}">
 		<button type="button" id="btnReply" onclick="replyInsertValidate('${view2.postNo}'); return false;">댓글쓰기</button>
 	</c:if>
 	
 	<!-- 로그인 안했을때 -->
-	<c:if test="${empty sessionScope.userid}">
+	<c:if test="${empty sessionScope.userId}">
 		<button type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
 	</c:if>
 	
