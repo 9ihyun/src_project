@@ -1,4 +1,4 @@
-package kosta.mvc.controller;
+package kosta.mvc.servlet;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -10,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import kosta.mvc.controller.Controller;
+import kosta.mvc.controller.ModelAndView;
 
 /**
  * 모든 요청을 중앙 집중적으로 관리하게 될 Servlet

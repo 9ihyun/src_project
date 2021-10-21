@@ -192,18 +192,18 @@ img{width:200px; height:350px}
 	<tr>
 	
        
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">번호</span></b></font></p>
+        <td bgcolor="#2185C5">
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">번호</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">제목</span></b></font></p>
+        <td bgcolor="#2185C5">
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">제목</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">추천</span></b></font></p>
+        <td bgcolor="#2185C5">
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">추천</span></b></font></p>
         </td>
         
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">날짜</span></b></font></p>
+        <td bgcolor="#2185C5">
+            <p align="center"><font color="black"><b><span style="font-size:9pt;">날짜</span></b></font></p>
     
     </tr>
   

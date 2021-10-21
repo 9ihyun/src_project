@@ -2,6 +2,7 @@ package kosta.mvc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -49,14 +50,17 @@ public class MyStudyController implements Controller {
 	/**
 	 * 스터디 찜하기
 	 */
-	public void putWishStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView putWishStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = getUserId(request);
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		
-		int result = myStudyService.putWishStudy(id, studyNo);
+		List<Study> wishList = new ArrayList<Study>();
+		if(myStudyService.putWishStudy(id, studyNo) > 0) {
+			wishList = myStudyService.viewSignStudy(id);
+		}
+		request.setAttribute("wishList", wishList);
 		
-		PrintWriter out = response.getWriter();
-		out.print(result);
+		return new ModelAndView("mypage/wishStudy.jsp"); //찜한 스터디 페이지
 	}
 	
 	/**
@@ -74,17 +78,17 @@ public class MyStudyController implements Controller {
 	/**
 	 * 스터디 신청하기
 	 */
-	public void putSignStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//System.out.println("sign study studyNo=" + request.getParameter("studyNo"));
+	public ModelAndView putSignStudy(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = getUserId(request);
-		System.out.println(id);
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		
-		int result = myStudyService.putSignStudy(id, studyNo);
-		System.out.println(result);
+		List<Study> signList = new ArrayList<Study>(); 
+		if(myStudyService.putSignStudy(id, studyNo) > 0) {
+			signList = myStudyService.viewSignStudy(id);
+		}
+		request.setAttribute("signList", signList);
 		
-		PrintWriter out = response.getWriter();
-		out.print(result);
+		return new ModelAndView("mypage/signStudy.jsp"); //신청한 스터디 페이지
 	}
 	
 	
