@@ -130,7 +130,7 @@ public class PostReplyDAOImpl implements PostReplyDAO {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, replyNo);
-			
+
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				id = rs.getString(1);
