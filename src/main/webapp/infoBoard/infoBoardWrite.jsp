@@ -194,7 +194,11 @@ img{width:200px; height:350px}
        
         <td valign="middle">
             <p align="center">
-            <font color="black"><h6>번호</h6></font></p>
+            <font color="black"><h6>글번호</h6></font></p>
+        </td>
+        <td valign="middle">
+            <p align="center">
+            <font color="black"><h6>작성자</h6></font></p>
         </td>
         <td valign="middle">
             <p align="center">
@@ -202,12 +206,13 @@ img{width:200px; height:350px}
         </td>
         <td valign="middle">
             <p align="center">
-            <font color="black"><h6>추천</h6></font></p>
+            <font color="black"><h6>추천수</h6></font></p>
         </td>
         
         <td valign="middle">
             <p align="center">
-            <font color="black"><h6>날짜</h6></font></p>
+            <font color="black"><h6>등록날짜</h6></font></p>
+        </td>
     
     </tr>
   
@@ -227,6 +232,11 @@ img{width:200px; height:350px}
 		        <!-- 번호 -->
 		        <td bgcolor="" align="center">
 		            <span style="font-size:11pt;">${Post2.postNo}</span>
+		        </td>
+		        
+		        <!-- 작성자 -->
+		        <td bgcolor="" align="center">
+		            <span style="font-size:11pt;">${Post2.userId}</span>
 		        </td>
 		        
 		        <!-- 제목 -->

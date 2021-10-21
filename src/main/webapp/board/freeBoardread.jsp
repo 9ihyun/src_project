@@ -89,6 +89,14 @@ function likey(){
 </script>
 <body>
 
+
+
+
+
+
+
+
+
 <table class="table" align="center" cellpadding="10" cellspacing="2" width="90%" >
     <thead>
 	    <tr class="table-default">
@@ -142,76 +150,67 @@ function likey(){
 <hr>
 <h5>댓글</h5><br>
 
-<div>  
-<c:choose>
-	<c:when test = "${empty requestScope.replyList}">
-		<h6>댓글정보가 없습니다.</h6>
-	</c:when>
-	<c:otherwise>
-		<c:forEach items = "${requestScope.replyList}" var = "reply">
-			${reply.userId} | ${reply.pReplyDate}<p>
-			${reply.pReplyContent}<p>
-			<form action="${path}/front" method="post">
-				<input type=hidden name="postNo" value="${view.postNo}">
-				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
-				<input type=hidden name="board" value="free">
 
-					<input type="submit"  value=삭제>
-					<input type=hidden name="key" value="postReply"> 
-					<input type=hidden name="methodName" value="deleteReply">			
-				
-			<a action="${path}/front" method="post"></a>
-				<input type=hidden name="postNo" value="${view.postNo}">
-				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+<table align="center" cellpadding="10" cellspacing="2" width="90%">
+  <tbody>
+    <tr class="row">
+      <td colspan="4">
+      	<h6>댓글</h6>
+      </td>
+    </tr>
+    <tr></tr>
+    <tr>	
+		<td>
+        	<c:choose>
+				<c:when test = "${empty requestScope.replyList}">
+					<h6>댓글정보가 없습니다.</h6>
+				</c:when>
+				<c:otherwise>
+					<c:forEach items = "${requestScope.replyList}" var = "reply">
+					아이디: ${reply.userId} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					
+						내용: ${reply.pReplyContent}<p>
+						<form action="${path}/front" method="post">
+							<input type=hidden name="postNo" value="${view.postNo}">
+							<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+								<button type="submit" class="btn btn-primary">삭제</button>
+								<input type=hidden name="key" value="postReply"> 
+								<input type=hidden name="methodName" value="deleteReply">			
+						</form>		
+						<hr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+        </td>
+	</tr>
+</table>
 
-					<input type="submit"  value=수정>
-					<input type=hidden name="key" value="postReply"> 
-					<input type=hidden name="methodName" value="updateReply">			
-			</form>		
-			<hr>
-		</c:forEach>
-	</c:otherwise>
-</c:choose>
+<table align="center" cellpadding="10" cellspacing="2" width="90%">
+	<tr>
+		<td width="150" height="80">
+			<h6 align="center">${sessionScope.user.userId}</h6>
+		</td>
+		<td>
+		<div id="listReply"></div>
+		<form action="${path}/front" method="post">
+			<input type=hidden name="postNo" value="${view.postNo}">
+			<input type = "text" name="replytext" id="replytext" placeholder="댓글을 입력하세요" style=" width:400px; height:40px">
+			
+			<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
+			<input type="hidden" name="userId" value="${sessionScope.userId }"> 
+			
+			<button type="button" class="btn btn-primary" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">등록</button>
+			<input type=hidden name="key" value="studyReply"> 
+			<input type=hidden name="methodName" value="insertReply">		
+		</form>
+		</td>
+	</tr>
+	</tbody>
+</table>
 
-<!-- <div>  
-	<p class="star_rating" >
-    <a href="#" class="on">★</a> on 을 해두면 색이 노란색으로 나옴
-    <a href="#" class="">★</a>
-    
-    <a href="#" class="">★</a>
-    <a href="#">★</a>
-    <a href="#">★</a>
-</p>
-	</div> -->
 
-<!-- 댓글 작성 -->
-<!-- 너비와 정렬방식 설정 -->
-<div style="width:700px; text-align:center;">
- 
-<!-- 세션에 저장되어있는 userid가 null이 아닐때 -->
-<!-- 그러니까 로그인을 한 상태이어야만 댓글을 작성 할 수 있다.-->
 
-     <!-- 댓글쓰기 버튼을 누르면 id값인 btnReply값이 넘어가서 -->
-     <!-- 위쪽에 있는 스크립트 구문이 실행되고 -->
-     <!-- 내가 댓글을 작성한 값이 스크립트문을 거쳐서 컨트롤러로 맵핑되게 된다. -->
-          
-    <textarea class="form-control" rows="3" ols="80" id="replytext" name="replytext" placeholder="댓글을 작성하세요"></textarea><br>
-	
-	
-	<!-- 로그인 했을때 -->
-	<c:if test="${not empty sessionScope.userId}">
-		<button class= "btn btn-primary btn-sm" type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글쓰기</button>
-	</c:if>
-	
-	<!-- 로그인 안했을때 -->
-	<c:if test="${empty sessionScope.userId}">
-		<button class= "btn btn-primary btn-sm" type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
-	</c:if>
- <c:if test="${sessionScope.sessionID != null}">
-	 <c:if test="${sessionScope.sessionID != post.userId}">
 
-	</c:if>
-</c:if>
 <hr>
 </body>
 </html>
