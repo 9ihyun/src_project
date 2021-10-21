@@ -229,24 +229,26 @@
 <hr>
  <c:if test="${sessionScope.user.userId != null}">
  <c:if test="${sessionScope.user.userId == study.userId}">
-<h2>스터디 신청자 목록</h2>
+<h3>스터디 신청자 목록</h3>
 <c:choose>
 	<c:when test = "${empty userList}">
 		<h5>신청자가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
 		<c:forEach items = "${userList}" var = "user">
-			${user.nickname} | ${user.starPoint}<p>
+			${user.nickname} | ${starPoint}
+			<input type="submit"  value=수락>
+			<input type=hidden name="key" value="myStudy"> 
+			<input type=hidden name="methodName" value="changeSignState">
+			
+			<input type="submit"  value=거절>
+			<input type=hidden name="key" value="myStudy"> 
+			<input type=hidden name="methodName" value="changeSignState">
+			<p>
 		</c:forEach>
 	</c:otherwise>
 </c:choose>
-					<input type="submit"  value=수락>
-					<input type=hidden name="key" value="myStudy"> 
-					<input type=hidden name="methodName" value="changeSignState">
 					
-					<input type="submit"  value=거절>
-					<input type=hidden name="key" value="myStudy"> 
-					<input type=hidden name="methodName" value="changeSignState">
 </c:if>
 </c:if>
 <hr>
