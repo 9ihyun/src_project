@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
-<link rel="stylesheet" href="${path }/CSS/myStudyStyle.css">
+<link rel="stylesheet" href="${path }/CSS/bootstrap.css">
+<link rel="stylesheet" href="${path }/CSS/bootstrap.min.css">
 <style type="text/css">
   img{
     width: 10px; height: 10px;
@@ -30,11 +30,11 @@
 	 });
 	 
 	 $(document).on("click", "[value=별점주기]", function(){
-		  if(confirm($(this).attr("class") + "님에게 별점을 주시겠습니까?")){
+		  if(confirm($(this).attr("id") + "님에게 별점을 주시겠습니까?")){
 			$.ajax({
 				type: "post",
 				url: "${path}/ajax?key=user&methodName=starPoint",
-				data: {"id" : $(this).attr("class"), "point" : $(this).attr("name")},
+				data: {"id" : $(this).attr("id"), "point" : $(this).attr("name")},
 				dataType: "json",
 				success: function(result){
 					alert("별점이 적용되었습니다");
@@ -49,7 +49,7 @@
 	 $(document).on("click", "img", function(){
 		 var num = $(this).attr("name");
 		 num = num.split("-");
-		 for(var i = 1; i<= 5; i++){
+		 for(var i = 2; i<= 6; i++){
 			 $("#join > tbody > tr:nth-child(" + num[0] + ") > th:nth-child(3) > ul > li:nth-child(" + num[1] + ") > img:nth-child(" + i + ")").attr("src", "${path}/img/blackstar.jpg");
 		 }
 		 for(var i = 1; i<= num[2]; i++){
@@ -62,16 +62,23 @@
 </head>
 <body>
 <% int tr = 2; %>
-<table>
-  <tr>
-    <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
-    <th><a href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
-    <th><a href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a></th>
-    <th style="background-color:aqua;"><a href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a></th>
-  </tr>
-</table>
-<table id="join">
-  <tr>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a>
+  </li>
+</ul>
+
+<table id="join" class="table table-hover">
+  <tr class="table-active">
     <th>모집여부</th>
     <th>마감일</th>
     <th>제목</th>
@@ -83,14 +90,13 @@
     <c:when test="${empty requestScope.joinList}">
 	   <tr>
         <th colspan="5">
-            <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
+            <p align="center"><b><span style="font-size:9pt;" class="table-light">등록된 게시글이 없습니다.</span></b></p>
         </th>
     </tr>
     </c:when>
     <c:otherwise>
 	<c:forEach items="${requestScope.joinList}" var="Study">
-		    <tr onmouseover="this.style.background='#eaeaea'"
-		        onmouseout="this.style.background='white'">
+		    <tr class="table-success">
 		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            <c:if test="${Study.stateNo eq 1}">모집중</c:if>
@@ -116,7 +122,7 @@
 	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li%>-<%=num++%>">
 	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li%>-<%=num++%>">
 	                      <img src="${path}/img/blackstar.jpg" name="<%=tr%>-<%=li++%>-<%=num++%>">
-	                      <input type="button" value="별점주기" class="${user.userId }"></li>
+	                      <input type="button" value="별점주기" id="${user.userId }" class="btn btn-warning"></li>
 	                </c:forEach></ul></c:if></span></p>
 		        </th>
 		        <th bgcolor="">
@@ -130,8 +136,8 @@
 		        </th>
 		         <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            <c:if test="${Study.stateNo eq 2}"><a href="${path}/front?key=myStudy&methodName=viewStudyRoomChat&studyNo=${Study.studyNo}&studyTitle=${Study.studyTitle}" id="<%= tr++%>">이동</a></c:if>
-		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id="<%= tr++%>"></c:if>
+		            <c:if test="${Study.stateNo eq 2}"><a href="${path}/front?key=myStudy&methodName=viewStudyRoomChat&studyNo=${Study.studyNo}&studyTitle=${Study.studyTitle}" id="<%= tr++%>" class="btn btn-danger">스터디룸</a></c:if>
+		            <c:if test="${Study.stateNo eq 3}"><input type="button" value="평가하기" id="<%= tr++%>" class="btn btn-warning"></c:if>
 		            </span></p>
 		        </th>
 		        
