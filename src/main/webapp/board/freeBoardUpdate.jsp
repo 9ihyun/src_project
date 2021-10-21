@@ -110,6 +110,9 @@ function checkValid(frm){
     
     <tr>
         <td width="450" height="20" colspan="2" align="center">
+        
+				
+		
 				<input type="submit" class="btn btn-outline-primary" value="수정하기">
 				<button type="button" class="btn btn-outline-primary" onclick="deletes();">삭제하기</button>
 				

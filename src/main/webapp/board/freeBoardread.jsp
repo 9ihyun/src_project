@@ -139,7 +139,11 @@ function likey(){
 			  <input type = "hidden" id = "Likess" value="${view.postNo}">
 			  <div align="right">
 				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postSelectAllPost'">목록으로 돌아가기</button>
-				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}'">수정</button>
+				<c:if test="${sessionScope.userId != null}">
+		 <c:if test="${sessionScope.userId == view.userId}">
+		 <button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}'">수정</button>
+		 </c:if></c:if>
+				
 				<button type="button" class="btn btn-secondary" onclick="likey()">게시물 추천</button>
 			  </div>
 			</c:if>
@@ -173,7 +177,10 @@ function likey(){
 						<form action="${path}/front" method="post">
 							<input type=hidden name="postNo" value="${view.postNo}">
 							<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+							<c:if test="${sessionScope.userId != null}">
+		 					<c:if test="${sessionScope.userId == reply.userId}">
 								<button type="submit" class="btn btn-primary">삭제</button>
+								 </c:if></c:if>
 								<input type=hidden name="key" value="postReply"> 
 								<input type=hidden name="methodName" value="deleteReply">			
 						</form>		
