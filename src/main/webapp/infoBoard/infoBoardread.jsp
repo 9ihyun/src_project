@@ -12,7 +12,7 @@
 
 <style type="text/css">
 
-.star_rating {font-size:0; letter-spacing:-4px;}
+/* .star_rating {font-size:0; letter-spacing:-4px;}
 .star_rating a {
     font-size:22px;
     letter-spacing:0;
@@ -22,7 +22,7 @@
     text-decoration:none;
 }
 .star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#FFF663;}
+.star_rating a.on {color:#FFF663;} */
 
 
 </style>
@@ -133,6 +133,7 @@ function likey(){
              게시물 상세보기</b></font></p>
         </td>
     </tr>
+    <!-- 
     <tr>
         <td width="100" height="20">
             <p align="right"><b><span style="font-size:9pt;"> 태그번호 </span></b></p>
@@ -149,7 +150,7 @@ function likey(){
         	<span style="font-size:9pt;"><b>${view2.boardNo}</b></span>
         </td>
     </tr>
-   
+    -->
     <tr>
         <td width="100" height="20">
             <p align="right"><b><span style="font-size:9pt;"> 제목 </span></b></p>
@@ -177,8 +178,9 @@ function likey(){
 			<input type = "hidden" id = "Likes" value="${view2.postUp}">
 			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
 			<a href="${path}/front?key=post&methodName=Allpost">목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			<a href="${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}" >수정</a>
-			<input type="button" value = "추천" onclick="likey()">
+			<a href="${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}" >수정</a>&nbsp;&nbsp;&nbsp;
+			<a href="#" onclick="likey()">추천</a>
+			
 		</td>
     </tr>
 </table>
@@ -242,12 +244,12 @@ function likey(){
 	<textarea rows="5" cols="80" id="replytext" name="replytext" placeholder="댓글을 작성하세요"></textarea><br>
 	
 	<!-- 로그인 했을때 -->
-	<c:if test="${not empty sessionScope.userid}">
+	<c:if test="${not empty sessionScope.userId}">
 		<button type="button" id="btnReply" onclick="replyInsertValidate('${view2.postNo}'); return false;">댓글쓰기</button>
 	</c:if>
 	
 	<!-- 로그인 안했을때 -->
-	<c:if test="${empty sessionScope.userid}">
+	<c:if test="${empty sessionScope.userId}">
 		<button type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
 	</c:if>
 	

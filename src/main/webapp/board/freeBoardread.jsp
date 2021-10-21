@@ -96,23 +96,8 @@ function likey(){
              게시물 상세보기</b></font></p>
         </td>
     </tr>
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;"> 태그번호 </span></b></p>
-        </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${view.tagNo}</b></span>
-        </td>
-    </tr>
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;"> 게시판번호 </span></b></p>
-        </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${view.boardNo}</b></span>
-        </td>
-    </tr>
    
+
     <tr>
         <td width="100" height="20">
             <p align="right"><b><span style="font-size:9pt;"> 제목 </span></b></p>
@@ -140,9 +125,9 @@ function likey(){
 			  <input type = "hidden" id = "Likes" value="${view.postUp}">
 			  <input type = "hidden" id = "Likess" value="${view.postNo}">
 			<a href="${path}/front?key=post&methodName=postSelectAllPost" >목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			<a href="${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}" >수정</a>
+			<a href="${path}/front?key=post&methodName=postUpdateView&postNo=${view.postNo}" >수정</a>&nbsp;&nbsp;&nbsp;
+			<a href="#" onclick="likey()">추천</a>
 			
-			  <input type="button" value = "추천" onclick="likey()">
 		</td>
     </tr>
 </table>
@@ -151,13 +136,13 @@ function likey(){
 
 <div>  
 <c:choose>
-	<c:when test = "${empty requestScope.postReply}">
+	<c:when test = "${empty requestScope.replyList}">
 		<h5>댓글정보가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
-		<c:forEach items = "${postReply}" var = "reply">
-			${reply.userId} | ${reply.sReplyDate}<p>
-			${reply.sReplyContent}<p>
+		<c:forEach items = "${requestScope.replyList}" var = "reply">
+			${reply.userId} | ${reply.pReplyDate}<p>
+			${reply.pReplyContent}<p>
 			<form action="${path}/front" method="post">
 				<input type=hidden name="studyNo" value="${view.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
@@ -205,16 +190,16 @@ function likey(){
 	<textarea rows="5" cols="80" id="replytext" name="replytext" placeholder="댓글을 작성하세요"></textarea><br>
 	
 	<!-- 로그인 했을때 -->
-	<c:if test="${not empty sessionScope.userid}">
+	<c:if test="${not empty sessionScope.userId}">
 		<button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글쓰기</button>
 	</c:if>
 	
 	<!-- 로그인 안했을때 -->
-	<c:if test="${empty sessionScope.userid}">
+	<c:if test="${empty sessionScope.userId}">
 		<button type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
 	</c:if>
 	
-	<%-- <button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글등록테스트용</button> --%>
+	<button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글등록테스트용</button>
 </div>
 
 <!-- 댓글 목록 -->

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,10 +23,7 @@
 		// }
 	 //}); 
 //});
-<% session.setAttribute("userId", "admin");
-   session.setAttribute("loginUser", "admin");
-   
-   %>
+
 
 
 function cancel(){ //취소하기 눌렀을때
@@ -35,27 +33,33 @@ function cancel(){ //취소하기 눌렀을때
 
 function checkValid(frm){
 	
-	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
-		alert("제목을 입력해주세요.");
-		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+	if(frm.tagNo.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+		alert("번호을 선택해주세요.");
+		frm.tagNo.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+		return false;
+	}
+	
+	if(frm.boardNo.value == ""){
+		alert("게시물 번호를 선택해주세요.");
+		frm.boardNo.focus();
 		return false;
 	}
 	
 	if(frm.userId.value == ""){
-		alert("작성자를 입력해주세요.");
+		alert("아이디를 입력해주세요.");
 		frm.userId.focus();
+		return false;
+	}
+	
+	if(frm.postTitle.value == ""){
+		alert("제목을 입력해주세요.");
+		frm.postTitle.focus();
 		return false;
 	}
 	
 	if(frm.postContent.value == ""){
 		alert("내용을 입력해주세요.");
 		frm.postContent.focus();
-		return false;
-	}
-	
-	if(frm.password.value == ""){
-		alert("패스워드를 입력해주세요.");
-		frm.password.focus();
 		return false;
 	}
 	
@@ -70,7 +74,10 @@ function checkValid(frm){
 
 </head>
 <body>
-<form action="${path}/front" >
+<form action="${path}/front" method="post" onsubmit="return checkValid(this);">
+  	<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
+	<input type="hidden" name="key" value="post">
+	<input type="hidden" name="methodName" value="postInsert">
   
 <!-- 
      ${path}/front?key=StudyDAOImpl&methodName=insertStudy
@@ -89,16 +96,18 @@ function checkValid(frm){
         </td>
     </tr>
       </tr>
+      <input type = "hidden" "name = "tagNo" value="29">
      
+     <!--
      			<tr>
 				<td width="150" height="20">
 					<p align="center">
-						<b><span style="font-size: 9pt;">태그 번호</span></b>
+						<b><span style="font-size: 9pt;">프로그래밍 언어</span></b>
 					</p>
 				</td>
 				<td width="450" height="20">
 						<select name="tagNo">
-							<option value="none">태그번호 선택</option>
+							<option value="none">언어 선택</option>
 							<option value="1" >C/C++</option>
 							<option value="2" >C#</option>
 							<option value="3">Python</option>
@@ -130,24 +139,20 @@ function checkValid(frm){
 							<option value="29">기타</option>
 						</select>
 					</td>
-			</tr>
+			</tr>-->
      	<tr>
 				<td width="150" height="20">
 					<p align="center">
-						<b><span style="font-size: 9pt;">보드 번호</span></b>
+						<b><span style="font-size: 9pt;">게시판</span></b>
 					</p>
 				</td>
 				<td width="450" height="20">
-					
-						<select name="boardNo">
-							<option value="1">1.자유게시판</option>
-							<option value="2">2.지식정보게시판</option>
-							<option value="3">3.알쓸신술게시판</option>
-						</select>
+					<a name="boardNo" value="1">자유게시판</a>
+						
 						
 					</td>
 			</tr>
-     
+     <!--
      <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;">아이디</span></b></p>
@@ -157,7 +162,7 @@ function checkValid(frm){
         		<input type="text" name="userId" id="userId" size="12">
         	   </span></b>
         </td>
-  
+  -->
     <tr>
     <tr>
         <td width="150" height="20">
@@ -181,10 +186,15 @@ function checkValid(frm){
         <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;">
         <input type=submit value=등록하기>
         <button type="button" onclick="cancel();">취소하기</button>
+        
     </tr>
 </table>
+		<input type = hidden name = "userId" value = "${sessionScope.user.userId}">
+		<input type = hidden name = "tagNo" value = "29">
+	<input type = hidden name = "boardNo" value = "1">
  	  <input type = hidden name = "key" value = "post">
       <input type = hidden name = "methodName" value = "postInsert">
+      
 </form>
 
 

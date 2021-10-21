@@ -5,7 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 상세</title>
+<link rel="stylesheet" href="../CSS/bootstrap.css">
+<link rel="stylesheet" href="../CSS/bootstrap.min(1).css">
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+crossorigin="anonymous"> 
 
+  <script src="../ajaxBasic.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+crossorigin="anonymous"></script> 
 <style>
 
 
@@ -23,27 +33,37 @@ function cancel(){ //취소하기 눌렀을때
 
 function checkValid(frm){
 	
-	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
-		alert("제목을 입력해주세요.");
-		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+	if(frm.tagNo.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+		alert("태그번호을 선택해주세요.");
+		frm.tagNo.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+		return false;
+	}
+	
+	if(frm.boardNo.value == "1" || frm.boardNo.value == "3"){
+		alert("게시판번호는 2번을 선택하세요.");
+		frm.boardNo.focus();
 		return false;
 	}
 	
 	if(frm.userId.value == ""){
-		alert("작성자를 입력해주세요.");
+		alert("아이디를 입력해주세요.");
 		frm.userId.focus();
 		return false;
 	}
-	
+	if(frm.tagNo.value == ""){
+		alert("태그를 입력해주세요.");
+		frm.userId.focus();
+		return false;
+	}
 	if(frm.postContent.value == ""){
 		alert("내용을 입력해주세요.");
 		frm.postContent.focus();
 		return false;
 	}
 	
-	if(frm.password.value == ""){
-		alert("패스워드를 입력해주세요.");
-		frm.password.focus();
+	if(frm.postContent.value == ""){
+		alert("내용을 입력해주세요.");
+		frm.postContent.focus();
 		return false;
 	}
 	
@@ -54,11 +74,17 @@ function checkValid(frm){
 	}
 }
 
+
 </script>
 
 </head>
 <body>
-<form action="${path}/front" >
+<form action="${path}/front" method="post" onsubmit="return checkValid(this);">
+  	<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
+	<input type="hidden" name="key" value="post">
+	<input type="hidden" name="methodName" value="postInsert">
+	<input type="hidden" name="type" value="2">
+  
   
 <!-- 
      ${path}/front?key=StudyDAOImpl&methodName=insertStudy
@@ -69,24 +95,24 @@ function checkValid(frm){
 	
    
    
-<table align="center" cellpadding="5" cellspacing="2" width="600" border="1" bgcolor="#50B4F5">
+<table align="center" cellpadding="10" cellspacing="2" width="90%" >
 
-    <tr>
-        <td width="1220" height="20" colspan="2" bgcolor="#FAEBD7">
-            <p align="center"><font color="black" size="3"><b> 게시글 등록 </b></font></p>
-        </td>
-    </tr>
-      </tr>
+    <tbody>
+        <tr class="table-primary">
+        <th scope="row" height="80"> 지식정보공유 글쓰기  
+		<td></td>
+		<td></td>
+		<td></td>
+    	</tr>
+   		 <tr></tr>
      
-     			<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">태그 번호</span></b>
-					</p>
+				<td width="150" height="80">
+					<h6 align="center">태그 번호</h6>
 				</td>
-				<td width="450" height="20">
-						<select name="tagNo">
-							<option value="none">태그번호 선택</option>
+			
+				<td scope="table-primary" width="450" height="80">
+						<select name="tagNo" id="tagNo">
+							<option value="">태그번호 선택</option>
 							<option value="1" >C/C++</option>
 							<option value="2" >C#</option>
 							<option value="3">Python</option>
@@ -119,58 +145,38 @@ function checkValid(frm){
 						</select>
 					</td>
 			</tr>
-     	<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">보드 번호</span></b>
-					</p>
-				</td>
-				<td width="450" height="20">
-					
-						<select name="boardNo">
-							<option value="1">1.자유게시판</option>
-							<option value="2">2.지식정보게시판</option>
-							<option value="3">3.알쓸신술게시판</option>
-						</select>
-						
-					</td>
-			</tr>
+     	
      
      <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">아이디</span></b></p>
-        </td>
-         <td width="450" height="20">
-        	<b><span style="font-size:9pt;">
-        		<input type="text" name="userId" id="userId" size="12">
-        	   </span></b>
-        </td>
+        
   
     <tr>
-    <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">제목</span></b></p>
-        </td>
-        <td width="450" height="20">
-        	<b><span style="font-size:9pt;">
-        		<input type="text" name="postTitle" id="postTitle" size="12">
-        	   </span></b>
-        </td>
-        
-           <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;"> 내용</span></b></p>
-        </td>
-        <td width="450" height="20"><b><span style="font-size:9pt;">
-		<textarea name="postContent" id="postContent" cols="50" rows="10"></textarea></span></b></td>
-    </tr>
-    </tr>
+ 	<tr>
+		<td width="150" height="80">
+				<h6 align="center">제목</h6>
+		</td>
+		<td width="450" height="20">
+			<input type="text" class="form-control" placeholder="제목을 입력하세요" name="postTitle" id="postTitle">
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80">
+				<h6 align="center">내용</h6>
+		</td>
+		<td width="450" height="20">
+		      <textarea class="form-control" name="postContent" rows="3"></textarea>
+		</td>
+	</tr>
     <tr>
         <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;">
-        <input type=submit value=등록하기>
-        <button type="button" onclick="cancel();">취소하기</button>
+        <input type=submit class="btn btn-primary" value=등록하기>
+        <button type="button"class="btn btn-primary" onclick="cancel();">취소하기</button>
+        
     </tr>
 </table>
+		<input type = hidden name = "userId" value = "${sessionScope.user.userId}">
+		<input type = hidden name = "tagNo" value = "29">
+		<input type = hidden name = "boardNo" value = "2">
  	  <input type = hidden name = "key" value = "post">
       <input type = hidden name = "methodName" value = "postInsert2">
 </form>

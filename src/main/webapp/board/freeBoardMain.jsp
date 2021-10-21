@@ -25,11 +25,10 @@
     <%-- <th><iframe src="freeBoardMenu.jsp" height="600" width="250"></iframe></th> --%>
     <th>
     	
-	
-		<jsp:include page="../board/freeBoardMenu.jsp" />
+		<jsp:include page="freeBoardMenu.jsp" />
     </th>
    
-   <td><iframe  src="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost"height="800" width="1000" name="board"></iframe></td>
+   <td><iframe src="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost"height="600" width="800" name="board"></iframe></td>
     
     <%--
     <td><iframe src="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost"height="600" width="800" name="board"></iframe></td>
