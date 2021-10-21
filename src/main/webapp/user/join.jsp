@@ -28,7 +28,7 @@ $(function(){
 				 $("#idCheck").text(result);
 				 $("#idCheck").css("color", "red");
 				 $("#idCheck").css("marginTop", "-10px");
-				 $("#idCheck").css("marginLeft", "20px");
+				 $("#idCheck").css("marginLeft", "70px");
 			 }, 
 			 error: function(err){
 				 alert(err+"발생했어요");
@@ -51,7 +51,7 @@ $(function(){
 				 $("#nickCheck").text(result);
 				 $("#nickCheck").css("color", "red");
 				 $("#nickCheck").css("marginTop", "-10px");
-				 $("#nickCheck").css("marginLeft", "20px");
+				 $("#nickCheck").css("marginLeft", "70px");
 			
 			 }, 
 			 error: function(err){
@@ -60,19 +60,18 @@ $(function(){
 		 });
 	 });
 	
-	// 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수
 	$("form").submit(function(){
 	    if($("[name=pass]").val() != $("[name=passCheck]").val() ){
 	        alert("비밀번호를 동일하게 입력하세요.");
 	        return false;
 	    }
 	    
-	    if($("#idCheck").val() == "이미 사용 중인 아이디입니다."){
+	    if($("#idCheck").text() == "이미 사용 중인 아이디입니다."){
 	        alert("아이디를 다시 설정하세요.");
 	        return false;
 	    }
 	    
-	    if($("#nickCheck").val() == "이미 사용 중인 닉네임입니다."){
+	    if($("#nickCheck").text() == "이미 사용 중인 닉네임입니다."){
 	        alert("닉네임을 다시 설정하세요.");
 	        return false;
 	    }
