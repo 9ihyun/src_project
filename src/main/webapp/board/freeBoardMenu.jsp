@@ -19,6 +19,9 @@
 	 });
   });
 </script>
+<style type="text/css">
+ul{ list-style: none;} 
+</style>
 </head>
 <body>
 <ul >

@@ -87,6 +87,60 @@ function checkValid(frm){
 -->
 	
    
+<table class="table" align="center" cellpadding="10" cellspacing="2" width="90%">
+
+	<thead>
+	    <tr class="table-default">
+	      <td colspan="4">
+	      	<h4>스터디 등록</h4>
+	      </td>
+	    </tr>
+    </thead>
+  <tbody>
+     <tr>
+    	<th colspan="4">
+      	<h4></h4>
+      </th>
+    </tr>
+    <tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">게시판</h6>
+		</td>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">자유게시판</h6>
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">제목</h6>
+		</td>
+		<td width="450" height="20" valign="middle">
+			<input type="text" class="form-control" placeholder="제목을 입력하세요" name="postTitle">
+		</td>
+	</tr>
+	<tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">내용</h6>
+		</td>
+		<td width="450" height="20" valign="middle">
+		      <textarea class="form-control" name="postContent" rows="3"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<div align="left">
+			<button type="submit" class="btn btn-outline-primary" onclick="cancel();">취소하기</button>
+			</div>
+		</td>
+		<td>
+		<div align="right">
+			<button type="submit" class="btn btn-outline-primary">등록하기</button>
+			</div>
+		</td>
+	</tr>
+  </tbody>
+  </table>
+
    
 <table align="center" cellpadding="5" cellspacing="2" width="600" border="1" bgcolor="#FDF5E6">
 
@@ -191,7 +245,7 @@ function checkValid(frm){
 </table>
 		<input type = hidden name = "userId" value = "${sessionScope.user.userId}">
 		<input type = hidden name = "tagNo" value = "29">
-	<input type = hidden name = "boardNo" value = "1">
+		<input type = hidden name = "boardNo" value = "1">
  	  <input type = hidden name = "key" value = "post">
       <input type = hidden name = "methodName" value = "postInsert">
       
