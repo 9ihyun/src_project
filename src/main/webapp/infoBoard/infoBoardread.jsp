@@ -12,7 +12,7 @@
 
 <style type="text/css">
 
-.star_rating {font-size:0; letter-spacing:-4px;}
+/* .star_rating {font-size:0; letter-spacing:-4px;}
 .star_rating a {
     font-size:22px;
     letter-spacing:0;
@@ -22,7 +22,7 @@
     text-decoration:none;
 }
 .star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#FFF663;}
+.star_rating a.on {color:#FFF663;} */
 
 
 </style>

@@ -7,12 +7,15 @@
 <meta charset="UTF-8">
 <title>게시글 수정</title>
 <!-- 이 주석은 지워주세요~ -->
+ <link rel="stylesheet" href="../CSS/bootstrap.css">
+<link rel="stylesheet" href="../CSS/bootstrap.min(1).css">
 <style>
 
 
 </style>
 
 <script src="../js/jquery-3.6.0.js"></script>
+
 <script type="text/javascript">
 
 
@@ -89,35 +92,35 @@ function checkValid(frm){
          <td width="450" height="20">
         	<select name="tagNo" id="tagNo">
 				<option value="none">태그번호 선택</option>
-				<option value="1"${view.tagNo eq 1 ? ' selected':''}>C/C++</option>
-				<option value="2"${view.tagNo eq 2 ? ' selected':''}>C#</option>
-				<option value="3"${view.tagNo eq 3 ? ' selected':''}>Python</option>
-				<option value="4"${view.tagNo eq 4 ? ' selected':''}>Go</option>
-				<option value="5"${view.tagNo eq 5 ? ' selected':''}>Swift</option>
-				<option value="6"${view.tagNo eq 6 ? ' selected':''}>Perl</option>
-				<option value="7"${view.tagNo eq 7 ? ' selected':''}>Java</option>
-				<option value="8"${view.tagNo eq 8 ? ' selected':''}>Kotlin</option>
-				<option value="9"${view.tagNo eq 9 ? ' selected':''}>JavaScript</option>
-				<option value="10"${view.tagNo eq 10 ? ' selected':''}>Vue.js</option>
-				<option value="11"${view.tagNo eq 11 ? ' selected':''}>React</option>
-				<option value="12"${view.tagNo eq 12 ? ' selected':''}>node.js</option>
-				<option value="13"${view.tagNo eq 13 ? ' selected':''}>Typescript</option>
-				<option value="14"${view.tagNo eq 14 ? ' selected':''}>Ajax</option>
-				<option value="15"${view.tagNo eq 15 ? ' selected':''}>JQuery</option>
-				<option value="16"${view.tagNo eq 16 ? ' selected':''}>HTML</option>
-				<option value="17"${view.tagNo eq 17 ? ' selected':''}>CSS</option>
-				<option value="18"${view.tagNo eq 18 ? ' selected':''}>spring</option>
-				<option value="19"${view.tagNo eq 19 ? ' selected':''}>JPA</option>
-				<option value="20"${view.tagNo eq 20 ? ' selected':''}>Ruby</option>
-				<option value="21"${view.tagNo eq 21 ? ' selected':''}>Mysql</option>
-				<option value="22"${view.tagNo eq 22 ? ' selected':''}>ORACLE</option>
-				<option value="23"${view.tagNo eq 23 ? ' selected':''}>git</option>
-				<option value="24"${view.tagNo eq 24 ? ' selected':''}>Linux</option>
-				<option value="25"${view.tagNo eq 25 ? ' selected':''}>Ubuntu</option>
-				<option value="26"${view.tagNo eq 26 ? ' selected':''}>프론트엔드</option>
-				<option value="27"${view.tagNo eq 27 ? ' selected':''}>백엔드</option>
-				<option value="28"${view.tagNo eq 28 ? ' selected':''}>토이프로젝트</option>
-				<option value="29"${view.tagNo eq 29 ? ' selected':''}>기타</option>
+				<option value="1"${view2.tagNo eq 1 ? ' selected':''}>C/C++</option>
+				<option value="2"${view2.tagNo eq 2 ? ' selected':''}>C#</option>
+				<option value="3"${view2.tagNo eq 3 ? ' selected':''}>Python</option>
+				<option value="4"${view2.tagNo eq 4 ? ' selected':''}>Go</option>
+				<option value="5"${view2.tagNo eq 5 ? ' selected':''}>Swift</option>
+				<option value="6"${view2.tagNo eq 6 ? ' selected':''}>Perl</option>
+				<option value="7"${view2.tagNo eq 7 ? ' selected':''}>Java</option>
+				<option value="8"${view2.tagNo eq 8 ? ' selected':''}>Kotlin</option>
+				<option value="9"${view2.tagNo eq 9 ? ' selected':''}>JavaScript</option>
+				<option value="10"${view2.tagNo eq 10 ? ' selected':''}>Vue.js</option>
+				<option value="11"${view2.tagNo eq 11 ? ' selected':''}>React</option>
+				<option value="12"${view2.tagNo eq 12 ? ' selected':''}>node.js</option>
+				<option value="13"${view2.tagNo eq 13 ? ' selected':''}>Typescript</option>
+				<option value="14"${view2.tagNo eq 14 ? ' selected':''}>Ajax</option>
+				<option value="15"${view2.tagNo eq 15 ? ' selected':''}>JQuery</option>
+				<option value="16"${view2.tagNo eq 16 ? ' selected':''}>HTML</option>
+				<option value="17"${view2.tagNo eq 17 ? ' selected':''}>CSS</option>
+				<option value="18"${view2.tagNo eq 18 ? ' selected':''}>spring</option>
+				<option value="19"${view2.tagNo eq 19 ? ' selected':''}>JPA</option>
+				<option value="20"${view2.tagNo eq 20 ? ' selected':''}>Ruby</option>
+				<option value="21"${view2.tagNo eq 21 ? ' selected':''}>Mysql</option>
+				<option value="22"${view2.tagNo eq 22 ? ' selected':''}>ORACLE</option>
+				<option value="23"${view2.tagNo eq 23 ? ' selected':''}>git</option>
+				<option value="24"${view2.tagNo eq 24 ? ' selected':''}>Linux</option>
+				<option value="25"${view2.tagNo eq 25 ? ' selected':''}>Ubuntu</option>
+				<option value="26"${view2.tagNo eq 26 ? ' selected':''}>프론트엔드</option>
+				<option value="27"${view2.tagNo eq 27 ? ' selected':''}>백엔드</option>
+				<option value="28"${view2.tagNo eq 28 ? ' selected':''}>토이프로젝트</option>
+				<option value="29"${view2.tagNo eq 29 ? ' selected':''}>기타</option>
 			</select>
         </td>
     </tr>
@@ -163,8 +166,8 @@ function checkValid(frm){
     
     <tr>
         <td width="450" height="20" colspan="2" align="center">
-	        <input type=submit value="수정하기">
-	        <input type="button"  value="삭제하기">
+	        <input type=submit class="btn btn-primary" value="수정하기">
+	        <input type="button" class="btn btn-primary" value="삭제하기">
         </td>
     </tr>
 </table>

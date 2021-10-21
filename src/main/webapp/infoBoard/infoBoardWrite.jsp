@@ -2,6 +2,14 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="${path}/css/style.css">
+<link rel="stylesheet" href="../CSS/bootstrap.css">
+<link rel="stylesheet" href="../CSS/bootstrap.min(1).css">
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	function go(){
@@ -26,7 +34,8 @@ function goes(){
 	
 
 </script>
-<link rel="stylesheet" href="${path}/css/style.css">
+</head>
+
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
 
@@ -114,7 +123,7 @@ img{width:200px; height:350px}
 
 <!-- 이 주석은 지워주세요~ -->
 
-
+<body>
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
 <caption><h2 align="center">지식 정보 공유 게시판</h2></caption>
 	<colgroup>
@@ -321,5 +330,5 @@ img{width:200px; height:350px}
 		
 		</div>
 	</nav> 
- 
+ </body>
  

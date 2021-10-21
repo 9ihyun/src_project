@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,27 +39,33 @@ function cancel(){ //취소하기 눌렀을때
 
 function checkValid(frm){
 	
-	if(frm.postTitle.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
-		alert("제목을 입력해주세요.");
-		frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+	if(frm.tagNo.value == ""){ //boardTitle 는 id값이다 , ""은 = 공백일경우 
+		alert("번호을 선택해주세요.");
+		frm.tagNo.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+		return false;
+	}
+	
+	if(frm.boardNo.value == ""){
+		alert("게시물 번호를 선택해주세요.");
+		frm.boardNo.focus();
 		return false;
 	}
 	
 	if(frm.userId.value == ""){
-		alert("작성자를 입력해주세요.");
+		alert("아이디를 입력해주세요.");
 		frm.userId.focus();
+		return false;
+	}
+	
+	if(frm.postTitle.value == ""){
+		alert("제목을 입력해주세요.");
+		frm.postTitle.focus();
 		return false;
 	}
 	
 	if(frm.postContent.value == ""){
 		alert("내용을 입력해주세요.");
 		frm.postContent.focus();
-		return false;
-	}
-	
-	if(frm.password.value == ""){
-		alert("패스워드를 입력해주세요.");
-		frm.password.focus();
 		return false;
 	}
 	
@@ -73,7 +80,10 @@ function checkValid(frm){
 
 </head>
 <body>
-<form action="${path}/front" >
+<form action="${path}/front" method="post" onsubmit="return checkValid(this);">
+  	<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
+	<input type="hidden" name="key" value="post">
+	<input type="hidden" name="methodName" value="postInsert">
   
 <!-- 
      ${path}/front?key=StudyDAOImpl&methodName=insertStudy
@@ -100,7 +110,7 @@ function checkValid(frm){
 					</p>
 				</td>
 				<td width="450" height="20">
-						<select name="tagNo">
+						<select name="tagNo" id="tagNo">
 							<option value="none">태그번호 선택</option>
 							<option value="1" >C/C++</option>
 							<option value="2" >C#</option>
@@ -142,7 +152,7 @@ function checkValid(frm){
 				</td>
 				<td width="450" height="20">
 					
-						<select name="boardNo">
+						<select name="boardNo"id="boardNo">
 							<option value="1">1.자유게시판</option>
 							<option value="2">2.지식정보게시판</option>
 							<option value="3">3.알쓸신술게시판</option>

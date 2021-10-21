@@ -10,7 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../CSS/mypageStyle.css">
+<link rel="stylesheet" href="../CSS/bootstrap.css">
+<link rel="stylesheet" href="../CSS/bootstrap.min(1).css">
+
 <style type="text/css">
 
 </style>

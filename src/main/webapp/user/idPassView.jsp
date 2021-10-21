@@ -41,16 +41,52 @@
         font-size: 23px;
     }
     
-     a {
+    a {
         text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-        color: #262626;
-        font-size: 15px;
+        color: #737373;
+        font-size: 20px;
         text-decoration: none;
         font-weight: bold;
-       margin: 7em auto;
+        color: black;
     }
     a:hover{
     	font-size: 18px;
+    }
+    
+       table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-left: 3px solid #369;
+  margin : 20px 10px;
+   margin-left:auto; 
+    margin-right:auto;
+}
+table th {
+    width: 147px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #66A399;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+table td {
+ width: 349px;
+  padding: 10px;
+  vertical-align: top;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+   font-weight: bold;
+   font-size: 15px;
+  color: black;
+}
+
+p{
+    	font-size: 15px;
+    	color: black;
+    	font-weight: bold;
     }
     
     

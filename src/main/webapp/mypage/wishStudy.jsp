@@ -8,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${path }/CSS/mypageStyle.css">
-<link rel="stylesheet" href="${path }/CSS/myStudyStyle.css">
+<link rel="stylesheet" href="${path }/CSS/bootstrap.css">
+<link rel="stylesheet" href="${path }/CSS/bootstrap.min.css">
 <style type="text/css">
 
 </style>
@@ -18,17 +18,23 @@
 </script>
 </head>
 <body>
-<table>
-  <tr>
-    <th><a href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a></th>
-    <th style="background-color:aqua;"><a href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a></th>
-    <th><a href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a></th>
-    <th><a href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a></th>
-  </tr>
-</table>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewMyStudy">내가 모집한 스터디</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewWishStudy">내가 찜한 스터디</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewSignStudy">내가 신청한 스터디</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="${path}/front?key=myStudy&methodName=viewJoinStudy">참여중/완료 스터디</a>
+  </li>
+</ul>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <tr class="table-active">
     <th>모집여부</th>
     <th>마감일</th>
     <th>제목</th>
@@ -40,14 +46,14 @@
     <c:when test="${empty requestScope.wishList}">
 	   <tr>
         <td colspan="5">
-            <p align="center"><b><span style="font-size:9pt;">등록된 게시글이 없습니다.</span></b></p>
+            <p align="center"><b><span style="font-size:9pt;" class="table-light">등록된 게시글이 없습니다.</span></b></p>
         </td>
     </tr>
     </c:when>
     <c:otherwise>
 	<c:forEach items="${requestScope.wishList}" var="Study">
 		    <tr onmouseover="this.style.background='#eaeaea'"
-		        onmouseout="this.style.background='white'">
+		        onmouseout="this.style.background='white'"  class="table-success">
 		        <th bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            <c:if test="${Study.stateNo eq 1}">모집중</c:if>

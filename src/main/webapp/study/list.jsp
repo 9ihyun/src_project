@@ -269,7 +269,7 @@ img{width:200px; height:350px}
 		            <p align="center">
 		            <form action="${path}/front" method="post">
 						<input type=hidden name="studyNo" value="${study.studyNo}">
-						<button type="submit" class="btn btn-primary btn-sm">찜하기</button>
+						<button type="submit" class="btn btn-primary btn-sm">찜</button>
 						<!--input type="submit"  value=찜하기-->
 						<input type=hidden name="key" value="myStudy"> 
 						<input type=hidden name="methodName" value="putWishStudy">			
