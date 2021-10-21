@@ -63,7 +63,11 @@ public class LoginController implements Controller {
 		
 		loginService.register(new User(id, nickname, pass, birth, question, anwser));
 		
-		return new ModelAndView("user/joinProc.jsp", true);
+		request.setAttribute("id", id);
+		request.setAttribute("nickname", nickname);
+		request.setAttribute("birth", birth);
+		
+		return new ModelAndView("user/joinProc.jsp");
 	}
 	
 	/**

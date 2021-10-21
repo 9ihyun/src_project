@@ -11,24 +11,24 @@
 </head>
 <body>
 	<div class="main">
-	<p class="title" align="center">${sessionScope.user.nickname}님 가입을 축하드립니다.</p>
+	<p class="title" align="center">${requestScope.nickname}님 가입을 환영합니다.</p>
 	<p align="center">내 정보 확인하기</p>
 	<table align="center" cellpadding="5" cellspacing="2" width="300" border='1'>
 	<tr>
 		<td>아이디</td>
-		<td>${sessionScope.user.userId}</td>
+		<td>${requestScope.id}</td>
 	</tr>
 	<tr>
 		<td>닉네임</td>
-		<td>${sessionScope.user.nickname}</td>
+		<td>${requestScope.nickname}</td>
 	</tr>
 	<tr>
 		<td>생년월일</td>
-		<td>${sessionScope.user.birth}</td>
+		<td>${requestScope.birth}</td>
 	</tr>
 	</table>
 	
-	<a href="${path}/user/singin.jsp">로그인</a>
+	<a href="singin.jsp">로그인</a>
 	</div>
 
 </body>
