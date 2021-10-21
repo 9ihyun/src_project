@@ -182,62 +182,39 @@
 			</div>
 		</td>
 	</tr>
+	<tr>
+		<td colspan="2" align="right">
+		<c:if test="${sessionScope.userId != null}">
+		 <c:if test="${sessionScope.userId == study.userId}">
+			<button type="button" value = "찾기" class="btn btn-primary btn-sm" onclick="location.href='${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}'">수정</button>
+			<button type="button" value = "찾기" class="btn btn-primary btn-sm" onclick="location.href='${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}'">삭제</button>		</c:if>
+		</c:if>
+		</td>
+	</tr>
   </tbody>
 </table>
- <c:if test="${sessionScope.userId != null}">
- <c:if test="${sessionScope.userId == study.userId}">
-	<a href="${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}" >수정</a>
-	<a href="${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}" >삭제</a>
-</c:if>
-</c:if>
-
-<br>
-<br>
 <hr>
 
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
-  <tbody>
-    <tr class="row">
-      <td colspan="4">
-      	<h6>댓글</h6>
-      </td>
-    </tr>
-    <tr></tr>
-    <tr>
-		<td width="150" height="80">
-			<c:choose>
-				<c:when test = "${empty requestScope.StudyReply}">
-					<h6> </h6>
-				</c:when>
-				<c:otherwise>
-					<c:forEach items = "${StudyReply}" var = "reply">
-						<h6 align="center">${reply.userId}</h6>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-		</td>
-		<td>
-        	<c:choose>
-				<c:when test = "${empty requestScope.StudyReply}">
-					<h6>댓글정보가 없습니다.</h6>
-				</c:when>
-				<c:otherwise>
-					<c:forEach items = "${StudyReply}" var = "reply">
-						${reply.sReplyContent}<p>
-						<form action="${path}/front" method="post">
-							<input type=hidden name="studyNo" value="${study.studyNo}">
-							<input type=hidden name="sReplyNo" value="${reply.sReplyNo}">
-								<button type="submit" class="btn btn-primary">삭제</button>
-								<input type=hidden name="key" value="studyReply"> 
-								<input type=hidden name="methodName" value="deleteReply">			
-						</form>		
-						<hr>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-        </td>
-	</tr>
-</table>
+<c:choose>
+	<c:when test = "${empty requestScope.StudyReply}">
+		<h6>댓글정보가 없습니다.</h6>
+	</c:when>
+	<c:otherwise>
+		<c:forEach items = "${StudyReply}" var = "reply">
+			${reply.userId} | ${reply.sReplyDate}<p>
+			${reply.sReplyContent}<p>				
+			<form action="${path}/front" method="post">
+				<input type=hidden name="studyNo" value="${study.studyNo}">
+				<input type=hidden name="sReplyNo" value="${reply.sReplyNo}">
+					<button type="submit" class="btn btn-primary">삭제</button>
+					<input type=hidden name="key" value="studyReply"> 
+					<input type=hidden name="methodName" value="deleteReply">			
+			</form>		
+			<hr>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
+
 
 <table align="center" cellpadding="10" cellspacing="2" width="90%">
 	<tr>
