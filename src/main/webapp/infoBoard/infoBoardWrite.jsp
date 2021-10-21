@@ -263,7 +263,7 @@ img{width:200px; height:350px}
 	</table>
 	<hr>
 	<div align=right>
-	<span style="font-size:11pt;">&lt;<a href="${path}/infoBoard/write.jsp">글쓰기</a>&gt;</span>
+	<span style="font-size:11pt;"><a class="btn btn-outline-primary" href="${path}/infoBoard/write.jsp">글쓰기</a></span>
 	</div>
 	
 
