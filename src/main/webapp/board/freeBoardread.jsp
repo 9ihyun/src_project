@@ -89,31 +89,39 @@ function likey(){
 </script>
 <body>
 
-<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' >
+<table class="table" align="center" cellpadding="10" cellspacing="2" width="90%" >
+    <thead>
+	    <tr class="table-default">
+	      <td colspan="4">
+	      	<h4 align="center" >게시글 상세보기</h4>
+	      </td>
+	    </tr>
+    </thead>
+   <tbody>
     <tr>
-        <td width="1220" height="20" colspan="4" bgcolor="#2185C5">
-            <p align="center"><font color="white" size="4"><b>
-             게시물 상세보기</b></font></p>
-        </td>
+    	<td colspan="4">
+      	<h4></h4>
+      </td>
     </tr>
-   
+    <tr class="table-active">
+		<td width="50%" height="80" valign="middle">
+				<b><h5 align="center" style="bold">제목</h5></b>
+		</td>
+		<td valign="middle"><h5>${view.postTitle}</h5>
+        </td>
+	</tr>
+ 
+	
+	<tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">내용</h6>
+		</td>
+		<td valign="middle"><h6>${view.postContent}</h6></td>
+	</tr>
+	
+  </tbody>
 
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;"> 제목 </span></b></p>
-        </td>
-        <td width="450" height="20" colspan="3">
-        	<span style="font-size:9pt;"><b>${view.postTitle}</b></span>
-        </td>
-    </tr>
-    <tr>
-		<td width="100" height="200" valign="top">
-            <p align="right"><b><span style="font-size:9pt;"> 내용 </span></b></p>
-        </td>
-		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
-        <td width="450" height="200" valign="top" colspan="3">
-        <span style="font-size:9pt;"><b><pre>${view.postContent}</pre></b></span></td>
-    </tr>
+    
     
   
     <tr>
