@@ -154,26 +154,15 @@ function likey(){
 <hr>
 <h5>댓글</h5><br>
 
-
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
-  <tbody>
-    <tr class="row">
-      <td colspan="4">
-      	<h6>댓글</h6>
-      </td>
-    </tr>
-    <tr></tr>
-    <tr>	
-		<td>
         	<c:choose>
 				<c:when test = "${empty requestScope.replyList}">
-					<h6>댓글정보가 없습니다.</h6>
+					<h6>댓글정보가 없습니다.</h6><br>
+					<hr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items = "${requestScope.replyList}" var = "reply">
-					아이디: ${reply.userId} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					
-						내용: ${reply.pReplyContent}<p>
+						${reply.userId} | ${reply.pReplyDate}<p>
+						${reply.pReplyContent}<p>
 						<form action="${path}/front" method="post">
 							<input type=hidden name="postNo" value="${view.postNo}">
 							<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
@@ -188,20 +177,11 @@ function likey(){
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
-        </td>
-	</tr>
-</table>
 
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
-	<tr>
-		<td width="150" height="80">
-			<h6 align="center">${sessionScope.user.userId}</h6>
-		</td>
-		<td>
 		<div id="listReply"></div>
 		<form action="${path}/front" method="post">
 			<input type=hidden name="postNo" value="${view.postNo}">
-			<input type = "text" name="replytext" id="replytext" placeholder="댓글을 입력하세요" style=" width:400px; height:40px">
+			<input type = "text" class="form-control" name="replytext" id="replytext" placeholder="댓글을 입력하세요"><br>
 			
 			<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
 			<input type="hidden" name="userId" value="${sessionScope.userId }"> 
@@ -210,10 +190,7 @@ function likey(){
 			<input type=hidden name="key" value="studyReply"> 
 			<input type=hidden name="methodName" value="insertReply">		
 		</form>
-		</td>
-	</tr>
-	</tbody>
-</table>
+
 
 
 

@@ -64,6 +64,15 @@ body {
 </ul>
 
 <table class="table">
+<colgroup>
+		<col width="13%"/>
+		<col width="13%"/>
+		<col width="26%"/>
+		<col width="8%"/>
+		<col width="18%"/>
+		<col width="8%"/>
+		<col width="10%"/>
+	</colgroup>
   <tr class="table-primary">
     <td valign="middle">
             <p align="center">
@@ -112,7 +121,7 @@ body {
 		            <c:if test="${Study.stateNo eq 3}">스터디완료</c:if></span></p>
 		        </th>
 		        <th bgcolor="" valign="middle">
-					<p><span style="font-size:11pt;">
+					<p align="center"><span style="font-size:11pt;">
 					  ${Study.studyDuedate}</span></p>
 		        </th>
 		        
@@ -134,8 +143,7 @@ body {
 		            ${Study.signUserNo}</span></p>
 		        </th>
 		        <th bgcolor="" valign="middle">
-		            <p align="center"><span style="font-size:11pt;">
-		            <input type="button" value="신청취소" id="delete" name="${Study.studyNo }" class="btn btn-dark"></span></p>
+		            <input type="button" value="신청취소" id="delete" name="${Study.studyNo }" class="btn btn-dark">
 		        </th>
 		      
 		    </tr>
