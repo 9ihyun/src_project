@@ -3,7 +3,16 @@
 
 <HTML>
 <HEAD>
-<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+crossorigin="anonymous">
+
+  <script src="../ajaxBasic.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+crossorigin="anonymous"></script> 
 <script src="../js/jquery-3.6.0.js"></script>
 <SCRIPT >
 function cancel(){ 
@@ -83,8 +92,8 @@ function checkValid(f) {
     <input type="hidden" name="key" value="study" >
     <input type="hidden" name="methodName" value="updateStudy" >
     <input type='hidden' name='studyNo' value="${view.studyNo}">
-	<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' >
-    <tr>
+	<table align="center" cellpadding="5" cellspacing="2" width="700" border='1' >
+    <tr class="table-primary">
         <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
             <p align="center"><font color="white" size="3"><b>
              게시물 자세히보기</b></font></p>
@@ -101,10 +110,10 @@ function checkValid(f) {
 							<option value="3">스터디 종료</option>
 						</select>
         </td>
-        <td width="100" height="20" >
+        <td scope="table-primary" width="100" height="20" >
             <p align="right"><b><span style="font-size:9pt;">태그 번호</span></b></p>
         </td>
-        <td width="200" height="20">
+        <td scope="table-primary" width="200" height="20">
         	<select name="tagNo" id="tagNo">
 							<option value="none">스터디 항목을 선택하세요</option>
 							<option value="1">C/C++</option>
@@ -144,13 +153,13 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">작성자 아이디</span></b></p>
         </td>
         <td width="200" height="20">
-        	<input type="text" name="userId" value="${view.userId}" id="userId">
+        	<input type="text" class="form-control" name="userId" value="${view.userId}" id="userId">
         </td>
         <td width="100" height="20" >
             <p align="right"><b><span style="font-size:9pt;">모집 정원</span></b></p>
         </td>
         <td width="200" height="20">
-        	<input type="text" name="studyMaxnum" value="${view.studyMaxnum}" id="studyMaxnum">
+        	<input type="text" class="form-control" placeholder="스터디 정원을 입력하세요" name="studyMaxnum" value="${view.studyMaxnum}" id="studyMaxnum">
         </td>
     </tr>
     <tr>
@@ -158,7 +167,7 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">마감일</span></b></p>
         </td>
         <td width="100" height="20">
-        	<input type="text" name="studyDuedate" value="${view.studyDuedate}" id="studyDuedate">
+        	<input type="text" name="studyDuedate" value="${view.studyDuedate}" id="studyDuedate" class="form-control" placeholder="모집마감일자를 입력하세요">
         </td>
         <td width="100" height="20" >
 			<p align="right"><b><span style="font-size:9pt;">요일</span></b></p>
@@ -177,13 +186,13 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">지역(시)</span></b></p>
         </td>
         <td width="100" height="20">
-        	<input type="text" name="studyLocationSi" value="${view.studyLocationSi}" id="studyLocationSi">
+        	<input type="text" class="form-control" name="studyLocationSi" value="${view.studyLocationSi}" id="studyLocationSi">
         </td>
         <td width="100" height="20" >
 			<p align="right"><b><span style="font-size:9pt;">지역(구)</span></b></p>
 		</td>
         <td width="100" height="20">
-        	<input type="text" name="studyLocationGu" value="${view.studyLocationGu}" id="studyLocationGu">
+        	<input type="text" class="form-control" name="studyLocationGu" value="${view.studyLocationGu}" id="studyLocationGu">
 		</td>
     </tr>
     <tr>
@@ -191,7 +200,7 @@ function checkValid(f) {
             <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
         <td width="450" height="20" colspan="3">
-        	<input type="text" name="studyTitle" value="${view.studyTitle}" id="studyTitle">
+        	<input class="form-control" placeholder="제목을 입력하세요" type="text" name="studyTitle" value="${view.studyTitle}" id="studyTitle">
         </td>
     </tr>
     <tr>
@@ -200,13 +209,13 @@ function checkValid(f) {
         </td>
 		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
         <td width="450" height="200" valign="top" colspan="3">
-        <textarea name="studyContent" id="studyContent" cols="50" rows="10">${view.studyContent}</textarea>
+        <textarea name="studyContent" id="studyContent" cols="50" rows="10" class="form-control">${view.studyContent}</textarea>
     </tr>
     
     <tr>
         <td width="450" height="20" colspan="2" align="center">
-				<input type="submit" value="수정하기">
-				<button type="button" onclick="cancel();">취소하기</button>
+				<input type="submit" class="btn btn-outline-primary" value="수정하기">
+				<button type="button" class="btn btn-outline-primary" onclick="cancel();">취소하기</button>
 				
 		</td>
     </tr>
