@@ -79,6 +79,22 @@
 <input type="hidden" name = "key" value = "user">
 <input type = "hidden" name = "methodName" value = "pwChange">		
 <table class="table talble-hover">
+<tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
+   <tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
+  <tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
+  <tr>
 	<tr>
 		<th><p class="text-primary">현재 비밀번호 입력</p></th>
 	</tr>

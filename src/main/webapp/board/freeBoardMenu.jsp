@@ -24,6 +24,7 @@ ul{ list-style: none;}
 </style>
 </head>
 <body>
+
 <ul >
   <li><a href="${pageContext.request.contextPath}/front?key=study&methodName=selectAllStudy" target="board"class="btn btn-primary"> 스터디 </a></li> &nbsp;&nbsp;
   <li><a href="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost" target="board"class="btn btn-primary"> 자유게시판</a></li> &nbsp;&nbsp;
