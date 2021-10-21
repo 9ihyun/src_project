@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>게시글 수정</title>
 <!-- 이 주석은 지워주세요~ -->
- <link rel="stylesheet" href="../CSS/bootstrap.css">
-<link rel="stylesheet" href="../CSS/bootstrap.min(1).css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 <style>
 
 
@@ -88,14 +88,14 @@ function checkValid(frm){
             <p align="center"><font color="white" size="3"><b> 게시글 수정 </b></font></p>
         </td>
     </tr>
-    <!--  
+   
      <tr>
         <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">태그 번호 </span></b></p>
+            <p align="center"><b><span style="font-size:9pt;">프로그래밍 언어 </span></b></p>
         </td>
          <td width="450" height="20">
         	<select name="tagNo" id="tagNo">
-				<option value="none">태그번호 선택</option>
+				<option value="none">언어 선택</option>
 				<option value="1"${view2.tagNo eq 1 ? ' selected':''}>C/C++</option>
 				<option value="2"${view2.tagNo eq 2 ? ' selected':''}>C#</option>
 				<option value="3"${view2.tagNo eq 3 ? ' selected':''}>Python</option>
@@ -128,7 +128,7 @@ function checkValid(frm){
 			</select>
         </td>
     </tr>
-    -->
+   
      <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;">게시판 </span></b></p>
@@ -173,8 +173,8 @@ function checkValid(frm){
     </tr>
 </table>
 <input type = hidden name = "userId" value = "${sessionScope.user.userId}">
-<input type = hidden name = "tagNo" value = "29">
-<input type = hidden name = "boardNo" value = "1">
+
+<input type = hidden name = "boardNo" value = "2">
 </form>
 
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front?key=post&methodName=Allpost">리스트로 돌아가기</a>&gt;</span></div>

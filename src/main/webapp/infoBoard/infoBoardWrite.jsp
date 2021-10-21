@@ -7,9 +7,8 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="${path}/css/style.css">
-<link rel="stylesheet" href="../CSS/bootstrap.css">
-<link rel="stylesheet" href="../CSS/bootstrap.min(1).css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	function go(){
@@ -35,7 +34,7 @@ function goes(){
 
 </script>
 </head>
-
+<!--
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
 
@@ -120,12 +119,12 @@ table td {
 }
 img{width:200px; height:350px}
 </style>
-
+-->
 <!-- 이 주석은 지워주세요~ -->
 
 <body>
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
-<caption><h2 align="center">지식 정보 공유 게시판</h2></caption>
+<caption></caption>
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
@@ -135,13 +134,13 @@ img{width:200px; height:350px}
 		<col width="7%"/>
 		<col width="7%"/>
 	</colgroup>
-	<div>
+	<div >
 			<form>
 				<fieldset>
 				   <div align="right"> 
 				    <legend>글 검색 필드</legend>  
 				   <label>태그로 언어 찾기</label>
-                    <select name="tagNo" id="tagNo">
+                    <select name="tagNo" id="tagNo"class="btn btn-primary" >
 							<option value="none">==선택==</option>
 							<option value="1">C/C++</option>
 							<option value="2">C#</option>
@@ -173,7 +172,7 @@ img{width:200px; height:350px}
 							<option value="28">토이프로젝트</option>
 							<option value="29">기타</option>
 						</select>  
-						<input type="button" value = "찾기" onclick="goes()">
+						<input type="button" class="btn btn-primary" value = "찾기" onclick="goes()">
                              
                     <label>검색분류</label>
                         <select name = "search" id=searchs>
@@ -183,31 +182,32 @@ img{width:200px; height:350px}
                         </select>
                     <label>검색어</label>
                    
-                        <input type = "text" id = "searchByTitle" placeholder="전송전">
-                        <input type="button" value = "검색" onclick="go()"><br>
+                        <input  type = "text" id = "searchByTitle" placeholder="전송전">
+                        <input type="button" class="btn btn-primary" value = "검색" onclick="go()"><br>
                         
                           
                         
                                    																												 <!-- infoBoard/infoBoardWrite -->
                 </fieldset>        
 			
-				<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">인기글</button>
-		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">최근글</button>
+				<button class="btn btn-primary" type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">인기글</button>
+		<button class="btn btn-primary" type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=2&board=infoBoard/infoBoardWrite&postnum=2'">최근글</button>
 			</form>	
 		</div>	
+		<h2 align="center">지식 정보 공유 게시판</h2>
 	<tr>
        
-        <td bgcolor="#00cc00">
+        <td bgcolor="#9DE4FF">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">번호</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
+        <td bgcolor="#9DE4FF">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">제목</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
+        <td bgcolor="#9DE4FF">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">추천</span></b></font></p>
         </td>
         
-        <td bgcolor="#00cc00">
+        <td bgcolor="#9DE4FF">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">날짜</span></b></font></p>
     
     </tr>

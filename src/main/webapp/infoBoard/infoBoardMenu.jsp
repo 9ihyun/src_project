@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
- <link rel="stylesheet" href="../CSS/bootstrap.css">
-<link rel="stylesheet" href="../CSS/bootstrap.min(1).css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
     
 <ul style="text-align:left;">
 	<li><a href="../study/list.jsp" class="btn btn-primary" target="board" > 스터디 </a></li> &nbsp;&nbsp;

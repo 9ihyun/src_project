@@ -8,24 +8,8 @@
 
 <meta charset="UTF-8">
 <title>게시글 상세</title>
-<link rel="stylesheet" href="css/style.css">
-
-<style type="text/css">
-
-/* .star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:22px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
-}
-.star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#FFF663;} */
-
-
-</style>
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 
 <script type="text/javascript" src="${path}/js/jquery-3.6.0.js"></script>
 
