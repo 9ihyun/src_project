@@ -14,11 +14,12 @@ import javax.servlet.http.HttpSession;
  * 로그인 후 이용가능한 페이지일 경우, 인증 여부를 확인해주는 필터
  */
 
-@WebFilter("/front")
+//@WebFilter(urlPatterns = "/front", filterName = "secondFilter")
 public class SessionCheckFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		System.out.println("Sessioncheck filter...");
 		String key = request.getParameter("key");
 		if (!key.equals("login")) {
 			HttpServletRequest req = (HttpServletRequest) request;

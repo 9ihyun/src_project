@@ -13,11 +13,11 @@ import javax.servlet.annotation.WebInitParam;
 /**
  * post 방식 한글 인코딩 처리 Filter
  */
-@WebFilter(
+/*@WebFilter(
 		urlPatterns = { "/*" }, 
 		initParams = { 
 				@WebInitParam(name = "encoding", value = "UTF-8")
-		})
+		}, filterName = "firstFilter")*/
 public class EncodingFilter implements Filter {
 	
 	private String encoding;
@@ -27,6 +27,7 @@ public class EncodingFilter implements Filter {
 	}
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		System.out.println("Encoding Filter..");
 		request.setCharacterEncoding(encoding);
 		chain.doFilter(request, response);
 	}

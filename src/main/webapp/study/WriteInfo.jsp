@@ -1,0 +1,379 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스터디</title>
+
+<style>
+</style>
+
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	function cancel() { //취소하기 눌렀을때
+		if (confirm("취소하시겠습니까?") == true) {
+			parent.location.href = "freeBoardMain.jsp";
+		}
+	}
+
+	function checkValid(frm) {
+
+		if (frm.postTitle.value == "") { //boardTitle 는 id값이다 , ""은 = 공백일경우 
+			alert("태그를 입력해주세요.");
+			frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+			return false;
+		}
+		if (frm.postTitle.value == "") { //boardTitle 는 id값이다 , ""은 = 공백일경우 
+			alert("아이디를  입력해주세요.");
+			frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+			return false;
+		}
+		if (frm.postTitle.value == "") { //boardTitle 는 id값이다 , ""은 = 공백일경우 
+			alert("상태를 입력해주세요.");
+			frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+			return false;
+		}
+		if (frm.postTitle.value == "") { //boardTitle 는 id값이다 , ""은 = 공백일경우 
+			alert("요일을 입력해주세요.");
+			frm.postTitle.focus(); // 제목이 입력되지 않은경우 경고창이 뜨고 포커스를 제목으로 가져다준다.
+			return false;
+		}
+		if (frm.userId.value == "") {
+			alert("정원을 입력해주세요.");
+			frm.userId.focus();
+			return false;
+		}
+
+		if (frm.postContent.value == "") {
+			alert("시를 입력해주세요.");
+			frm.postContent.focus();
+			return false;
+		}
+
+		if (frm.password.value == "") {
+			alert("구를 입력해주세요.");
+			frm.password.focus();
+			return false;
+		}
+
+		if (frm.password.value == "") {
+			alert("마감일을 입력해주세요.");
+			frm.password.focus();
+			return false;
+		}
+
+		if (frm.password.value == "") {
+			alert("제목을 입력해주세요.");
+			frm.password.focus();
+			return false;
+		}
+
+		if (frm.password.value == "") {
+			alert("내용을 입력해주세요.");
+			frm.password.focus();
+			return false;
+		}
+
+		if (confirm("등록하시겠습니까?") == true) {
+			return true;
+		}
+	}
+
+	$(function() {
+		areaSelectMaker("select[name=addressRegion]");
+	});
+
+	var areaSelectMaker = function(target) {
+		if (target == null || $(target).length == 0) {
+			console.warn("Unkwon Area Tag");
+			return;
+		}
+
+		var area = {
+			"수도권" : {
+				"서울특별시" : [ "강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구",
+						"금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구",
+						"서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구",
+						"은평구", "종로구", "중구", "중랑구" ],
+				"경기도" : [ "수원시 장안구", "수원시 권선구", "수원시 팔달구", "수원시 영통구",
+						"성남시 수정구", "성남시 중원구", "성남시 분당구", "의정부시", "안양시 만안구",
+						"안양시 동안구", "부천시", "광명시", "평택시", "동두천시", "안산시 상록구",
+						"안산시 단원구", "고양시 덕양구", "고양시 일산동구", "고양시 일산서구", "과천시",
+						"구리시", "남양주시", "오산시", "시흥시", "군포시", "의왕시", "하남시",
+						"용인시 처인구", "용인시 기흥구", "용인시 수지구", "파주시", "이천시", "안성시",
+						"김포시", "화성시", "광주시", "양주시", "포천시", "여주시", "연천군", "가평군",
+						"양평군" ],
+				"인천광역시" : [ "계양구", "미추홀구", "남동구", "동구", "부평구", "서구", "연수구",
+						"중구", "강화군", "옹진군" ]
+			},
+			"강원권" : {
+				"강원도" : [ "춘천시", "원주시", "강릉시", "동해시", "태백시", "속초시", "삼척시",
+						"홍천군", "횡성군", "영월군", "평창군", "정선군", "철원군", "화천군", "양구군",
+						"인제군", "고성군", "양양군" ]
+			},
+			"충청권" : {
+				"충청북도" : [ "청주시 상당구", "청주시 서원구", "청주시 흥덕구", "청주시 청원구", "충주시",
+						"제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군",
+						"단양군" ],
+				"충청남도" : [ "천안시 동남구", "천안시 서북구", "공주시", "보령시", "아산시", "서산시",
+						"논산시", "계룡시", "당진시", "금산군", "부여군", "서천군", "청양군", "홍성군",
+						"예산군", "태안군" ],
+				"대전광역시" : [ "대덕구", "동구", "서구", "유성구", "중구" ],
+				"세종특별자치시" : [ "세종특별자치시" ]
+			},
+			"전라권" : {
+				"전라북도" : [ "전주시 완산구", "전주시 덕진구", "군산시", "익산시", "정읍시", "남원시",
+						"김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군",
+						"부안군" ],
+				"전라남도" : [ "목포시", "여수시", "순천시", "나주시", "광양시", "담양군", "곡성군",
+						"구례군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "해남군", "영암군",
+						"무안군", "함평군", "영광군", "장성군", "완도군", "진도군", "신안군" ],
+				"광주광역시" : [ "광산구", "남구", "동구", "북구", "서구" ]
+			},
+			"경상권" : {
+				"경상북도" : [ "포항시 남구", "포항시 북구", "경주시", "김천시", "안동시", "구미시",
+						"영주시", "영천시", "상주시", "문경시", "경산시", "군위군", "의성군", "청송군",
+						"영양군", "영덕군", "청도군", "고령군", "성주군", "칠곡군", "예천군", "봉화군",
+						"울진군", "울릉군" ],
+				"경상남도" : [ "창원시 의창구", "창원시 성산구", "창원시 마산합포구", "창원시 마산회원구",
+						"창원시 진해구", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시",
+						"양산시", "의령군", "함안군", "창녕군", "고성군", "남해군", "하동군", "산청군",
+						"함양군", "거창군", "합천군" ],
+				"부산광역시" : [ "강서구", "금정구", "남구", "동구", "동래구", "부산진구", "북구",
+						"사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구",
+						"기장군" ],
+				"대구광역시" : [ "남구", "달서구", "동구", "북구", "서구", "수성구", "중구", "달성군" ],
+				"울산광역시" : [ "남구", "동구", "북구", "중구", "울주군" ]
+			},
+			"제주권" : {
+				"제주특별자치도" : [ "서귀포시", "제주시" ]
+			}
+		};
+
+		for (i = 0; i < $(target).length; i++) {
+			(function(z) {
+				var a1 = $(target).eq(z);
+				var a2 = a1.next();
+				var a3 = a2.next();
+
+				//초기화
+				init(a1, true);
+
+				//권역 기본 생성
+				var areaKeys1 = Object.keys(area);
+				areaKeys1.forEach(function(Region) {
+					a1.append("<option value="+Region+">" + Region
+							+ "</option>");
+				});
+
+				//변경 이벤트
+				$(a1).on("change", function() {
+					init($(this), false);
+					var Region = $(this).val();
+					var keys = Object.keys(area[Region]);
+					keys.forEach(function(Do) {
+						a2.append("<option value="+Do+">" + Do + "</option>");
+					});
+				});
+
+				$(a2).on("change",
+					function() {
+						a3.empty().append("<option value=''>선택</option>");
+						var Region = a1.val();
+						var Do = $(this).val();
+						var keys = Object.keys(area[Region][Do]);
+						keys.forEach(function(SiGunGu) {
+							a3.append("<option value="+area[Region][Do][SiGunGu]+">"
+								+ area[Region][Do][SiGunGu]
+								+ "</option>");
+						});
+				});
+			})(i);
+
+			function init(t, first) {
+				first ? t.empty().append("<option value=''>선택</option>") : "";
+				t.next().empty().append("<option value=''>선택</option>");
+				t.next().next().empty().append("<option value=''>선택</option>");
+			}
+		}
+	}
+</script>
+
+</head>
+<BODY>
+
+	<form action="${path}/front" method="post">
+		<!-- 
+     아래 문장으로 전송하면 post방식으로 전송이되고 현재 파일업로드때문에 enctype="multipart/form-data" 설정되어 있기때문에 
+     request로 값을 받을수가 없다. ( MulitpartRequest로 받아야한다.) 그런데 Controller로 가기전에 Controller를 찾기위해서 
+     DispatherServlet에서 request로 두개의 값을 받고 있기때문에 key, methodName은 get방식으로 별도로 전송해야한다.
+     
+	<input type="hidden" name="key" value = "elec" />
+	<input type="hidden" name="methodName" value = "insert" />  
+
+ -->
+		<table align="center" cellpadding="5" cellspacing="2" width="600"
+			border="1">
+
+			<tr>
+				<td width="1220" height="20" colspan="2" bgcolor="#00cc00">
+					<p align="center">
+						<font color="white" size="3"><b> 게시글 등록 </b></font>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;">태그 번호</span></b>
+					</p>
+				</td>
+				<td width="450" height="20">
+					
+						<select name="tagNo" id="tagNo">
+							<option value="none">스터디 항목을 선택하세요</option>
+							<option value="1">C/C++</option>
+							<option value="2">C#</option>
+							<option value="3">Python</option>
+							<option value="4">Go</option>
+							<option value="5">Swift</option>
+							<option value="6">Perl</option>
+							<option value="7">Java</option>
+							<option value="8">Kotlin</option>
+							<option value="9">JavaScript</option>
+							<option value="10">Vue.js</option>
+							<option value="11">React</option>
+							<option value="12">node.js</option>
+							<option value="13">Typescript</option>
+							<option value="14">Ajax</option>
+							<option value="15">JQuery</option>
+							<option value="16">HTML</option>
+							<option value="17">CSS</option>
+							<option value="18">spring</option>
+							<option value="19">JPA</option>
+							<option value="20">Ruby</option>
+							<option value="21">Mysql</option>
+							<option value="22">ORACLE</option>
+							<option value="23">git</option>
+							<option value="24">Linux</option>
+							<option value="25">Ubuntu</option>
+							<option value="26">프론트엔드</option>
+							<option value="27">백엔드</option>
+							<option value="28">토이프로젝트</option>
+							<option value="29">기타</option>
+						</select>
+					
+				</td>
+			</tr>
+			<input type="hidden" name="userId" value="${sessionScope.user.userId }">
+			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;">스터디상태</span></b>
+					</p>
+				</td>
+				<td width="450" height="20">
+					
+						<select name="stateNo" id="stateNo">
+							<option value="1" selected>모집중</option>
+							<option value="2">진행중</option>
+							<option value="3">스터디 종료</option>
+						</select>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;">요일</span></b>
+					</p>
+				</td>
+				<td width="450" height="20">
+					
+						<select name="dayNo" id="dayNo">
+							<option value="none">=== 선택 ===</option>
+							<option value="1">요일 무관</option>
+							<option value="2">평일</option>
+							<option value="3">주말</option>
+						</select>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;">정원</span></b>
+					</p>
+				</td>
+				<td width="450" height="20"><b><span
+						style="font-size: 9pt;"> <input type="text"
+							name="studyMaxnum" id="studyMaxnum" size="12">
+					</span></b></td>
+			</tr>
+			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;"> 장소 </span></b>
+					</p>
+				</td>
+				<td width="450" height="20">
+					
+						<select name="addressRegion" ></select> 
+						<select name="studyLocationSi" id="studyLocationSi"></select>
+						<select name="studyLocationGu" id="studyLocationGu"></select>
+
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;">마감일자 </span></b>
+					</p>
+				</td>
+				<td width="450" height="20"><b><span
+						style="font-size: 9pt;"> <input type="text"
+							name="studyDuedate" id="studyDuedate" size="12">
+					</span></b></td>
+
+			</tr>
+			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;">제목</span></b>
+					</p>
+				</td>
+				<td width="450" height="20"><b><span
+						style="font-size: 9pt;"> <input type="text"
+							name="studyTitle" id="studyTitle" size="12">
+					</span></b></td>
+			</tr>
+			<tr>
+				<td width="150" height="20">
+					<p align="center">
+						<b><span style="font-size: 9pt;"> 내용</span></b>
+					</p>
+				</td>
+				<td width="450" height="20"><b><span
+						style="font-size: 9pt;"> <textarea name="studyContent"
+								id="studyContent" cols="50" rows="10"></textarea></span></b></td>
+			</tr>
+
+			<tr>
+				<td width="450" height="20" colspan="2" align="center"><b><span
+						style="font-size: 9pt;"></span> <input type=submit value=등록하기>
+							<button type="button" onclick="cancel();">취소하기</button>
+			</tr>
+		</table>
+		<input type=hidden name="key" value="study"> <input
+			type=hidden name="methodName" value="insertStudy">
+	</form>
+
+
+
+	<hr>
+	<div align=right>
+		<span style="font-size: 9pt;">&lt;<a href="${path}/list">리스트로
+				돌아가기</a>&gt;
+		</span>
+	</div>
