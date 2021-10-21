@@ -78,100 +78,86 @@ function checkValid(frm){
 -->
 	<!-- 삭제시 -->
 	
-	
-	
-	
-<table align="center" cellpadding="5" cellspacing="2" width="600" border="1" >
-
-    <tr>
-        <td width="1220" height="20" colspan="2" bgcolor="#00cc00">
-            <p align="center"><font color="white" size="3"><b> 게시글 수정 </b></font></p>
+	<table align="center" cellpadding="5" cellspacing="2" width="700" border='1' >
+    <tr class="table-primary">
+        <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
+            <p align="center"><font color="white" size="3"><b>
+             게시물 자세히보기</b></font></p>
         </td>
     </tr>
-   
-     <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">프로그래밍 언어 </span></b></p>
+    <tr>
+        
+        
+        <td scope="table-primary" width="100" height="20" >
+            <p align="right"><b><span style="font-size:9pt;">프로그래밍 언어</span></b></p>
         </td>
-         <td width="450" height="20">
+        <td scope="table-primary" width="200" height="20">
         	<select name="tagNo" id="tagNo">
-				<option value="none">언어 선택</option>
-				<option value="1"${view2.tagNo eq 1 ? ' selected':''}>C/C++</option>
-				<option value="2"${view2.tagNo eq 2 ? ' selected':''}>C#</option>
-				<option value="3"${view2.tagNo eq 3 ? ' selected':''}>Python</option>
-				<option value="4"${view2.tagNo eq 4 ? ' selected':''}>Go</option>
-				<option value="5"${view2.tagNo eq 5 ? ' selected':''}>Swift</option>
-				<option value="6"${view2.tagNo eq 6 ? ' selected':''}>Perl</option>
-				<option value="7"${view2.tagNo eq 7 ? ' selected':''}>Java</option>
-				<option value="8"${view2.tagNo eq 8 ? ' selected':''}>Kotlin</option>
-				<option value="9"${view2.tagNo eq 9 ? ' selected':''}>JavaScript</option>
-				<option value="10"${view2.tagNo eq 10 ? ' selected':''}>Vue.js</option>
-				<option value="11"${view2.tagNo eq 11 ? ' selected':''}>React</option>
-				<option value="12"${view2.tagNo eq 12 ? ' selected':''}>node.js</option>
-				<option value="13"${view2.tagNo eq 13 ? ' selected':''}>Typescript</option>
-				<option value="14"${view2.tagNo eq 14 ? ' selected':''}>Ajax</option>
-				<option value="15"${view2.tagNo eq 15 ? ' selected':''}>JQuery</option>
-				<option value="16"${view2.tagNo eq 16 ? ' selected':''}>HTML</option>
-				<option value="17"${view2.tagNo eq 17 ? ' selected':''}>CSS</option>
-				<option value="18"${view2.tagNo eq 18 ? ' selected':''}>spring</option>
-				<option value="19"${view2.tagNo eq 19 ? ' selected':''}>JPA</option>
-				<option value="20"${view2.tagNo eq 20 ? ' selected':''}>Ruby</option>
-				<option value="21"${view2.tagNo eq 21 ? ' selected':''}>Mysql</option>
-				<option value="22"${view2.tagNo eq 22 ? ' selected':''}>ORACLE</option>
-				<option value="23"${view2.tagNo eq 23 ? ' selected':''}>git</option>
-				<option value="24"${view2.tagNo eq 24 ? ' selected':''}>Linux</option>
-				<option value="25"${view2.tagNo eq 25 ? ' selected':''}>Ubuntu</option>
-				<option value="26"${view2.tagNo eq 26 ? ' selected':''}>프론트엔드</option>
-				<option value="27"${view2.tagNo eq 27 ? ' selected':''}>백엔드</option>
-				<option value="28"${view2.tagNo eq 28 ? ' selected':''}>토이프로젝트</option>
-				<option value="29"${view2.tagNo eq 29 ? ' selected':''}>기타</option>
-			</select>
+							<option value="none">언어를 선택하세요</option>
+							<option value="1">C/C++</option>
+							<option value="2">C#</option>
+							<option value="3">Python</option>
+							<option value="4">Go</option>
+							<option value="5">Swift</option>
+							<option value="6">Perl</option>
+							<option value="7">Java</option>
+							<option value="8">Kotlin</option>
+							<option value="9">JavaScript</option>
+							<option value="10">Vue.js</option>
+							<option value="11">React</option>
+							<option value="12">node.js</option>
+							<option value="13">Typescript</option>
+							<option value="14">Ajax</option>
+							<option value="15">JQuery</option>
+							<option value="16">HTML</option>
+							<option value="17">CSS</option>
+							<option value="18">spring</option>
+							<option value="19">JPA</option>
+							<option value="20">Ruby</option>
+							<option value="21">Mysql</option>
+							<option value="22">ORACLE</option>
+							<option value="23">git</option>
+							<option value="24">Linux</option>
+							<option value="25">Ubuntu</option>
+							<option value="26">프론트엔드</option>
+							<option value="27">백엔드</option>
+							<option value="28">토이프로젝트</option>
+							<option value="29">기타</option>
+						</select>
         </td>
     </tr>
-   
-     <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">게시판 </span></b></p>
-        </td>
-         <td width="450" height="20">
-        	<a name="boardNo" value="2">지식 정보 게시판</a>
-        </td>
-    </tr>
-    
-     <%-- <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">작성자</span></b></p>
-        </td>
-         <td width="450" height="20">
-        	<input type="text" name="userId" id="userId" value="${view.userId}" size="12">
-        </td>
-    <tr> --%>
-    
     <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">제목</span></b></p>
+        
+        
+   
+    <tr>
+        <td width="100" height="20">
+            <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
         </td>
-        <td width="450" height="20">
-        	<input type="text" name="postTitle" value="${view2.postTitle}" id="postTitle" size="12">
+        <td width="450" height="20" colspan="3">
+        	<input class="form-control" placeholder="제목을 입력하세요" type="text" name="postTitle" value="${view2.postTitle}" id="postTitle">
         </td>
-      </tr> 
-      
-      <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;"> 내용</span></b></p>
+    </tr>
+    <tr>
+		<td width="100" height="200" valign="top">
+            <p align="right"><b><span style="font-size:9pt;">설명</span></b></p>
         </td>
-        <td width="450" height="20">
-			<textarea name="postContent" id="postContent" cols="50" rows="10">${view2.postContent}</textarea>
-		</td>
+		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
+        <td width="450" height="200" valign="top" colspan="3">
+        <textarea name="postContent" id="postContent" cols="50" rows="10" class="form-control">${view2.postContent}</textarea>
     </tr>
     
     <tr>
         <td width="450" height="20" colspan="2" align="center">
-	        <input type=submit value="수정하기">
-	        <input type="button" onclick="deletes();" value="삭제하기">
-        </td>
+				<input type="submit" class="btn btn-outline-primary" value="수정하기">
+				<button type="button" class="btn btn-outline-primary" onclick="deletes();">삭제하기</button>
+				
+		</td>
     </tr>
 </table>
+	
+	
+
 <input type = hidden name = "userId" value = "${sessionScope.user.userId}">
 
 <input type = hidden name = "boardNo" value = "2">
