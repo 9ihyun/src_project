@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2 align="center">${sessionScope.user.nickname}님의 회원정보 입니다.</h2>
+
+<div class="main">
+<p class="title" align="center">${sessionScope.user.nickname}님의 회원정보 입니다.</p>
 <table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
 <tr>
 	<td>아이디</td>
@@ -20,6 +22,7 @@
 </table>
 
 <a href="${path}/user/singin.jsp">로그인</a>
+</div>
 
 </body>
 </html>

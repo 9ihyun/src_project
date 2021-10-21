@@ -4,13 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="../CSS/joinViewStyle.css">
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>${sessionScope.user.nickname}님 가입을 축하드립니다.</h3>
-	<h5>내 정보 확인하기</h5>
-	<table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
+	<div class="main">
+	<p class="title" align="center">${sessionScope.user.nickname}님 가입을 축하드립니다.</p>
+	<p align="center">내 정보 확인하기</p>
+	<table align="center" cellpadding="5" cellspacing="2" width="300" border='1'>
 	<tr>
 		<td>아이디</td>
 		<td>${sessionScope.user.userId}</td>
@@ -26,6 +29,7 @@
 	</table>
 	
 	<a href="${path}/user/singin.jsp">로그인</a>
+	</div>
 
 </body>
 </html>
