@@ -39,7 +39,16 @@ public class PostController implements Controller {
 
 		service.postInsert(post);
 		
-		return new ModelAndView("/front?key=post&methodName=postSelectAllPost");
+		String type = request.getParameter("type");
+		
+		// 자유게시판
+		String methodName = "postSelectAllPost";
+		
+		if("2".equals(type)){
+			methodName = "Allpost";
+		}
+		
+		return new ModelAndView("/front?key=post&methodName="+methodName);
 	}
 	
 	
@@ -73,7 +82,7 @@ public class PostController implements Controller {
 		service.postUpdate(post);
 
 		//return new ModelAndView("board/freeBoardread.jsp", true);
-		return new ModelAndView("/front?key=post&methodName=postViewPost&postNo="+postNo);
+		return new ModelAndView("/front?key=post&methodName=postViewPost&postNo="+ postNo);
 	}
 
 	

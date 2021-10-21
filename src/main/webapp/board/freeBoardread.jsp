@@ -136,13 +136,13 @@ function likey(){
 
 <div>  
 <c:choose>
-	<c:when test = "${empty requestScope.postReply}">
+	<c:when test = "${empty requestScope.replyList}">
 		<h5>댓글정보가 없습니다.</h5>
 	</c:when>
 	<c:otherwise>
-		<c:forEach items = "${postReply}" var = "reply">
-			${reply.userId} | ${reply.sReplyDate}<p>
-			${reply.sReplyContent}<p>
+		<c:forEach items = "${requestScope.replyList}" var = "reply">
+			${reply.userId} | ${reply.pReplyDate}<p>
+			${reply.pReplyContent}<p>
 			<form action="${path}/front" method="post">
 				<input type=hidden name="studyNo" value="${view.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
@@ -199,7 +199,7 @@ function likey(){
 		<button type="button" id="btnReply" onclick="alert('로그인이 필요합니다.'); return false;">댓글쓰기</button>
 	</c:if>
 	
-	<%-- <button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글등록테스트용</button> --%>
+	<button type="button" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">댓글등록테스트용</button>
 </div>
 
 <!-- 댓글 목록 -->
