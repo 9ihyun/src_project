@@ -134,9 +134,8 @@ img{width:200px; height:350px}
 			<form>
 				<fieldset>
 				   <div align="right"> 
-				    <legend>스터디 검색</legend>   
-                    <label>스터디언어</label>
-                    <select name="tagNo" id="tagNo">
+                    <label><h5>스터디언어</h5></label>
+                    <select name="tagNo" id="tagNo" class="btn btn-outline-dark">
 							<option value="none">==선택==</option>
 							<option value="1">C/C++</option>
 							<option value="2">C#</option>
@@ -168,26 +167,8 @@ img{width:200px; height:350px}
 							<option value="28">토이프로젝트</option>
 							<option value="29">기타</option>
 						</select>  
-						<input type="button" value = "찾기" onclick="goes()">
-                             
-                    <label>검색분류</label>
-                        <select name = "search" id=searchs>
-                            <option id=title value = "/src_project/front?key=search&methodName=selectTitleStudy&studyTitle=">제목</option>
-                          
-                        </select>
-                    <label>검색어</label>
-                   
-                        <input type = "text" id = "searchByStudy" placeholder="검색어를 입력하세요">
-                        <input type="button" value = "검색" onclick="go()"><br>
-                        
-                          
-                        
-                                    
+						<button type="button" value = "찾기" class="btn btn-outline-dark" onclick="goes()">찾기</button>
                 </fieldset>        
-			
-		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=1'">모집중</button>
-		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=2'">스터디진행중</button>
-		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=3'">스터디종료</button>
 			</form>	
 		</div>	
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="90%" bordercolordark="white" bordercolorlight="black">
@@ -200,7 +181,24 @@ img{width:200px; height:350px}
 		<col width="7%"/>
 		<col width="16%"/>
 	</colgroup>
-	
+	<tr>
+		<td colspan="2">
+			<div align="left">
+			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=1'">모집중</button>
+			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=2'">스터디진행중</button>
+			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=3'">스터디종료</button>
+			</div>
+		</td>
+		<td colspan="5">
+			<div align="right">
+				<select name = "search" id=searchs>
+                    <option id=title class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=selectTitleStudy&studyTitle=">제목</option>
+                </select>
+				<input type = "text" id = "searchByStudy" placeholder="검색어를 입력하세요">
+           		 <button type="button" value = "검색" class="btn btn-primary btn-sm" onclick="go()">검색</button>
+			</div>
+		</td>
+	</tr>
 	 <tr class="table-primary">
        <td>
             <p align="center">
@@ -289,7 +287,7 @@ img{width:200px; height:350px}
 </table>
 <hr>
 <div align=right>
-<span style="font-size:9pt;">&lt;<a href="${path}/study/write2.jsp">글쓰기</a>&gt;</span>
+<button type="submit" class="btn btn-outline-primary" onClick="location.href='${path}/study/write2.jsp'">글쓰기</button>
 </div>
 
 
