@@ -8,7 +8,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
+	input[type=submit]:hover{
+		background-color: #aaa;
+		color: #fff;
+		cursor: pointer;
+	}
 </style>
 <script type="text/javascript">
 
