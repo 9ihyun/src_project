@@ -98,8 +98,8 @@ function goes(){
 		<td colspan="5">
 			<div align="right">
 				<select name = "search" id=searchs>
-                    <option id=title class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
-                	<option id=user class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=searchById&userId==">작성자</option>
+                    <option id="title" class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
+                	<option id="user" class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
                 </select>
 				<input type = "text" id = "searchByTitle" placeholder="검색어를 입력하세요">
            		 <button type="button" value = "검색" class="btn btn-primary btn-sm" onclick="go()">검색</button>
