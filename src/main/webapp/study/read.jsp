@@ -133,10 +133,8 @@ crossorigin="anonymous"></script>
 		<td><h6>${study.studyContent}</h6></td>
 	</tr>
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
+		<td colspan="4">
+		<div align="right">
 			<form action="${path}/front" method="post">
 				<input type=hidden name="studyNo" value="${study.studyNo}">
 				<button type="submit" class="btn btn-outline-primary">찜하기</button>
@@ -149,6 +147,7 @@ crossorigin="anonymous"></script>
 				<input type=hidden name="key" value="myStudy"> 
 				<input type=hidden name="methodName" value="putSignStudy">			
 			</form>	
+			</div>
 		</td>
 	</tr>
   </tbody>
@@ -209,7 +208,9 @@ crossorigin="anonymous"></script>
 		<div id="listReply"></div>
 		<form action="${path}/front" method="post">
 			<input type=hidden name="studyNo" value="${study.studyNo}">
-			<input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent">
+			<input type = "text" name="sReplyContent" id = "searchByStudy" placeholder="댓글을 입력하세요" style=" width:400px; height:40px">
+			
+			<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
 			<input type="hidden" name="userId" value="${sessionScope.userId }"> 
 			<button type="submit" class="btn btn-primary">등록</button>
 			<input type=hidden name="key" value="studyReply"> 
@@ -241,7 +242,6 @@ crossorigin="anonymous"></script>
 
 
 <hr>
-스터디 신청자
 <table align="center" cellpadding="10" cellspacing="2" width="90%">
  <c:if test="${sessionScope.user.userId != null}">
  <c:if test="${sessionScope.user.userId == study.userId}">
