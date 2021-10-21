@@ -4,17 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 
 <HEAD>
-<!--link rel="stylesheet" href="css/style.css"-->
-
-<link rel="stylesheet" 
-href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-crossorigin="anonymous"> 
-
-  <script src="../ajaxBasic.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
-crossorigin="anonymous"></script> 
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 
 <script type="text/javascript" src="../js/jquery-3.6.0.js"></script> 
 
@@ -60,90 +51,99 @@ crossorigin="anonymous"></script>
 <body>
 <form>
 
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
+<table class="table" align="center" cellpadding="10" cellspacing="2" width="90%">
 
-  <tbody>
-    <tr class="table-primary">
-      <th scope="row" height="80">스터디 상세보기</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr></tr>
+	<thead>
+	    <tr class="table-default">
+	      <td colspan="4">
+	      	<h4>스터디 상세보기</h4>
+	      </td>
+	    </tr>
+    </thead>
+      <tbody>
     <tr>
-		<td width="150" height="80">
-				<h6 align="center">제목</h6>
+    	<td colspan="4">
+      	<h4></h4>
+      </td>
+    </tr>
+    <tr class="table-active">
+		<td width="50%" height="80" valign="middle">
+				<b><h5 align="center" style="bold">제목</h5></b>
 		</td>
-		<td><h6>${study.studyTitle}</h6>
+		<td valign="middle"><h5>${study.studyTitle}</h5>
         </td>
 	</tr>
     <tr>
-		<td scope="table-primary" width="400" height="80">
+		<td scope="table-primary" width="400" height="80" valign="middle">
 				<h6 align="center">스터디 모집여부</h6>
 		</td>
-		<td><h6>${study.stateName}</h6>
+		<td valign="middle"><h6>${study.stateName}</h6>
         </td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">스터디 항목</h6>
 		</td>
-		<td><h6>${study.tagName}</h6>
+		<td valign="middle"><h6>${study.tagName}</h6>
         </td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">작성자</h6>
 		</td>
-		 <td><h6>${study.userId}</h6>
+		 <td valign="middle"><h6>${study.userId}</h6>
         </td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
-				<h6 align="center">스터디 모집정원</h6>
+		<td width="150" height="80" valign="middle">
+			<h6 align="center">스터디 모집정원</h6>
 		</td>
-		<td><h6>${study.studyMaxnum}</h6>
+		<td valign="middle"><h6>${study.studyMaxnum}</h6>
         </td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">스터디 요일</h6>
 		</td>
-		<td><h6>${study.dayName}</h6>
+		<td valign="middle"><h6>${study.dayName}</h6>
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">스터디 지역</h6>
 		</td>
-		<td><h6>${study.studyLocationSi} ${study.studyLocationGu}</h6>
+		<td valign="middle"><h6>${study.studyLocationSi} ${study.studyLocationGu}</h6>
 		</td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">모집 마감일</h6>
 		</td>
-		<td><h6>${study.studyDuedate}</h6>
+		<td valign="middle"><h6>${study.studyDuedate}</h6>
         </td>
 	</tr>
 	<tr>
-		<td width="150" height="80">
+		<td width="150" height="80" valign="middle">
 				<h6 align="center">내용</h6>
 		</td>
-		<td><h6>${study.studyContent}</h6></td>
+		<td valign="middle"><h6>${study.studyContent}</h6></td>
 	</tr>
 	<tr>
-		<td colspan="4">
+		<td>
+		<div align="left">
+			<form action="${path}/front" method="post">
+				<input type=hidden name="studyNo" value="${study.studyNo}">
+				<button type="submit" class="btn btn-warning">찜하기</button>
+				<input type=hidden name="key" value="myStudy"> 
+				<input type=hidden name="methodName" value="putWishStudy">			
+			</form>	
+			</div>
+		</td>
+		<td>
 		<div align="right">
 			<form action="${path}/front" method="post">
 				<input type=hidden name="studyNo" value="${study.studyNo}">
-				<button type="submit" class="btn btn-outline-primary">찜하기</button>
-				<input type=hidden name="key" value="myStudy"> 
-				<input type=hidden name="methodName" value="putWishStudy">			
-			</form>	<br>
-			<form action="${path}/front" method="post">
-				<input type=hidden name="studyNo" value="${study.studyNo}">
-				<button type="submit" class="btn btn-outline-primary">신청하기</button>
+				<button type="submit" class="btn btn-primary">신청하기</button>
 				<input type=hidden name="key" value="myStudy"> 
 				<input type=hidden name="methodName" value="putSignStudy">			
 			</form>	
@@ -160,10 +160,9 @@ crossorigin="anonymous"></script>
 <table align="center" cellpadding="10" cellspacing="2" width="90%">
   <tbody>
     <tr class="row">
-      <th scope="row" height="80" size="8">댓글</th>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td colspan="4">
+      	<h6>댓글</h6>
+      </td>
     </tr>
     <tr></tr>
     <tr>
@@ -200,9 +199,12 @@ crossorigin="anonymous"></script>
 			</c:choose>
         </td>
 	</tr>
+</table>
+
+<table align="center" cellpadding="10" cellspacing="2" width="90%">
 	<tr>
 		<td width="150" height="80">
-				<h6 align="center">${sessionScope.user.userId}</h6>
+			<h6 align="center">${sessionScope.user.userId}</h6>
 		</td>
 		<td>
 		<div id="listReply"></div>
@@ -279,7 +281,7 @@ crossorigin="anonymous"></script>
  </table>
 
 <hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="${path}/study/list.jsp">리스트로 돌아가기</a>&gt;</span></div>
+<div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front?key=study&methodName=selectAllStudy">리스트로 돌아가기</a>&gt;</span></div>
 </body>
 
 
