@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../CSS/MenuStyle.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 <script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
   $(function(){
@@ -20,11 +21,11 @@
 </script>
 </head>
 <body>
-<ul style="text-align:left;">
-  <li><a href="${pageContext.request.contextPath}/front?key=study&methodName=selectAllStudy" target="board"> 스터디 </a></li> &nbsp;&nbsp;
-  <li><a href="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost" target="board"> 자유게시판</a></li> &nbsp;&nbsp;
-  <li><a href="${pageContext.request.contextPath}/front?key=post&methodName=Allpost"target = "board"> 지식 정보 공유 게시판 </a></li> &nbsp;&nbsp;
-  <li><a href="${path }/elecBoard/elecBoardWrite.jsp"target = "board"> 알쓸신술 </a></li>
+<ul >
+  <li><a href="${pageContext.request.contextPath}/front?key=study&methodName=selectAllStudy" target="board"class="btn btn-primary"> 스터디 </a></li> &nbsp;&nbsp;
+  <li><a href="${pageContext.request.contextPath}/front?key=post&methodName=postSelectAllPost" target="board"class="btn btn-primary"> 자유게시판</a></li> &nbsp;&nbsp;
+  <li><a href="${pageContext.request.contextPath}/front?key=post&methodName=Allpost"target = "board"class="btn btn-primary"> 지식 정보 공유 게시판 </a></li> &nbsp;&nbsp;
+  <li><a href="${path }/elecBoard/elecBoardWrite.jsp"target = "board"class="btn btn-primary"> 알쓸신술 </a></li>
 </ul>
 <a href="#" id="mainpage">마이페이지</a>&nbsp;
 <a href="#" id="logout">로그아웃</a>

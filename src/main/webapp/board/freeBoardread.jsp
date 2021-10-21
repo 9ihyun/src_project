@@ -7,24 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 상세</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 
-<style type="text/css">
 
-/* .star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:22px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
-}
-.star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#FFF663;}
-
- */
-</style>
 
 
 <script type="text/javascript" src="${path}/js/jquery-3.6.0.js"></script>
@@ -103,7 +89,7 @@ function likey(){
 </script>
 <body>
 
-<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' bgcolor="#FDF5E6">
+<table align="center" cellpadding="5" cellspacing="2" width="600" border='1' >
     <tr>
         <td width="1220" height="20" colspan="4" bgcolor="#2185C5">
             <p align="center"><font color="white" size="4"><b>

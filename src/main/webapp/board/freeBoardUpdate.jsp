@@ -6,10 +6,8 @@
 <meta charset="UTF-8">
 <title>게시글 수정</title>
 
-<style>
-
-
-</style>
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
 
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">

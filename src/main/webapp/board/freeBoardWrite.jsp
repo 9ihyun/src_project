@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<link rel="stylesheet" href="${path}/css/style.css">
+
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
+<link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	function go(){
@@ -28,96 +30,14 @@ function goes(){
 	
 
 </script>
-<style>
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
 
-body {
-	color: #2c3e50;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-}
-
-h1 {
-	text-align: center;
-	font-size: 2.5rem;
-	font-weight: 300;
-}
-
-.pagination-container {
-	margin: 100px auto;
-	text-align: center;
-}
-
-.pagination {
-	position: relative;
-}
-
-.pagination a {
-	position: relative;
-	display: inline-block;
-	color: #2c3e50;
-	text-decoration: none;
-	font-size: 1.2rem;
-	padding: 8px 16px 10px;
-}
-
-.pagination a:before {
-	z-index: -1;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	content: "";
-	top: 0;
-	left: 0;
-	background-color: #2c3e50;
-	border-radius: 24px;
-	-webkit-transform: scale(0);
-	transform: scale(0);
-	transition: all 0.2s;
-}
-
-.pagination a:hover, .pagination a .pagination-active {
-	color: #fff;
-}
-
-.pagination a:hover:before, .pagination a .pagination-active:before {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-}
-
-.pagination .pagination-active {
-	color: #fff;
-}
-
-.pagination .pagination-active:before {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-}
-
-.pagination-newer {
-	margin-right: 50px;
-}
-
-.pagination-older {
-	margin-left: 50px;
-}
-
-img {
-	width: 200px;
-	height: 350px
-}
-
-table td {
-	text-align: center;
-}
-img{width:200px; height:350px}
-</style>
 
 
 
 
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
-<caption><h2 align="center">자유게시판</h2></caption>
+<caption></caption>
+
 	<colgroup>
 		<col width="15%"/>
 		<col width="30%"/>
@@ -131,9 +51,9 @@ img{width:200px; height:350px}
 			<form>
 				<fieldset>
 				   <div align="right"> 
-				    <legend>글 검색 필드</legend>  
+				    <legend >글 검색 필드</legend>  
 				   <label>태그로 언어 찾기</label>
-                    <select name="tagNo" id="tagNo">
+                    <select name="tagNo" id="tagNo" style=" height: 35px;"class="btn btn-primary">
 							<option value="none">==선택==</option>
 							<option value="1">C/C++</option>
 							<option value="2">C#</option>
@@ -165,44 +85,44 @@ img{width:200px; height:350px}
 							<option value="28">토이프로젝트</option>
 							<option value="29">기타</option>
 						</select>  
-						<input type="button" value = "찾기" onclick="goes()">
+						<input type="button" style=" height: 33px;" class="btn btn-primary" value = "찾기" onclick="goes()"> <br>
                              
                     <label>검색분류</label>
                         <select name = "search" id=searchs>
-                            <option id=title value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
-                            <option id=user value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
+                            <option id=title class="btn btn-primary" value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
+                            <option id=user class="btn btn-primary" value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
                           
                         </select>
                     <label>검색어</label>
                    
-                        <input type = "text" id = "searchByTitle" placeholder="검색어를 입력하세요">
-                        <input type="button" value = "검색" onclick="go()"><br>
+                        <input type = "text" style=" height: 33px;"class="btn btn-primary"id = "searchByTitle" placeholder="검색어를 입력하세요">
+                        <input type="button" style=" height: 33px;" class="btn btn-primary" value = "검색" onclick="go()"class="btn btn-primary"><br>
                         
                           
                         
                                     
                 </fieldset>        
 			
-				<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=1&board=board/freeBoardWrite&postnum='">인기글</button>
-		<button type="button" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=1&board=board/freeBoardWrite&postnum='">최근글</button>
+				<button type="button" style=" height: 35px;"class="btn btn-primary"onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=1&board=board/freeBoardWrite&postnum='">인기글</button>
+		<button type="button" style=" height: 35px;"class="btn btn-primary"onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=1&board=board/freeBoardWrite&postnum='">최근글</button>
 			</form>	
 		</div>	
 		
-		
+		<h2 align="center">자유게시판</h2>
 	<tr>
 	
        
-        <td bgcolor="#2185C5">
+        <td bgcolor="#3C9DAB">
             <p align="center"><font color="black"><b><span style="font-size:9pt;">번호</span></b></font></p>
         </td>
-        <td bgcolor="#2185C5">
+        <td bgcolor="#3C9DAB">
             <p align="center"><font color="black"><b><span style="font-size:9pt;">제목</span></b></font></p>
         </td>
-        <td bgcolor="#2185C5">
+        <td bgcolor="#3C9DAB">
             <p align="center"><font color="black"><b><span style="font-size:9pt;">추천</span></b></font></p>
         </td>
         
-        <td bgcolor="#2185C5">
+        <td bgcolor="#3C9DAB">
             <p align="center"><font color="black"><b><span style="font-size:9pt;">날짜</span></b></font></p>
     
     </tr>
