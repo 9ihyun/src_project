@@ -138,6 +138,15 @@ public class PostController implements Controller {
 		return new ModelAndView("/front?key=post&methodName=postSelectAllPost");
 		
 	}
+	public ModelAndView postDelete2(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int postNo = Integer.parseInt(request.getParameter("postNo"));
+		
+		
+		service.postDelete(postNo);
+		
+		return new ModelAndView("/front?key=post&methodName=Allpost");
+		
+	}
 	//자유게시판 (전체리스트 보기)
 	public ModelAndView postSelectAllPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 

@@ -15,7 +15,11 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 
-
+function deletes(){ 
+	
+	location.href = "${path}/front?key=post&methodName=postDelete2&postNo=${view2.postNo}";
+	
+}
 
 function checkValid(frm){
 	
@@ -81,7 +85,7 @@ function checkValid(frm){
             <p align="center"><font color="white" size="3"><b> 게시글 수정 </b></font></p>
         </td>
     </tr>
-    
+    <!--  
      <tr>
         <td width="150" height="20">
             <p align="center"><b><span style="font-size:9pt;">태그 번호 </span></b></p>
@@ -121,16 +125,13 @@ function checkValid(frm){
 			</select>
         </td>
     </tr>
-    
+    -->
      <tr>
         <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">보드 번호 </span></b></p>
+            <p align="center"><b><span style="font-size:9pt;">게시판 </span></b></p>
         </td>
          <td width="450" height="20">
-        	<select name="boardNo" id="boardNo">
-				<option value="2">2.지식정보게시판</option>
-				
-			</select>
+        	<a name="boardNo" value="2">지식 정보 게시판</a>
         </td>
     </tr>
     
@@ -164,11 +165,13 @@ function checkValid(frm){
     <tr>
         <td width="450" height="20" colspan="2" align="center">
 	        <input type=submit value="수정하기">
-	        <input type="button"  value="삭제하기">
+	        <input type="button" onclick="deletes();" value="삭제하기">
         </td>
     </tr>
 </table>
-
+<input type = hidden name = "userId" value = "${sessionScope.user.userId}">
+<input type = hidden name = "tagNo" value = "29">
+<input type = hidden name = "boardNo" value = "1">
 </form>
 
 <div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front?key=post&methodName=Allpost">리스트로 돌아가기</a>&gt;</span></div>

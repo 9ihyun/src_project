@@ -34,7 +34,11 @@ function checkValid(frm){
 		frm.userId.focus();
 		return false;
 	}
-	
+	if(frm.tagNo.value == ""){
+		alert("태그를 입력해주세요.");
+		frm.userId.focus();
+		return false;
+	}
 	if(frm.postContent.value == ""){
 		alert("내용을 입력해주세요.");
 		frm.postContent.focus();
@@ -119,32 +123,10 @@ function checkValid(frm){
 						</select>
 					</td>
 			</tr>
-     	<tr>
-				<td width="150" height="20">
-					<p align="center">
-						<b><span style="font-size: 9pt;">보드 번호</span></b>
-					</p>
-				</td>
-				<td width="450" height="20">
-					
-						<select name="boardNo">
-							<option value="1">1.자유게시판</option>
-							<option value="2">2.지식정보게시판</option>
-							<option value="3">3.알쓸신술게시판</option>
-						</select>
-						
-					</td>
-			</tr>
+     	
      
      <tr>
-        <td width="150" height="20">
-            <p align="center"><b><span style="font-size:9pt;">아이디</span></b></p>
-        </td>
-         <td width="450" height="20">
-        	<b><span style="font-size:9pt;">
-        		<input type="text" name="userId" id="userId" size="12">
-        	   </span></b>
-        </td>
+        
   
     <tr>
     <tr>
@@ -171,6 +153,9 @@ function checkValid(frm){
         <button type="button" onclick="cancel();">취소하기</button>
     </tr>
 </table>
+		<input type = hidden name = "userId" value = "${sessionScope.user.userId}">
+		<input type = hidden name = "tagNo" value = "29">
+		<input type = hidden name = "boardNo" value = "2">
  	  <input type = hidden name = "key" value = "post">
       <input type = hidden name = "methodName" value = "postInsert2">
 </form>

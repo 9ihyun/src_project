@@ -22,12 +22,7 @@
 <body>
 <!-- 이 주석은 지워주세요~ -->
 
-<% 
 
-	session.setAttribute("userId", "admin");
-   session.setAttribute("loginUser", "admin");
-   
-   %>
 
 <table>
   <tr>
