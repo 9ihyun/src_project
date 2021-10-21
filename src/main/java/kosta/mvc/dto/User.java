@@ -1,5 +1,8 @@
 package kosta.mvc.dto;
 
+import kosta.mvc.service.UserService;
+import kosta.mvc.service.UserServiceImpl;
+
 public class User {
 	private String userId;
 	private String nickname;
@@ -9,6 +12,8 @@ public class User {
 	private String pwa;
 	private String regdate;
 	private double starPoint;
+	
+	private UserService userService = new UserServiceImpl();
 	
 	public User() {}
 	public User(String userId, String pw) {

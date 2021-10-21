@@ -84,8 +84,8 @@
 	    // 메세지 전송
 	    function sendMessage(message) {
 	        // 서버에 전송하는 코드로 후에 대체
-	        const data = {
-	            "senderName"    : ${userId},
+	        data = {
+	            "senderName"    : "${userId}",
 	            "message"        : message
 	        };
 	 
@@ -110,6 +110,14 @@
 	})();	
 	 
 	$(function(){
+		$.each("${requestScope.chatList}", function(index, item){
+			data = {
+		            "senderName"    : item.id,
+		            "message"        : item.chatContent
+		    };
+			
+			resive(data);
+		});
 	    Chat.init();
 	});
 </script>

@@ -224,6 +224,7 @@ public class StudyDAOImpl implements StudyDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		double point = 0;
 
 		List<User> userList = new ArrayList<>();
 		String sql = proFile.getProperty("study.getUserList");
@@ -236,12 +237,47 @@ public class StudyDAOImpl implements StudyDAO {
 				User user = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8));
 				
+				point = pointAvg(con, rs.getString(1));
+				user = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
+						rs.getString(5), rs.getString(6), rs.getString(7), point);
+				
 				userList.add(user);
 			}
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return userList;
+	}
+	
+	/**
+	 * 별점 평균 구하기
+	 * */
+	private double pointAvg(Connection con , String id) throws SQLException{
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("user.pointAvg");
+		double starPoint = 0.0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			int sum = 0;
+			int length = 0;
+			while(rs.next()) {
+				sum += rs.getInt(1);
+				length++;
+			}
+			
+			double avg = sum / (double)length;
+			starPoint = (int)(avg * 10) / 10.0;
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		
+		return starPoint;
 	}
 
 	/**

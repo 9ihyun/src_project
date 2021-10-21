@@ -4,7 +4,7 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="../CSS/singinStyle.css">
+ <link rel="stylesheet" href="../CSS/singinStyle.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Jua&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="../js/jquery-3.6.0.js"></script>
