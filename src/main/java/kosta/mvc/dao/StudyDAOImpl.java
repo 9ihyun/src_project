@@ -163,10 +163,6 @@ public class StudyDAOImpl implements StudyDAO {
 				studyList.add(study);
 			}
 			
-			for(Study s : studyList) {
-				System.out.println(s.getUserId());
-			}
-			
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
 		}

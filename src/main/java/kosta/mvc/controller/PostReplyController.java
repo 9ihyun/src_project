@@ -86,7 +86,7 @@ public class PostReplyController implements Controller {
 	public ModelAndView deleteReply(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int pReplyNo = Integer.parseInt(request.getParameter("pReplyNo"));
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
-		System.out.println("PostReplyController = " + postNo);
+		
 		String board = request.getParameter("board");
 		String userId = getUserId(request);
 		
