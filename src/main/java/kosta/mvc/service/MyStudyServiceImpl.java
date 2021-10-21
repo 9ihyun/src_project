@@ -24,12 +24,7 @@ public class MyStudyServiceImpl implements MyStudyService {
 	 * */
 	@Override
 	public int putWishStudy(String id, int studyNo) throws SQLException {
-		int result = myStudyDAO.putWishStudy(id, studyNo);
-		
-		if(result == 0)
-			throw new SQLException("스터디 찜에 실패했습니다.");
-		
-		return result;
+		return myStudyDAO.putWishStudy(id, studyNo);
 	}
 	
 	/**
@@ -45,12 +40,7 @@ public class MyStudyServiceImpl implements MyStudyService {
 	 * */
 	@Override
 	public int putSignStudy(String id, int studyNo) throws SQLException {
-		int result = myStudyDAO.putSignStudy(id, studyNo);
-		
-		if(result == 0)
-			throw new SQLException("스터디 신청에 실패했습니다.");
-		
-		return result;
+		return myStudyDAO.putSignStudy(id, studyNo);
 	}
 	
 	/**
