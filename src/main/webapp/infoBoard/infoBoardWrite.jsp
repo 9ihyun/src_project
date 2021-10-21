@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
-<script src="../js/jquery-3.6.0.js"></script>
+<script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	function go(){
 		var a = document.getElementById("searchs").value;
