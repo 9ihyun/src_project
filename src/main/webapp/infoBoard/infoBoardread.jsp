@@ -175,6 +175,27 @@ function likey(){
 <hr>
 <hr>
 
+<div>  
+<c:choose>
+	<c:when test = "${empty requestScope.replyList}">
+		<h5>댓글정보가 없습니다.</h5>
+	</c:when>
+	<c:otherwise>
+		<c:forEach items = "${requestScope.replyList}" var = "reply">
+			${reply.userId} | ${reply.pReplyDate}<p>
+			${reply.pReplyContent}<p>
+			<form action="${path}/front" method="post">
+				<input type=hidden name="postNo" value="${view2.postNo}">
+				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+				<input type=hidden name="board" value="info">
+
+					<input type="submit"  value=삭제>
+					<input type=hidden name="key" value="postReply"> 
+					<input type=hidden name="methodName" value="deleteReply">			
+			</form>		
+			<form action="${path}/front" method="post">
+				<input type=hidden name="postNo" value="${view2.postNo}">
+				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
 
 
 <table align="center" cellpadding="10" cellspacing="2" width="90%">

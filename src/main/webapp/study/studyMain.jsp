@@ -22,7 +22,7 @@
     	
 		<jsp:include page="../board/freeBoardMenu.jsp" />
     </th>
-    <td><iframe src="${pageContext.request.contextPath}/front?key=study&methodName=selectAllStudy" height="600" width="800" name="board"></iframe></td>
+    <td><iframe src="${pageContext.request.contextPath}/front?key=study&methodName=selectAllStudy" height="800" width="1000" name="board"></iframe></td>
   </tr>
 </table>
 </body>

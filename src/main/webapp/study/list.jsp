@@ -121,11 +121,23 @@ table td {
 img{width:200px; height:350px}
 </style>
 
-	<form>
-		<fieldset>
+	
+
+<table class="table">
+	<colgroup>
+		<col width="15%"/>
+		<col width="30%"/>
+		<col width="7%"/>
+		<col width="16%"/>
+		<col width="7%"/>
+		<col width="7%"/>
+		<col width="16%"/>
+	</colgroup>
+	<tr>
+		<td colspan="7" align="right" valign="bottom">
 		   <div align="right"> 
-                  <label><h5>스터디언어</h5></label>
-                  <select name="tagNo" id="tagNo" class="btn btn-outline-dark">
+                  <label><h7>스터디할 언어로 검색하기</h7></label>
+                  <select name="tagNo" id="tagNo">
 					<option value="none">==선택==</option>
 					<option value="1">C/C++</option>
 					<option value="2">C#</option>
@@ -157,29 +169,18 @@ img{width:200px; height:350px}
 					<option value="28">토이프로젝트</option>
 					<option value="29">기타</option>
 				</select>  
-				<button type="button" value = "찾기" class="btn btn-outline-dark" onclick="goes()">찾기</button>
-              </fieldset>        
-	</form>	
-
-<table class="table">
-	<colgroup>
-		<col width="15%"/>
-		<col width="30%"/>
-		<col width="7%"/>
-		<col width="16%"/>
-		<col width="7%"/>
-		<col width="7%"/>
-		<col width="16%"/>
-	</colgroup>
+				<button type="button" value = "찾기" class="btn btn-primary btn-sm" onclick="goes()">찾기</button>
+		</td>
+	</tr>
 	<tr>
-		<td colspan="2">
+		<th colspan="2">
 			<div align="left">
 			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=1'">모집중</button>
 			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=2'">스터디진행중</button>
 			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByState&stateName=3'">스터디종료</button>
 			</div>
-		</td>
-		<td colspan="5">
+		</th>
+		<th colspan="5">
 			<div align="right">
 				<select name = "search" id=searchs>
                     <option id=title class="btn btn-outline-dark" value = "/src_project/front?key=search&methodName=selectTitleStudy&studyTitle=">제목</option>
@@ -187,7 +188,7 @@ img{width:200px; height:350px}
 				<input type = "text" id = "searchByStudy" placeholder="검색어를 입력하세요">
            		 <button type="button" value = "검색" class="btn btn-primary btn-sm" onclick="go()">검색</button>
 			</div>
-		</td>
+		</th>
 	</tr>
 	 <tr class="table-primary">
        <td valign="middle">

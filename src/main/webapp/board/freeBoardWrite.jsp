@@ -30,69 +30,29 @@ function goes(){
 	
 
 </script>
+<style>
+	table td {
+	text-align: center;
+}
+</style>
 
 
 
 
 
-<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
-<caption></caption>
-
+<table class="table">
+<caption>
 	<colgroup>
 		<col width="15%"/>
-		<col width="30%"/>
-		<col width="16%"/>
-		<col width="16%"/>
-		<col width="7%"/>
-		<col width="7%"/>
-		<col width="7%"/>
+		<col width="40%"/>
+		<col width="10%"/>
+		<col width="25%"/>
 	</colgroup>
-	<div>
-			<form>
-				<fieldset>
-				   <div align="right"> 
-				    <legend >검색 필드</legend>  
-				<!--    <label>태그로 언어 찾기</label>
-                    <select name="tagNo" id="tagNo" style=" height: 35px;"class="btn btn-primary">
-							<option value="none">==선택==</option>
-							<option value="1">C/C++</option>
-							<option value="2">C#</option>
-							<option value="3">Python</option>
-							<option value="4">Go</option>
-							<option value="5">Swift</option>
-							<option value="6">Perl</option>
-							<option value="7">Java</option>
-							<option value="8">Kotlin</option>
-							<option value="9">JavaScript</option>
-							<option value="10">Vue.js</option>
-							<option value="11">React</option>
-							<option value="12">node.js</option>
-							<option value="13">Typescript</option>
-							<option value="14">Ajax</option>
-							<option value="15">JQuery</option>
-							<option value="16">HTML</option>
-							<option value="17">CSS</option>
-							<option value="18">spring</option>
-							<option value="19">JPA</option>
-							<option value="20">Ruby</option>
-							<option value="21">Mysql</option>
-							<option value="22">ORACLE</option>
-							<option value="23">git</option>
-							<option value="24">Linux</option>
-							<option value="25">Ubuntu</option>
-							<option value="26">프론트엔드</option>
-							<option value="27">백엔드</option>
-							<option value="28">토이프로젝트</option>
-							<option value="29">기타</option>
-						</select>  
-						<input type="button" style=" height: 33px;" class="btn btn-primary" value = "찾기" onclick="goes()"> <br>
-                             --> 
-                             <tr>
+    <tr>
 		<td colspan="2">
 			<div align="left">
-			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=1&board=board/freeBoardWrite&postnum='">인기글</button>
-			<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=1&board=board/freeBoardWrite&postnum='">최근글</button>
-			
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=1&board=board/freeBoardWrite&postnum='">인기글</button>
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=1&board=board/freeBoardWrite&postnum='">최근글</button>
 			</div>
 		</td>
 		<td colspan="5">
@@ -106,43 +66,19 @@ function goes(){
 			</div>
 		</td>
 	</tr>
-              <!--       <label>검색분류</label>
-                        <select name = "search" id=searchs>
-                            <option id=title class="btn btn-primary" value = "/src_project/front?key=search&methodName=searchByTitle&postTitle=">제목</option>
-                            <option id=user class="btn btn-primary" value = "/src_project/front?key=search&methodName=searchById&userId=">작성자</option>
-                          
-                        </select>
-                    <label>검색어</label>
-                   
-                        <input type = "text" style=" height: 33px;"class="btn btn-primary"id = "searchByTitle" placeholder="검색어를 입력하세요">
-                        <input type="button" style=" height: 33px;" class="btn btn-primary" value = "검색" onclick="go()"class="btn btn-primary"><br>
-                        
-                          
-                      
-                                    
-                </fieldset>        
-			
-				<button type="button" style=" height: 35px;"class="btn btn-primary"onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByLikes&boardNo=1&board=board/freeBoardWrite&postnum='">인기글</button>
-		<button type="button" style=" height: 35px;"class="btn btn-primary"onclick="location.href='${pageContext.request.contextPath}/front?key=search&methodName=searchByRecent&boardNo=1&board=board/freeBoardWrite&postnum='">최근글</button>
-			   --></form>	
-		</div>	
-		
-		<h2 align="center">자유게시판</h2>
-	<tr>
-	
-       
-        <td bgcolor="#3C9DAB">
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">번호</span></b></font></p>
+	<tr class="table-primary">
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>글번호</h6></font></p>
         </td>
-        <td bgcolor="#3C9DAB">
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">제목</span></b></font></p>
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>제목</h6></font></p>
         </td>
-        <td bgcolor="#3C9DAB">
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">추천</span></b></font></p>
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>추천수</h6></font></p>
         </td>
         
-        <td bgcolor="#3C9DAB">
-            <p align="center"><font color="black"><b><span style="font-size:9pt;">날짜</span></b></font></p>
+        <td valign="middle">
+            <p align="center"><font color="black"><h6>등록날짜</h6></font></p>
     
     </tr>
   
@@ -161,24 +97,24 @@ function goes(){
 		        
 		        <!-- 번호 -->
 		        <td bgcolor="" align="center">
-		            <span style="font-size:9pt;">${Post.postNo}</span>
+		            <span style="font-size:11pt;">${Post.postNo}</span>
 		        </td>
 		        
 		        <!-- 제목 -->
 		        <td bgcolor="" align="center">
 					<a href="${path}/front?key=post&methodName=postViewPost&postNo=${Post.postNo}"> 
-				  		<span style="font-size:9pt;">${Post.postTitle}</span>
+				  		<span style="font-size:11pt;">${Post.postTitle}</span>
 				  	</a>
 		        </td>
 		        
 		        <!-- 추천수 -->
 		        <td bgcolor="" align="center">
-					<span style="font-size:9pt;">${Post.postUp}</span>
+					<span style="font-size:11pt;">${Post.postUp}</span>
 		        </td>
 		        
 		        <!-- 날짜 -->
 		        <td bgcolor="" align="center">
-		            <span style="font-size:9pt;">${Post.postDate}</span>
+		            <span style="font-size:11pt;">${Post.postDate}</span>
 		        </td>
 		        
 		    </tr>
@@ -188,12 +124,9 @@ function goes(){
 	</table>
 	<hr>
 	<div align=right>
-	<span style="font-size:9pt;">&lt;<a href="${path}/board/WriteInfo.jsp">글쓰기</a>&gt;</span>
-	</div>
+	<button type="submit" class="btn btn-outline-primary" onClick="location.href='${path}/board/WriteInfo.jsp'">글쓰기</button>
 	
-
-
-	<!--
+	</div>
 	
 	   <jsp:useBean class="kosta.mvc.paging.PageCnt" id="p"/> 
 	    
@@ -232,10 +165,6 @@ function goes(){
 				 <c:if test="${(startPage+p.blockcount)<=p.pageCnt}">
 				     <a class="pagination-older" href="${path}/front?key=post&methodName=selectAllPost&pageNo=${startPage+p.blockcount}">NEXT</a>
 				 </c:if>
-				 
-			
-		
 		</div>
 		
 	</nav> 
- -->

@@ -14,6 +14,7 @@
 	#withdraw{margin-top: 15px;}
 	p{margin-bottom: 0px;}
 	
+	
 </style>
 <script src="${path }/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -28,7 +29,17 @@
 </head>
 <body>
 
-<table class="table talble-hover">
+<table class="table">
+  <tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
+   <tr>
+  	<th>
+  		<h6></h6>
+  	</th>
+  </tr>
   <tr>
     <th><p class="text-primary">아이디</p></th>
     <th><p class="text-primary">별점</p></th>

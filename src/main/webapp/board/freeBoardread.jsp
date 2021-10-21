@@ -152,8 +152,9 @@ function likey(){
 			${reply.userId} | ${reply.pReplyDate}<p>
 			${reply.pReplyContent}<p>
 			<form action="${path}/front" method="post">
-				<input type=hidden name="studyNo" value="${view.postNo}">
+				<input type=hidden name="postNo" value="${view.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+				<input type=hidden name="board" value="free">
 
 					<input type="submit"  value=삭제>
 					<input type=hidden name="key" value="postReply"> 

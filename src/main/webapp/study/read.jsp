@@ -184,6 +184,12 @@
 	</tr>
   </tbody>
 </table>
+ <c:if test="${sessionScope.userId != null}">
+ <c:if test="${sessionScope.userId == study.userId}">
+	<a href="${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}" >수정</a>
+	<a href="${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}" >삭제</a>
+</c:if>
+</c:if>
 
 <br>
 <br>
@@ -236,7 +242,7 @@
 <table align="center" cellpadding="10" cellspacing="2" width="90%">
 	<tr>
 		<td width="150" height="80">
-			<h6 align="center">${sessionScope.user.userId}</h6>
+			<h6 align="center">${sessionScope.userId}</h6>
 		</td>
 		<td>
 		<div id="listReply"></div>
@@ -261,7 +267,7 @@
  
 <!-- 세션에 저장되어있는 userid가 null이 아닐때 -->
 <!-- 그러니까 로그인을 한 상태이어야만 댓글을 작성 할 수 있다.-->
-     <c:if test="${sessionScope.userid != null }">
+     <c:if test="${sessionScope.userId != null }">
      
      
          <textarea rows="5" cols="80" id="replytext"
@@ -277,8 +283,8 @@
 
 <hr>
 <table align="center" cellpadding="10" cellspacing="2" width="90%">
- <c:if test="${sessionScope.user.userId != null}">
- <c:if test="${sessionScope.user.userId == study.userId}">
+ <c:if test="${sessionScope.userId != null}">
+ <c:if test="${sessionScope.userId == study.userId}">
   <tbody>
     <tr class="row">
       <th scope="row" height="80" size="8">스터디 신청자</th>
