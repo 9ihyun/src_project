@@ -206,25 +206,25 @@ public class PostDAOlmpl implements PostDAO {
 	
 
 	@Override
-	public List<Post> postLike(int postNo) throws SQLException {
+	public int postLike(int postUp, int postNo ) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
+		int result=0;
 
-		List<Post> postLike = new ArrayList<>();
-		String sql = proFile.getProperty("post.like");
+		//List<Post> postList = new ArrayList<>();
+		String sql = "update post set post_up=? where post_no=?";
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				Post post = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7), rs.getInt(8));
-				postLike.add(post);
-			}
+			ps.setInt(1, postUp);
+			ps.setInt(2, postNo);
+			
+			result = ps.executeUpdate();
+			
 		} finally {
-			DbUtil.dbClose(rs, ps, con);
+			DbUtil.dbClose(ps, con);
 		}
-		return postLike;
+		return result;
 	}
 	
 	

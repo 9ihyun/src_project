@@ -48,8 +48,9 @@ public class PostServicelmpl implements PostService {
 	}
 
 	@Override
-	public void postLike(int postNo) throws SQLException {
-		return;
+	public void postLike(int postUp,int postNo ) throws SQLException {
+		if (postDao.postLike(postUp,postNo) == 0)
+			throw new SQLException("추천이 되지 않았습니다");
 				//postDao.postLike(postNo);
 		
 		

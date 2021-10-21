@@ -93,7 +93,19 @@ function checkValid(frm){
 	}
 }
 
-
+function likey(){
+	var postups = document.getElementById("Likes").value;
+	var b = parseInt(postups)+1;
+	var postnos = document.getElementById("Likess").value;
+	var ups ="&postUp=";
+	var s = "/src_project/front?key=post&methodName=postLike&postNo=";
+	var t = "&board=Allpost"
+	var e =s+postnos+ups+b+t;
+	//var two = "/src_project/front?key=post&methodName=postViewPost2&postNo=";
+	
+	location.href = e;
+	//location.href = two+postnos;
+}
 
 </script>
 <body>
@@ -143,11 +155,14 @@ function checkValid(frm){
         <td height="20" colspan="4" align="center" valign="middle">
         			 <c:if test="${sessionScope.sessionID != null}">
         	<c:if test="${sessionScope.sessionID != post2.userId}">
+			
+			</c:if>
+			</c:if>
+			<input type = "hidden" id = "Likes" value="${view2.postUp}">
+			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
 			<a href="${path}/front?key=post&methodName=Allpost">목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
 			<a href="${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}" >수정</a>
-			</c:if>
-			</c:if>
-			
+			<input type="button" value = "추천" onclick="likey()">
 		</td>
     </tr>
 </table>
