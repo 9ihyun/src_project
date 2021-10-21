@@ -150,8 +150,8 @@ function likey(){
 					<input type="submit"  value=삭제>
 					<input type=hidden name="key" value="postReply"> 
 					<input type=hidden name="methodName" value="deleteReply">			
-			</form>		
-			<form action="${path}/front" method="post">
+				
+			<a action="${path}/front" method="post"></a>
 				<input type=hidden name="postNo" value="${view.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
 
