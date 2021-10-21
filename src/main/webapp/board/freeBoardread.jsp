@@ -140,7 +140,7 @@ function likey(){
     </tr>
 </table>
 <hr>
-<h6>댓글</h6><br>
+<h5>댓글</h5><br>
 
 <div>  
 <c:choose>

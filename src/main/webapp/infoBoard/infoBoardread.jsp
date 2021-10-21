@@ -128,115 +128,90 @@ function likey(){
       </td>
     </tr>
     <tr class="table-active">
-		<td width="50%" height="80" valign="middle">
+		<td width="30%" height="50" valign="middle">
 				<b><h5 align="center" style="bold">제목</h5></b>
 		</td>
 		<td valign="middle"><h5>${view2.postTitle}</h5>
         </td>
 	</tr>
-   
+   <tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">작성자</h6>
+		</td>
+		<td valign="middle"><h6>${view2.userId}</h6></td>
+	</tr>
 	<tr>
 		<td width="150" height="80" valign="middle">
 				<h6 align="center">내용</h6>
 		</td>
 		<td valign="middle"><h6>${view2.postContent}</h6></td>
 	</tr>
-	
-  </tbody>
-
-
-
-  
-    <tr>
-        <td height="20" colspan="4" align="center" valign="middle">
-        			 <c:if test="${sessionScope.sessionID != null}">
-        	<c:if test="${sessionScope.sessionID != post2.userId}">
-			
-			</c:if>
-			</c:if>
-			<input type = "hidden" id = "Likes" value="${view2.postUp}">
-			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
-			<a href="${path}/front?key=post&methodName=Allpost">목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			<a href="${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}" >수정</a>&nbsp;&nbsp;&nbsp;
-			<a href="#" onclick="likey()">추천</a>
-			
-		</td>
-    </tr>
-</table>
-
-<hr>
-<hr>
-
-
-
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
-  <tbody>
-    <tr class="row">
-      <td colspan="4">
-      	<h6>댓글</h6>
-      </td>
-    </tr>
-    <tr></tr>
-    <tr>
-	<!--  <td width="150" height="80">
-			<c:choose>
-				<c:when test = "${empty requestScope.replyList}">
-					<h6> </h6>
-				</c:when>
-				<c:otherwise>
-					<c:forEach items = "${requestScope.replyList}" var = "reply">
-						<h6 align="center">${reply.userId}</h6>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-		</td>-->	
-		<td>
-        	<c:choose>
-				<c:when test = "${empty requestScope.replyList}">
-					<h6>댓글정보가 없습니다.</h6>
-				</c:when>
-				<c:otherwise>
-					<c:forEach items = "${requestScope.replyList}" var = "reply">
-					아이디: ${reply.userId} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					
-						내용: ${reply.pReplyContent}<p>
-						<form action="${path}/front" method="post">
-							<input type=hidden name="postNo" value="${view2.postNo}">
-							<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
-								<button type="submit" class="btn btn-primary">삭제</button>
-								<input type=hidden name="key" value="postReply"> 
-								<input type=hidden name="methodName" value="deleteReply">			
-						</form>		
-						<hr>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-        </td>
-	</tr>
-</table>
-
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
 	<tr>
-		<td width="150" height="80">
-			<h6 align="center">${sessionScope.user.userId}</h6>
+        <td height="20" colspan="4" align="center" valign="middle">
+        	<c:if test="${sessionScope.userId != null}">
+        	<c:if test="${sessionScope.userId != post2.userId}">
+			  <input type = "hidden" id = "Likes" value="${view2.postUp}">
+			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
+			  <div align="right">
+				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=Allpost'">목록으로 돌아가기</button>
+				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}'">수정</button>
+				<button type="button" class="btn btn-secondary" onclick="likey()">게시물 추천</button>
+			  </div>
+			</c:if>
+			</c:if>
 		</td>
-		<td>
-		<div id="listReply"></div>
-		<form action="${path}/front" method="post">
-			<input type=hidden name="postNo" value="${view2.postNo}">
-			<input type = "text" name="replytext" id="replytext" placeholder="댓글을 입력하세요" style=" width:400px; height:40px">
-			
-			<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
-			<input type="hidden" name="userId" value="${sessionScope.userId }"> 
-			
-			<button type="button" class="btn btn-primary" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">등록</button>
-			<input type=hidden name="key" value="studyReply"> 
-			<input type=hidden name="methodName" value="insertReply">		
-		</form>
-		</td>
-	</tr>
-	</tbody>
+    </tr>
+    </tbody>
 </table>
+
+<hr>
+
+
+
+<h5>댓글</h5><br>
+
+<c:choose>
+	<c:when test = "${empty requestScope.replyList}">
+		<h6>댓글정보가 없습니다.</h6>
+	</c:when>
+	<c:otherwise>
+		<c:forEach items = "${requestScope.replyList}" var = "reply">
+			${reply.userId} | ${reply.pReplyDate}<p>
+			${reply.pReplyContent}<p>
+			<form action="${path}/front" method="post">
+				<input type=hidden name="postNo" value="${view2.postNo}">
+				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+				
+				<button type="submit" class="btn btn-primary">삭제</button>
+				<input type=hidden name="key" value="postReply"> 
+				<input type=hidden name="methodName" value="deleteReply">	
+				
+				<a action="${path}/front" method="post"></a>
+				<input type=hidden name="postNo" value="${view.postNo}">
+				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+	
+				<button type="submit" class="btn btn-primary">수정</button>
+				<input type=hidden name="key" value="postReply"> 
+				<input type=hidden name="methodName" value="updateReply">			
+				</form>		
+			<hr>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
+
+
+<div id="listReply"></div>
+<form action="${path}/front" method="post">
+	<input type=hidden name="postNo" value="${view2.postNo}">
+	<input type = "text"  class="form-control" name="replytext" id="replytext" placeholder="댓글을 입력하세요"><br>
+	
+	<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
+	<input type="hidden" name="userId" value="${sessionScope.userId }"> 
+	
+	<button type="button" class="btn btn-primary" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">등록</button>
+	<input type=hidden name="key" value="studyReply"> 
+	<input type=hidden name="methodName" value="insertReply">		
+</form>
 
 
 
