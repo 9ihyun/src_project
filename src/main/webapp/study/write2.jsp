@@ -217,7 +217,6 @@
 
  -->
 <table class="table" align="center" cellpadding="10" cellspacing="2" width="90%">
-
 	<thead>
 	    <tr class="table-default">
 	      <td colspan="4">
@@ -341,6 +340,7 @@
 		<td>
 		<div align="left">
 			<button type="submit" class="btn btn-outline-primary" onclick="cancel();">취소하기</button>
+
 			</div>
 		</td>
 		<td>

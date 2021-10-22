@@ -187,7 +187,8 @@
 		<c:if test="${sessionScope.userId != null}">
 		 <c:if test="${sessionScope.userId == study.userId}">
 			<button type="button" value = "찾기" class="btn btn-primary btn-sm" onclick="location.href='${path}/front?key=study&methodName=updateStudyView&studyNo=${study.studyNo}'">수정</button>
-			<button type="button" value = "찾기" class="btn btn-primary btn-sm" onclick="location.href='${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}'">삭제</button>		</c:if>
+			<button type="button" value = "찾기" class="btn btn-primary btn-sm" onclick="location.href='${path}/front?key=study&methodName=deleteStudy&studyNo=${study.studyNo}'">삭제</button>		
+		</c:if>
 		</c:if>
 		</td>
 	</tr>

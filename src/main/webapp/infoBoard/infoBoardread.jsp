@@ -154,11 +154,19 @@ function likey(){
 			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
 			  <div align="right">
 				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=Allpost'">목록으로 돌아가기</button>
+				<c:if test="${sessionScope.userId != null}">
+		 					<c:if test="${sessionScope.userId == view2.userId}">
 				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}'">수정</button>
+				</c:if></c:if>
 				<button type="button" class="btn btn-secondary" onclick="likey()">게시물 추천</button>
 			  </div>
 			  </c:if>
 			</c:if>
+		
+			<input type = "hidden" id = "Likes" value="${view2.postUp}">
+			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
+			
+			
 		</td>
     </tr>
     </tbody>
@@ -178,16 +186,19 @@ function likey(){
 			<form action="${path}/front" method="post">
 				<input type=hidden name="postNo" value="${view2.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+				 <c:if test="${sessionScope.userId != null}">
+		 		<c:if test="${sessionScope.userId == reply.userId}">
 				
 				<button type="submit" class="btn btn-primary">삭제</button>
+				</c:if>
+</c:if>
 				<input type=hidden name="key" value="postReply"> 
 				<input type=hidden name="methodName" value="deleteReply">	
 				
 				<a action="${path}/front" method="post"></a>
-				<input type=hidden name="postNo" value="${view.postNo}">
+				<input type=hidden name="postNo" value="${view2.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
-	
-				<button type="submit" class="btn btn-primary">수정</button>
+		
 				<input type=hidden name="key" value="postReply"> 
 				<input type=hidden name="methodName" value="updateReply">			
 				</form>		
@@ -210,11 +221,9 @@ function likey(){
 	<input type=hidden name="methodName" value="insertReply">		
 </form>
 <hr>
- <c:if test="${sessionScope.sessionID != null}">
-	 <c:if test="${sessionScope.sessionID != post.userId}">
 
-	</c:if>
-</c:if>
+
+	
 <hr>
 </body>
 </html>

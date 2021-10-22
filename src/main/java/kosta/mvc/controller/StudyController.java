@@ -115,7 +115,7 @@ public class StudyController implements Controller {
 
 		service.deleteStudy(studyNo, userId);
 
-		return new ModelAndView("/front?key=study&methodName=selectAllStudy", true); // 이동 위치
+		return new ModelAndView("/front?key=study&methodName=selectAllStudy"); // 이동 위치
 	}
 
 	/**
