@@ -77,32 +77,40 @@ function checkValid(frm){
 	
 	
 	
-<table align="center" cellpadding="5" cellspacing="2" width="700" border='1' >
-    <tr class="table-primary">
-        <td width="1220" height="20" colspan="4" bgcolor="#00cc00">
-            <p align="center"><font color="white" size="3"><b>
-             게시물 자세히보기</b></font></p>
-        </td>
+<table class="table" align="center" cellpadding="10" cellspacing="2" width="90%" >
+    <thead>
+	    <tr class="table-default">
+	      <td colspan="4">
+	      	<h4 align="left" >게시글 상세보기</h4>
+	      </td>
+	    </tr>
+    </thead>
+   <tbody>
+    <tr>
+    	<td colspan="4">
+      	<h4></h4>
+      </td>
     </tr>
+    
     <tr>
-        
-        
-       
-        
-        
-   
-    <tr>
-        <td width="100" height="20">
-            <p align="right"><b><span style="font-size:9pt;">제목</span></b></p>
-        </td>
+        <td width="30%" height="50" valign="middle">
+				<b><h5 align="center" style="bold">제목</h5></b>
+		</td>
         <td width="450" height="20" colspan="3">
         	<input class="form-control" placeholder="제목을 입력하세요" type="text" name="postTitle" value="${view.postTitle}" id="postTitle">
         </td>
     </tr>
     <tr>
-		<td width="100" height="200" valign="top">
-            <p align="right"><b><span style="font-size:9pt;">설명</span></b></p>
-        </td>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">작성자</h6>
+		</td>
+		<td valign="middle"><h6>${view.userId}</h6></td>
+	</tr>
+	<tr>
+    <tr>
+		<td width="150" height="80" valign="middle">
+				<h6 align="center">내용</h6>
+		</td>
 		<!-- 브라우저에 글 내용을 뿌려줄 때는 개행문자(\n)가 <br>태그로 변환된 문자열을 보여줘야 한다. -->
         <td width="450" height="200" valign="top" colspan="3">
         <textarea name="postContent" id="postContent" cols="50" rows="10" class="form-control">${view.postContent}</textarea>
@@ -123,8 +131,8 @@ function checkValid(frm){
 <input type = hidden name = "tagNo" value = "29">
 <input type = hidden name = "boardNo" value = "1">
 </form>
-
-<div align=right><span style="font-size:9pt;">&lt;<a href="${path}/front?key=post&methodName=postSelectAllPost">리스트로 돌아가기</a>&gt;</span></div>
-
+<div align="right">
+	<button type="button" class="btn btn-primary btn-sm" onClick="location.href='${path}/front?key=post&methodName=postSelectAllPost'">목록으로 돌아가기</button>
+</div>
 </body>
 </html>
