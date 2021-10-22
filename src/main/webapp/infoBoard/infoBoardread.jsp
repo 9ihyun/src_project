@@ -154,19 +154,17 @@ function likey(){
 			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
 			  <div align="right">
 				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=Allpost'">목록으로 돌아가기</button>
+				<c:if test="${sessionScope.userId != null}">
+		 					<c:if test="${sessionScope.userId == view2.userId}">
 				<button type="button" class="btn btn-primary" onClick="location.href='${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}'">수정</button>
+				</c:if></c:if>
 				<button type="button" class="btn btn-secondary" onclick="likey()">게시물 추천</button>
 			  </div>
 			</c:if>
 			</c:if>
 			<input type = "hidden" id = "Likes" value="${view2.postUp}">
 			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
-			<a href="${path}/front?key=post&methodName=Allpost">목록으로 돌아가기</a> &nbsp;&nbsp;&nbsp;
-			<c:if test="${sessionScope.userId != null}">
-		 					<c:if test="${sessionScope.userId == view2.userId}">
-			<a href="${path}/front?key=post&methodName=postUpdateView2&postNo=${view2.postNo}" >수정</a>&nbsp;&nbsp;&nbsp;
-			</c:if></c:if>
-			<a href="#" onclick="likey()">추천</a>
+			
 			
 		</td>
     </tr>
