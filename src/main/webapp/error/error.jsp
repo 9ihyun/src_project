@@ -14,11 +14,8 @@ function logi(){
 <param name="Command" value="Close">
 </object>
 
-<a href="#" onClick="window.Click();">조용하게 창닫기</a>
 
 
-
-onClick="window.close()
 <div class="container">
 	<div class="col-lg-8 col-lg-offset-2 text-center">
 		<div class="logo">
