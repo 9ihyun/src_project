@@ -15,7 +15,7 @@
   p{margin-left: 15px; margin-bottom: 0px;}
   input{margin-left: 15px;}
   span{
-    color: red;
+    color: red; margin-left: 15px;
   }
 </style>
 <script src="${path }/js/jquery-3.6.0.js"></script>
@@ -112,6 +112,8 @@
 	</tr>
 	<tr>
 		<th><input type="password" id="rePass" class="form-control"></th>
+    </tr>
+    <tr>
 		<th><span name = "check"></span></th>
 	</tr>
 	<tr>
