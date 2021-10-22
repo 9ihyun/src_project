@@ -75,7 +75,7 @@ public class StudyController implements Controller {
 		Study view = service.updateStudyView(studyNo);
 
 		request.setAttribute("view", view);
-		return new ModelAndView("study/update2.jsp");
+		return new ModelAndView("study/update2.jsp", true);
 
 	}
 

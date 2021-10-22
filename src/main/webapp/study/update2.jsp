@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.css">
 <link rel="stylesheet" href="${path}/CSS/bootstrap2.min.css">
 <script src="../js/jquery-3.6.0.js"></script>
-<SCRIPT >
+<script type="text/javascript">
 function cancel(){ 
 	location.href = "${path}/front?key=study&methodName=viewStudy&studyNo=${study.studyNo}";	 
 }
@@ -224,37 +224,37 @@ var areaSelectMaker = function(target) {
 		</td>
 		<td scope="table-primary"  height="20" valign="middle">
         	<select name="tagNo" id="tagNo">
-							<option value="none">스터디 항목을 선택하세요</option>
-							<option value="1">C/C++</option>
-							<option value="2">C#</option>
-							<option value="3">Python</option>
-							<option value="4">Go</option>
-							<option value="5">Swift</option>
-							<option value="6">Perl</option>
-							<option value="7">Java</option>
-							<option value="8">Kotlin</option>
-							<option value="9">JavaScript</option>
-							<option value="10">Vue.js</option>
-							<option value="11">React</option>
-							<option value="12">node.js</option>
-							<option value="13">Typescript</option>
-							<option value="14">Ajax</option>
-							<option value="15">JQuery</option>
-							<option value="16">HTML</option>
-							<option value="17">CSS</option>
-							<option value="18">spring</option>
-							<option value="19">JPA</option>
-							<option value="20">Ruby</option>
-							<option value="21">Mysql</option>
-							<option value="22">ORACLE</option>
-							<option value="23">git</option>
-							<option value="24">Linux</option>
-							<option value="25">Ubuntu</option>
-							<option value="26">프론트엔드</option>
-							<option value="27">백엔드</option>
-							<option value="28">토이프로젝트</option>
-							<option value="29">기타</option>
-						</select>
+				<option value="none">스터디 항목을 선택하세요</option>
+				<option value="1">C/C++</option>
+				<option value="2">C#</option>
+				<option value="3">Python</option>
+				<option value="4">Go</option>
+				<option value="5">Swift</option>
+				<option value="6">Perl</option>
+				<option value="7">Java</option>
+				<option value="8">Kotlin</option>
+				<option value="9">JavaScript</option>
+				<option value="10">Vue.js</option>
+				<option value="11">React</option>
+				<option value="12">node.js</option>
+				<option value="13">Typescript</option>
+				<option value="14">Ajax</option>
+				<option value="15">JQuery</option>
+				<option value="16">HTML</option>
+				<option value="17">CSS</option>
+				<option value="18">spring</option>
+				<option value="19">JPA</option>
+				<option value="20">Ruby</option>
+				<option value="21">Mysql</option>
+				<option value="22">ORACLE</option>
+				<option value="23">git</option>
+				<option value="24">Linux</option>
+				<option value="25">Ubuntu</option>
+				<option value="26">프론트엔드</option>
+				<option value="27">백엔드</option>
+				<option value="28">토이프로젝트</option>
+				<option value="29">기타</option>
+			</select>
         </td>
      <tr>
      	<td width="150" height="80" valign="middle">
