@@ -162,7 +162,7 @@ function likey(){
 			  </div>
 			  </c:if>
 			</c:if>
-			</c:if>
+		
 			<input type = "hidden" id = "Likes" value="${view2.postUp}">
 			  <input type = "hidden" id = "Likess" value="${view2.postNo}">
 			
