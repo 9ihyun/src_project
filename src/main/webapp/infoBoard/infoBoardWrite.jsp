@@ -133,7 +133,7 @@ img{width:200px; height:350px}
 		<col width="20%"/>
 	</colgroup>
 	<tr>
-		<td colspan="4" align="right" valign="bottom">
+		<td colspan="5" align="right" valign="bottom">
 			<div align="right"> 
 		   		<label>태그로 언어 찾기</label>
                   <select name="tagNo" id="tagNo">
