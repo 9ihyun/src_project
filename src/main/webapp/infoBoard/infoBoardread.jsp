@@ -186,16 +186,19 @@ function likey(){
 			<form action="${path}/front" method="post">
 				<input type=hidden name="postNo" value="${view2.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+				 <c:if test="${sessionScope.userId != null}">
+		 		<c:if test="${sessionScope.userId == reply.userId}">
 				
 				<button type="submit" class="btn btn-primary">삭제</button>
+				</c:if>
+</c:if>
 				<input type=hidden name="key" value="postReply"> 
 				<input type=hidden name="methodName" value="deleteReply">	
 				
 				<a action="${path}/front" method="post"></a>
-				<input type=hidden name="postNo" value="${view.postNo}">
+				<input type=hidden name="postNo" value="${view2.postNo}">
 				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
-	
-				<button type="submit" class="btn btn-primary">수정</button>
+		
 				<input type=hidden name="key" value="postReply"> 
 				<input type=hidden name="methodName" value="updateReply">			
 				</form>		
@@ -218,11 +221,9 @@ function likey(){
 	<input type=hidden name="methodName" value="insertReply">		
 </form>
 <hr>
- <c:if test="${sessionScope.sessionID != null}">
-	 <c:if test="${sessionScope.sessionID != post.userId}">
 
-	</c:if>
-</c:if>
+
+	
 <hr>
 </body>
 </html>
