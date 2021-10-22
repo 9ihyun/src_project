@@ -160,6 +160,7 @@ function likey(){
 				</c:if></c:if>
 				<button type="button" class="btn btn-secondary" onclick="likey()">게시물 추천</button>
 			  </div>
+			  </c:if>
 			</c:if>
 			</c:if>
 			<input type = "hidden" id = "Likes" value="${view2.postUp}">
@@ -172,73 +173,50 @@ function likey(){
 </table>
 
 <hr>
+<h5>댓글</h5><br>
+
+<c:choose>
+	<c:when test = "${empty requestScope.replyList}">
+		<h6>댓글정보가 없습니다.</h6>
+	</c:when>
+	<c:otherwise>
+		<c:forEach items = "${requestScope.replyList}" var = "reply">
+			${reply.userId} | ${reply.pReplyDate}<p>
+			${reply.pReplyContent}<p>
+			<form action="${path}/front" method="post">
+				<input type=hidden name="postNo" value="${view2.postNo}">
+				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+				
+				<button type="submit" class="btn btn-primary">삭제</button>
+				<input type=hidden name="key" value="postReply"> 
+				<input type=hidden name="methodName" value="deleteReply">	
+				
+				<a action="${path}/front" method="post"></a>
+				<input type=hidden name="postNo" value="${view.postNo}">
+				<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
+	
+				<button type="submit" class="btn btn-primary">수정</button>
+				<input type=hidden name="key" value="postReply"> 
+				<input type=hidden name="methodName" value="updateReply">			
+				</form>		
+			<hr>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
 
 
-
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
-  <tbody>
-    <tr class="row">
-      <td colspan="4">
-      	<h6>댓글</h6>
-      </td>
-    </tr>
-    <tr></tr>
-    <tr>	
-		<td>
-        	<c:choose>
-				<c:when test = "${empty requestScope.replyList}">
-					<h6>댓글정보가 없습니다.</h6>
-				</c:when>
-				<c:otherwise>
-					<c:forEach items = "${requestScope.replyList}" var = "reply">
-					아이디: ${reply.userId} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					
-						내용: ${reply.pReplyContent}<p>
-						<form action="${path}/front" method="post">
-							<input type=hidden name="postNo" value="${view2.postNo}">
-							<input type=hidden name="pReplyNo" value="${reply.pReplyNo}">
-							<c:if test="${sessionScope.userId != null}">
-		 					<c:if test="${sessionScope.userId == reply.userId}">
-								<button type="submit" class="btn btn-primary">삭제</button>
-								</c:if></c:if>
-								<input type=hidden name="key" value="postReply"> 
-								<input type=hidden name="methodName" value="deleteReply">			
-						</form>		
-						<hr>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-        </td>
-	</tr>
-</table>
-
-<table align="center" cellpadding="10" cellspacing="2" width="90%">
-	<tr>
-		<td width="150" height="80">
-			<h6 align="center">${sessionScope.user.userId}</h6>
-		</td>
-		<td>
-		<div id="listReply"></div>
-		<form action="${path}/front" method="post">
-			<input type=hidden name="postNo" value="${view2.postNo}">
-			<input type = "text" name="replytext" id="replytext" placeholder="댓글을 입력하세요" style=" width:400px; height:40px">
-			
-			<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
-			<input type="hidden" name="userId" value="${sessionScope.userId }"> 
-			
-			<button type="button" class="btn btn-primary" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">등록</button>
-			<input type=hidden name="key" value="studyReply"> 
-			<input type=hidden name="methodName" value="insertReply">		
-		</form>
-		</td>
-	</tr>
-	</tbody>
-</table>
-
-
-
-
-
+<div id="listReply"></div>
+<form action="${path}/front" method="post">
+	<input type=hidden name="postNo" value="${view2.postNo}">
+	<input type = "text"  class="form-control" name="replytext" id="replytext" placeholder="댓글을 입력하세요"><br>
+	
+	<!-- input type="text" class="form-control" placeholder="댓글을 입력해주세요" name="sReplyContent" -->
+	<input type="hidden" name="userId" value="${sessionScope.userId }"> 
+	
+	<button type="button" class="btn btn-primary" id="btnReply" onclick="replyInsertValidate('${view.postNo}'); return false;">등록</button>
+	<input type=hidden name="key" value="studyReply"> 
+	<input type=hidden name="methodName" value="insertReply">		
+</form>
 <hr>
  <c:if test="${sessionScope.sessionID != null}">
 	 <c:if test="${sessionScope.sessionID != post.userId}">

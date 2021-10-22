@@ -46,6 +46,14 @@ body {
 </ul>
 
 <table class="table">
+<colgroup>
+		<col width="15%"/>
+		<col width="15%"/>
+		<col width="30%"/>
+		<col width="10%"/>
+		<col width="20%"/>
+		<col width="10%"/>
+	</colgroup>
   <tr class="table-primary">
     <td valign="middle">
             <p align="center">
@@ -91,7 +99,7 @@ body {
 		            <c:if test="${Study.stateNo eq 3}">스터디완료</c:if></span></p>
 		        </th>
 		        <th bgcolor="" valign="middle">
-					<p><span style="font-size:11pt;">
+					<p align="center"><span style="font-size:11pt;">
 					  ${Study.studyDuedate}</span></p>
 		        </th>
 		        
@@ -106,7 +114,7 @@ body {
 		         
 		         <th bgcolor="" valign="middle">
 		            <p align="center"><span style="font-size:11pt;">
-		            ${Study.studyLocationSi}${Study.studyLocationGu}</span></p>
+		            ${Study.studyLocationSi} ${Study.studyLocationGu}</span></p>
 		        </th>
 		         <th bgcolor="" valign="middle">
 		            <p align="center"><span style="font-size:11pt;">
