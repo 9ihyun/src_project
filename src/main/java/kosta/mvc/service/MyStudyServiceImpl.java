@@ -23,16 +23,8 @@ public class MyStudyServiceImpl implements MyStudyService {
 	 * 스터디 찜하기
 	 * */
 	@Override
-	public int putWishStudy(String id, int studyNo) throws SQLException {
-		int result = myStudyDAO.putWishStudy(id, studyNo);
-		System.out.println("스터디 찜 = " + result);
-		if(result == -1) {
-			throw new SQLException("이미 찜한 스터디입니다.");
-		}else if(result == 0) {
-			throw new SQLException("스터디 찜하기 실패했습니다.");
-		}
-		
-		return result; 
+	public void putWishStudy(String id, int studyNo) throws SQLException {
+		myStudyDAO.putWishStudy(id, studyNo);
 	}
 	
 	/**

@@ -75,7 +75,9 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 			ps.setInt(2, studyNo);
 			
 			if(checkWishDuplicate(con, id, studyNo)) {
-				return -1;
+				if(cancelWishStudy(con, id, studyNo) > 0) {
+					return result;
+				}
 			}			
 			
 			result = ps.executeUpdate();
@@ -111,6 +113,29 @@ public class MyStudyDAOImpl implements MyStudyDAO {
 		} finally {
 			DbUtil.dbClose(rs, ps, null);
 		}
+		return result;
+	}
+	
+	/**
+	 * 이미 찜한 스터디 일 경우 찜 취소하기
+	 */
+	private int cancelWishStudy(Connection con, String id, int studyNo) throws SQLException {
+		PreparedStatement ps = null;
+		String sql = "delete from wish_study where user_id=? and study_no=?";
+		int result = 0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setInt(2, studyNo);			
+			result = ps.executeUpdate();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DbUtil.dbClose(ps, null);
+		}
+		
 		return result;
 	}
 	

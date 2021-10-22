@@ -54,10 +54,9 @@ public class MyStudyController implements Controller {
 		String id = getUserId(request);
 		int studyNo = Integer.parseInt(request.getParameter("studyNo"));
 		
-		List<Study> wishList = new ArrayList<Study>();
-		if(myStudyService.putWishStudy(id, studyNo) > 0) {
-			wishList = myStudyService.viewSignStudy(id);
-		}
+		myStudyService.putWishStudy(id, studyNo);
+		
+		List<Study> wishList = myStudyService.viewSignStudy(id);
 		request.setAttribute("wishList", wishList);
 		
 		return new ModelAndView("mypage/wishStudy.jsp"); //찜한 스터디 페이지
